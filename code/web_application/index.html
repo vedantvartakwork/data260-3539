@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HW1-Vedant Vilas Vartak</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">DATA 260 · Homework 1</p>
+    <h1>Grocery Recall Notice</h1>
+    <p class="intro">Submit a notice about a grocery product that may need to be removed from sale.</p>
+
+    <form id="recallForm" novalidate>
+      <div class="field">
+        <label for="productName">Product name</label>
+        <input id="productName" name="productName" type="text"
+               placeholder="e.g., Garden Fresh Spinach 10 oz" required autofocus>
+      </div>
+
+      <div class="field">
+        <label for="brandName">Brand or manufacturer</label>
+        <input id="brandName" name="brandName" type="text"
+               placeholder="e.g., Valley Harvest" required>
+      </div>
+
+      <div class="field">
+        <label for="submitterEmail">Submitter email</label>
+        <input id="submitterEmail" name="submitterEmail" type="email"
+               placeholder="e.g., recalls@example.edu" required>
+      </div>
+
+      <div class="field">
+        <label for="recallDetails">Recall details</label>
+        <textarea id="recallDetails" name="recallDetails" rows="6"
+                  placeholder="Describe the issue, affected lots, and what consumers should do."
+                  required></textarea>
+        <small>Enter more than 25 characters.</small>
+      </div>
+
+      <div class="field">
+        <label for="category">Product category</label>
+        <select id="category" name="category" required>
+          <option value="" selected disabled>Select a category</option>
+          <option value="Produce">Produce</option>
+          <option value="Meat and Seafood">Meat and Seafood</option>
+          <option value="Dairy and Refrigerated">Dairy and Refrigerated</option>
+          <option value="Packaged Foods">Packaged Foods</option>
+        </select>
+      </div>
+
+      <div class="terms-row">
+        <input id="termsAccepted" name="termsAccepted" type="checkbox">
+        <label for="termsAccepted">I agree to the terms and conditions.</label>
+      </div>
+
+      <button type="submit">Submit Recall Notice</button>
+      <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

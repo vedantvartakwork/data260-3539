@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-08-31T08:53:16.724066+00:00",
+  "sid4": 3539,
+  "verify_seed": 263539,
+  "automated_checks_passed": true,
+  "submission_ready": true,
+  "manual_blockers": [],
+  "checks": [
+    {
+      "name": "required_files",
+      "passed": true,
+      "details": "all required source files present"
+    },
+    {
+      "name": "final_report_and_ai_disclosure",
+      "passed": true,
+      "details": "final PDF and completed AI_USE.md are present"
+    },
+    {
+      "name": "required_screenshots",
+      "passed": true,
+      "details": "captured 12 required screenshots"
+    },
+    {
+      "name": "ecs_deployment_evidence",
+      "passed": true,
+      "details": "one-task ECS service and public HTTP 200 captured"
+    },
+    {
+      "name": "aws_cleanup_evidence",
+      "passed": true,
+      "details": "temporary ECS, ECR, log, security-group, and IAM resources removed"
+    },
+    {
+      "name": "unit_tests",
+      "passed": true,
+      "details": "test_stats_does_not_mutate_history_or_totals (test_client.ReviewSessionTests.test_stats_does_not_mutate_history_or_totals) ... ok\ntest_accepts_required_shape (test_pipeline.PublishValidationTests.test_accepts_required_shape) ... ok\ntest_rejects_duplicate_tags_ignoring_case_and_whitespace (test_pipeline.PublishValidationTests.test_rejects_duplicate_tags_ignoring_case_and_whitespace) ... ok\ntest_rejects_summary_over_25_words (test_pipeline.PublishValidationTests.test_rejects_summary_over_25_words) ... ok\ntest_tag_normalization (test_pipeline.PublishValidationTests.test_tag_normalization) ... ok\ntest_four_categories_and_exact_terms_label (test_web.WebRequirementsTests.test_four_categories_and_exact_terms_label) ... ok\ntest_javascript_features (test_web.WebRequirementsTests.test_javascript_features) ... ok\ntest_required_controls (test_web.WebRequirementsTests.test_required_controls) ... ok\ntest_script_is_last_content_before_body_close (test_web.WebRequirementsTests.test_script_is_last_content_before_body_close) ... ok\ntest_title_and_domain_heading (test_web.WebRequirementsTests.test_title_and_domain_heading) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK"
+    },
+    {
+      "name": "javascript_submission_tests",
+      "passed": true,
+      "details": "JavaScript form tests passed: short content, unchecked terms, and valid submission."
+    },
+    {
+      "name": "experiment_40_successes",
+      "passed": true,
+      "details": "{'0.7': 20, '0.0': 20}"
+    },
+    {
+      "name": "experiment_output_shapes",
+      "passed": true,
+      "details": "validated 40 successful outputs"
+    },
+    {
+      "name": "model_adapter_only",
+      "passed": true,
+      "details": "adapter consumers: ['agents_demo.py', 'hw1_client.py', 'scripts/run_five_turn_demo.py']"
+    },
+    {
+      "name": "ecs_desired_count_one",
+      "passed": true,
+      "details": "deployment script requests exactly one task"
+    },
+    {
+      "name": "container_port_8839",
+      "passed": true,
+      "details": "task definition maps PORT_BASE 8839"
+    },
+    {
+      "name": "docker_local_http",
+      "passed": true,
+      "details": "HTTP 200 from localhost:8839"
+    }
+  ]
+}

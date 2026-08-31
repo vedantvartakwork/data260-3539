@@ -1,0 +1,842 @@
+[
+  {
+    "temperature": 0.7,
+    "run_number": 1,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:05:33.898031+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach product"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9696.96,
+    "finished_at": "2026-08-26T06:05:43.595053+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 2,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:05:43.595097+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9698.44,
+    "finished_at": "2026-08-26T06:05:53.293605+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 3,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:05:53.293689+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9690.48,
+    "finished_at": "2026-08-26T06:06:02.984234+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 4,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:06:02.984290+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach product"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9632.27,
+    "finished_at": "2026-08-26T06:06:12.616619+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 5,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:06:12.616675+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach safety"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9588.22,
+    "finished_at": "2026-08-26T06:06:22.204956+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 6,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:06:22.205023+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach safety"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9589.29,
+    "finished_at": "2026-08-26T06:06:31.794374+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 7,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:06:31.794432+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach product"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9601.64,
+    "finished_at": "2026-08-26T06:06:41.396127+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 8,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:06:41.396166+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 127
+    },
+    "error": null,
+    "latency_ms": 9925.47,
+    "finished_at": "2026-08-26T06:06:51.321695+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 9,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:06:51.321759+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9714.86,
+    "finished_at": "2026-08-26T06:07:01.036686+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 10,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:07:01.036745+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising allergic customers to return for refund.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 395,
+      "output_tokens": 125
+    },
+    "error": null,
+    "latency_ms": 9902.02,
+    "finished_at": "2026-08-26T06:07:10.938827+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 11,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:07:10.938881+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 127
+    },
+    "error": null,
+    "latency_ms": 10180.85,
+    "finished_at": "2026-08-26T06:07:21.119799+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 12,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:07:21.119857+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising allergic customers to return for refund.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 395,
+      "output_tokens": 120
+    },
+    "error": null,
+    "latency_ms": 9743.28,
+    "finished_at": "2026-08-26T06:07:30.863200+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 13,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:07:30.863257+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9879.65,
+    "finished_at": "2026-08-26T06:07:40.742976+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 14,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:07:40.743038+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 9936.86,
+    "finished_at": "2026-08-26T06:07:50.679962+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 15,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:07:50.680020+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising allergic customers to return for refund.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 395,
+      "output_tokens": 125
+    },
+    "error": null,
+    "latency_ms": 10131.23,
+    "finished_at": "2026-08-26T06:08:00.811316+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 16,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:08:00.811373+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10122.71,
+    "finished_at": "2026-08-26T06:08:10.934143+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 17,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:08:10.934199+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach product"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10158.83,
+    "finished_at": "2026-08-26T06:08:21.093097+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 18,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:08:21.093156+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach product"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10135.33,
+    "finished_at": "2026-08-26T06:08:31.228551+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 19,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:08:31.228601+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach product"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10173.86,
+    "finished_at": "2026-08-26T06:08:41.402521+00:00"
+  },
+  {
+    "temperature": 0.7,
+    "run_number": 20,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:08:41.402574+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 127
+    },
+    "error": null,
+    "latency_ms": 10442.98,
+    "finished_at": "2026-08-26T06:08:51.845623+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 1,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:08:51.845685+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10235.03,
+    "finished_at": "2026-08-26T06:09:02.080780+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 2,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:09:02.080827+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10338.64,
+    "finished_at": "2026-08-26T06:09:12.419534+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 3,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:09:12.419593+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10487.69,
+    "finished_at": "2026-08-26T06:09:22.907348+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 4,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:09:22.907410+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10687.33,
+    "finished_at": "2026-08-26T06:09:33.592976+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 5,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:09:33.593024+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11074.04,
+    "finished_at": "2026-08-26T06:09:44.651059+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 6,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:09:44.651110+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10758.81,
+    "finished_at": "2026-08-26T06:09:55.402226+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 7,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:09:55.402271+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10882.46,
+    "finished_at": "2026-08-26T06:10:06.280829+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 8,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:10:06.280883+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10900.7,
+    "finished_at": "2026-08-26T06:10:17.179624+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 9,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:10:17.179664+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 10936.42,
+    "finished_at": "2026-08-26T06:10:28.115087+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 10,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:10:28.115141+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11046.9,
+    "finished_at": "2026-08-26T06:10:39.161526+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 11,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:10:39.161583+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11005.26,
+    "finished_at": "2026-08-26T06:10:50.166563+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 12,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:10:50.166622+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11041.02,
+    "finished_at": "2026-08-26T06:11:01.207482+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 13,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:11:01.207571+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11105.67,
+    "finished_at": "2026-08-26T06:11:12.313138+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 14,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:11:12.313194+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11127.62,
+    "finished_at": "2026-08-26T06:11:23.440735+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 15,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:11:23.440785+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11135.04,
+    "finished_at": "2026-08-26T06:11:34.575759+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 16,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:11:34.575812+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11174.96,
+    "finished_at": "2026-08-26T06:11:45.750719+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 17,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:11:45.750777+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11161.62,
+    "finished_at": "2026-08-26T06:11:56.912342+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 18,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:11:56.912383+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11196.89,
+    "finished_at": "2026-08-26T06:12:08.109226+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 19,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:12:08.109283+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11199.12,
+    "finished_at": "2026-08-26T06:12:19.308353+00:00"
+  },
+  {
+    "temperature": 0.0,
+    "run_number": 20,
+    "model": "qwen3:8b",
+    "started_at": "2026-08-26T06:12:19.308407+00:00",
+    "success": true,
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+    "reviewer_changed": false,
+    "token_usage": {
+      "input_tokens": 396,
+      "output_tokens": 122
+    },
+    "error": null,
+    "latency_ms": 11285.88,
+    "finished_at": "2026-08-26T06:12:30.594236+00:00"
+  }
+]

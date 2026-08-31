@@ -1,0 +1,139 @@
+[2026-08-26T06:05:33.898031+00:00] Started non-determinism experiment: model=qwen3:8b, runs_per_temperature=20
+[2026-08-26T06:05:43.595053+00:00] temp=0.7 run=01 success latency_ms=9696.96
+[2026-08-26T06:05:53.293605+00:00] temp=0.7 run=02 success latency_ms=9698.44
+[2026-08-26T06:06:02.984234+00:00] temp=0.7 run=03 success latency_ms=9690.48
+[2026-08-26T06:06:12.616619+00:00] temp=0.7 run=04 success latency_ms=9632.27
+[2026-08-26T06:06:22.204956+00:00] temp=0.7 run=05 success latency_ms=9588.22
+[2026-08-26T06:06:31.794374+00:00] temp=0.7 run=06 success latency_ms=9589.29
+[2026-08-26T06:06:41.396127+00:00] temp=0.7 run=07 success latency_ms=9601.64
+[2026-08-26T06:06:51.321695+00:00] temp=0.7 run=08 success latency_ms=9925.47
+[2026-08-26T06:07:01.036686+00:00] temp=0.7 run=09 success latency_ms=9714.86
+[2026-08-26T06:07:10.938827+00:00] temp=0.7 run=10 success latency_ms=9902.02
+[2026-08-26T06:07:21.119799+00:00] temp=0.7 run=11 success latency_ms=10180.85
+[2026-08-26T06:07:30.863200+00:00] temp=0.7 run=12 success latency_ms=9743.28
+[2026-08-26T06:07:40.742976+00:00] temp=0.7 run=13 success latency_ms=9879.65
+[2026-08-26T06:07:50.679962+00:00] temp=0.7 run=14 success latency_ms=9936.86
+[2026-08-26T06:08:00.811316+00:00] temp=0.7 run=15 success latency_ms=10131.23
+[2026-08-26T06:08:10.934143+00:00] temp=0.7 run=16 success latency_ms=10122.71
+[2026-08-26T06:08:21.093097+00:00] temp=0.7 run=17 success latency_ms=10158.83
+[2026-08-26T06:08:31.228551+00:00] temp=0.7 run=18 success latency_ms=10135.33
+[2026-08-26T06:08:41.402521+00:00] temp=0.7 run=19 success latency_ms=10173.86
+[2026-08-26T06:08:51.845623+00:00] temp=0.7 run=20 success latency_ms=10442.98
+[2026-08-26T06:09:02.080780+00:00] temp=0.0 run=01 success latency_ms=10235.03
+[2026-08-26T06:09:12.419534+00:00] temp=0.0 run=02 success latency_ms=10338.64
+[2026-08-26T06:09:22.907348+00:00] temp=0.0 run=03 success latency_ms=10487.69
+[2026-08-26T06:09:33.592976+00:00] temp=0.0 run=04 success latency_ms=10687.33
+[2026-08-26T06:09:44.651059+00:00] temp=0.0 run=05 success latency_ms=11074.04
+[2026-08-26T06:09:55.402226+00:00] temp=0.0 run=06 success latency_ms=10758.81
+[2026-08-26T06:10:06.280829+00:00] temp=0.0 run=07 success latency_ms=10882.46
+[2026-08-26T06:10:17.179624+00:00] temp=0.0 run=08 success latency_ms=10900.70
+[2026-08-26T06:10:28.115087+00:00] temp=0.0 run=09 success latency_ms=10936.42
+[2026-08-26T06:10:39.161526+00:00] temp=0.0 run=10 success latency_ms=11046.90
+[2026-08-26T06:10:50.166563+00:00] temp=0.0 run=11 success latency_ms=11005.26
+[2026-08-26T06:11:01.207482+00:00] temp=0.0 run=12 success latency_ms=11041.02
+[2026-08-26T06:11:12.313138+00:00] temp=0.0 run=13 success latency_ms=11105.67
+[2026-08-26T06:11:23.440735+00:00] temp=0.0 run=14 success latency_ms=11127.62
+[2026-08-26T06:11:34.575759+00:00] temp=0.0 run=15 success latency_ms=11135.04
+[2026-08-26T06:11:45.750719+00:00] temp=0.0 run=16 success latency_ms=11174.96
+[2026-08-26T06:11:56.912342+00:00] temp=0.0 run=17 success latency_ms=11161.62
+[2026-08-26T06:12:08.109226+00:00] temp=0.0 run=18 success latency_ms=11196.89
+[2026-08-26T06:12:19.308353+00:00] temp=0.0 run=19 success latency_ms=11199.12
+[2026-08-26T06:12:30.594236+00:00] temp=0.0 run=20 success latency_ms=11285.88
+[2026-08-26T06:12:30.594236+00:00] Finished experiment with 40/40 successful runs
+[2026-08-26T06:05:08.892776+00:00] Completed five-turn demo; output=reports/hw01/raw/five_turn_demo.json
+
+[2026-08-26T06:16:07.862230+00:00] Started local verification
+$ python3.12 --version
+Python 3.12.14
+exit_code=0
+$ docker inspect --format {{.State.Status}}|{{.State.Health.Status}} data260-3539-hw1
+running|healthy
+exit_code=0
+$ curl --fail --silent --show-error http://127.0.0.1:8839/
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HW1-Vedant Vilas Vartak</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">DATA 260 · Homework 1</p>
+    <h1>Grocery Recall Notice</h1>
+    <p class="intro">Submit a notice about a grocery product that may need to be removed from sale.</p>
+
+    <form id="recallForm" novalidate>
+      <div class="field">
+        <label for="productName">Product name</label>
+        <input id="productName" name="productName" type="text"
+               placeholder="e.g., Garden Fresh Spinach 10 oz" required autofocus>
+      </div>
+
+      <div class="field">
+        <label for="brandName">Brand or manufacturer</label>
+        <input id="brandName" name="brandName" type="text"
+               placeholder="e.g., Valley Harvest" required>
+      </div>
+
+      <div class="field">
+        <label for="submitterEmail">Submitter email</label>
+        <input id="submitterEmail" name="submitterEmail" type="email"
+               placeholder="e.g., recalls@example.edu" required>
+      </div>
+
+      <div class="field">
+        <label for="recallDetails">Recall details</label>
+        <textarea id="recallDetails" name="recallDetails" rows="6"
+                  placeholder="Describe the issue, affected lots, and what consumers should do."
+                  required></textarea>
+        <small>Enter more than 25 characters.</small>
+      </div>
+
+      <div class="field">
+        <label for="category">Product category</label>
+        <select id="category" name="category" required>
+          <option value="" selected disabled>Select a category</option>
+          <option value="Produce">Produce</option>
+          <option value="Meat and Seafood">Meat and Seafood</option>
+          <option value="Dairy and Refrigerated">Dairy and Refrigerated</option>
+          <option value="Packaged Foods">Packaged Foods</option>
+        </select>
+      </div>
+
+      <div class="terms-row">
+        <input id="termsAccepted" name="termsAccepted" type="checkbox">
+        <label for="termsAccepted">I agree to the terms and conditions.</label>
+      </div>
+
+      <button type="submit">Submit Recall Notice</button>
+      <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+exit_code=0
+$ python3.12 -m unittest discover -s tests -v
+test_stats_does_not_mutate_history_or_totals (test_client.ReviewSessionTests.test_stats_does_not_mutate_history_or_totals) ... ok
+test_accepts_required_shape (test_pipeline.PublishValidationTests.test_accepts_required_shape) ... ok
+test_rejects_duplicate_tags_ignoring_case_and_whitespace (test_pipeline.PublishValidationTests.test_rejects_duplicate_tags_ignoring_case_and_whitespace) ... ok
+test_rejects_summary_over_25_words (test_pipeline.PublishValidationTests.test_rejects_summary_over_25_words) ... ok
+test_tag_normalization (test_pipeline.PublishValidationTests.test_tag_normalization) ... ok
+test_four_categories_and_exact_terms_label (test_web.WebRequirementsTests.test_four_categories_and_exact_terms_label) ... ok
+test_javascript_features (test_web.WebRequirementsTests.test_javascript_features) ... ok
+test_required_controls (test_web.WebRequirementsTests.test_required_controls) ... ok
+test_script_is_last_content_before_body_close (test_web.WebRequirementsTests.test_script_is_last_content_before_body_close) ... ok
+test_title_and_domain_heading (test_web.WebRequirementsTests.test_title_and_domain_heading) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+OK
+exit_code=0
+$ node tests/test_app_js.mjs
+JavaScript form tests passed: short content, unchecked terms, and valid submission.
+exit_code=0
+[2026-08-26T06:16:10.897746+00:00] Finished local verification successfully

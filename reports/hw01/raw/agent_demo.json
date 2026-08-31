@@ -1,0 +1,66 @@
+{
+  "model": "qwen3:8b",
+  "temperature": 0.0,
+  "title": "Undeclared almond recall for Valley Harvest spinach",
+  "content": "Valley Harvest is recalling selected 10-ounce bags of Garden Fresh Spinach because the packages may contain undeclared almonds. The affected bags have lot code VH0826 and a best-by date of September 2, 2026. Customers with almond allergies should not eat the product and may return it to the store for a refund.",
+  "reviewer_changed": false,
+  "transcript": [
+    {
+      "stage": "Planner",
+      "output": {
+        "tags": [
+          "food recall",
+          "almond allergy",
+          "spinach contamination"
+        ],
+        "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826."
+      },
+      "input_tokens": 167,
+      "output_tokens": 46
+    },
+    {
+      "stage": "Reviewer",
+      "output": {
+        "tags": [
+          "food recall",
+          "almond allergy",
+          "spinach contamination"
+        ],
+        "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826.",
+        "notes": [
+          "Tags are distinct, specific, and supported by the content.",
+          "Summary is factual, concise, and within the word limit."
+        ],
+        "changed": false
+      },
+      "input_tokens": 229,
+      "output_tokens": 76
+    },
+    {
+      "stage": "Finalizer",
+      "output": {
+        "tags": [
+          "food recall",
+          "almond allergy",
+          "spinach contamination"
+        ],
+        "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826."
+      },
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  ],
+  "publish": {
+    "tags": [
+      "food recall",
+      "almond allergy",
+      "spinach contamination"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, affecting lot code VH0826."
+  },
+  "token_usage": {
+    "input_tokens": 396,
+    "output_tokens": 122
+  },
+  "latency_ms": 14535.28
+}

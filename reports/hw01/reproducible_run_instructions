@@ -1,0 +1,51 @@
+# Reproducible Run Instructions
+
+I ran these commands from the repository root.
+
+## Local web application
+
+```bash
+make docker-build
+make docker-run
+make docker-test
+```
+
+I opened <http://localhost:8839> and stopped the container when I finished.
+
+```bash
+make docker-stop
+```
+
+## Planner, Reviewer and Finalizer
+
+```bash
+ollama serve
+ollama pull qwen3:8b
+python3.12 agents_demo.py --input-file reports/hw01/cases/nondeterminism_input.json --model qwen3:8b --temperature 0.0
+```
+
+## Non-determinism experiment
+
+```bash
+make experiment
+```
+
+## Token-accounting client
+
+```bash
+make run-client
+python3.12 scripts/run_five_turn_demo.py
+```
+
+## Verification
+
+```bash
+make verify-hw01
+```
+
+## AWS ECS deployment and cleanup
+
+```bash
+CONFIRM_DEPLOY=yes ./aws/deploy.sh
+CONFIRM_CLEANUP=yes ./aws/cleanup.sh
+```

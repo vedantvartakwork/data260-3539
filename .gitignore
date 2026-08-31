@@ -1,0 +1,17 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.env
+*.pem
+*.key
+aws-credentials*
+tmp/
+report/
+reports/hw01/DATA260_HW1_editable_report.docx
+reports/hw01/report_source.md
+AGENTS.md
+scripts/build_report.py
+scripts/build_editable_word_report.py
