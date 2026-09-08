@@ -1,11 +1,17 @@
-FROM nginx:1.27-alpine
+FROM python:3.12-slim
 
-RUN rm -f /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY index.html styles.css app.js /usr/share/nginx/html/
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY code ./code
 
 EXPOSE 8839
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://127.0.0.1:8839/ >/dev/null || exit 1
+  CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8839/health', timeout=2)" || exit 1
 
+CMD ["uvicorn", "code.web_application.backend:app", "--host", "0.0.0.0", "--port", "8839"]

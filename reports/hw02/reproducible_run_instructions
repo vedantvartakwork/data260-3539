@@ -1,0 +1,13 @@
+DATA 260 Homework 2 reproducible run instructions
+
+1. From the repository root, create and activate a Python 3.12 virtual environment.
+2. Install dependencies with: python -m pip install -r requirements.txt
+3. Start the web application with: make run-web
+4. Open http://localhost:8839 and test create, update ID 1, delete highest ID, and search.
+5. In another terminal, run the graph demonstration with: make run-hw2-graph
+6. Run all unit and integration tests with: make test
+7. Run all 75 required experiment executions with: make experiment-hw2
+8. Generate the metrics tables with: make metrics-hw2
+9. Run the objective smoke verification with: make verify-hw02
+
+The experiment command uses qwen3:8b through src/model_client.py and writes raw JSON/CSV output, timestamps, and metrics under reports/hw02/.

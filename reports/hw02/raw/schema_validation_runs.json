@@ -1,0 +1,2012 @@
+[
+  {
+    "suite": "schema_validation",
+    "run_number": 1,
+    "started_at": "2026-09-08T07:52:32.607149+00:00",
+    "finished_at": "2026-09-08T07:52:46.896925+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 14289.58,
+    "input_tokens": 355,
+    "output_tokens": 57,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853952.610634,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853964.855799,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+        },
+        "latency_ms": 12243.47
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853964.858429,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853966.89458,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 2034.99
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853966.895721,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 2,
+    "started_at": "2026-09-08T07:52:46.897044+00:00",
+    "finished_at": "2026-09-08T07:52:50.487603+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3590.45,
+    "input_tokens": 356,
+    "output_tokens": 58,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853966.90946,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853969.429002,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product."
+        },
+        "latency_ms": 2518.88
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853969.430101,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853970.486424,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1055.15
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853970.487061,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 3,
+    "started_at": "2026-09-08T07:52:50.487671+00:00",
+    "finished_at": "2026-09-08T07:52:54.158914+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3671.15,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853970.4972742,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853973.1098418,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2612.07
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853973.110723,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853974.157984,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1046.22
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853974.158495,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 4,
+    "started_at": "2026-09-08T07:52:54.158970+00:00",
+    "finished_at": "2026-09-08T07:52:57.814997+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3655.94,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853974.168759,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853976.774123,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+        },
+        "latency_ms": 2604.88
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853976.7745101,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853977.8135612,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1038.61
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853977.8144069,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 5,
+    "started_at": "2026-09-08T07:52:57.815044+00:00",
+    "finished_at": "2026-09-08T07:53:01.710442+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3895.3,
+    "input_tokens": 357,
+    "output_tokens": 59,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should avoid and return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853977.8248682,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853980.4203851,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should avoid and return product."
+        },
+        "latency_ms": 2594.95
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853980.4212558,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853981.7094789,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1287.39
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853981.710027,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 6,
+    "started_at": "2026-09-08T07:53:01.710505+00:00",
+    "finished_at": "2026-09-08T07:53:05.387869+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3677.28,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853981.7204359,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853984.3328362,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2611.81
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853984.333696,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853985.386863,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1052.15
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853985.387444,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 7,
+    "started_at": "2026-09-08T07:53:05.387904+00:00",
+    "finished_at": "2026-09-08T07:53:09.000176+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3612.19,
+    "input_tokens": 357,
+    "output_tokens": 59,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergy sufferers should avoid and return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853985.397302,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853987.9576828,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergy sufferers should avoid and return product."
+        },
+        "latency_ms": 2559.84
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853987.958577,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853988.998744,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1039.09
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853988.999551,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 8,
+    "started_at": "2026-09-08T07:53:09.000244+00:00",
+    "finished_at": "2026-09-08T07:53:12.670756+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3670.42,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853989.0107572,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853991.625729,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+        },
+        "latency_ms": 2614.43
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853991.626368,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853992.6692119,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1041.95
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853992.670047,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 9,
+    "started_at": "2026-09-08T07:53:12.670832+00:00",
+    "finished_at": "2026-09-08T07:53:16.223327+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3552.41,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853992.680493,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853995.320983,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+        },
+        "latency_ms": 2639.91
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853995.321714,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853996.2224379,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 900.15
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853996.2229729,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 10,
+    "started_at": "2026-09-08T07:53:16.223361+00:00",
+    "finished_at": "2026-09-08T07:53:19.954849+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3731.42,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853996.232714,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788853998.888018,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2654.81
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853998.8886242,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788853999.953443,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1064.24
+      },
+      {
+        "node": "supervisor",
+        "time": 1788853999.954371,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 11,
+    "started_at": "2026-09-08T07:53:19.954885+00:00",
+    "finished_at": "2026-09-08T07:53:23.688385+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3733.43,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788853999.9642591,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854002.621026,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2656.25
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854002.6218119,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854003.6873002,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1064.52
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854003.6878898,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 12,
+    "started_at": "2026-09-08T07:53:23.688425+00:00",
+    "finished_at": "2026-09-08T07:53:27.219240+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3530.73,
+    "input_tokens": 355,
+    "output_tokens": 57,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854003.697592,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854006.158536,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+        },
+        "latency_ms": 2460.42
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854006.1594791,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854007.217676,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1057.23
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854007.218514,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 13,
+    "started_at": "2026-09-08T07:53:27.219318+00:00",
+    "finished_at": "2026-09-08T07:53:30.826905+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3607.5,
+    "input_tokens": 357,
+    "output_tokens": 59,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergy sufferers should avoid and return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854007.2290099,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854009.7849422,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergy sufferers should avoid and return product."
+        },
+        "latency_ms": 2555.35
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854009.785846,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854010.825962,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1039.09
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854010.826506,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 14,
+    "started_at": "2026-09-08T07:53:30.826978+00:00",
+    "finished_at": "2026-09-08T07:53:34.522524+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3695.47,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854010.836972,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854013.464015,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2626.51
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854013.464703,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854014.521732,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1056.29
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854014.5222242,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 15,
+    "started_at": "2026-09-08T07:53:34.522555+00:00",
+    "finished_at": "2026-09-08T07:53:38.219517+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3696.88,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854014.5328798,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854017.1618109,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+        },
+        "latency_ms": 2628.4
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854017.16298,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854018.21792,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1053.84
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854018.218802,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 16,
+    "started_at": "2026-09-08T07:53:38.219594+00:00",
+    "finished_at": "2026-09-08T07:53:41.693403+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3473.73,
+    "input_tokens": 355,
+    "output_tokens": 57,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854018.2293959,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854020.665007,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+        },
+        "latency_ms": 2435.05
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854020.665474,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854021.693048,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1027.09
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854021.693272,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 17,
+    "started_at": "2026-09-08T07:53:41.693418+00:00",
+    "finished_at": "2026-09-08T07:53:45.323869+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3630.39,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854021.698644,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854024.285136,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2586.07
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854024.2860181,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854025.322944,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1036.01
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854025.3234591,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 18,
+    "started_at": "2026-09-08T07:53:45.323925+00:00",
+    "finished_at": "2026-09-08T07:53:48.796478+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3472.47,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854025.3338618,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854027.925822,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2591.44
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854027.926479,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854028.794832,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 867.46
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854028.795722,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 19,
+    "started_at": "2026-09-08T07:53:48.796548+00:00",
+    "finished_at": "2026-09-08T07:53:52.271486+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3474.86,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854028.8061042,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854031.397131,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2590.49
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854031.398035,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854032.270036,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 871.01
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854032.270954,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 20,
+    "started_at": "2026-09-08T07:53:52.271522+00:00",
+    "finished_at": "2026-09-08T07:53:55.933980+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3662.38,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854032.281128,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854034.892925,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds. Almond allergic consumers should return product for refund."
+        },
+        "latency_ms": 2611.31
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854034.893464,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854035.932481,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1038.31
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854035.933314,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 21,
+    "started_at": "2026-09-08T07:53:55.934048+00:00",
+    "finished_at": "2026-09-08T07:53:59.577413+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3643.27,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854035.943645,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854038.534593,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2590.39
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854038.535531,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854039.5758421,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1038.85
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854039.576701,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 22,
+    "started_at": "2026-09-08T07:53:59.577491+00:00",
+    "finished_at": "2026-09-08T07:54:03.115387+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3537.81,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854039.588093,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854042.221798,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2633.06
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854042.2226958,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854043.1138508,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 890.5
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854043.114748,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 23,
+    "started_at": "2026-09-08T07:54:03.115434+00:00",
+    "finished_at": "2026-09-08T07:54:06.821738+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3706.22,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854043.125202,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854045.771432,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2645.71
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854045.771955,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854046.820849,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1048.28
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854046.821428,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 24,
+    "started_at": "2026-09-08T07:54:06.821771+00:00",
+    "finished_at": "2026-09-08T07:54:10.461569+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3639.73,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854046.830795,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854049.424772,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2593.49
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854049.425302,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854050.4606478,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1034.71
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854050.461183,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 25,
+    "started_at": "2026-09-08T07:54:10.461619+00:00",
+    "finished_at": "2026-09-08T07:54:14.107346+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3645.65,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854050.470907,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854053.068115,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2596.65
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854053.0690281,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854054.105887,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1035.82
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854054.106702,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 26,
+    "started_at": "2026-09-08T07:54:14.107417+00:00",
+    "finished_at": "2026-09-08T07:54:17.760957+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3653.45,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should avoid and return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854054.1171598,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854056.715807,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should avoid and return product."
+        },
+        "latency_ms": 2598.09
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854056.716637,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854057.759974,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1042.32
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854057.760515,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 27,
+    "started_at": "2026-09-08T07:54:17.761016+00:00",
+    "finished_at": "2026-09-08T07:54:21.413539+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3652.44,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854057.7708328,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854060.368135,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2596.69
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854060.369013,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854061.411962,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1042.11
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854061.412894,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 28,
+    "started_at": "2026-09-08T07:54:21.413594+00:00",
+    "finished_at": "2026-09-08T07:54:24.890353+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3476.68,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854061.423821,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854064.020616,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond-allergic consumers should return product for refund."
+        },
+        "latency_ms": 2596.3
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854064.021155,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854064.889587,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 867.93
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854064.890052,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 29,
+    "started_at": "2026-09-08T07:54:24.890385+00:00",
+    "finished_at": "2026-09-08T07:54:28.527911+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3637.45,
+    "input_tokens": 358,
+    "output_tokens": 60,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854064.8996632,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854067.490297,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds, advising almond-allergic consumers to return for refund."
+        },
+        "latency_ms": 2590.18
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854067.4909189,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854068.5263228,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1034.61
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854068.527211,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "schema_validation",
+    "run_number": 30,
+    "started_at": "2026-09-08T07:54:28.527987+00:00",
+    "finished_at": "2026-09-08T07:54:32.056265+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 10,
+    "status": "completed",
+    "outcome": "valid_first_attempt",
+    "planner_attempts": 1,
+    "latency_ms": 3528.19,
+    "input_tokens": 355,
+    "output_tokens": 57,
+    "final_output": {
+      "tags": [
+        "almond allergen",
+        "spinach recall",
+        "food safety"
+      ],
+      "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+    },
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854068.538319,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854070.993203,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergen",
+            "spinach recall",
+            "food safety"
+          ],
+          "summary": "Valley Harvest recalls spinach bags with undeclared almonds; almond allergic consumers should return product."
+        },
+        "latency_ms": 2454.3
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854070.994049,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854072.0554729,
+        "output": {
+          "has_issues": false,
+          "notes": []
+        },
+        "latency_ms": 1060.71
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854072.0559518,
+        "route": "END",
+        "status": "completed"
+      }
+    ],
+    "error": null
+  }
+]

@@ -1,0 +1,6 @@
+suite,run_number,started_at,finished_at,model,temperature,max_turns,status,outcome,planner_attempts,latency_ms,input_tokens,output_tokens,final_output,validation_error,error
+adversarial_after_fix,1,2026-09-08T08:00:54.209467+00:00,2026-09-08T08:01:10.202183+00:00,qwen3:8b,0.7,2,abandoned,hit_turn_ceiling,2,15992.65,1023,200,null,,
+adversarial_after_fix,2,2026-09-08T08:01:10.202260+00:00,2026-09-08T08:01:23.600761+00:00,qwen3:8b,0.7,2,abandoned,hit_turn_ceiling,2,13398.41,1023,200,null,,
+adversarial_after_fix,3,2026-09-08T08:01:23.600832+00:00,2026-09-08T08:01:36.603762+00:00,qwen3:8b,0.7,2,abandoned,hit_turn_ceiling,2,13002.86,1014,194,null,,
+adversarial_after_fix,4,2026-09-08T08:01:36.603800+00:00,2026-09-08T08:01:49.637636+00:00,qwen3:8b,0.7,2,abandoned,hit_turn_ceiling,2,13033.77,1014,194,null,,
+adversarial_after_fix,5,2026-09-08T08:01:49.637698+00:00,2026-09-08T08:02:02.585646+00:00,qwen3:8b,0.7,2,abandoned,hit_turn_ceiling,2,12947.87,1011,191,null,,

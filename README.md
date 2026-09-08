@@ -1,6 +1,6 @@
-# DATA 260 Homework 1 - SID4 3539
+# DATA 260 Homework Portfolio - SID4 3539
 
-I completed Homework 1 for my assigned domain, Grocery supply and recall notices.
+This repository contains the shared application and report evidence for my DATA 260 homework. My assigned domain is grocery supply and recall notices. Homework-specific results are stored under `reports/hw01/` and `reports/hw02/`; the application code remains in the shared root-level `code/` and `src/` folders.
 
 ## My configuration
 
@@ -15,6 +15,45 @@ I completed Homework 1 for my assigned domain, Grocery supply and recall notices
 | Hardware | Apple M4 MacBook Air, 10 CPU cores, 16 GB memory |
 | Local model | `qwen3:8b` |
 | AWS region | `us-east-2` |
+
+## Homework 2
+
+Homework 2 extends the grocery-recall application with a responsive interface, a FastAPI CRUD/search backend, and a stateful LangGraph Planner/Reviewer/Supervisor workflow.
+
+### Run the responsive FastAPI application
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+make run-web
+```
+
+Open <http://localhost:8839>. The application supports creating records, updating ID 1, deleting the highest ID, and searching by product or brand.
+
+### Run the stateful graph
+
+Make sure Ollama is running with `qwen3:8b`, then run:
+
+```bash
+make run-hw2-graph
+```
+
+All model calls from the Planner and Reviewer go through `src/model_client.py`. The graph streams Supervisor, Planner, and Reviewer updates and uses a bounded correction loop.
+
+### Reproduce the Homework 2 evidence
+
+```bash
+make test
+make experiment-hw2
+make metrics-hw2
+make verify-hw02
+```
+
+The raw JSON/CSV experiment results, timestamps, metrics, AI-use statement, report, and verification output are in `reports/hw02/`.
+
+## Homework 1
+
+Homework 1 established the original grocery-recall interface, local sequential agents, token-accounting client, and AWS ECS deployment evidence.
 
 ## How I ran the web application with Docker
 

@@ -1,2 +1,5 @@
-# The project uses only the Python 3.12 standard library.
-
+fastapi>=0.115,<1
+email-validator>=2,<3
+langgraph>=0.4,<2
+pydantic>=2.10,<3
+uvicorn[standard]>=0.34,<1

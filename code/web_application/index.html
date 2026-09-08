@@ -3,64 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HW1-Vedant Vilas Vartak</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>DATA 260 Grocery Recall Manager</title>
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <main class="card">
-    <p class="eyebrow">DATA 260 · Homework 1</p>
-    <h1>Grocery Recall Notice</h1>
-    <p class="intro">Submit a notice about a grocery product that may need to be removed from sale.</p>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">DATA 260 · Homework 2</p>
+      <h1>Grocery Recall Manager</h1>
+      <p>Track grocery safety notices and find recalls by product or brand.</p>
+    </header>
 
-    <form id="recallForm" novalidate>
-      <div class="field">
-        <label for="productName">Product name</label>
-        <input id="productName" name="productName" type="text"
-               placeholder="e.g., Garden Fresh Spinach 10 oz" required autofocus>
+    <section class="panel" aria-labelledby="listHeading">
+      <div class="section-heading">
+        <div><p class="kicker">Current records</p><h2 id="listHeading">Recall notices</h2></div>
+        <span id="recordCount" class="count-badge" aria-live="polite">0 records</span>
       </div>
+      <form id="searchForm" class="search-row" role="search">
+        <label class="sr-only" for="searchInput">Search by product or brand</label>
+        <input id="searchInput" type="search" placeholder="Search product or brand">
+        <button type="submit" class="secondary">Search</button>
+        <button type="button" id="clearSearch" class="text-button">Clear</button>
+      </form>
+      <div id="loadingState" class="notice-state" role="status"><span class="spinner" aria-hidden="true"></span>Loading recall notices…</div>
+      <div id="emptyState" class="notice-state" hidden><strong>No recall notices found.</strong><span>Try another search or add a new record.</span></div>
+      <div id="errorState" class="notice-state error" role="alert" hidden><strong>We could not load the recall notices.</strong><span id="errorText">Please try again.</span></div>
+      <div id="recallList" class="recall-list" aria-live="polite"></div>
+    </section>
 
-      <div class="field">
-        <label for="brandName">Brand or manufacturer</label>
-        <input id="brandName" name="brandName" type="text"
-               placeholder="e.g., Valley Harvest" required>
+    <section class="panel" aria-labelledby="formHeading">
+      <div class="section-heading">
+        <div><p class="kicker">Create or update</p><h2 id="formHeading">Recall details</h2></div>
+        <button type="button" id="updateMode" class="text-button">Load ID 1 for update</button>
       </div>
+      <form id="recallForm" novalidate>
+        <div class="field-grid">
+          <div class="field"><label for="productName">Product name</label><input id="productName" name="productName" type="text" maxlength="120" required autofocus></div>
+          <div class="field"><label for="brandName">Brand or manufacturer</label><input id="brandName" name="brandName" type="text" maxlength="120" required></div>
+        </div>
+        <div class="field-grid">
+          <div class="field"><label for="submitterEmail">Submitter email</label><input id="submitterEmail" name="submitterEmail" type="email" required></div>
+          <div class="field"><label for="category">Product category</label><select id="category" name="category" required><option value="" selected disabled>Select a category</option><option value="Produce">Produce</option><option value="Meat and Seafood">Meat and Seafood</option><option value="Dairy and Refrigerated">Dairy and Refrigerated</option><option value="Packaged Foods">Packaged Foods</option></select></div>
+        </div>
+        <div class="field"><label for="recallDetails">Recall details</label><textarea id="recallDetails" name="recallDetails" rows="5" minlength="26" maxlength="2000" required></textarea><small>Enter more than 25 characters.</small></div>
+        <div class="terms-row"><input id="termsAccepted" name="termsAccepted" type="checkbox"><label for="termsAccepted">I agree to the terms and conditions.</label></div>
+        <button id="submitButton" type="submit">Add recall notice</button>
+        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
 
-      <div class="field">
-        <label for="submitterEmail">Submitter email</label>
-        <input id="submitterEmail" name="submitterEmail" type="email"
-               placeholder="e.g., recalls@example.edu" required>
-      </div>
-
-      <div class="field">
-        <label for="recallDetails">Recall details</label>
-        <textarea id="recallDetails" name="recallDetails" rows="6"
-                  placeholder="Describe the issue, affected lots, and what consumers should do."
-                  required></textarea>
-        <small>Enter more than 25 characters.</small>
-      </div>
-
-      <div class="field">
-        <label for="category">Product category</label>
-        <select id="category" name="category" required>
-          <option value="" selected disabled>Select a category</option>
-          <option value="Produce">Produce</option>
-          <option value="Meat and Seafood">Meat and Seafood</option>
-          <option value="Dairy and Refrigerated">Dairy and Refrigerated</option>
-          <option value="Packaged Foods">Packaged Foods</option>
-        </select>
-      </div>
-
-      <div class="terms-row">
-        <input id="termsAccepted" name="termsAccepted" type="checkbox">
-        <label for="termsAccepted">I agree to the terms and conditions.</label>
-      </div>
-
-      <button type="submit">Submit Recall Notice</button>
-      <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
-    </form>
+    <section class="panel danger-panel" aria-labelledby="deleteHeading">
+      <div><p class="kicker">Required delete operation</p><h2 id="deleteHeading">Delete the highest ID</h2><p>The record with the greatest ID will be removed.</p></div>
+      <button type="button" id="deleteHighest" class="danger">Delete highest ID</button>
+    </section>
   </main>
-
-  <script src="app.js"></script>
+  <script src="/static/app.js"></script>
 </body>
 </html>
-

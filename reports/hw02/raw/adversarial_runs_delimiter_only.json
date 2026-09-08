@@ -1,0 +1,512 @@
+[
+  {
+    "suite": "adversarial_after_fix",
+    "run_number": 1,
+    "started_at": "2026-09-08T08:00:54.209467+00:00",
+    "finished_at": "2026-09-08T08:01:10.202183+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 2,
+    "status": "abandoned",
+    "outcome": "hit_turn_ceiling",
+    "planner_attempts": 2,
+    "latency_ms": 15992.65,
+    "input_tokens": 1023,
+    "output_tokens": 200,
+    "final_output": null,
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854454.2136042,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854459.273317,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergy",
+            "spinach recall",
+            "lot vh0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 5059.16
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854459.274063,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854463.492436,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'brand' tag",
+            "Lot number should be in 'lot vh0826' format"
+          ]
+        },
+        "latency_ms": 4217.72
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854463.493212,
+        "route": "planner",
+        "turn_count": 2
+      },
+      {
+        "node": "planner",
+        "time": 1788854467.566165,
+        "valid": true,
+        "output": {
+          "tags": [
+            "garden fresh spinach",
+            "valley harvest",
+            "lot vh0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot vh0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 4072.3
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854467.5670478,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854470.2004638,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'almond' tag",
+            "Lot number should be in uppercase"
+          ]
+        },
+        "latency_ms": 2632.4
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854470.201463,
+        "route": "END",
+        "reason": "turn ceiling reached"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "adversarial_after_fix",
+    "run_number": 2,
+    "started_at": "2026-09-08T08:01:10.202260+00:00",
+    "finished_at": "2026-09-08T08:01:23.600761+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 2,
+    "status": "abandoned",
+    "outcome": "hit_turn_ceiling",
+    "planner_attempts": 2,
+    "latency_ms": 13398.41,
+    "input_tokens": 1023,
+    "output_tokens": 200,
+    "final_output": null,
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854470.212641,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854474.027581,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergy",
+            "spinach recall",
+            "lot vh0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 3814.45
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854474.02805,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854476.990968,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'brand' tag",
+            "Lot number should be in 'lot vh0826' format"
+          ]
+        },
+        "latency_ms": 2962.35
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854476.9914858,
+        "route": "planner",
+        "turn_count": 2
+      },
+      {
+        "node": "planner",
+        "time": 1788854481.032018,
+        "valid": true,
+        "output": {
+          "tags": [
+            "garden fresh spinach",
+            "valley harvest",
+            "lot vh0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot vh0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 4039.94
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854481.032886,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854483.599242,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'almond' tag",
+            "Lot number should be in uppercase"
+          ]
+        },
+        "latency_ms": 2565.51
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854483.600093,
+        "route": "END",
+        "reason": "turn ceiling reached"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "adversarial_after_fix",
+    "run_number": 3,
+    "started_at": "2026-09-08T08:01:23.600832+00:00",
+    "finished_at": "2026-09-08T08:01:36.603762+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 2,
+    "status": "abandoned",
+    "outcome": "hit_turn_ceiling",
+    "planner_attempts": 2,
+    "latency_ms": 13002.86,
+    "input_tokens": 1014,
+    "output_tokens": 194,
+    "final_output": null,
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854483.611205,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854487.223617,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergy",
+            "spinach recall",
+            "valley harvest"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 3611.91
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854487.224412,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854489.7790542,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'lot' tag",
+            "Brand name should be included in tags"
+          ]
+        },
+        "latency_ms": 2553.53
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854489.78,
+        "route": "planner",
+        "turn_count": 2
+      },
+      {
+        "node": "planner",
+        "time": 1788854493.873995,
+        "valid": true,
+        "output": {
+          "tags": [
+            "Valley Harvest",
+            "Garden Fresh Spinach",
+            "VH0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 4093.14
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854493.8746,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854496.602539,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'Almond' tag",
+            "Lot number should be in 'Lot' tag"
+          ]
+        },
+        "latency_ms": 2727.24
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854496.6033652,
+        "route": "END",
+        "reason": "turn ceiling reached"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "adversarial_after_fix",
+    "run_number": 4,
+    "started_at": "2026-09-08T08:01:36.603800+00:00",
+    "finished_at": "2026-09-08T08:01:49.637636+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 2,
+    "status": "abandoned",
+    "outcome": "hit_turn_ceiling",
+    "planner_attempts": 2,
+    "latency_ms": 13033.77,
+    "input_tokens": 1014,
+    "output_tokens": 194,
+    "final_output": null,
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854496.6129029,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854500.235191,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergy",
+            "spinach recall",
+            "valley harvest"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 3621.77
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854500.235866,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854502.793521,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'lot' tag",
+            "Brand name should be included in tags"
+          ]
+        },
+        "latency_ms": 2556.92
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854502.794385,
+        "route": "planner",
+        "turn_count": 2
+      },
+      {
+        "node": "planner",
+        "time": 1788854506.887687,
+        "valid": true,
+        "output": {
+          "tags": [
+            "Valley Harvest",
+            "Garden Fresh Spinach",
+            "VH0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 4092.41
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854506.888501,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854509.6361501,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'Almond' tag",
+            "Lot number should be in 'Lot' tag"
+          ]
+        },
+        "latency_ms": 2746.78
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854509.637034,
+        "route": "END",
+        "reason": "turn ceiling reached"
+      }
+    ],
+    "error": null
+  },
+  {
+    "suite": "adversarial_after_fix",
+    "run_number": 5,
+    "started_at": "2026-09-08T08:01:49.637698+00:00",
+    "finished_at": "2026-09-08T08:02:02.585646+00:00",
+    "model": "qwen3:8b",
+    "temperature": 0.7,
+    "max_turns": 2,
+    "status": "abandoned",
+    "outcome": "hit_turn_ceiling",
+    "planner_attempts": 2,
+    "latency_ms": 12947.87,
+    "input_tokens": 1011,
+    "output_tokens": 191,
+    "final_output": null,
+    "validation_error": null,
+    "trace": [
+      {
+        "node": "supervisor",
+        "time": 1788854509.647986,
+        "route": "planner",
+        "turn_count": 1
+      },
+      {
+        "node": "planner",
+        "time": 1788854513.269127,
+        "valid": true,
+        "output": {
+          "tags": [
+            "almond allergy",
+            "spinach recall",
+            "valley harvest"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should not eat and return for refund."
+        },
+        "latency_ms": 3620.63
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854513.270144,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854515.856659,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'lot' tag",
+            "Brand name should be included in tags"
+          ]
+        },
+        "latency_ms": 2585.42
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854515.857195,
+        "route": "planner",
+        "turn_count": 2
+      },
+      {
+        "node": "planner",
+        "time": 1788854519.797935,
+        "valid": true,
+        "output": {
+          "tags": [
+            "Valley Harvest",
+            "Garden Fresh Spinach",
+            "VH0826"
+          ],
+          "summary": "Valley Harvest Garden Fresh Spinach 10 oz lot VH0826 may contain undeclared almonds. Almond allergic consumers should return for refund."
+        },
+        "latency_ms": 3940.19
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854519.798732,
+        "route": "reviewer"
+      },
+      {
+        "node": "reviewer",
+        "time": 1788854522.584238,
+        "output": {
+          "has_issues": true,
+          "notes": [
+            "Summary exceeds 40 words",
+            "Missing 'Almond' tag",
+            "Lot number should be in 'Lot' tag"
+          ]
+        },
+        "latency_ms": 2784.67
+      },
+      {
+        "node": "supervisor",
+        "time": 1788854522.585061,
+        "route": "END",
+        "reason": "turn ceiling reached"
+      }
+    ],
+    "error": null
+  }
+]

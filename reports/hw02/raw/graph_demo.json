@@ -1,0 +1,81 @@
+{
+  "title": "Undeclared almond allergen in spinach bags",
+  "content": "Valley Harvest is recalling Garden Fresh Spinach 10 oz bags from lot VH0826 because some packages may contain undeclared almonds. Consumers with almond allergies should not eat the product and should return it to the store for a refund.",
+  "email": "recalls@example.edu",
+  "strict": true,
+  "task": "Create exactly three tags and a concise summary for this grocery recall.",
+  "model": "qwen3:8b",
+  "temperature": 0.7,
+  "planner_proposal": {
+    "tags": [
+      "almond allergen",
+      "spinach recall",
+      "food safety"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, urging allergic consumers to return for refund."
+  },
+  "reviewer_feedback": {
+    "has_issues": false,
+    "notes": []
+  },
+  "final_output": {
+    "tags": [
+      "almond allergen",
+      "spinach recall",
+      "food safety"
+    ],
+    "summary": "Valley Harvest recalls spinach bags with undeclared almonds, urging allergic consumers to return for refund."
+  },
+  "validation_error": null,
+  "status": "completed",
+  "turn_count": 1,
+  "planner_attempts": 1,
+  "max_turns": 10,
+  "input_tokens": 356,
+  "output_tokens": 58,
+  "trace": [
+    {
+      "node": "supervisor",
+      "time": 1788853401.8452768,
+      "route": "planner",
+      "turn_count": 1
+    },
+    {
+      "node": "planner",
+      "time": 1788853404.195168,
+      "valid": true,
+      "output": {
+        "tags": [
+          "almond allergen",
+          "spinach recall",
+          "food safety"
+        ],
+        "summary": "Valley Harvest recalls spinach bags with undeclared almonds, urging allergic consumers to return for refund."
+      },
+      "latency_ms": 2349.19
+    },
+    {
+      "node": "supervisor",
+      "time": 1788853404.196564,
+      "route": "reviewer"
+    },
+    {
+      "node": "reviewer",
+      "time": 1788853405.166564,
+      "output": {
+        "has_issues": false,
+        "notes": []
+      },
+      "latency_ms": 968.84
+    },
+    {
+      "node": "supervisor",
+      "time": 1788853405.167638,
+      "route": "END",
+      "status": "completed"
+    }
+  ],
+  "force_review_issue_once": false,
+  "forced_review_used": false,
+  "latency_ms": 3327.41
+}

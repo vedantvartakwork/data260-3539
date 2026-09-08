@@ -36,8 +36,8 @@ class WebRequirementsTests(unittest.TestCase):
         cls.parser.feed(cls.html)
 
     def test_title_and_domain_heading(self) -> None:
-        self.assertIn("<title>HW1-Vedant Vilas Vartak</title>", self.html)
-        self.assertIn("<h1>Grocery Recall Notice</h1>", self.html)
+        self.assertIn("<title>DATA 260 Grocery Recall Manager</title>", self.html)
+        self.assertIn("<h1>Grocery Recall Manager</h1>", self.html)
 
     def test_required_controls(self) -> None:
         by_id = {item.get("id"): item for item in self.parser.inputs}
@@ -55,21 +55,24 @@ class WebRequirementsTests(unittest.TestCase):
         self.assertIn("I agree to the terms and conditions.", text)
 
     def test_script_is_last_content_before_body_close(self) -> None:
-        self.assertEqual(self.parser.scripts, ["app.js"])
-        self.assertRegex(self.html, r'<script src="app\.js"></script>\s*</body>')
+        self.assertEqual(self.parser.scripts, ["/static/app.js"])
+        self.assertRegex(self.html, r'<script src="/static/app\.js"></script>\s*</body>')
 
     def test_javascript_features(self) -> None:
-        self.assertIn("const validateForm = () =>", self.js)
-        self.assertIn("details.length <= 25", self.js)
-        self.assertIn("!termsAccepted", self.js)
+        self.assertIn('const API_URL = "/api/recalls"', self.js)
+        self.assertIn("payload.recallDetails.length <= 25", self.js)
+        self.assertIn("!payload.termsAccepted", self.js)
         self.assertIn("JSON.stringify", self.js)
-        self.assertIn("JSON.parse", self.js)
-        self.assertRegex(self.js, r"const \{ productName, submitterEmail \}")
-        self.assertIn("...parsedSubmission", self.js)
-        self.assertIn("submissionDate", self.js)
-        self.assertLess(self.js.index("if (!validateForm()) return"), self.js.index("countSuccessfulSubmission()"))
+        self.assertIn('method: updating ? "PUT" : "POST"', self.js)
+        self.assertIn('method: "DELETE"', self.js)
+        self.assertIn("encodeURIComponent(query)", self.js)
+
+    def test_visible_list_states_and_responsive_css(self) -> None:
+        for state_id in ("loadingState", "emptyState", "errorState"):
+            self.assertIn(f'id="{state_id}"', self.html)
+        css = Path("styles.css").read_text(encoding="utf-8")
+        self.assertIn("@media (max-width: 600px)", css)
 
 
 if __name__ == "__main__":
     unittest.main()
-
