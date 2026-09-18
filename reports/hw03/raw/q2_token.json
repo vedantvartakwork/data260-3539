@@ -1,0 +1,78 @@
+{
+  "question_id": "q2",
+  "question": "When does the FDA primarily intend to publish a list of retail consignees for a food recall?",
+  "expected_answer": "Primarily for Class I recalls when the list is needed to help consumers identify the recalled food and determine whether they possess it.",
+  "expected_source_file": "fda_retail_consignee_lists_guidance.txt",
+  "source_unique": true,
+  "technique": "token",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.041076,
+    -0.026345,
+    -0.053064,
+    0.038318,
+    0.007879,
+    0.071932,
+    -0.020475,
+    0.007186
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 10.556,
+  "chunk_count": 540,
+  "avg_chunk_length": 1108.32,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.8413970998006847,
+      "cosine_sim": 0.8413972854614258,
+      "chunk_len": 1162,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "may be able to seek medical treatment to prevent illness after exposure to a contaminated food. While this guidance is specific to retail consignees, our author"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.8156397787011587,
+      "cosine_sim": 0.8156399130821228,
+      "chunk_len": 1043,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "as that noted in Part II of this guidance, to help identify recalled food. E. Publicizing Retail Consignee Lists for Certain Food Recalls 1. When does FDA inten"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.8143051153465071,
+      "cosine_sim": 0.8143051862716675,
+      "chunk_len": 1192,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "FDA Food Safety Modernization Act (FSMA), which directs the Agency, in conducting recalls under the section (which provides FDA authority to mandate the recall"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.8009129576453115,
+      "cosine_sim": 0.8009130358695984,
+      "chunk_len": 1170,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "information otherwise exempt from public disclosure, such as CCI, is nevertheless available for public disclosure to the extent necessary to effectuate a recall"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7881076072279781,
+      "cosine_sim": 0.7881076335906982,
+      "chunk_len": 422,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "because the recalling firm provided the recalled food directly to the retail consignees. In these cases, FDA may give the recalling firm the first opportunity t"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": "q4",
+  "question": "What four items should a firm's recall strategy cover at a minimum?",
+  "expected_answer": "Notification methods, recall depth, recalled-product disposition, and internal effectiveness checks confirming that consignees received and followed the recall instructions.",
+  "expected_source_file": "fda_iom_2026_chapter_7.txt",
+  "source_unique": false,
+  "technique": "sentence_window",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.008465,
+    0.059258,
+    -0.057508,
+    -0.055858,
+    0.023571,
+    0.1678,
+    0.011051,
+    0.017255
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 29.529,
+  "chunk_count": 2934,
+  "avg_chunk_length": 170.38,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.798659120651688,
+      "cosine_sim": 0.7986592054367065,
+      "chunk_len": 114,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "Firm\u2019s Recall Strategy: [Detail the firm\u2019s recall strategy and include the recall notification instructions] 4."
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7870548634370855,
+      "cosine_sim": 0.7870548367500305,
+      "chunk_len": 167,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "Describe the firm's planned recall strategy, comment on its adequacy from the division's viewpoint, and evaluate the firm's ability to complete an effective rec"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7712489414403251,
+      "cosine_sim": 0.7712489366531372,
+      "chunk_len": 150,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "The firm's strategy should address the depth of the recall, the consideration of a public warning, and an appropriate effectiveness check division."
+    },
+    {
+      "rank": 4,
+      "store_score": 0.7446342783244129,
+      "cosine_sim": 0.7446343302726746,
+      "chunk_len": 89,
+      "source_file": "fda_iom_2026_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "The recall strategy also includes the depth of the recall the firm is aiming to reach."
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7302402681413801,
+      "cosine_sim": 0.7302402853965759,
+      "chunk_len": 110,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "For instance, for firm-initiated recalls, recalling firms are expected to develop their own recall strategy."
+    }
+  ]
+}

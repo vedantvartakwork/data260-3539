@@ -1,6 +1,6 @@
 # DATA 260 Homework Portfolio - SID4 3539
 
-This repository contains the shared application and report evidence for my DATA 260 homework. My assigned domain is grocery supply and recall notices. Homework-specific results are stored under `reports/hw01/` and `reports/hw02/`; the application code remains in the shared root-level `code/` and `src/` folders.
+This repository contains the shared application and report evidence for my DATA 260 homework. My assigned domain is grocery supply and recall notices. Homework-specific results are stored under `reports/hw01/`, `reports/hw02/`, and `reports/hw03/`; the application code remains in the shared root-level `code/` and `src/` folders.
 
 ## My configuration
 
@@ -15,6 +15,31 @@ This repository contains the shared application and report evidence for my DATA 
 | Hardware | Apple M4 MacBook Air, 10 CPU cores, 16 GB memory |
 | Local model | `qwen3:8b` |
 | AWS region | `us-east-2` |
+
+## Homework 3
+
+Homework 3 adds login, logout, protected routes, secure session settings, an idle timeout, and a retrieval-only comparison of three LlamaIndex chunking methods.
+
+### Run the authenticated FastAPI application
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+make run-web
+```
+
+Open <http://localhost:8839>. The demo login is `admin` / `password`. The local command disables the cookie's HTTPS-only setting so the browser can use the session on localhost; the application default keeps the Secure attribute enabled.
+
+### Reproduce the Homework 3 retrieval results
+
+```bash
+make warmup-hw3
+make experiment-hw3
+make metrics-hw3
+make verify-hw03
+```
+
+The graded comparison uses the five fixed questions in `reports/hw03/questions.yaml`, the five FDA source documents recorded in `reports/hw03/SOURCES.md`, and `sentence-transformers/all-MiniLM-L6-v2`. Raw per-query results are stored in `reports/hw03/raw/`.
 
 ## Homework 2
 

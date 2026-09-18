@@ -1,0 +1,78 @@
+{
+  "question_id": "q3",
+  "question": "What information should a public food recall warning give consumers so they can identify the product and understand the risk?",
+  "expected_answer": "It should identify the product with images, codes, packaging or brand details; give distribution areas and dates; describe the defect, hazard and recall reason; identify the recalling firm; provide consumer instructions; and report related illnesses or symptoms.",
+  "expected_source_file": "fda_public_warning_guidance.txt",
+  "source_unique": true,
+  "technique": "sentence_window",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    0.011959,
+    0.055616,
+    -0.039686,
+    0.018528,
+    0.045662,
+    0.10124,
+    0.038579,
+    0.005556
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 33.127,
+  "chunk_count": 2934,
+  "avg_chunk_length": 170.38,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.7948385786048324,
+      "cosine_sim": 0.7948386073112488,
+      "chunk_len": 506,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "As such, a public warning should include: a) information to help identify the recalled product including images, numerical product information (e.g., lot number"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7639876461710937,
+      "cosine_sim": 0.7639877796173096,
+      "chunk_len": 420,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "The following recalls generally present examples of serious hazards to health such that a public warning may be warranted: \uf0b7 Recalls of food products initiated"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7617209663070895,
+      "cosine_sim": 0.7617210149765015,
+      "chunk_len": 226,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "BACKGROUND This guidance outlines the circumstances under which FDA intends to collect, compile, and make public lists of retail consignees that may have receiv"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.7607374626311219,
+      "cosine_sim": 0.7607374787330627,
+      "chunk_len": 405,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "Specifically, FDA intends to publicize retail consignee lists for such food recalls when both of the following criteria are met: (1) the food is not easily iden"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7547004957025915,
+      "cosine_sim": 0.7547005414962769,
+      "chunk_len": 513,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "I. INTRODUCTION This guidance provides information on how and when FDA intends to publicize the identities of retail consignees that may have received recalled"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": "q5",
+  "question": "What common elements are needed when a firm conducts recall effectiveness checks?",
+  "expected_answer": "A consignee list, a common identifier, a questionnaire, and a procedure for recording responses.",
+  "expected_source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+  "source_unique": false,
+  "technique": "token",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.02422,
+    -0.011846,
+    -0.057055,
+    -0.047508,
+    0.020368,
+    0.080671,
+    0.042736,
+    -0.030179
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 11.818,
+  "chunk_count": 540,
+  "avg_chunk_length": 1108.32,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.7079278397578421,
+      "cosine_sim": 0.707927942276001,
+      "chunk_len": 1077,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "prepared and submitted by close-of- business each Friday. Data to be submitted may vary depending upon individual recall circumstances, but should usually conta"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7041418002894438,
+      "cosine_sim": 0.7041418552398682,
+      "chunk_len": 1017,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "Attention: Recall Coordinator: List Divisions Receiving Assignment RES Event: [RES Event ID] PAC: [PAC code for recall audit check] Recalling Firm: [Recalling F"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.6986079766271865,
+      "cosine_sim": 0.6986079812049866,
+      "chunk_len": 1212,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "plan (CAP) and an approval letter is signed and issued to the recalling firm. CDRH will send copies of the CAP approval letter, the corrective action plan and t"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.6892534486671521,
+      "cosine_sim": 0.6892534494400024,
+      "chunk_len": 1199,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "has been or should be initiated (e.g. the consignee further sold the product, and the recall depth has not been met), the performing division will collect docum"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.6881115674647647,
+      "cosine_sim": 0.6881115436553955,
+      "chunk_len": 1118,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "with section 7.42(b)(3) of the FDA recall guidelines, the following may be used as a guide on how to use different methods for conducting recall effectiveness c"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": "q5",
+  "question": "What common elements are needed when a firm conducts recall effectiveness checks?",
+  "expected_answer": "A consignee list, a common identifier, a questionnaire, and a procedure for recording responses.",
+  "expected_source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+  "source_unique": false,
+  "technique": "sentence_window",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.02422,
+    -0.011846,
+    -0.057055,
+    -0.047508,
+    0.020368,
+    0.080671,
+    0.042736,
+    -0.030179
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 38.093,
+  "chunk_count": 2934,
+  "avg_chunk_length": 170.38,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.8073089839985582,
+      "cosine_sim": 0.8073089718818665,
+      "chunk_len": 134,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "Provide effectiveness checks accomplished and their findings, and/or other means the firm has to document the recall effectiveness."
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7786119400509044,
+      "cosine_sim": 0.778611958026886,
+      "chunk_len": 92,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "The firm has an obligation to conduct effectiveness checks as part of its recall strategy."
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7625052335485049,
+      "cosine_sim": 0.7625051736831665,
+      "chunk_len": 128,
+      "source_file": "fda_iom_2026_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "o Does the firm have a procedure established for determining if a recall is necessary, and if so, did it follow the procedure?"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.7468913059481923,
+      "cosine_sim": 0.7468913793563843,
+      "chunk_len": 205,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "The purpose of a firm\u2019s effectiveness checks is to verify that all consignees at the recall depth specified by the strategy have received notification about the"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7349707865009085,
+      "cosine_sim": 0.7349708080291748,
+      "chunk_len": 150,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "The firm's strategy should address the depth of the recall, the consideration of a public warning, and an appropriate effectiveness check division."
+    }
+  ]
+}

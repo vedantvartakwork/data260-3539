@@ -1,0 +1,78 @@
+{
+  "question_id": "q2",
+  "question": "When does the FDA primarily intend to publish a list of retail consignees for a food recall?",
+  "expected_answer": "Primarily for Class I recalls when the list is needed to help consumers identify the recalled food and determine whether they possess it.",
+  "expected_source_file": "fda_retail_consignee_lists_guidance.txt",
+  "source_unique": true,
+  "technique": "semantic",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.041076,
+    -0.026345,
+    -0.053064,
+    0.038318,
+    0.007879,
+    0.071932,
+    -0.020475,
+    0.007186
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 7.007,
+  "chunk_count": 154,
+  "avg_chunk_length": 3246.1,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.8093957415300743,
+      "cosine_sim": 0.8093958497047424,
+      "chunk_len": 12897,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "=== Page 5 === Contains Nonbinding Recommendations 2 II. BACKGROUND This guidance outlines the circumstances under which FDA intends to collect, compile, and ma"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7913720114129081,
+      "cosine_sim": 0.7913721203804016,
+      "chunk_len": 2067,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "To discuss an alternative approach, contact the FDA staff responsible for this guidance as listed on the title page. I. INTRODUCTION This guidance provides info"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7872719463312216,
+      "cosine_sim": 0.7872719764709473,
+      "chunk_len": 788,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "3. How does FDA intend to publicize this information? FDA intends to post lists of retail consignees associated with a specific recall on FDA\u2019s website and may"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.7583450791048605,
+      "cosine_sim": 0.7583451867103577,
+      "chunk_len": 774,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "=== Page 1 === Contains Nonbinding Recommendations Public Availability of Lists of Retail Consignees to Effectuate Certain Human and Animal Food Recalls Guidanc"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7307173556859844,
+      "cosine_sim": 0.7307174205780029,
+      "chunk_len": 12045,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "4. Notification to United States Department of Agriculture (USDA) 4.1 Division office responsibility Division offices should review recalling firm\u2019s distributio"
+    }
+  ]
+}

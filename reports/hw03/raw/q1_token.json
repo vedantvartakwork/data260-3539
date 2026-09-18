@@ -1,0 +1,78 @@
+{
+  "question_id": "q1",
+  "question": "How quickly must a responsible party report a reportable food to the FDA after making that determination?",
+  "expected_answer": "As soon as practicable, but no later than 24 hours after determining the food is reportable.",
+  "expected_source_file": "fda_reportable_food_registry_guidance.txt",
+  "source_unique": true,
+  "technique": "token",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.006551,
+    0.054919,
+    -0.042953,
+    0.067333,
+    0.017978,
+    0.009544,
+    -0.081091,
+    0.019798
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 12.266,
+  "chunk_count": 540,
+  "avg_chunk_length": 1108.32,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.7694461239120097,
+      "cosine_sim": 0.7694461345672607,
+      "chunk_len": 1221,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "else may submit instances of reportable food to FDA? Federal, state and local public health officials may submit instances of reportable food to FDA through the"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7298401884829867,
+      "cosine_sim": 0.7298402786254883,
+      "chunk_len": 1284,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "number will allow FDA to link reportable food reports that are related to the initial report and the reportable food. J. Additional Contacts Should responsible"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7115832382392779,
+      "cosine_sim": 0.7115833163261414,
+      "chunk_len": 1177,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "2008, FDA announced a delay in implementation of the Reportable Food Registry and acknowledged that the prohibited act provisions would not apply until FDA esta"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.6937407446417425,
+      "cosine_sim": 0.6937408447265625,
+      "chunk_len": 1209,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "required to submit a report through the Reportable Food electronic portal to FDA as soon as practicable but in no case later than 24 hours of determining that a"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.6841754730031531,
+      "cosine_sim": 0.6841755509376526,
+      "chunk_len": 1145,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "soon as practicable, and within 24 hours after receiving the notification regarding the reportable food. FDA may require Party B to submit a report to FDA as so"
+    }
+  ]
+}

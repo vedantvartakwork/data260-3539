@@ -1,13 +1,25 @@
 PYTHON ?= .venv/bin/python
 MODEL ?= qwen3:8b
 
-.PHONY: test run-web run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+.PHONY: test run-web warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 
 run-web:
 	SESSION_HTTPS_ONLY=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+
+warmup-hw3:
+	$(PYTHON) scripts/run_hw3_warmup.py
+
+experiment-hw3:
+	./scripts/run_hw3_experiment.command
+
+metrics-hw3:
+	$(PYTHON) scripts/generate_hw3_metrics.py
+
+verify-hw03:
+	$(PYTHON) scripts/verify_hw03.py
 
 run-hw2-graph:
 	$(PYTHON) hw2_graph.py --input-file reports/hw02/cases/schema_input.json --model $(MODEL) --temperature 0.7 --max-turns 10

@@ -1,0 +1,13 @@
+DATA 260 Homework 3 reproducible run instructions
+
+1. From the repository root, create a Python 3.12 virtual environment.
+2. Install the dependencies with: .venv/bin/python -m pip install -r requirements.txt
+3. Start the web application with: make run-web
+4. Open http://localhost:8839 and test login, dashboard protection, logout, and an invalid login.
+5. Run the Tiny Shakespeare warm-up with: make warmup-hw3
+6. Run the five fixed questions through all three chunking methods with: make experiment-hw3
+7. Recompute the summary table from the saved raw files with: make metrics-hw3
+8. Run the unit tests with: make test
+9. Run the final self-check with: make verify-hw03
+
+The retrieval comparison uses the local FDA text snapshots in reports/hw03/corpus/text, the questions in reports/hw03/questions.yaml, and the public sentence-transformers/all-MiniLM-L6-v2 embedding model. It writes per-query JSON, combined JSONL and CSV, a timestamped run log, and the metrics table under reports/hw03/.

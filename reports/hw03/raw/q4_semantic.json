@@ -1,0 +1,78 @@
+{
+  "question_id": "q4",
+  "question": "What four items should a firm's recall strategy cover at a minimum?",
+  "expected_answer": "Notification methods, recall depth, recalled-product disposition, and internal effectiveness checks confirming that consignees received and followed the recall instructions.",
+  "expected_source_file": "fda_iom_2026_chapter_7.txt",
+  "source_unique": false,
+  "technique": "semantic",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.008465,
+    0.059258,
+    -0.057508,
+    -0.055858,
+    0.023571,
+    0.1678,
+    0.011051,
+    0.017255
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 8.028,
+  "chunk_count": 154,
+  "avg_chunk_length": 3246.1,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.630320675362271,
+      "cosine_sim": 0.63032066822052,
+      "chunk_len": 126,
+      "source_file": "fda_iom_2026_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "..................................................................... 17 7.4.1.2.2 \u2013 Why is the recall\u2019s strategy important?"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.5879241708748022,
+      "cosine_sim": 0.5879242420196533,
+      "chunk_len": 820,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "2. METHODS A. General All the methods for conducting effectiveness checks have several common aspects: a consignee list, a common identifier, a questionnaire, a"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.5761965152609028,
+      "cosine_sim": 0.576196551322937,
+      "chunk_len": 2560,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "government, military and/or civilian units/agencies to which product(s) has been distributed. This would include the Defense Personnel Support Center (DPSC), De"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.5654664253718896,
+      "cosine_sim": 0.5654664635658264,
+      "chunk_len": 15764,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "See Section 7-7-3 C. Effectiveness Check Level. The purpose of a firm\u2019s effectiveness checks is to verify that all consignees at the recall depth specified by t"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.5598500347254368,
+      "cosine_sim": 0.5598500370979309,
+      "chunk_len": 896,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "Thank you for your cooperation. Sincerely, NOTE: If this letter is sent to distributors who may have further sold the product to other distributors or to retail"
+    }
+  ]
+}

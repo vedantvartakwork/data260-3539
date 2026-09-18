@@ -1,0 +1,78 @@
+{
+  "question_id": "q5",
+  "question": "What common elements are needed when a firm conducts recall effectiveness checks?",
+  "expected_answer": "A consignee list, a common identifier, a questionnaire, and a procedure for recording responses.",
+  "expected_source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+  "source_unique": false,
+  "technique": "semantic",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.02422,
+    -0.011846,
+    -0.057055,
+    -0.047508,
+    0.020368,
+    0.080671,
+    0.042736,
+    -0.030179
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 7.947,
+  "chunk_count": 154,
+  "avg_chunk_length": 3246.1,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.7447267019307302,
+      "cosine_sim": 0.7447267174720764,
+      "chunk_len": 820,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "2. METHODS A. General All the methods for conducting effectiveness checks have several common aspects: a consignee list, a common identifier, a questionnaire, a"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.6731884267435283,
+      "cosine_sim": 0.6731884479522705,
+      "chunk_len": 3135,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "5. Mechanics of Conducting Recall CDRH will assign a recall number and issue a classification memo to the division and the Press Office when the corrective acti"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.6714698521869152,
+      "cosine_sim": 0.6714698076248169,
+      "chunk_len": 5666,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "9. Division Audit Strategy (RES Event Details page) Effectiveness Check Level field \u2013 Provide the firm\u2019s planned or division recommended effectiveness level. =="
+    },
+    {
+      "rank": 4,
+      "store_score": 0.6570128706350697,
+      "cosine_sim": 0.6570128798484802,
+      "chunk_len": 3024,
+      "source_file": "fda_iom_2026_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "For commodity-specific information see IOM 7.3.6.) 7.3.4 \u2013 Root Cause Inspections If the FDA learns of a potentially violative product that may cause, or has ca"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.6557898125093913,
+      "cosine_sim": 0.6557897925376892,
+      "chunk_len": 694,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "h. Pertinent complaints on file. === Page 64 === Regulatory Procedures Manual July 2021 Chapter 7 Recall Procedures MAN-000010 Page 64 of 153 VERSION 10 Some ad"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": "q3",
+  "question": "What information should a public food recall warning give consumers so they can identify the product and understand the risk?",
+  "expected_answer": "It should identify the product with images, codes, packaging or brand details; give distribution areas and dates; describe the defect, hazard and recall reason; identify the recalling firm; provide consumer instructions; and report related illnesses or symptoms.",
+  "expected_source_file": "fda_public_warning_guidance.txt",
+  "source_unique": true,
+  "technique": "semantic",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    0.011959,
+    0.055616,
+    -0.039686,
+    0.018528,
+    0.045662,
+    0.10124,
+    0.038579,
+    0.005556
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 6.769,
+  "chunk_count": 154,
+  "avg_chunk_length": 3246.1,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.7317575827235839,
+      "cosine_sim": 0.7317577004432678,
+      "chunk_len": 12897,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "=== Page 5 === Contains Nonbinding Recommendations 2 II. BACKGROUND This guidance outlines the circumstances under which FDA intends to collect, compile, and ma"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7216151016922416,
+      "cosine_sim": 0.7216151356697083,
+      "chunk_len": 2067,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "To discuss an alternative approach, contact the FDA staff responsible for this guidance as listed on the title page. I. INTRODUCTION This guidance provides info"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7050036220442283,
+      "cosine_sim": 0.7050037384033203,
+      "chunk_len": 13263,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "III. Discussion: The FDA\u2019s policy is to evaluate the particular circumstances of each individual recall in determining whether a public warning is needed in acc"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.7010024578755543,
+      "cosine_sim": 0.7010025382041931,
+      "chunk_len": 3053,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "9 This webpage also provides links to various FDA Center webpages, where public warnings of recalls of products specific to that Center are also posted. === Pag"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.6938922670666603,
+      "cosine_sim": 0.6938923597335815,
+      "chunk_len": 12045,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "4. Notification to United States Department of Agriculture (USDA) 4.1 Division office responsibility Division offices should review recalling firm\u2019s distributio"
+    }
+  ]
+}

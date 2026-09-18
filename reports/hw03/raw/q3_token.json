@@ -1,0 +1,78 @@
+{
+  "question_id": "q3",
+  "question": "What information should a public food recall warning give consumers so they can identify the product and understand the risk?",
+  "expected_answer": "It should identify the product with images, codes, packaging or brand details; give distribution areas and dates; describe the defect, hazard and recall reason; identify the recalling firm; provide consumer instructions; and report related illnesses or symptoms.",
+  "expected_source_file": "fda_public_warning_guidance.txt",
+  "source_unique": true,
+  "technique": "token",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    0.011959,
+    0.055616,
+    -0.039686,
+    0.018528,
+    0.045662,
+    0.10124,
+    0.038579,
+    0.005556
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 10.697,
+  "chunk_count": 540,
+  "avg_chunk_length": 1108.32,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.8011025039440459,
+      "cosine_sim": 0.8011025786399841,
+      "chunk_len": 1280,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "the product is limited to a small number of consignees that are easily identified and can be rapidly reached through targeted contact. Furthermore, different pr"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.7919643038842726,
+      "cosine_sim": 0.7919643521308899,
+      "chunk_len": 1170,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "information otherwise exempt from public disclosure, such as CCI, is nevertheless available for public disclosure to the extent necessary to effectuate a recall"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.7646516070034324,
+      "cosine_sim": 0.7646516561508179,
+      "chunk_len": 975,
+      "source_file": "fda_public_warning_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "own public warning. Additionally, the FDA may publicly issue information that may address outstanding questions about the nature of the incident and/or the Agen"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.7639209876173317,
+      "cosine_sim": 0.7639209628105164,
+      "chunk_len": 1192,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "FDA Food Safety Modernization Act (FSMA), which directs the Agency, in conducting recalls under the section (which provides FDA authority to mandate the recall"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7572481233275091,
+      "cosine_sim": 0.7572482228279114,
+      "chunk_len": 1162,
+      "source_file": "fda_retail_consignee_lists_guidance.txt",
+      "contains_expected_source": false,
+      "preview": "may be able to seek medical treatment to prevent illness after exposure to a contaminated food. While this guidance is specific to retail consignees, our author"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": "q1",
+  "question": "How quickly must a responsible party report a reportable food to the FDA after making that determination?",
+  "expected_answer": "As soon as practicable, but no later than 24 hours after determining the food is reportable.",
+  "expected_source_file": "fda_reportable_food_registry_guidance.txt",
+  "source_unique": true,
+  "technique": "sentence_window",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.006551,
+    0.054919,
+    -0.042953,
+    0.067333,
+    0.017978,
+    0.009544,
+    -0.081091,
+    0.019798
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 28.729,
+  "chunk_count": 2934,
+  "avg_chunk_length": 170.38,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.8450652740178787,
+      "cosine_sim": 0.8450653553009033,
+      "chunk_len": 207,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "Yes, if Party B meets the definition of a responsible party, Party B should submit a report to FDA as soon as practicable, and within 24 hours after receiving t"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.8273707227473512,
+      "cosine_sim": 0.8273707628250122,
+      "chunk_len": 227,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "A responsible party is required to submit a report to FDA through the Reportable Food electronic portal as soon as practicable, but in no case later than 24 hou"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.822932161528936,
+      "cosine_sim": 0.8229321837425232,
+      "chunk_len": 128,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "When is a responsible party not required to submit a reportable food report to FDA for food that would otherwise be reportable?"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.8078673775835058,
+      "cosine_sim": 0.8078674077987671,
+      "chunk_len": 125,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "E. Submitting a Reportable Food Report When is a responsible party required to report an instance of reportable food to FDA?"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.7904253040220607,
+      "cosine_sim": 0.7904253005981445,
+      "chunk_len": 263,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "Responsible parties are required to submit a report through the Reportable Food electronic portal to FDA as soon as practicable but in no case later than 24 hou"
+    }
+  ]
+}

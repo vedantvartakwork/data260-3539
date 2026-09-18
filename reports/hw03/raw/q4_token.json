@@ -1,0 +1,78 @@
+{
+  "question_id": "q4",
+  "question": "What four items should a firm's recall strategy cover at a minimum?",
+  "expected_answer": "Notification methods, recall depth, recalled-product disposition, and internal effectiveness checks confirming that consignees received and followed the recall instructions.",
+  "expected_source_file": "fda_iom_2026_chapter_7.txt",
+  "source_unique": false,
+  "technique": "token",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.008465,
+    0.059258,
+    -0.057508,
+    -0.055858,
+    0.023571,
+    0.1678,
+    0.011051,
+    0.017255
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 10.571,
+  "chunk_count": 540,
+  "avg_chunk_length": 1108.32,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.7061605943180106,
+      "cosine_sim": 0.7061606645584106,
+      "chunk_len": 1171,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "brought to center management\u2019s attention. 7-6-3 Recall Strategy Each recall is unique and requires its own recall strategy. The DRC initially works with the fir"
+    },
+    {
+      "rank": 2,
+      "store_score": 0.6485530681281385,
+      "cosine_sim": 0.6485531330108643,
+      "chunk_len": 1028,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "MAN-000010 Page 51 of 153 VERSION 10 be included in comments. (This information is not published on the Internet) Number of Domestic Consignees \u2013 Provide number"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.621949632275537,
+      "cosine_sim": 0.6219497323036194,
+      "chunk_len": 1077,
+      "source_file": "fda_regulatory_procedures_manual_chapter_7.txt",
+      "contains_expected_source": false,
+      "preview": "prepared and submitted by close-of- business each Friday. Data to be submitted may vary depending upon individual recall circumstances, but should usually conta"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.5861858790124378,
+      "cosine_sim": 0.5861859321594238,
+      "chunk_len": 1080,
+      "source_file": "fda_iom_2026_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "\u2013 What is a Removal? A removal involves the physical removal of a product from commercial channels to the extent necessary to protect public health. For medical"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.5858793221016142,
+      "cosine_sim": 0.585879385471344,
+      "chunk_len": 981,
+      "source_file": "fda_iom_2026_chapter_7.txt",
+      "contains_expected_source": true,
+      "preview": "the audit check verifies the account received the recalled product, they are confirmed as being a consignee. 7.4.1.2.2 \u2013 Why is the recall\u2019s strategy important?"
+    }
+  ]
+}

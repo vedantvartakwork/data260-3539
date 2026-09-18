@@ -1,0 +1,78 @@
+{
+  "question_id": "q1",
+  "question": "How quickly must a responsible party report a reportable food to the FDA after making that determination?",
+  "expected_answer": "As soon as practicable, but no later than 24 hours after determining the food is reportable.",
+  "expected_source_file": "fda_reportable_food_registry_guidance.txt",
+  "source_unique": true,
+  "technique": "semantic",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 5,
+  "query_embedding_dim": 384,
+  "query_embedding_first8": [
+    -0.006551,
+    0.054919,
+    -0.042953,
+    0.067333,
+    0.017978,
+    0.009544,
+    -0.081091,
+    0.019798
+  ],
+  "query_vector_shape": [
+    384
+  ],
+  "doc_vectors_shape": [
+    5,
+    384
+  ],
+  "retrieval_latency_ms": 7.644,
+  "chunk_count": 154,
+  "avg_chunk_length": 3246.1,
+  "results": [
+    {
+      "rank": 1,
+      "store_score": 0.6593355173872155,
+      "cosine_sim": 0.6593356132507324,
+      "chunk_len": 1564,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "IV. Paperwork Reduction Act of 1995 This guidance contains information collection provisions that are subject to review by the Office of Management and Budget ("
+    },
+    {
+      "rank": 2,
+      "store_score": 0.647971529844,
+      "cosine_sim": 0.6479715704917908,
+      "chunk_len": 12861,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "(Sections 417(d)(4), 417(d)(6)(A), and 417(d)(8) of the FD&C Act). What is the time frame for filing amended reports? After consultation with the responsible pa"
+    },
+    {
+      "rank": 3,
+      "store_score": 0.633155546134553,
+      "cosine_sim": 0.6331555843353271,
+      "chunk_len": 6536,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "321(e)) as including individuals, partnerships, corporations and associations. In this situation, the warehouse operator is a distinct legal person. (Sections 4"
+    },
+    {
+      "rank": 4,
+      "store_score": 0.6314691009125576,
+      "cosine_sim": 0.6314691305160522,
+      "chunk_len": 4822,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "(Sections 201(e) and 417(a)(1) of the FD&C Act). If the registration information submitted under section 415(a) of the FD&C Act is no longer correct, is a respo"
+    },
+    {
+      "rank": 5,
+      "store_score": 0.6080353244696626,
+      "cosine_sim": 0.6080353260040283,
+      "chunk_len": 2403,
+      "source_file": "fda_reportable_food_registry_guidance.txt",
+      "contains_expected_source": true,
+      "preview": "You can use an alternative approach if the approach satisfies the requirements of the applicable statutes and regulations. Reportable Food Registry for Industry"
+    }
+  ]
+}
