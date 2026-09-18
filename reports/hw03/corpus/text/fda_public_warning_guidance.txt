@@ -1,0 +1,467 @@
+
+=== Page 1 ===
+Public Warning and 
+Notification of Recalls Under  
+21 CFR Part 7, Subpart C 
+Guidance for Industry and FDA Staff 
+ 
+You may submit electronic or written comments regarding this guidance at any time.  Submit 
+electronic comments to https://www.regulations.gov.  Submit written comments to the Dockets 
+Management Staff (HFA-305), Food and Drug Administration, 5630 Fishers Lane, rm. 1061, 
+Rockville, MD 20852.  All comments should be identified with the docket number FDA-2016-
+D-3548. 
+For questions or information regarding this guidance, contact the Office of Regulatory Affairs 
+(ORA), Office of Strategic Planning and Operational Policy (OSPOP), Food and Drug 
+Administration at ORAPolicyStaffs@fda.hhs.gov.  
+ 
+The draft of this guidance was issued in January 2018. 
+ 
+U.S. Department of Health and Human Services  
+Food and Drug Administration 
+Office of Regulatory Affairs 
+Center for Food Safety and Applied Nutrition 
+Center for Drug Evaluation and Research 
+Center for Biologics Evaluation and Research 
+Center for Devices and Radiological Health 
+Center for Veterinary Medicine 
+Center for Tobacco Products 
+ 
+ 
+FEBRUARY 2019
+
+=== Page 2 ===
+Contains Nonbinding Recommendations 
+2 
+ 
+ Public Warning and 
+Notification of Recalls Under  
+21 CFR Part 7, Subpart C 
+ 
+Guidance for Industry and FDA Staff 
+ 
+ 
+Additional copies are available from: 
+Office of Strategic Planning and Operational Policy  
+Office of Regulatory Affairs,  
+Food and Drug Administration 
+ 12420 Parklawn Drive, Element Building,  
+Rockville, MD 20857 
+ 
+U.S. Department of Health and Human Services  
+Food and Drug Administration 
+Office of Regulatory Affairs 
+Center for Food Safety and Applied Nutrition 
+Center for Drug Evaluation and Research 
+Center for Biologics Evaluation and Research 
+Center for Devices and Radiological Health 
+Center for Veterinary Medicine 
+Center for Tobacco Products 
+ 
+FEBRUARY 2019 
+Recalls
+
+=== Page 3 ===
+Contains Nonbinding Recommendations 
+3 
+ 
+ 
+ 
+Table of Contents 
+ 
+I. INTRODUCTION ..................................................................................................................... 4 
+II. TERMINOLOGY .................................................................................................................... 5 
+III. DISCUSSION ......................................................................................................................... 6 
+A. Public Warnings ............................................................................................................. 6 
+1. Under what circumstances should firms issue public warnings?................................. 6 
+2. Who prepares public warnings? ................................................................................... 8 
+3. What information should be contained in a public warning? ...................................... 9 
+4. How are public warnings distributed and displayed? ................................................ 10 
+B. Public Notification of Recalls ...................................................................................... 11 
+IV. REFERENCES ..................................................................................................................... 11
+
+=== Page 4 ===
+Contains Nonbinding Recommendations 
+4 
+ 
+Public Warning and Notification of 
+Recalls Under  
+21 CFR Part 7, Subpart C 
+Guidance for Industry and FDA Staff 
+ 
+ This guidance represent the current thinking of the U.S. Food and Drug Administration (FDA, 
+we, or Agency) on this topic. It does not establish any rights for any person and is not binding  
+on the FDA or the public. You can use an alternative approach if it satisfies the requirements  of the applicable statutes and regulations. To discuss an alternative approach, contact the FDA 
+ staff responsible for this guidance as listed on the title page. 
+ 
+ 
+ 
+I. Introduction:  
+The purpose of this guidance is to assist and provide recommendations to industry and FDA staff 
+regarding the use, content, and circumstances for issuance of public warnings and public 
+notifications for firm-initiated or FDA-requested recalls under 21 CFR Part 7, Subpart C – 
+Recalls (Including Product Corrections) –Guidance on Policy, Procedures, and Industry 
+Responsibilities.  The guidance also discusses what information should be included in a public 
+warning, as well as the parties responsible for issuing it.  It represents FDA’s current thinking on 
+public warning and notification of recalls under 21 CFR Part 7.   
+This guidance applies to voluntary recalls of products subject to FDA’s jurisdiction, including 
+any food, drug, and device intended for human or animal use, any cosmetic and biologic 
+intended for human use, any tobacco product intended for human use, and any item subject to a 
+quarantine regulation under 21 CFR Part 1240.  However, it does not apply to radiation emitting 
+electronic products which are governed only by 21 CFR Parts 1003 and 1004.   
+FDA's guidance documents do not establish legally enforceable responsibilities. Instead, 
+guidance describes the Agency's current thinking on a topic and should be viewed only as 
+recommendations, unless specific regulatory or statutory requirements are cited. The use of the 
+word should in Agency guidance means that something is suggested or recommended, but not 
+required.
+
+=== Page 5 ===
+Contains Nonbinding Recommendations 
+5 
+ 
+ 
+II. Terminology: 
+Recall 
+Recall means a firm’s removal or correction of a marketed product that FDA considers to be in 
+violation of the laws it administers and against which the Agency would initiate legal action, 
+e.g., seizure.  Recall does not include a market withdrawal or a stock recovery.1 (21 CFR 
+§7.3(g)) 
+Recall Determination  
+A recall determination is the assessment the FDA makes in deciding that a firm’s ongoing or 
+completed removal or correction of a marketed violative product constitutes a recall as defined at 
+21 CFR § 7.3(g). A firm’s characterization of its action is not determinative of whether the FDA 
+would determine that the action is a recall.  A firm’s action constitutes a recall when it meets the 
+definition of “recall” under 21 CFR § 7.3(g).  
+Recall Classification 
+Recall classification means the numerical designation, i.e., I, II, or III, assigned by the FDA to a 
+particular product recall to indicate the relative degree of health hazard presented by the product 
+being recalled or considered for recall.  (21 CFR §§ 7.3(m), 7.41(b)). The determination is made 
+on the basis of the health hazard evaluation and in consideration of the factors provided at 21 
+CFR § 7.41.  
+Public Warning 
+The purpose of a public warning under 21 CFR Part 7 is to alert the public that a product being 
+recalled presents a serious health hazard.  It is reserved for urgent situations where other means 
+of preventing use of the recalled product appear inadequate.  (21 CFR § 7.42(b)(2)).2  Public 
+warnings under 21 CFR Part 7 can be disseminated through general or specialized news media, 
+e.g., professional or trade press, and/or to specific segments of the population such as physicians, 
+hospitals, etc.  The FDA may issue public warnings in a variety of forms, including, but not 
+limited to, press releases, emails, and web and social media postings.  
+Public Notification of Recalls 
+The FDA promptly makes available to the public in the weekly FDA Enforcement Report a 
+descriptive listing of each new recall according to its classification, whether it was FDA-
+requested or firm-initiated, and the specific action being taken by the recalling firm.  (21 CFR § 
+                                                 
+1 21 CFR § 7.3(j) defines market withdrawal to mean a firm's removal or correction of a distributed product which 
+involves a minor violation that would not be subject to legal action by the Food and Drug Administration or which 
+involves no violation, e.g., normal stock rotation practices, routine equipment adjustments and repairs, etc.   Stock 
+recovery means a firm's removal or correction of a product that has not been marketed or that has not left the direct 
+control of the firm, i.e., the product is located on premises owned by, or under the control of, the firm and no portion 
+of the lot has been released for sale or use.  21 CFR § 7.3(k). 
+2 In addition to the public warning authority described in 21 CFR Part 7, the Agency has other authorities to 
+disseminate information in an array of circumstances, for example, the Secretary’s authority in 21 U.S.C. 375(b) to 
+disseminate information about FDA regulated products in situations that the Secretary determines involve imminent 
+danger to health or gross deception of the consumer .  Nothing in this guidance is meant to define, shape, or limit 
+those authorities in any way.
+
+=== Page 6 ===
+Contains Nonbinding Recommendations 
+6 
+ 
+7.50).   
+Confidential Commercial Information (CCI) 
+Commercial or financial information that is privileged or confidential means valuable data or 
+information which is used in one's business and is of a type customarily held in strict confidence 
+or regarded as privileged and not disclosed to any member of the public by the person to whom it 
+belongs. (21 CFR § 20.61(b)).  
+ 
+III. Discussion:  
+The FDA’s policy is to evaluate the particular circumstances of each individual recall in 
+determining whether a public warning is needed in accordance with 21 CFR § 7.42(b)(2) as part 
+of the recall strategy.  The FDA may issue a public warning or notification before formally 
+classifying a recall under 21 CFR § 7.41(b).  We note that due to the level of hazard associated 
+with Class I recalls, the FDA has generally issued, and/or sought issuance of, public warnings in 
+Class I or potential Class I recalls unless specific circumstances indicate that one would not be 
+beneficial to the public.  The FDA also recommends and/or issues public warnings for some 
+urgent Class II recalls that, while not rising to Class I hazards, still present a serious hazard to 
+health.3  
+Once the FDA makes a recall determination or classification, the recall will be listed in the 
+weekly FDA Enforcement Report in accordance with 21 CFR §7.50.   
+ 
+A. Public Warnings  
+ 
+1. Under what circumstances should firms issue public warnings? 
+Public warnings are for urgent situations and are issued to alert the public that a product being 
+recalled presents a serious hazard to health, and where other means for preventing the use of a 
+recalled product appear inadequate.  For instance, public warnings may be appropriate for urgent 
+recalls of prescription drugs or medical devices when retail level consignees cannot identify 
+persons to whom the drug or device was dispensed.  A public warning is also often needed when 
+a recalled product has been widely distributed.   
+On the other hand, when recalled products have only been distributed to direct accounts4, and the 
+recalling firm has records that show exactly where the products have gone, a prompt and 
+effective communication to such accounts informing them of the recall may be adequate to 
+                                                 
+3 FDA has recommended public warnings for Class II recalls involving, for example, foods with low levels of 
+undeclared allergens (e.g., wheat).  While the adverse health consequences may be remote or temporary, FDA is 
+committed to acting immediately when necessary to protect the public health. 
+4 For internet purchases, the consumer level is considered a direct account.  For some internet purchases, prompt and 
+effective communication may not be feasible, and thus distribution to the direct account in an internet transaction 
+may warrant a public warning.  Where communication is feasible, the internet seller should attempt to confirm 
+receipt of the communication.
+
+=== Page 7 ===
+Contains Nonbinding Recommendations 
+7 
+ 
+prevent the use of a recalled product.5 This could be an instance where the product has only 
+reached the wholesale level, such as a warehouse or distribution center, and has not been further 
+distributed to the retail or consumer level.   
+The FDA generally recommends public warning for recalls that are likely to be classified as, or 
+have been classified as Class I recalls, unless specific circumstances indicate that the warning 
+would not be beneficial to the public. Such circumstances could be where there is not adequate 
+information to convey risk and appropriate actions, or when the product is limited to a small 
+number of consignees that are easily identified and can be rapidly reached through targeted 
+contact. Furthermore, different products might dictate different communication considerations.  
+For instance, during a medical device recall, the FDA may consider how patients respond to a 
+public warning about a defective product without first having the benefit of consulting with their 
+physician.  In these and similar situations, public warnings may be more confusing than helpful. 
+The FDA will continue to assess the need for public warnings for voluntary recalls of FDA-
+regulated products based on the particular circumstances of the individual recall.  The following 
+recalls generally present examples of serious hazards to health such that a public warning may be 
+warranted: 
+ Recalls of food products initiated by a firm after receipt of consumer reports of illness 
+or injury (including allergic reactions), for which there is an active outbreak 
+associated with the product or its ingredients, or for which the FDA has substantiated 
+reports of illness or injury.  
+ Recalls of food products that are intended for or would more likely be consumed by 
+vulnerable populations.  Examples of vulnerable human populations include infants, 
+toddlers, the elderly, pregnant women, and medically-compromised individuals, who 
+may be more susceptible to foodborne hazards than healthy persons. 
+ 
+ Recalls of food products initiated because of manufacturing deviations where the 
+consequences of the manufacturing deviations could have significant health impacts; 
+e.g., under processed low-acid canned foods which could result in botulism if the 
+product is consumed. 
+ Recalls of food products initiated because of microbiological pathogen findings (e.g., 
+Listeria monocytogenes, Salmonella, etc.) in environmental testing where direct food 
+manufacturing contact surfaces are found to be contaminated. 
+ 
+ Recalls of animal food products which may be contaminated with low levels of drugs 
+or unsafe food additives. Examples include pet jerky treats contaminated with 
+antibiotics, and cat food products containing propylene glycol.  
+ 
+ Recalls of home use medical devices which could malfunction and lead to incorrect 
+dosing of drugs or blood volumes.  
+                                                 
+5 To be adequate to prevent the use of the product, a recalling firm should be able to confirm that business acc ounts 
+received the communication and understood the instructions conveyed in the communication.  FDA’s model recall 
+return response form, available in FDA’s Regulatory Procedures Manual, is one way a recalling firm can document 
+such confirmation from business accounts.
+
+=== Page 8 ===
+Contains Nonbinding Recommendations 
+8 
+ 
+ 
+ Recalls of sterile injectable drug products which may contain particulate matter. 
+ 
+ Recalls of implantable pacemakers or defibrillators where the device’s battery may 
+fail suddenly and without warning. 
+ 
+The FDA may issue or supplement a firm’s public warning, among other actions, in the 
+following situations: a firm refuses to issue its own public warning when recommended or 
+requested by the FDA, an ongoing recall or public warning is not prompt or effective, or the 
+FDA learns of a completed recall where new adverse events associated with the product are 
+reported after completion of the recall. The FDA will generally provide a timeframe for when the 
+firm should issue a public warning based on the circumstances of the individual recall.  While 
+timeframes will vary depending on the recall and product, these firms should generally issue a 
+public warning within 24 hours of the FDA notifying the firm that it believes a public warning is 
+appropriate.  
+ 
+2. Who prepares public warnings? 
+The FDA generally gives firms the first opportunity to prepare and issue public warnings during 
+recalls. For instance, for firm-initiated recalls, recalling firms are expected to develop their own 
+recall strategy. The recall strategy addresses, among other things, whether a public warning is 
+needed and how it will be issued.  In most cases, the FDA reviews and comments on the recall 
+strategies, including any public warnings developed by firms (see 21 CFR § 7.42(b)(2)). Firms 
+should include any drafted public warning as part of their submission of the recall strategy to the 
+extent that it does not delay strategy development or recall initiation.6  In other situations that 
+warrant an immediate warning, firms may choose to issue public warnings without the FDA’s 
+review.  The FDA may supplement that warning with its own public statement, if necessary.  
+When the FDA believes that a public warning is appropriate and the recalling firm does not 
+include one in its initial recall strategy, the FDA will generally request one from the recalling 
+firm.   
+In some situations, the FDA may prepare and issue public warnings on its own initiative and in 
+accordance with 21 CFR § 7.42(b)(2).  This may occur, for instance, when the public needs 
+immediate warning concerning a product and the firm has not issued a public warning or a firm’s 
+public warning is deficient. The FDA will ordinarily work with the recalling firm to ensure the 
+factual accuracy of a public warning. However, the FDA is not required to contact the firm 
+before issuing a public warning or allow its review of the proposed statement.  
+If a firm issues a public warning that is deficient in any respect (see also section III.A.3 in this 
+document), the FDA may supplement or correct that warning with its own public warning. If a 
+firm’s public warning is not reasonably likely to be adequately received by the target audience, 
+the FDA may ask the firm to reissue its public warning and/or the FDA may issue its own public 
+warning.  Additionally, the FDA may publicly issue information that may address outstanding 
+questions about the nature of the incident and/or the Agency’s actions.  
+                                                 
+6 Firms are reminded that, under 21 CFR § 7.42, they need not delay the initiation of a recall pending the FDA’s 
+review of their recall strategy.
+
+=== Page 9 ===
+Contains Nonbinding Recommendations 
+9 
+ 
+ 
+3. What information should be contained in a public warning? 
+The purpose of a public warning is to alert the public that a product being recalled presents a 
+serious hazard to health. As such, a public warning should include: a) information to help 
+identify the recalled product including images, numerical product information (e.g., lot number, 
+expiration date, serial number, unique device identification (UDI) number), packaging 
+information or brand names; b) the geographic areas and dates of distribution of the affected 
+product; c) a thorough description of the product defect, health hazard involved, and reason(s) 
+for recall (e.g., product testing, environmental sampling, etc.); d) the name and contact 
+information for the recalling firm; e) instructions to consumers or users; f) the number and nature 
+of any illnesses/injuries/complaints associated with the product, related to the product defect; and 
+g) a description of common symptoms of any illness of concern. The headline of the public 
+warning should include the brand name, type of product, and the hazard prompting the recall 
+(e.g., “XYZ chocolate chip cookies recalled for potential Salmonella contamination.”).   
+In some cases, it may also be necessary to include the recalling firm’s supply-chain relationships 
+in order to alert the public of the product being recalled. When possible, the FDA encourages 
+firms to provide specifics about firms it sold product to in order to help people better identify and 
+avoid recalled product.7    
+What should not be included 
+Public warnings should not contain content that detracts from or defeats the purpose of the 
+warning.  Brief and succinct warnings are generally better at informing consumers of a product 
+hazard and helping consumers understand the importance of avoiding the product. On the other 
+hand, messages that cloud or lengthen a warning may distract a consumer and should be avoided.  
+Generally, firms should not promote the qualities of the product being recalled, other products 
+sold by the firm, or the firm in general, as part of a public warning. Phrases such as “an 
+abundance of caution,” that can be seen as trying to minimize the hazard, should not be used, for 
+example, when illnesses or injury have resulted, or when there are positive results for pathogens 
+associated with the finished product or ingredients. 
+What might make a public warning deficient 
+A public warning may be considered deficient if, among other things, it does not adequately 
+identify the recalled product, describe the health hazard involved, or identify relevant 
+information about the product’s distribution.  A public warning might also be considered 
+deficient if, on the basis of the FDA’s media monitoring, it is determined that the warning did 
+not sufficiently reach the target audience (e.g., the firm’s release was not disseminated 
+sufficiently by the news media; the firm’s warning for a nationally-distributed product was 
+issued only to a regional audience; no Spanish translation was made available for a product 
+largely used by Spanish-speaking populations).  A factual statement in a firm’s public warning 
+that the FDA is unable to verify might also cause the FDA to issue a separate public warning.  
+                                                 
+7 FDA’s recall communications are intended to be as informative as possible within the scope of the Agency’s 
+authority for information disclosure.  For example, depending on the circumstances, certain information such as 
+supply-chain relationships and product distribution data may be CCI, which is generally protected from public 
+disclosure.  FDA’s regulations authorize the release of CCI, in relevant part, when necessary to effectuate a recall. 
+(21 CFR § 20.91).
+
+=== Page 10 ===
+Contains Nonbinding Recommendations 
+10 
+ 
+The FDA will take actions to correct or supplement deficient public warnings as described in this 
+guidance.  The Agency encourages firms issuing public warnings to monitor media coverage and 
+take further action to raise public awareness if media coverage appears to be insufficient. 
+ 
+4. How are public warnings distributed and displayed? 
+ 
+Firms and the FDA can alert the public about a recall by various means, including issuing press 
+releases to the media, sending emails to a listserv or subscription service, and posting on the 
+FDA and company websites or social media.  All of these methods could be used to issue a 
+public warning. 
+ 
+Issuing the Public Warning through a Press Release 
+It is critical that public warnings are distributed in a way that ensures that the information 
+conveyed in the warning actually reaches the public. To this end, the FDA is open to different 
+vehicles of dissemination that best convey the information of the particular recall.  Historically, 
+the FDA and industry have used general news media, as well as specialized news media, e.g., 
+professional or trade press, among other means.  When warranted, the FDA recommends that 
+firms use press release distribution services or other mechanisms that ensurethe information in 
+the press release will be appropriately relayed to the public, e.g., through news media outlets.  
+Part of a firm’s responsibility to inform a consumer of a recalled product includes taking earnest 
+efforts to ensure that the information is actually distributed. 
+Firms issuing public warnings through press releases should also consider the area of distribution 
+of the recalled product.  The distribution of the release should match the distribution of the 
+product: if the product is available online or is distributed nationally, the public warning should 
+also be available online and/or distributed nationwide.  Similarly, if the product is only available 
+in a regional market, and the FDA and the firm are confident that no consumers from outside that 
+region may have received it, the distribution of the public notification may be similarly targeted.  
+If it is apparent that a significant percentage of consumers using the recalled product speak a 
+language other than English, firms should consider having the public warning translated into that 
+language and distributed via the appropriate distribution service. 
+Posting a Public Warning or Press Release on a firm or FDA Webpage 
+In many cases, a firm will announce a removal of an FDA regulated product from the market or 
+correction8 through a press release or other public announcement prior to the FDA reviewing and 
+determining the action to be a recall.  The FDA may post the information in or the text of the 
+announcement on FDA.gov/recalls9 if the FDA believes the announcement is factually correct 
+and beneficial to consumers.   
+The FDA does not typically post a firm’s announcement of an action that the FDA believes will 
+                                                 
+8 A correction is a repair, modification, adjustment, relabeling, destruction or inspection (including patient 
+monitoring) of a product without its physical removal to some other location. 21 CFR § 7.3(h). 
+9 This webpage also provides links to various FDA Center webpages, where public warnings of recalls of products 
+specific to that Center are also posted.
+
+=== Page 11 ===
+Contains Nonbinding Recommendations 
+11 
+ 
+not be considered a recall. Further, not all recalls are posted on the FDA.gov/recalls page since 
+not all recalls warrant a public warning and not all firms will issue a press release, depending on 
+the circumstances. When the FDA posts removal or correction information that has been 
+publicized by a firm, we do so as a public service and it does not necessarily mean that the 
+situation is urgent or that the product presents a serious hazard to health, such that it would be 
+considered a “public warning” as the term is defined in this guidance document.  Information on 
+major product recalls that the FDA believes merit expanded coverage due to the impact they 
+have on public health can be found at 
+https://www.fda.gov/Safety/Recalls/MajorProductRecalls/default.htm.  When a firm posts its 
+public warning on its own webpage, it should ensure that the warning is prominently displayed 
+and accessible from both its home page and a web search.  The posting should remain publicly 
+accessible until the product is no longer expected to be used or consumed.   
+ 
+B. Public Notification of Recalls 
+The FDA provides public access to information on recalls by posting a listing of recalls 
+according to their classification in the FDA Enforcement Report, whether they were requested by 
+FDA or firm-initiated, and the specific action taken by the recalling firm.10 The FDA 
+Enforcement Report is designed to provide a public listing of products in the marketplace that 
+are being recalled.  Unlike with public warnings, the recalls listed in the FDA Enforcement 
+Report are not limited to urgent situations that present serious hazards to health and are not 
+necessarily used to alert the public about the risk or hazard of a product under recall.   
+Information on all recalls will be provided in the FDA Enforcement Report, regardless of the 
+level of the hazard.  The FDA will attempt to promptly post public notifications; however, delays 
+might occur due to the timeliness of a firm’s recall submission, the availability of facts, and other 
+factors outside the FDA’s control. The FDA may consider delaying public notification if it may 
+cause unnecessary and harmful anxiety in certain consumers (e.g., when a patient needs to hear 
+first from his doctor about a defective implanted medical device). The FDA is not required to 
+provide firms with an opportunity to review and comment on public notifications, but may 
+consult with a firm to ensure factual accuracy or when otherwise warranted.  
+Public notifications of recalls will only be posted in the FDA Enforcement Report after the FDA 
+makes a determination that the action is a recall under 21 CFR § 7.3(g).  If the recall posted in 
+the FDA Enforcement Report has not yet been classified, the FDA will document the recall as 
+not yet classified.11  
+IV. References 
+1. U.S. Food and Drug Administration.  Guidance for Industry: Product Recalls, Including 
+Removals and Corrections. Last updated 08/22/2014.  
+https://www.fda.gov/Safety/Recalls/IndustryGuidance/ucm129259.htm 
+ 
+                                                 
+10 We note that, although they are not the subject of this guidance document, mandatory recalls are also listed in the 
+FDA Enforcement Report.  
+11 FDA has begun posting information relating to some voluntary recalls when this information is provided to the 
+agency, prior to the review and possible classification.
+
+=== Page 12 ===
+Contains Nonbinding Recommendations 
+12 
+ 
+2. U.S. Food and Drug Administration.  “Recalls, Market Withdrawals, & Safety Alerts.” 
+Last updated 04/04/2017.  
+https://www.fda.gov/Safety/Recalls/default.htm 
+ 
+3. U.S. Food and Drug Administration.  “Industry Guidance for Recalls. Information on 
+Recalls of FDA Regulated Products.” Last updated 08/15/2014.  
+http://www.fda.gov/Safety/Recalls/IndustryGuidance/default.htm 
+ 
+4. U.S. Food and Drug Administration. Recalls, Corrections and Removals (Devices). Last 
+updated 01/03/2017.  
+https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/PostmarketRequire
+ments/RecallsCorrectionsAndRemovals/default.htm

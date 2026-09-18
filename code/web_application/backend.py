@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
+from starlette.middleware.sessions import SessionMiddleware
+
+from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as auth_router
 
 PORT_BASE = 8839
 STATIC_DIR = Path(__file__).resolve().parent
@@ -71,12 +75,20 @@ def reset_recalls() -> None:
 
 
 reset_recalls()
-app = FastAPI(title="Grocery Recall API", version="2.0.0")
+app = FastAPI(title="Grocery Recall API", version="3.0.0")
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=os.getenv("SESSION_SECRET_KEY", "data260-local-development-key-change-me"),
+    https_only=os.getenv("SESSION_HTTPS_ONLY", "true").lower() not in {"0", "false", "no"},
+    same_site="lax",
+    max_age=IDLE_TIMEOUT_SECONDS,
+)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+app.include_router(auth_router)
 
 
-@app.get("/", include_in_schema=False)
-def home() -> FileResponse:
+@app.get("/recalls", include_in_schema=False)
+def recall_manager() -> FileResponse:
     return FileResponse(STATIC_DIR / "index.html")
 
 

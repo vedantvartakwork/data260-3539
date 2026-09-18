@@ -1,0 +1,67 @@
+{
+  "domain_id": 3,
+  "domain": "Grocery Supply and Recall Notices",
+  "generated_at": "2026-09-17",
+  "documents": [
+    {
+      "title": "FDA Regulatory Procedures Manual, Chapter 7: Recall Procedures",
+      "source_url": "https://www.fda.gov/media/71814/download?attachment=",
+      "accessed": "2026-09-17",
+      "source_file": "reports/hw03/corpus/source_pdfs/fda_regulatory_procedures_manual_chapter_7.pdf",
+      "source_bytes": 942748,
+      "source_sha256": "eedcb01fb5a5d774d32ce76e4de5f8a3e87a7782a9e93a6c160878d44605406c",
+      "text_file": "reports/hw03/corpus/text/fda_regulatory_procedures_manual_chapter_7.txt",
+      "text_bytes": 336558,
+      "text_sha256": "8137527a9295811dc2e3a1a536bd4daf30e55937694635a776879ad28498e8f5",
+      "pages": 153
+    },
+    {
+      "title": "FDA 2026 Investigations Operations Manual, Chapter 7: Recall Activities",
+      "source_url": "https://www.fda.gov/media/166535/download?attachment=",
+      "accessed": "2026-09-17",
+      "source_file": "reports/hw03/corpus/source_pdfs/fda_iom_2026_chapter_7.pdf",
+      "source_bytes": 663693,
+      "source_sha256": "7f4db1ab1455b9cee0eb27c6da0d692c2922fd72514a970b8aa8f89881f59f1f",
+      "text_file": "reports/hw03/corpus/text/fda_iom_2026_chapter_7.txt",
+      "text_bytes": 68400,
+      "text_sha256": "b3246ccb95c8ae83d8c18a043b922f7549b553f45ebd5fb81fde653f115d0262",
+      "pages": 25
+    },
+    {
+      "title": "Public Availability of Lists of Retail Consignees for Food Recalls",
+      "source_url": "https://www.fda.gov/media/116401/download",
+      "accessed": "2026-09-17",
+      "source_file": "reports/hw03/corpus/source_pdfs/fda_retail_consignee_lists_guidance.pdf",
+      "source_bytes": 56003,
+      "source_sha256": "1391451938dd9b7408ae5858a52fedf35fdf177cc5f425019d9c736a4eb72419",
+      "text_file": "reports/hw03/corpus/text/fda_retail_consignee_lists_guidance.txt",
+      "text_bytes": 19013,
+      "text_sha256": "3eeea627887866115a64bbd60829410999ebcd5fee7221244da70aa6f8a949d8",
+      "pages": 8
+    },
+    {
+      "title": "Public Warning and Notification of Recalls Under 21 CFR Part 7",
+      "source_url": "https://www.fda.gov/media/110457/download",
+      "accessed": "2026-09-17",
+      "source_file": "reports/hw03/corpus/source_pdfs/fda_public_warning_guidance.pdf",
+      "source_bytes": 451922,
+      "source_sha256": "adbff21fd60a5948618ff442c5090452b66c1aead0297acf2c264bb96b044f45",
+      "text_file": "reports/hw03/corpus/text/fda_public_warning_guidance.txt",
+      "text_bytes": 30241,
+      "text_sha256": "b523b7d3f1ab81bd7c8f5d2f53012318761fa5058435c370bfb78a5ea1be976d",
+      "pages": 12
+    },
+    {
+      "title": "Questions and Answers Regarding the Reportable Food Registry",
+      "source_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-questions-and-answers-regarding-reportable-food-registry-established-food-and-drug",
+      "accessed": "2026-09-17",
+      "source_file": "reports/hw03/corpus/fda_reportable_food_registry_guidance.html",
+      "source_bytes": 89453,
+      "source_sha256": "8c4c426d8089597f27f54dbbd44bfba21f4fd8c6241a4922f572747315d6af93",
+      "text_file": "reports/hw03/corpus/text/fda_reportable_food_registry_guidance.txt",
+      "text_bytes": 47668,
+      "text_sha256": "079d09b84f4276404e524e8b9d345bd9751ef8e9339d85e4987578806010d1dd"
+    }
+  ],
+  "total_text_bytes": 501880
+}

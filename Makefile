@@ -7,7 +7,7 @@ test:
 	$(PYTHON) -m unittest discover -s tests -v
 
 run-web:
-	$(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+	SESSION_HTTPS_ONLY=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
 
 run-hw2-graph:
 	$(PYTHON) hw2_graph.py --input-file reports/hw02/cases/schema_input.json --model $(MODEL) --temperature 0.7 --max-turns 10

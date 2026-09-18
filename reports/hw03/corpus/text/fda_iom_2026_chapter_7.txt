@@ -1,0 +1,983 @@
+
+=== Page 1 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+3 
+ 
+Chapter 7 – Recall Activities 
+CHAPTER 7 – RECALL ACTIVITIES ............................................................................................................................ 3 
+7.1 – PURPOSE OF RECALLS .................................................................................................................................... 5 
+7.1.1 - WHAT IS A RECALL? ............................................................................................................................................. 5 
+7.1.1.1 – What is a Correction? ............................................................................................................................. 5 
+7.1.1.2 – What is a Removal?................................................................................................................................ 5 
+7.1.2 – RECALL STRATEGY ............................................................................................................................................... 5 
+7.1.2.1 - Depth of Recall ........................................................................................................................................ 5 
+7.1.3 – WHAT ARE THE RECALL CLASSIFICATIONS? ............................................................................................................... 5 
+7.1.4 – WHAT IS A SUB-RECALL? ..................................................................................................................................... 6 
+7.1.5 - WHAT ARE OTHER TYPES OF ACTIONS TAKEN FOR FDA PRODUCTS? ............................................................................... 6 
+7.1.5.1 Market Withdrawal................................................................................................................................... 6 
+7.1.5.2 -Stock Recovery ......................................................................................................................................... 6 
+7.1.5.3 - Medical Device Safety Alerts ................................................................................................................... 6 
+7.1.6 – WHAT GOVERNS FDA’S RECALL PROCESS? ............................................................................................................. 6 
+7.1.6.1 – What is a Voluntary Recall? ................................................................................................................... 7 
+7.1.6.2 – What are FDA-Requested, -Mandated, and -Ordered Recalls? .............................................................. 7 
+7.1.6.3 – What is a Medical Device Notification Order? ....................................................................................... 7 
+7.1.6.4 - What is Notification, Non-Distribution and Recall of Controlled Substances for Human or Animal Use 
+Order? ................................................................................................................................................................... 7 
+7.1.7 – WHAT ARE THE DIFFERENT RECALL IDENTIFIERS? ....................................................................................................... 8 
+7.2 – RESPONSIBILITIES DURING RECALLS .............................................................................................................. 8 
+7.2.1 – RECALLING FIRM RESPONSIBILITIES ......................................................................................................................... 8 
+7.2.2 – DIVISION RECALL COORDINATOR (DRC) RESPONSIBILITIES .......................................................................................... 8 
+7.2.3 – CENTER RESPONSIBILITIES ..................................................................................................................................... 9 
+7.2.4 – CONSUMER SAFETY OFFICER (CSO) RESPONSIBILITIES ............................................................................................... 9 
+7.3 – RECALLS AND INSPECTIONS ........................................................................................................................... 9 
+7.3.1 - ENCOUNTERING COMPLETED RECALLS THAT FDA WAS NOT NOTIFIED ABOUT (“SILENT RECALLS”) .................................. 10 
+7.3.1.1 Encountering Unreported Market Withdrawals, Stock Recoveries, and Medical Device Safety Alerts  .. 10 
+7.3.2 - OBSERVATIONS MADE DURING AN INSPECTION COULD RESULT IN A RECALL ................................................................. 10 
+7.3.3 – INSPECTIONS TO MONITOR A RECALL’S PROGRESS................................................................................................... 11 
+7.3.4 – ROOT CAUSE INSPECTIONS .................................................................................................................................  11 
+7.3.5 – SAMPLE COLLECTION ......................................................................................................................................... 13 
+7.3.6 – COMMODITY SPECIFIC RECALL INFORMATION ......................................................................................................... 13 
+7.3.6.1 – Human and Animal Foods .................................................................................................................... 13 
+7.3.6.1.1 - Potential New Food Product Recalls ............................................................................................................... 13 
+7.3.6.1.2 – State Monitored Recalls .................................................................................................................................  13 
+7.3.6.1.3 – Infant Formula ................................................................................................................................................ 14 
+7.3.6.2 – Medical Devices .................................................................................................................................... 14 
+7.3.6.2.1 – Medical Device Recalls ................................................................................................................................... 14 
+7.3.6.2.2 – Medical Device Recall Reporting (806) ........................................................................................................... 14 
+7.3.6.2.3 - Corrective Action ............................................................................................................................................. 15 
+7.3.6.2.4 - Complaint and Medical Device Reporting (MDR) Reporting ........................................................................... 15 
+7.3.6.3 – Human and Animal Drugs .................................................................................................................... 16 
+7.3.6.3.1 - Recalls of Human Drug Products ..................................................................................................................... 16 
+7.3.6.3.2 - Recalls of Veterinary Drug Products ................................................................................................................ 16
+
+=== Page 2 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+4 
+ 
+7.3.6.4 – Human Cells, Tissues, and Cellular and Tissue Based Products (HCT/Ps) For Implantation, Trans -
+plantation, Infusion, or Transfer ......................................................................................................................... 16 
+7.3.6.5 – Tobacco Product Recalls ....................................................................................................................... 16 
+7.3.6.6 – Special Recall Situations ....................................................................................................................... 16 
+7.4 – FDA’S RECALL MONITORING ACTIVITIES ...................................................................................................... 17 
+7.4.1 – FDA RECALL AUDIT CHECKS ............................................................................................................................... 17 
+7.4.1.1 – What is a recall audit check? ............................................................................................................... 17 
+7.4.1.2 – Preparing to Conduct a RAC ................................................................................................................. 17 
+7.4.1.2.1 – What is the difference between a Consignee and an Account? ..................................................................... 17 
+7.4.1.2.2 – Why is the recall’s strategy important? .......................................................................................................... 17 
+7.4.1.2.3 – Why do I need to know the recall depth? ...................................................................................................... 17 
+7.4.1.3 - Conducting a Recall Audit Check ........................................................................................................... 18 
+7.4.1.3.1 - Contacting the Account ................................................................................................................................... 18 
+7.4.1.3.2 - How Did the Account Use the Recalled Product? ............................................................................................ 18 
+7.4.1.3.3 – Recall Notification .......................................................................................................................................... 19 
+7.4.1.3.5 – Consignee Action and Recalled Product Status .............................................................................................. 19 
+7.4.1.3.4 – Injuries/Complaints ........................................................................................................................................ 20 
+7.4.1.4 - Audit Check Reporting .......................................................................................................................... 20 
+7.4.1.5 - Endorsing the Recall Audit Check .......................................................................................................... 20 
+7.4.2 - NON-FDA RECALL AUDIT CHECKS ........................................................................................................................ 20 
+7.5 - RECALL COMPLETION AND TERMINATION ................................................................................................... 21 
+7.5.1 - RECALL COMPLETED ........................................................................................................................................... 21 
+7.5.2 – RECALL TERMINATED ......................................................................................................................................... 21 
+7.5.3 - INSPECTIONS TO WITNESS PRODUCT DISPOSITION ................................................................................................... 21 
+7-1 – RECALL COMMUNICATIONS EXAMPLE ........................................................................................................ 22 
+7-2 – FORM FDA 3177 AUDIT CHECK REPORT ....................................................................................................... 26 
+7-3 – INSTRUCTIONS FOR COMPLETING THE FDA 3177 RECALL AUDIT CHECK  ...................................................... 27
+
+=== Page 3 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+5 
+ 
+7.1 – Purpose of Recalls 
+A recall is an effective method of removing or correcting consumer products that are in violation of laws 
+administered by the FDA. Manufacturers and distributors voluntarily carry out recalls fulfilling their 
+responsibility to protect public health and well-being from products that pose a risk of injury or gross 
+deception or are otherwise defective. 
+7.1.1 - What is a Recall? 
+A recall is a firm's removal or correction of a marketed product that the FDA considers to be violative. 
+(See 21 CFR Part 7.) 
+7.1.1.1 – What is a Correction? 
+A correction means a repair, modification, adjustment, relabeling, destruction, or inspection of a 
+product (including patient monitoring) without its physical removal to some other location. 
+7.1.1.2 – What is a Removal? 
+A removal involves the physical removal of a product from commercial channels to the extent 
+necessary to protect public health. For medical devices, a removal is the physical removal of a device 
+from its point of use to some other location for repair, modification, adjustment, relabeling, 
+destruction, or inspection. 
+7.1.2 – Recall Strategy  
+Recall strategy is a firm’s plan for carrying out a removal or correction. The strategy should detail all the 
+following information, at a minimum:  
+• The types of notifications to be used (for example, email, phone, letter)  
+• The depth of the recall (for instance, at the wholesale, retail, consumer/user level)  
+• How the recalled product will be disposed of (if a public warning is needed)  
+• The firm’s plan to conduct its own internal effectiveness checks to verify that its consignees 
+have received notification and followed recall instructions 
+The agency’s Division Recall Coordinator (DRC); Office of Field Regulatory Operations, Division of Field 
+Enforcement, Field Recall Effectiveness Branch (OII/OFOR/OFRO/DFE/FREB; and relevant centers will 
+review and, when necessary, recommend changes to recall strategies to make the recall as effective as 
+possible.  
+7.1.2.1 - Depth of Recall  
+Depending on the product's degree of hazard and the extent of its distribution, the recall strategy 
+will specify the level in the distribution chain to which the recall is to extend--wholesaler, retailer, or 
+user/consumer. This is known as the depth of recall. 
+7.1.3 – What are the Recall Classifications? 
+The FDA is responsible for classifying recall events. Each recall is assigned one of three numerical 
+designations: Class I, Class II, or Class III. The recall classification indicates the relative degree of health 
+hazard presented by the recalled product, with Class I being the most serious. 
+• A Class I Recall is a situation in which there is a reasonable probability that the use of, or 
+exposure to, a violative product will cause serious adverse health consequences or death.
+
+=== Page 4 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+6 
+ 
+• A Class II Recall is a situation in which use of, or exposure to, a violative product may cause 
+temporary or medically reversible adverse health consequences, or where the probability of 
+serious adverse health consequences is remote. 
+• A Class III Recall is a situation in which use of, or exposure to, a violative product is not likely to 
+cause adverse health consequences. 
+7.1.4 – What is a Sub-Recall? 
+A sub-recall is when a recalling firm’s consignee further notifies its downstream consignees that 
+received the recalled product, in accordance with 21 CFR 7.49(d). In a sub-recall no changes are made to 
+the recalled product. 
+If the recalling firm’s consignee changes the recalled product (for example, used the product as a 
+component of a new product, re-labeled the product to obscure the original product name and/or lot 
+code, or repackaged the product) the consignee will have created a new product. As such, the new 
+product could be subject to a new recall instead of a sub-recall. (See 7.3.2 for instructions when 
+encountering a potential new recall situation.) 
+7.1.5 - What are other types of actions taken for FDA products? 
+7.1.5.1 Market Withdrawal 
+A market withdrawal is a firm’s removal or correction of a distributed product for a minor violation 
+that would not be subject to legal action by the FDA or that involves no violation (for instance, 
+normal stock rotation practices, routine equipment adjustments, repairs, etc.). (See section 7.3.1.1 
+for instructions on market withdrawals encountered during inspections.) 
+7.1.5.2 -Stock Recovery 
+A stock recovery is a firm’s removal or correction of a product that has not been marketed or that 
+has not left direct control of the firm. The product is located on premises owned by the recovering 
+firm and no portion of the lot has been released for sale or use. (See section 7.3.1.1 for instructions 
+on market withdrawals encountered during inspections.)  
+7.1.5.3 - Medical Device Safety Alerts 
+A medical device safety alert is a notification to device users (consumers) that, under certain 
+circumstances, use of, or exposure to, the device may pose a risk of harm (Exposure, for these 
+purposes, does not include electronic product radiation exposure –for more see 21 CFR Chapter I 
+Subchapter –  Radiological Health). The notification alerts users of the associated risk and steps to 
+be taken to reduce or eliminate the risk.  
+Note: Center for Devices and Radiological Health (CDRH) will only consider a notification to be a 
+safety alert if the device is not violative. (Violative devices would undergo a recall.)  (See section 
+7.3.1.1 for instructions on market withdrawals encountered during inspections.) 
+7.1.6 – What Governs FDA’s Recall Process? 
+See the FDA’s recall policy outlined in 21 CFR 7.1/7.59- Enforcement Policy - General Provisions, Recalls 
+(Including Product Corrections–) - Guidance on Policy, Procedures and Industry Responsibilities. For all 
+recall guidance for industry see Industry Guidance For Recalls.
+
+=== Page 5 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+7 
+ 
+7.1.6.1 – What is a Voluntary Recall? 
+A voluntary recall is an effective method for removing or correcting marketed products, their 
+labeling, and/or promotional literature that violate the laws administered by the FDA. FDA-regulated 
+firms may initiate a recall at any time to fulfill their responsibility to protect the public health from 
+products that present a risk of injury or gross deception or are otherwise defective. 
+7.1.6.2 – What are FDA-Requested, -Mandated, and -Ordered Recalls? 
+FDA-requested recalls are ordinarily reserved for urgent situations where mandatory recall authority 
+does not exist or is not appropriate. FDA recall requests are directed to the firm that has primary 
+responsibility for the manufacture or marketing of the product when the firm does not undertake a 
+product recall on its own initiative. FDA-requested recalls are most often classified as Class I. The 
+Associate Commissioner for Inspections and Investigations (ACCI) approves all FDA requests for 
+firms to conduct recalls. (For more on this, refer to the Regulatory Procedures Manual (RPM) 
+Chapter 7-5-2, FDA Requested Recall.)  
+Various sections of the laws that the FDA enforces authorize the agency to order a firm to recall a 
+product or mandate recall requirements. The FDA can order recalls for adulterated foods, devices, 
+tobacco products, and controlled substances. There are also recall order authorities for biological 
+products and human cells, tissues, and cellular and tissue-based products (HCT/Ps). Additionally, 
+recalls may be ordered by a consent decree. The FDA can also mandate specific recall requirements 
+for certain infant formulas and radiation-emitting electronic products. (For more on this, refer to 
+RPM Chapter 7-5-3, FDA Mandated and Ordered Recalls.) 
+7.1.6.3 – What is a Medical Device Notification Order? 
+Section 518(a) of the FD&C Act [21 U.S.C. 360h(a)] authorizes the FDA to issue a medical device 
+notification order if a device intended for human use was introduced to or delivered for introduction 
+into interstate commerce for commercial distribution and presents an unreasonable risk of 
+substantial harm to the public health, and notification is necessary to eliminate the unreasonable 
+risk of such harm and no more practicable means is available under the provisions of the act. A 
+medical device notification order is issued by the agency to a medical device manufacturer, 
+distributor, or other responsible individual requiring the establishment to notify all healthcare 
+providers who prescribe or use the device and any other persons who should properly receive such 
+notification to eliminate the unreasonable risk. 
+Medical device notifications ordered under section 518(a) are handled by the same divisions as 
+medical device recalls. They go through the same process as voluntary recalls, including the 
+assignment of recall audit checks when necessary.  
+7.1.6.4 - What is Notification, Non-Distribution and Recall of Controlled 
+Substances for Human or Animal Use Order? 
+Section 569D of the Act [21 U.S.C. 360bbb-8d], as amended by section 3012 of the Substance Use-
+Disorder Prevention That Promotes Opioid Recovery and Treatment for Patients and Communities 
+Act (SUPPORT ACT), authorizes the FDA to issue a controlled substance notification order when 
+there is a reasonable probability that a controlled substance would cause serious adverse health 
+consequences or death. The order requires manufacturers, importers, distributors, and/or 
+pharmacists, who distribute such controlled substance to immediately cease distribution and
+
+=== Page 6 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+8 
+ 
+conduct a mandatory recall of such controlled substances. The FDA may issue this order after 
+providing the appropriate person with an opportunity to consult with the agency. 
+(For more see RPM sections 7-5-3 FDA Mandated Controlled and Ordered Recalls and Attachment 
+K.) 
+7.1.7 – What are the different recall identifiers?  
+The Recall Enterprise System (RES) Event ID (also known as the RES Number) is a numeric identifier 
+generated for each recall record entered in the RES. RES is the electronic data system used by FDA recall 
+personnel to submit, update, classify, and terminate recalls. This recall event record details information 
+for all the products included in the recall throughout the process and is the source of the reference 
+number publicized in the Enforcement Report when a recall is classified. 
+A Recall Number, which is different from a RES Number and appears on the Form 3177, is assigned by 
+the responsible center, for each recalled product it classifies. This number is comprised of a letter 
+designating the responsible center (see letter codes below), followed by a 3- or 4-digit sequential 
+number indicating the number of products classified by that center during the fiscal year, then a 4-digit 
+number indicating the fiscal year in which the product was classified. For example: F-100-2024 identifies 
+the 100th product classified by the Human Food Program (HFP)in FY-2024.  
+Letter Center/Office 
+F 
+C 
+Foods  – HFP  
+Cosmetics – OCS 
+D Drugs – (CDER) 
+Z Medical Devices & Radiological Health – (CDRH) 
+V Veterinary Medicine and Animal Food/Feed – (CVM) 
+B Biologics – (CBER) 
+N Medical Devices (Voluntary Safety Alerts and Notifications) 
+T Tobacco Products – (CTP) 
+7.2 – Responsibilities during Recalls 
+A detailed list of the recall process, including responsibilities of involved parties, can be found in RPM 
+Chapter 7.  
+7.2.1 – Recalling Firm Responsibilities 
+A manufacturer or distributor may voluntarily initiate a recall at any time. Any firm pursuing a recall, 
+because it believes the product to be violative, is requested to immediately notify the appropriate DRC. 
+The FDA will then review the removal or correction and determine if the firm’s action adequately meets 
+the definition of a recall. In such cases, the firm will be asked, at a minimum, to provide the DRC with 
+the information outlined in RPM Attachment B-- OR the Device Correction Removal Report for Industry 
+(806 reporting form), if the recall pertains to devices.   
+7.2.2 – Division Recall Coordinator (DRC) Responsibilities 
+The DRC or designee is responsible for sending a recall alert through RES to the appropriate Center 
+Recall Unit (CRU) and Office of Field Regulatory Operations, Division of Field Enforcement, Field Recall
+
+=== Page 7 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+9 
+ 
+Effectiveness Branch (OII/OFOR/OFRO/DFE/FREB) within one working day of receiving the necessary 
+information.  (See RPM Chapter 7-10, Attachment A for a list of information for the recall alert.) 
+The DRC or designee is also responsible for submitting a recommendation for recall classification, also 
+through RES, within five working days after the recalling firm has provided all information needed (10 
+days if the recall has already been completed). (See RPM Chapter 7-10, Attachment B for the list of 
+information needed by the firm for the recall recommendation.) 
+The DRC may also provide recall guidance to the recall firm. This includes reviewing and suggesting 
+changes to the firm’s recall strategy, recall communications including public warning (e.g. press releases 
+and corrective actions). 
+Each division has at least one DRC who enters and monitors recalls. You can find a list of DRCs and their 
+contact information at OII Recall Coordinators  
+7.2.3 – Center Responsibilities 
+Each center also has a recall unit that is responsible for assisting with reviewing recall classifications and 
+strategies and making recommendations for changes to those as needed. The relevant center’s recall 
+unit will review the division’s recall recommendation for classification to ensure it meets the criteria of a 
+recall (and not some other regulatory action, for instance, like a market withdrawal). It will then adjust 
+the classification if needed and issue the final classification. Once this classification is complete, the 
+recall is posted publicly on FDA’s Enforcement Report.  
+7.2.4 – Consumer Safety Officer (CSO) Responsibilities 
+There are many instances in which you may encounter potential or nonreported completed recalls:  
+• While inspecting a company  
+• While conducting a recall audit check  
+• While conducting a recall follow-up inspection, in which you must determine the adequacy of 
+the firm’s recall scope and product disposition, and ensure that its Corrective and Preventive 
+Action (CAPA) is effective in preventing problems from recurring)  
+Other CSO responsibilities associated with recalls include, assisting the DRC with obtaining recall 
+information as needed, assessing downstream accounts to determine if they received recall notification 
+and have followed recall instructions, and providing DRC contact information to firms that initiate 
+voluntary recalls because of an inspection. (See IOM 7.3.)  
+Finally, if a firm or individual ever asks for guidance related to recalls, you can direct them to your DRC 
+and to FDA Industry Guidance For Recalls. 
+7.3 – Recalls and Inspections 
+As mentioned above, there are different scenarios where recalls and inspections can and will intersect. 
+As a CSO, you may encounter potential recall situations because of observations made during an 
+inspection or encounter completed recalls that have been initiated prior to an inspection. You may also 
+need to conduct inspections because of a recall. (For more information as it relates to specific 
+commodities, see IOM 7.3.6).
+
+=== Page 8 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+10 
+ 
+7.3.1 - Encountering Completed Recalls that FDA Was Not Notified About 
+(“Silent Recalls”) 
+All recalls monitored by the FDA are listed in the OII Online Search and Retrieval system (OSAR). If you 
+are conducting an inspection and learn that a recall has occurred, check OSAR first to see if the recall is 
+listed there. If the recall is not listed in OSAR, obtain RPM Attachment B information from the firm to 
+provide to your DRC, including all the following: 
+• Complete copies of recall communications including scripts of phone conversations with 
+consignees 
+• Complete distribution list of all shipments of the recalled lot(s), including any foreign 
+distribution 
+• Labels and labeling associated with the recalled product(s) 
+Take any other steps necessary in your judgment, or that your division requires.  
+Share this information immediately, while still on-site at the firm, if possible. Do not wait until the 
+submission of the EIR to notify the DRC that a recall has taken place. Evaluate the firm’s recall 
+procedures to ensure they include notification to the FDA and provide firm representatives with your 
+DRC’s contact information. Also review the firm’s corrective actions as they relate to the cause of the 
+recall, as well as the firm’s efforts to prevent reoccurrence of the issue. (For commodity-specific 
+information please see IOM 7.3.6.)   
+7.3.1.1 Encountering Unreported Market Withdrawals, Stock Recoveries, and 
+Medical Device Safety Alerts 
+If, during an inspection, you identify that a market withdrawal has occurred and that the agency was 
+not previously notified, you should collect Attachment B information and notify the DRC. The DRC 
+can consult with the appropriate center recall unit to ensure that the firm’s action is designated as a 
+market withdrawal.   
+If, during an inspection, you identify that a stock recovery has occurred, you should document the 
+reason for the stock recovery in the EIR and investigate if corrective actions are adequate to prevent 
+reoccurrence. 
+You should also notify your DRC of any safety alerts you encounter prior to closing an inspection, as 
+these should be entered in RES and processed accordingly.  
+7.3.2 - Observations Made During an Inspection Could Result in a Recall 
+Due to the potential public health impact of recalls, it is imperative that when a recall is initiated during 
+an inspection you submit any information you’ve obtained to your DRC as soon as possible. Do not wait 
+to write, type, and submit the EIR or memorandum before sharing documents with the DRC.  
+If a firm decides to initiate a recall during an inspection or investigation, you should prioritize the firm’s 
+initiation of a recall and removal of potentially contaminated product. This includes coordinating with 
+your DRC and Supervisor to complete all the following tasks:  
+• Provide firm management with your DRC’s contact information and request that they obtain 
+their FDA Division's review of recall correspondence and any press releases before they are 
+issued to ensure consistent messaging between the firm, its customers, and the FDA. For an  
+updated list of these contacts, see FDA’s DRCs.
+
+=== Page 9 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+11 
+ 
+• If the firm requests it, provide guidance in preparing recall communications and obtain 
+complete copies including the content (scripts) of phone conversations to submit to your DRC. 
+(See Chapter 7 of the RPM, Industry Guidance for Recalls, and IOM Exhibit 7-1 for an example of 
+recall communications.)  
+• Obtain a complete distribution list of all shipments of the lot(s) involved, including foreign 
+distribution.  
+• Obtain copies of all labels and labeling associated with the recalled product(s).  
+• Obtain any documentation of what led to the recall.  
+• Advise the firm on how the returned products should be handled. Sometimes the FDA will 
+witness or otherwise verify the reconditioning or destruction of the products returned under the 
+recall. 
+• Obtain an Official Sample of the recalled product when directed.  
+• Obtain as much information as detailed in the RPM Chapter 7, Attachment B as time allows.  
+• Take any other steps necessary in your judgment, or that your division requires. 
+(For commodity-specific information, see IOM 7.3.6.)  
+7.3.3 – Inspections to Monitor a Recall’s Progress 
+It may be necessary to inspect the firm between the recall initiation and the termination of a recall for 
+several reasons, including: to monitor the recall’s progress, verify product disposition, and/or conduct a 
+reconciliation of the distribution records for the recall. An inspection may also be assigned by your 
+division if the DRC requires assistance collecting necessary information from a firm, and if the recall is 
+potentially Class I or significant Class II. These visits are considered limited inspections done on an as-
+needed basis. Typically, you’ll be asked to issue an FDA-482 Notice of Inspection and collect the needed 
+information. You will also want to remind the recalling firm to submit periodic status reports to the FDA. 
+(For more, see 21 CFR 7.53. For commodity-specific information see IOM 7.3.6.)  
+7.3.4 – Root Cause Inspections  
+If the FDA learns of a potentially violative product that may cause, or has caused, a Class I or a significant 
+Class II recall, an inspection may be assigned to determine the root cause or causes of the problem(s). 
+Any deficiencies in the firm’s corrective and preventive actions should be documented as violations 
+subject to possible regulatory action.  
+An important objective of the inspection is to identify the root cause for the recall and ensure that the 
+firm has implemented effective corrective actions to eliminate its recurrence. In some cases, firm 
+management will have conducted its own analysis and reached conclusions about the problem and its 
+root cause. It is important for you to verify that the firm’s conclusions and judgments, about the root 
+cause of the problem that led to the recall, are discriminating enough to 1. identify the true cause(s) and 
+2. validate the sufficiency of the corrective steps taken, in terms of both depth and scope. Accurately 
+identifying the true root cause is essential to the firm’s ability to implement an effective corrective 
+action.  
+You’ll also want to determine if the firm conducted a failure analysis in determining the root cause using 
+quality tools such as: cause-and-effect diagrams (fishbone and Ishikawa diagrams), fault tree analysis 
+(FTA), or failure mode and effects analysis (FMEA).  
+(See the agency’s final guidance to industry on using these quality risk management tools in the : The 
+International Council for Harmonization (ICH) Q9(R1) Quality Risk Management document (May 2023).)
+
+=== Page 10 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+12 
+ 
+You should also inquire to see if the firm considered the following variables in its analysis:  
+• The length of time since the product had been manufactured and sold  
+• Any complaints or returns relating to the same or similar problems  
+• Any reworking of the product prior to release or distribution that may have been due to the 
+same or similar problems  
+• Any process or personnel changes which occurred about the time the problem appeared  
+In addition to verifying the identification of the root cause, you should be sure to complete the 
+following:  
+• Issue a Notice of Inspection (FDA 482).  
+• Discuss the suspected problem with the firm’s management and review the firm's complaint file.  
+• Investigate all areas, control points, and/or circumstances that may have contributed to the 
+product's deficiency.  
+• Fully develop individual responsibility for the problem.  
+• Review batch records, processing logs, and/or other types of records for violative lots and 
+associated lots.  
+• Review and obtain copies of the firm's quality control/analytical data. 
+• Determine any actions the firm has taken, is taking, or has planned to take to prevent similar 
+occurrences. Evaluate the adequacy of the correction. If any issues are identified, consult your 
+supervisor and the DRC. If corrective action is not underway, determine the firm's timetable for 
+achieving correction. 
+You should also determine if the recalling firm did the following (as applicable): 
+• If the recalled product is a drug product with an existing drug application the firm must file a 
+field alert with the Agency. The FAR regulations found in 21 CFR 314.81(b)(1) establish an early 
+warning system to help the FDA fulfill its responsibility to protect patient health. 
+• If the recalled product is a drug or biologic product subject to MedWatch reporting, check that 
+the firm reported the adverse event to the agency. The FD&C Act (21 U.S.C. 353b, 355, 360i, 
+360l, and 393) and the Public Health Service Act (42 U.S.C. 262) constitute the statutory 
+authorities for the FDA to collect mandatory adverse event reports from regulated industry on 
+medical products once approved for marketing to monitor the safety of drugs, biologics, medical 
+devices, and dietary supplements. 
+• If the recalled product is a biologic product subject to biologic deviation reporting requirements, 
+check that the firm filed the deviation report. Under 21 CFR 600.14, firms are required to report 
+certain events associated with the manufacturing (to include testing, processing, packing, 
+labeling, or storage) and with the holding or distribution of a licensed biological product, which 
+may affect the safety, purity, or potency of a distributed licensed product. 
+• If the recalled product is a medical device subject to Medical Device Reporting (MDR), check 
+that the firm filed an MDR. The MDR regulation (21 CFR Part 803) contains mandatory 
+requirements for manufacturers, importers, and device-user facilities to report certain device-
+related adverse events and product problems to the FDA. 
+• If the recalled product is considered a low acid canned food (LACF) product with a filed process, 
+check that the LACF processor(s) notifies the FDA of instances of spoilage, process deviation, or 
+possible contamination with microorganisms, the nature of which indicates potential health
+
+=== Page 11 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+13 
+ 
+significance when any lot of such food, in whole or in part, has entered distribution in interstate 
+commerce. 
+(For more commodity-specific information see IOM 7.3.6.)  
+7.3.5 – Sample Collection 
+Collection of samples during recall-related activities is at the discretion of division management. 
+Consult your supervisor and/or center compliance office for guidance. If a sample is indicated for 
+electronic products or medical devices, only collect documentary samples, unless otherwise 
+instructed. Use the same procedures listed in IOM Chapter 4 for recall-related samples, unless your 
+assignment indicates differently. 
+7.3.6 – Commodity Specific Recall Information 
+7.3.6.1 – Human and Animal Foods 
+7.3.6.1.1 - Potential New Food Product Recalls 
+For potential new food recalls, the following are areas you may want to cover: 
+• Incoming ingredient quality control procedures 
+• Quality control over ingredients at the time of use, and the products in which the 
+ingredients are used 
+• Methods used in preparation and packaging of the processed product 
+• Treatment or kill-step applied during processing, including time, temperature, pH, and 
+validation information 
+• Percentage of recalled product used in final product formula 
+• How the finished product was stored and shipped 
+• Labeling of product, and any cooking instructions for consumer or purchaser 
+• Quality control testing of the finished product (For this, detail any test(s) performed by 
+the firm) 
+• For products produced in USDA plants, determine if the USDA was notified of the 
+suspect incoming ingredient. Also determine if USDA found out what testing was done 
+by the firm. 
+7.3.6.1.2 – State Monitored Recalls 
+The FDA does not ordinarily monitor recalls on products that were distributed within the state. 
+However, if the FDA determines that the recall actions cannot be accomplished by the state(s), 
+the FDA will monitor the recall, including issuing public warnings when indicated, and 
+conducting recall audit checks.  
+The FDA is not ordinarily involved in classifying and auditing Interstate Milk Shippers (IMS) and 
+Interstate Shellfish Shippers (ISS) product recalls where such actions have been, or are being, 
+handled expeditiously and appropriately by the state(s). However, the FDA division office in 
+which the recalling firm is located must be assured that all states involved in an IMS or ISS plant 
+recall are participating in ensuring the removal of the product from commerce and that, when 
+appropriate, warnings to protect the public health are issued by the state(s). (For more see RPM 
+7-5-1.)
+
+=== Page 12 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+14 
+ 
+7.3.6.1.3 – Infant Formula 
+If the recalled product is an infant formula product, determine if the firm voluntarily reported 
+any “positive” infant formula results. On March 8, 2023, the FDA issued a letter to the infant 
+formula industry requesting that firms voluntarily notify the agency when a product sample is 
+found positive for a pathogen, even if the affected product(s) have not been released in 
+commerce. 
+7.3.6.2 – Medical Devices 
+7.3.6.2.1 – Medical Device Recalls 
+Medical device recalls may result from manufacturing defects, labeling deficiencies, failure to 
+meet premarketing requirements [PMA, 510(k)], packaging defects, and/or other 
+nonconformance problems. How firms identify the causes of medical device recalls and 
+corrective action activities is essential to the analysis of medical device failures and the 
+determination of the effectiveness of the medical device GMP program. These findings are also 
+useful in evaluating the medical device program, and for directing attention to problem areas 
+during inspections.  
+21 CFR Part 806.1 requires device manufacturers and importers to report certain actions 
+concerning device corrections and removals. Manufacturers and importers must also maintain 
+records of all corrections and removals regardless of whether such corrections and removals are 
+required to be reported to the FDA (See 21 CFR Part 806.20). Failure to report as required by 21 
+CFR 806.10 and failure to maintain records as required by 21 CFR 806.20 are violations and 
+should be listed on the FDA 483, Inspectional Observations. You should collect documentation 
+that will enable CDRH to evaluate the firm’s compliance with 21 CFR Part 806.  
+7.3.6.2.2 – Medical Device Recall Reporting (806) 
+Consider these questions as you collect the documentation, mentioned above, to enable the 
+center to evaluate the firm’s 806 compliance. 
+• What quality management system (QMS) procedures should have been established to 
+prevent the problem? 
+• If the device label or instructions for use were inaccurate, was the inaccuracy introduced 
+in the design stage, or was it due to a printing problem? 
+• If the device has been on the market for a year or more, and the manufacturer claims 
+the problem is the result of design then: 
+o Why was the problem not detected earlier? How many reports concerning the 
+problem did the firm receive before deciding a recall was necessary? 
+o Does the firm have a procedure established for determining if a recall is 
+necessary, and if so, did it follow the procedure? (Obtain a copy of the 
+procedure, if applicable.) 
+If the firm doesn't provide rational answers to the above questions, determine if they have 
+explored other possible causes for the problem by asking them the following questions: 
+• Was the design feature that caused the problem included in the design of the device 
+that was the subject of a premarket submission?
+
+=== Page 13 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+15 
+ 
+• If the design feature that caused the problem is part of the original design, did the 
+manufacturer recall all products manufactured since the device was introduced to the 
+market? If not, why not? 
+• If the problem was introduced via a design and development change, did the 
+manufacturer follow established procedures to control design and development 
+changes? If yes, are the procedures adequate? Was the nature of the problem such that 
+it should have been anticipated, and the design verification/ validation study fashioned 
+to detect the problem? 
+• Has the manufacturer recalled all products distributed since the design and 
+development change was introduced? If not, why not? 
+7.3.6.2.3 - Corrective Action 
+The following questions can assist you in describing the corrective action (for instance, a 
+redesign, modified SOP, process validation, or other action) taken by the firm to correct the 
+immediate problem. 
+• Did the firm qualify/validate the corrective action? 
+• Did the firm establish responsibility to ensure that the corrective action would be 
+implemented and satisfactorily completed? 
+• What action did the firm take to prevent recurrence of the nonconformance, for 
+instance, new training, increased process monitoring, etc.? 
+• Was the nonconformance information provided to those directly responsible for the 
+areas in which the nonconformance occurred? 
+• Did the firm determine if the nonconformance extended to other devices? 
+• Did the firm determine if changes were needed in procedures and, if so, did it validate 
+and implement the changes? 
+• Has the manufacturer taken appropriate corrective action? 
+7.3.6.2.4 - Complaint and Medical Device Reporting (MDR) Reporting 
+With regards to any complaints and MDR, you should determine if adequate complaint 
+investigations were performed as required. You should also determine if the investigation 
+verified the complaint was a failure of the device, labeling, or packaging to meet any of its 
+specifications. 
+For complaints related to a recall, the firm should have made a determination whether the 
+events are MDR reportable. Any event associated with a death or serious injury must be 
+reported under MDR. Malfunctions likely to cause or contribute to a death or a serious injury 
+are also reportable under MDR. Document the firm's explanations for the events they believe 
+are nonreportable. Failure to submit required MDR reports are violations and so should be listed 
+on the FDA-483 at the completion of the inspection. 
+Provide adequate documentation within the EIR to cross-reference complaints with associated 
+MDRs. 
+Device Information - Obtain the 510(k) or PMA number for each device under recall as well as 
+UDI information. If there is no 510(k) or PMA, determine if the device is a pre-enactment device 
+(i.e., in commercial distribution prior to May 26, 1976). If multiple devices are being recalled, 
+obtain this information for each device model or catalog number under recall.
+
+=== Page 14 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+16 
+ 
+7.3.6.3 – Human and Animal Drugs 
+7.3.6.3.1 - Recalls of Human Drug Products 
+If the recalled product is covered by a New Drug Application (NDA) or Abbreviated New Drug 
+Application (ANDA), determine if the defective product involves the type of problems shown 
+under CFR 314.81(b)(1)(i) and (ii). Also note whether the firm reported the problem to the FDA 
+Division office responsible for the firm within three working days of its receipt of the 
+information, as required by that section. 
+7.3.6.3.2 - Recalls of Veterinary Drug Products 
+Veterinary Drug Products recalls are classified by, and health hazard evaluations are obtained 
+through, CVM's Division of Drug Compliance. To inquire about specific veterinary drug product 
+recalls or to obtain information on how to proceed, email CVM Recalls at 
+CVMRecalls@fda.hhs.gov .  
+7.3.6.4 – Human Cells, Tissues, and Cellular and Tissue Based Products (HCT/Ps) 
+For Implantation, Trans-plantation, Infusion, or Transfer 
+The FDA may consider an order of retention, recall, destruction, or cessation of manufacturing with 
+regards to HCT/Ps when any of the conditions specified in 21 CFR 1271.440(a)(1) to (3) exist. The 
+conditions include an agency finding that: 
+• The HCT/P is infected or contaminated such that it is a source of dangerous infection to 
+humans; or 
+• An establishment is in violation of the regulations in this part and, therefore, does not 
+provide adequate protections against the risks of communicable disease transmission. 
+If the FDA determines there are reasonable grounds to believe there is a danger to health, the 
+agency may issue an order of cessation of manufacturing until compliance with the regulations has 
+been achieved, as stated in 21 CFR 1271.440(a)(3).  An order to cease manufacturing is issued in 
+instances where violations create an urgent situation involving a communicable disease, because an 
+establishment is in violation of the regulations in 21 CFR 1271 and, therefore, does not provide 
+adequate protections against the risks of communicable disease transmission. An order to cease 
+manufacturing is a remedial action taken to put important protections in place to prevent 
+communicable disease transmission. 
+NOTE: FDA will not issue an order for the destruction of reproductive HCT/Ps, nor will FDA carry out 
+such destruction itself (21 CFR 1271.440(f)). 
+7.3.6.5 – Tobacco Product Recalls  
+When you become aware of, or obtain information about, a possible tobacco product recall, contact 
+the Center for Tobacco, Office of Compliance and Enforcement, Division of Enforcement and 
+Manufacturing. (See CTP's intranet site for contact information.)   
+7.3.6.6 – Special Recall Situations 
+There are several special recall situations in which you will need to deviate from the normal recall 
+procedures and seek your supervisor's or DRC's guidance. These scenarios include encounters with 
+the following: 
+• Recalled products in the possession of U.S. defense installations
+
+=== Page 15 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+17 
+ 
+• NDA and ANDA withdrawals 
+• National Academy of Science (NAS)/Nuclear Regulatory Commission (NRC) (DESI) recalls of 
+drugs judged ineffective 
+• Recalls involving jurisdiction of more than one federal agency (for instance, FDA/EPA, 
+FDA/Consumer Product Safety Commission (CPSC), etc.) 
+7.4 – FDA’s Recall Monitoring Activities  
+The FDA monitors recalls by reviewing a firm’s recall documentation (for instance, status reports 
+showing consignee responses and product disposition). It also conducts its own verification of recalls 
+using audit checks.  
+7.4.1 – FDA Recall Audit Checks 
+7.4.1.1 – What is a recall audit check? 
+A recall audit check (RAC) is an in-person visit, telephone call, email, or a combination thereof, to an 
+account of a recalling firm (see below for definition), or a user or consumer in the chain of 
+distribution. It is conducted to verify that consignees (see below for definition), at the recall depth 
+as specified by the strategy, have received notification about the recall and have taken appropriate 
+action. 
+NOTE: RACs are not conducted at DOD and VA facilities, as the FDA has a separate process with 
+these agencies for recalls. 
+7.4.1.2 – Preparing to Conduct a RAC 
+DRCs create RAC assignments and disperse them to the divisions using the recalling firm’s 
+distribution list for the recalled product(s). You should plan to review the RAC assignment before 
+conducting the RAC, including securing and being aware of the following details: recalling firm 
+information, recalled product names and coding, the reason for recall, how many RACs to conduct 
+and how (visit, phone, email), the recall strategy, and any additional information that may need to 
+be collected. Assignment should also have attachments, including copies of recall notifications, press 
+releases (if issued), product labeling, the distribution list, and any other items helpful in conducting 
+the RAC.  
+7.4.1.2.1 – What is the difference between a Consignee and an Account? 
+A consignee is anyone who received, purchased, or used the product being recalled. The 
+account is the location where the audit check is being done. If the audit check verifies the 
+account received the recalled product, they are confirmed as being a consignee.  
+7.4.1.2.2 – Why is the recall’s strategy important? 
+The recall strategy tells you how the recalling firm notified their consignees. If the account 
+cannot remember if they received notification of the recall, it may help you narrow down the 
+date the email was sent, that the notice would have come in through the mail, etc. The recall 
+strategy also includes the depth of the recall the firm is aiming to reach. 
+7.4.1.2.3 – Why do I need to know the recall depth? 
+You must conduct RACs until you reach the depth listed in the RAC assignment (e.g. wholesale, 
+retail, consumer/user). If the consignee you are auditing has further distributed product, you 
+must ensure they have notified their own consignees and conduct RACs at those sub-accounts
+
+=== Page 16 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+18 
+ 
+until you reach the appropriate recall depth (For example, if your assignment indicates the recall 
+depth is at the retail level, and you are auditing a wholesaler, the wholesaler should conduct a 
+sub-recall to reach the retail level). This evaluates the effectiveness of the recall to the depth 
+prescribed. 
+7.4.1.3 - Conducting a Recall Audit Check 
+Plan to conduct the audit check by the due date provided in the assignment. You will need to fulfill 
+the following: determine if the account received the recalled product, verify the account received 
+the recall notification, verify they followed the instructions in the recall notification, and that the 
+recall has been carried out to the appropriate depth listed in the assignment.  
+7.4.1.3.1 - Contacting the Account 
+When conducting a recall audit check, attempt to contact an individual at the account who has 
+knowledge of the receipt of recall notifications and the disposition of recalled products. In 
+hospitals, this responsibility may be held within the following departments: Biomedical 
+Engineering and Supply Chain (for devices); Pharmacy Managers (for drugs); and/or Risk 
+Management or Safety departments.  
+In the case of an audit check at the consumer level, attempt to verify that you are speaking with 
+the individual who was indicated as having received the product before you disclose the name 
+of the recalled product and verify, they received notification of the recall. Do not conduct recall 
+audit checks by visits to consumer homes unless specifically directed in your assignment.  
+If the assignment is for email audit checks, please use the email audit check template provided 
+in the assignment.  
+If you encounter a refusal to permit entry or provide information during a recall audit check, 
+document the name and title of the individual who refused, and the reason why they refused 
+the audit check. Contact your supervisor for additional instruction. 
+7.4.1.3.2 - How Did the Account Use the Recalled Product? 
+Make note of the type of account you are contacting and if they received the recalled product. If 
+they received the recalled product, the following information should be reviewed: 
+• If the consignee repackaged/relabeled recalled product or used it to manufacture a new 
+product, collect all relevant information and notify your DRC. A new recall may be 
+necessary, and your DRC may request additional information to make this 
+determination (for example, if the consignee re-labels the product so the labeling issue 
+is no longer a concern, or if the consignee heat-treats the product adequately to 
+eliminate the hazard causing the original recall). 
+• If the consignee further distributed the recalled product without any manipulation, they 
+should conduct a sub-recall. In this case, collect the consignee’s distribution lists, the 
+sub-recall notification, and other information you find pertinent about their sub-recall. 
+You will conduct additional RACs at the sub-accounts as necessary to the depth 
+indicated in the assignment. Sub-recall audit checks may be conducted by telephone for 
+accounts located in other divisions, in lieu of creating a separate recall audit check 
+assignment.
+
+=== Page 17 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+19 
+ 
+• If the consignee has not initiated a sub-recall, inquire with the consignee about their 
+willingness to continue the recall to the depth specified in the recall strategy and gather 
+as much distribution information as possible. 
+• If the consignee did not alter or further distribute the product, no sub-recall or new 
+recall is needed.  
+USDA potential involvement: If the consignee used the FDA-regulated product to manufacture 
+a USDA-regulated product, distributed product to a USDA facility, or the product was used in or 
+procured for one of the USDA nutrition programs (for instance, National School Lunch Program), 
+complete the recall audit check. Provide the information to your DRC, who will forward it to 
+Office of Field Regulatory Operations, Division of Field Enforcement, Field Recall Effectiveness 
+Branch (OII/OFOR/OFRO/DFE/FREB) who will share it with the USDA.  
+DOD: If during your audit check you find that the consignee is a DOD supplier and/or used the 
+FDA-regulated product to manufacture DOD products, complete the recall audit check. Provide 
+the information to the FDA Liaison to DOD as per IOM section 9.2.4 – DEPARTMENT OF DEFENSE 
+(DOD), 3.2.3.6.1 – DOD/FDA Liaisons; the FDA Liaison will forward it to the DoD Liaison and 
+appropriate OII/OFOR/OFRO/DFE/FREB contact.  
+If the consignee is unsure if he or she handled the recalled product, they should follow the recall 
+instructions and conduct a sub-recall.  
+7.4.1.3.3 – Recall Notification  
+Determine if the account received the recall notification from the recalling firm or a 
+downstream consignee (such as a distributor). Notifications sometimes come in through other 
+means, too (for example, an automated notification system sent to hospitals). These other 
+means are not considered to be an official notification of the recall, as the recalling firm, or a 
+downstream account, did not directly contact the consignee. 
+If the account did not have any knowledge of the recall prior to your recall audit check, inform 
+them of the recall, provide them with a copy of the recall notification letter and press release (if 
+available), encourage them to follow the recall instructions, and document that you did so. Do 
+not give the account a copy of your recall assignment or other internal documents such as the 
+RES details page. 
+7.4.1.3.5 – Consignee Action and Recalled Product Status 
+Determine if the consignee followed the recall instructions.  
+If your audit check discloses the account did not follow the recall instructions (for example, 
+recalled product being held for sale, or a requested sub-recall has not been initiated), encourage 
+the account to follow the recalling firm’s instructions. If the account chooses not to follow the 
+recall instructions, document the title/responsibility of the individual at the account who chose 
+not to follow the recall instructions and reason. 
+When you conduct an audit check by visit, it is important to examine the storage sites where the 
+recalled product is stored and check the shelf stock to ensure all recalled product has been 
+identified, removed from areas of use, and properly quarantined or destroyed/corrected. *This 
+is especially important in Class I recalls. 
+For some recalls, the strategy may be a correction instead of a removal. Recall audit check 
+assignments for field corrections may instruct you to verify that either the field correction has
+
+=== Page 18 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   CHAPTER 7  
+20 
+ 
+been completed, or to assess whether the recalling firm issued the initial instructions to 
+discontinue and/or modify the use of the product, and that the account followed those 
+instructions. If the consignee was subject to a Field Service Engineer's update/correction to a 
+device, obtain a copy of that service order to attach to your RAC. Additionally, if a consignee's 
+in-house biomedical engineers were instructed to correct devices, obtain their response form, 
+when available, to demonstrate that recall actions were followed. Detail the status of the 
+correction in the remarks section of your form FDA 3177.  
+7.4.1.3.4 – Injuries/Complaints 
+Determine if the consignee has received any reports of injury, illness, or complaints. If the 
+consignee reports potential complaints for the product under recall, direct them to Report a 
+Problem with the FDA.  If the consignee reports potential complaints for products outside the 
+recall (another lot code, or another product), direct them to report to the FDA. Then, collect any 
+relevant information, document your findings, and route per division procedures.  
+7.4.1.4 - Audit Check Reporting 
+The results of your audit check should be reported on a form FDA 3177, "Recall Audit Check Report" 
+form completed electronically within the Regulatory Operations Management System (ROMS). 
+ROMS allows you to enter the amount of time spent conducting your audit check directly within the 
+system. When you complete a recall audit check, you should report your accomplishment hours 
+within the “report and recommendations” tab using the applicable PAC code. 
+Identified exhibits should be submitted with your FDA 3177. Identify each file with the following 
+information: 
+• RES Event ID (as listed in your assignment) 
+• Direct account name or sub-account name, whichever is applicable 
+• Exhibit description (or the. distribution list) 
+• Abbreviation of Division Conducting the Check  
+Note: Urgent recall audit check assignments may request periodic audit check status updates to the 
+monitoring division. In these cases, work with your supervisor to ensure you are submitting the 
+necessary information at the appropriate frequencies. 
+7.4.1.5 - Endorsing the Recall Audit Check 
+Recall audit checks should be endorsed by the supervisor based on the information collected during 
+the audit check. The ROMS system automatically determines the appropriate endorsement based 
+on the assignee’s responses in the FDA 3177.  
+The audit check should be endorsed based on conditions found when the audit check was 
+conducted and not based on the account’s actions to correct ineffectiveness.  
+7.4.2 - Non-FDA Recall Audit Checks 
+There are instances where RACs are conducted by entities outside the FDA. For example, state 
+investigators may conduct RACs as part of their duties or on behalf of FDA. Private firms may also 
+conduct RACs as a recalling firm’s verification of their recall’s effectiveness.  
+FDA also has a contract with a third party to conduct recall audit checks on behalf of the FDA. 
+Contractors are instructed to provide their identification to the accounts with an FDA Authorization
+
+=== Page 19 ===
+CHAPTER 7  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+21 
+ 
+Letter. Any questions you or a firm may have regarding the third-party contract should be directed to 
+OII/OFOR/OFRO/DFE/FREB at oiirecalls@fda.hhs.gov.  
+7.5 - Recall Completion and Termination  
+7.5.1 - Recall Completed  
+For monitoring purposes, the FDA classifies a recall action "Completed" when all outstanding product, 
+which could reasonably be expected is recovered, impounded, or corrected. 
+7.5.2 – Recall Terminated 
+A recall will be terminated when the FDA determines that all reasonable efforts have been made to 
+remove or correct the violative product in accordance with the recall strategy, and when it is reasonable 
+to assume that the product subject to the recall has been removed and proper disposition or correction 
+has been made commensurate with the degree of hazard of the recalled product. Written notification 
+that a recall is terminated will be issued by the appropriate Division office to the recalling firm. 
+The division should advise recalling firms that FDA will not terminate a recall until the firm has brought 
+the product into compliance or disposed of it in an acceptable manner. DRC’s will request and review 
+product disposition records, which demonstrate the firm’s actions to destroy, rework, or otherwise bring 
+recalled product into compliance.  
+7.5.3 - Inspections to Witness Product Disposition 
+Some recalls may require a limited inspection at the recalling firm to verify the recall has been 
+completed and to observe and document product disposition. A memorandum or limited EIR should be 
+prepared. See RPM Chapter 7, Attachments B1, “Recommendation for Recall Classification and 
+Termination” and Attachment C, “Recall Termination or Recommendation for Termination”.  
+During the inspection, you should witness destruction or reconditioning of the recalled product, when 
+possible. If unable to do so, obtain written documentation from the firm and/or any state or local 
+government agencies that may have witnessed or otherwise verified product disposition. Firms should 
+be instructed to follow state and federal (Environmental Protection Agency) regulations for the 
+destruction.  
+Prior to witnessing a voluntary destruction, obtain a statement on the firm's letterhead, or on an FDA 
+463a Affidavit, provide the information included in 3.9.3.1 - Documenting Voluntary Destruction.
+
+=== Page 20 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   EXHIBIT 7-1  
+22 
+ 
+7-1 – Recall Communications Example 
+MODEL DRUG RECALL LETTER 
+ 
+[Company Letterhead] 
+ 
+(in red print) URGENT: DRUG RECALL – Nonsterile injectable 
+ 
+[Date] 
+[Contact name or Department] 
+[Firm Name] 
+[Address] 
+ 
+Dear [wholesaler, retailer, consumer]: 
+ 
+This is to inform you of a product recall involving: [Brand Name (generic) dosage form, strength, 
+description, and size of packaging, NDC or UPC codes, lot numbers] 
+ 
+See enclosed product label for ease in identifying the product at the [wholesale/ retail/ user level]. 
+ 
+This recall has been initiated due to [describe problem and how it was discovered]. 
+[Use/Consumption] of this product may [describe any potential health hazard]. 
+ 
+This product was shipped between [range of distribution dates] or This product was shipped to you 
+on [date]. [If possible, provide consignee with shipping dates and quantities shipped.] 
+ 
+Immediately examine your inventory and quarantine product subject to recall. [If this is a retail or 
+user level recall, include the following] In addition, if you may have further distributed this product, 
+please identify your customers, and notify them at once of this product recall. Your notification to 
+your customers may be enhanced by including a copy of this recall notification letter [or Enclosed is 
+a letter you should use in notifying your customers should you choose to create a separate letter.] 
+ 
+[Your notification must include instructions on what customers should do with the recalled product.] 
+ 
+You will be reimbursed by check or credit memo for the returned goods and postage.
+
+=== Page 21 ===
+EXHBIT 7-1  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+23 
+ 
+Please return the enclosed card immediately providing the requested information. If you have any 
+questions, call [name] at [phone number] [days of week] between [start time] am to [end time] pm 
+[state time zone]. 
+ 
+This recall is being made with the knowledge of the U.S. Food and Drug Administration. The FDA has 
+classified this recall as class _____ (if classified). 
+ 
+We appreciate your assistance. 
+ 
+John Doe  
+President
+
+=== Page 22 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   EXHIBIT 7-1  
+24 
+ 
+PLEASE FILL OUT AND RETURN 
+We do not have any stock of List 1234, Cyanocobalamin 
+Injection Lot No. 4321 on hand 
+We have requested our accounts to return their stocks of this  
+merchandise to us. 
+We are returning _________ bottles of List 1234, Lot No. 4321 
+Name  . 
+Address   . 
+ 
+ 
+  
+ First 
+Class 
+Permit 
+  
+ 
+ 
+BUSINESS REPLY MAIL 
+ 
+No Postage Stamp Necessary if mailed in U.S.A. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Postage will be paid by: 
+          JOHN DOE LABORATORIES 
+          Somewhere, U.S.A. 12345-0909 
+ 
+ 
+ Henry Doe
+
+=== Page 23 ===
+EXHBIT 7-1  INVESTIGATIONS OPERATIONS MANUAL 2026 
+ 
+25 
+ 
+ 
+John Doe Laboratories              first class mail 
+ 
+ 
+ 
+ 
+A. B. C. Pharmacy 
+Anywhere U. S. A. 
+ 
+ 
+ 
+ 
+ 
+(red print) URGENT DRUG RECALL
+
+=== Page 24 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026   EXHIBIT 7-1  
+26 
+ 
+7-2 – Form FDA 3177 Audit Check Report
+
+=== Page 25 ===
+INVESTIGATIONS OPERATIONS MANUAL 2026  EXHIBIT 7-3 
+27 
+ 
+7-3 – Instructions for Completing the FDA 3177 Recall Audit Check

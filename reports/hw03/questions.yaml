@@ -1,0 +1,30 @@
+questions:
+  - id: q1
+    question: "How quickly must a responsible party report a reportable food to the FDA after making that determination?"
+    expected_answer: "As soon as practicable, but no later than 24 hours after determining the food is reportable."
+    expected_source_file: "fda_reportable_food_registry_guidance.txt"
+    source_unique: true
+
+  - id: q2
+    question: "When does the FDA primarily intend to publish a list of retail consignees for a food recall?"
+    expected_answer: "Primarily for Class I recalls when the list is needed to help consumers identify the recalled food and determine whether they possess it."
+    expected_source_file: "fda_retail_consignee_lists_guidance.txt"
+    source_unique: true
+
+  - id: q3
+    question: "What information should a public food recall warning give consumers so they can identify the product and understand the risk?"
+    expected_answer: "It should identify the product with images, codes, packaging or brand details; give distribution areas and dates; describe the defect, hazard and recall reason; identify the recalling firm; provide consumer instructions; and report related illnesses or symptoms."
+    expected_source_file: "fda_public_warning_guidance.txt"
+    source_unique: true
+
+  - id: q4
+    question: "What four items should a firm's recall strategy cover at a minimum?"
+    expected_answer: "Notification methods, recall depth, recalled-product disposition, and internal effectiveness checks confirming that consignees received and followed the recall instructions."
+    expected_source_file: "fda_iom_2026_chapter_7.txt"
+    source_unique: false
+
+  - id: q5
+    question: "What common elements are needed when a firm conducts recall effectiveness checks?"
+    expected_answer: "A consignee list, a common identifier, a questionnaire, and a procedure for recording responses."
+    expected_source_file: "fda_regulatory_procedures_manual_chapter_7.txt"
+    source_unique: false
