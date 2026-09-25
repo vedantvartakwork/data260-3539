@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "select_type": "SIMPLE",
+    "table": "recall_notices",
+    "partitions": null,
+    "type": "ref",
+    "possible_keys": "idx_recall_notices_category",
+    "key": "idx_recall_notices_category",
+    "key_len": "322",
+    "ref": "const",
+    "rows": 1188,
+    "filtered": 100.0,
+    "Extra": null
+  }
+]

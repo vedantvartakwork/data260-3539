@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "DATA 260 Homework 4 - Grocery Recall API",
+    "description": "Authenticated CRUD and N+1 evidence for SID4 3539.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8839/api/v1" },
+    { "key": "record_id", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "01 Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.edu\",\n  \"password\": \"password\"\n}"
+        },
+        "url": "{{base_url}}/auth/login"
+      }
+    },
+    {
+      "name": "02 List recalls",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/recalls?page_size=10"
+      }
+    },
+    {
+      "name": "03 Create recall",
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": [
+            "const body = pm.response.json();",
+            "pm.collectionVariables.set('record_id', body.id);"
+          ]
+        }
+      }],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_name\": \"Postman Recall Evidence\",\n  \"brand_name\": \"Campus Pantry\",\n  \"submitter_email\": \"student@example.edu\",\n  \"category\": \"Packaged Foods\",\n  \"recall_details\": \"Selected packages may contain an undeclared peanut allergen and should be returned for a refund.\",\n  \"terms_accepted\": true\n}"
+        },
+        "url": "{{base_url}}/recalls"
+      }
+    },
+    {
+      "name": "04 Read created recall",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/recalls/{{record_id}}"
+      }
+    },
+    {
+      "name": "05 Update recall",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_name\": \"Postman Recall Evidence\",\n  \"brand_name\": \"Campus Pantry Updated\",\n  \"submitter_email\": \"student@example.edu\",\n  \"category\": \"Packaged Foods\",\n  \"recall_details\": \"Updated packages may contain an undeclared peanut allergen. Customers should return them for a full refund.\",\n  \"terms_accepted\": true\n}"
+        },
+        "url": "{{base_url}}/recalls/{{record_id}}"
+      }
+    },
+    {
+      "name": "06 Delete recall",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/recalls/{{record_id}}"
+      }
+    },
+    {
+      "name": "07 Naive N+1 - 10 records",
+      "request": { "method": "GET", "url": "{{base_url}}/recalls/naive?page_size=10" }
+    },
+    {
+      "name": "08 Fixed eager load - 10 records",
+      "request": { "method": "GET", "url": "{{base_url}}/recalls/fixed?page_size=10" }
+    },
+    {
+      "name": "09 Naive N+1 - 50 records",
+      "request": { "method": "GET", "url": "{{base_url}}/recalls/naive?page_size=50" }
+    },
+    {
+      "name": "10 Fixed eager load - 50 records",
+      "request": { "method": "GET", "url": "{{base_url}}/recalls/fixed?page_size=50" }
+    },
+    {
+      "name": "11 Naive N+1 - 200 records",
+      "request": { "method": "GET", "url": "{{base_url}}/recalls/naive?page_size=200" }
+    },
+    {
+      "name": "12 Fixed eager load - 200 records",
+      "request": { "method": "GET", "url": "{{base_url}}/recalls/fixed?page_size=200" }
+    }
+  ]
+}

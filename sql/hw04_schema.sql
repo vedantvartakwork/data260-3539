@@ -1,0 +1,47 @@
+CREATE DATABASE IF NOT EXISTS s3539_rel
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE s3539_rel;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_users_email (email)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS sessions (
+  id VARCHAR(64) NOT NULL,
+  user_id INT NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  expires_at DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_sessions_user
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS recall_notices (
+  id INT NOT NULL AUTO_INCREMENT,
+  product_name VARCHAR(160) NOT NULL,
+  brand_name VARCHAR(160) NOT NULL,
+  submitter_email VARCHAR(255) NOT NULL,
+  category VARCHAR(80) NOT NULL,
+  recall_details TEXT NOT NULL,
+  terms_accepted BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS recall_events (
+  id INT NOT NULL AUTO_INCREMENT,
+  recall_id INT NOT NULL,
+  event_type VARCHAR(80) NOT NULL,
+  note VARCHAR(500) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_recall_events_notice
+    FOREIGN KEY (recall_id) REFERENCES recall_notices(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

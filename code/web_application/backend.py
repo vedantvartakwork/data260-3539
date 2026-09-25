@@ -6,12 +6,15 @@ import os
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 from starlette.middleware.sessions import SessionMiddleware
 
 from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as auth_router
+from code.web_application.routers.api_auth import router as api_auth_router
+from code.web_application.routers.recalls import router as hw4_recalls_router
 
 PORT_BASE = 8839
 STATIC_DIR = Path(__file__).resolve().parent
@@ -77,6 +80,14 @@ def reset_recalls() -> None:
 reset_recalls()
 app = FastAPI(title="Grocery Recall API", version="3.0.0")
 app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["X-SQL-Query-Count"],
+)
+app.add_middleware(
     SessionMiddleware,
     secret_key=os.getenv("SESSION_SECRET_KEY", "data260-local-development-key-change-me"),
     https_only=os.getenv("SESSION_HTTPS_ONLY", "true").lower() not in {"0", "false", "no"},
@@ -85,6 +96,8 @@ app.add_middleware(
 )
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 app.include_router(auth_router)
+app.include_router(api_auth_router)
+app.include_router(hw4_recalls_router)
 
 
 @app.get("/recalls", include_in_schema=False)

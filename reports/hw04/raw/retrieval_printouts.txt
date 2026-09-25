@@ -1,0 +1,47 @@
+QUESTION q1 | top_k=3 | How quickly must a responsible party report a reportable food to the FDA after making that determination?
+rank=1 score=0.7192 source=fda_reportable_food_registry_guidance.txt chunk_id=fda_reportable_food_registry_guidance-0232
+and 417(e)(9) of the FD&C Act). I. Notifications If a responsible party (Party A) notifies the immediate previous source(s) and/or immediate subsequent recipient(s) of the article of food (Party B), as required by FDA, should Party B submit a report to FDA and
+rank=2 score=0.7125 source=fda_reportable_food_registry_guidance.txt chunk_id=fda_reportable_food_registry_guidance-0235
+This ICSR number will allow FDA to link reportable food reports that are related to the initial report and the reportable food. J. Additional Contacts Should responsible parties call the FDA district office and notify state and local public health or regulator
+rank=3 score=0.6867 source=fda_reportable_food_registry_guidance.txt chunk_id=fda_reportable_food_registry_guidance-0233
+I required to submit a report to the Reportable Food electronic portal? If you determine that a food is a reportable food, you must submit a reportable food report as soon as practicable, but in no case later than 24 hours after determining that the article of
+
+QUESTION q2 | top_k=3 | What product-identifying details and consumer instructions should an FDA public recall warning contain?
+rank=1 score=0.8371 source=fda_public_warning_guidance.txt chunk_id=fda_public_warning_guidance-0043
+6 Firms are reminded that, under 21 CFR § 7.42, they need not delay the initiation of a recall pending the FDA’s review of their recall strategy. === Page 9 === Contains Nonbinding Recommendations 9 3. What information should be contained in a public warning?
+rank=2 score=0.7746 source=fda_regulatory_procedures_manual_chapter_7.txt chunk_id=fda_regulatory_procedures_manual_chapter_7-0089
+for Industry and FDA Staff (PDF - 71KB). The purpose of this guidance is to assist and provide recommendations to industry and FDA staff regarding the use, content, and circumstances for issuance of public warnings and public notifications for firm-initiated o
+rank=3 score=0.7729 source=fda_regulatory_procedures_manual_chapter_7.txt chunk_id=fda_regulatory_procedures_manual_chapter_7-0092
+public warning when requested by the DRC - In instances where the firm’s public warning appears inadequate, discuss with the CRU whether to post the firm’s public warning to FDA’s website - Post firm’s, State’s or FDA’s recall public warning and images to the
+
+QUESTION q3 | top_k=3 | How do public warnings and retail-consignee disclosures each help consumers respond to a food recall?
+rank=1 score=0.8223 source=fda_retail_consignee_lists_guidance.txt chunk_id=fda_retail_consignee_lists_guidance-0245
+is relevant to the recall, whether a recall is voluntarily initiated or ordered by FDA. Under 21 CFR 20.91, information otherwise exempt from public disclosure, such as CCI, is nevertheless available for public disclosure to the extent necessary to effectuate
+rank=2 score=0.8041 source=fda_retail_consignee_lists_guidance.txt chunk_id=fda_retail_consignee_lists_guidance-0246
+after exposure to a contaminated food. While this guidance is specific to retail consignees, our authority under 21 CFR 20.91 is not limited to retail consignees, and can include the disclosure of the names of restaurants and similar entities where appropriate
+rank=3 score=0.7896 source=fda_retail_consignee_lists_guidance.txt chunk_id=fda_retail_consignee_lists_guidance-0248
+– especially when a recalled food is associated with a foodborne illness outbreak – when doing so will be of most use to consumers in identifying a recalled food and is consistent with 21 CFR 20.91. For example, FDA might post retail consignee information for
+
+QUESTION q4 | top_k=3 | When should the FDA communicate publicly about a recall?
+rank=1 score=0.7333 source=fda_public_warning_guidance.txt chunk_id=fda_public_warning_guidance-0047
+When a firm posts its public warning on its own webpage, it should ensure that the warning is prominently displayed and accessible from both its home page and a web search. The posting should remain publicly accessible until the product is no longer expected t
+rank=2 score=0.7247 source=fda_regulatory_procedures_manual_chapter_7.txt chunk_id=fda_regulatory_procedures_manual_chapter_7-0068
+The division office will offer the same guidance to the recalling firm as outlined above in Firm Recall Communication and Notification and will assist the firm in arranging the text of recall communications to consignees so that the product will be promptly re
+rank=3 score=0.7211 source=fda_public_warning_guidance.txt chunk_id=fda_public_warning_guidance-0046
+that language and distributed via the appropriate distribution service. Posting a Public Warning or Press Release on a firm or FDA Webpage In many cases, a firm will announce a removal of an FDA regulated product from the market or correction8 through a press
+
+QUESTION q5 | top_k=3 | What exact font size does the FDA require on every grocery recall poster?
+rank=1 score=0.5237 source=fda_retail_consignee_lists_guidance.txt chunk_id=fda_retail_consignee_lists_guidance-0243
+Department of Agriculture (USDA) policy is to make publicly available the names and locations of retail consignees of recalled meat or poultry products that USDA compiles in connection with a recall where there is a reasonable probability that the use of the p
+rank=2 score=0.5100 source=fda_retail_consignee_lists_guidance.txt chunk_id=fda_retail_consignee_lists_guidance-0245
+is relevant to the recall, whether a recall is voluntarily initiated or ordered by FDA. Under 21 CFR 20.91, information otherwise exempt from public disclosure, such as CCI, is nevertheless available for public disclosure to the extent necessary to effectuate
+rank=3 score=0.5073 source=fda_regulatory_procedures_manual_chapter_7.txt chunk_id=fda_regulatory_procedures_manual_chapter_7-0066
+self- addressed post card, envelope, or other arrangement to enable the consignee to report the amount of the product available and its disposition. Recall communications should direct that the consignee submit a report regardless of whether or not any of the
+
+QUESTION q6 | top_k=3 | Which team won the 2026 World Series?
+rank=1 score=0.1370 source=fda_iom_2026_chapter_7.txt chunk_id=fda_iom_2026_chapter_7-0033
+Postage will be paid by: JOHN DOE LABORATORIES Somewhere, U.S.A. 12345-0909 Henry Doe === Page 23 === EXHBIT 7-1 INVESTIGATIONS OPERATIONS MANUAL 2026 25 John Doe Laboratories first class mail A. B. C. Pharmacy Anywhere U. S. A. (red print) URGENT DRUG RECALL
+rank=2 score=0.1033 source=fda_regulatory_procedures_manual_chapter_7.txt chunk_id=fda_regulatory_procedures_manual_chapter_7-0074
+to confirm a violation or potential for health hazard, as necessary. 5. Refer the recall to an ORA Recall Coordinator for the appropriate Program Division. OSPOP/DE/ROB will consider available information when determining which Program Division should handle t
+rank=3 score=0.1012 source=fda_regulatory_procedures_manual_chapter_7.txt chunk_id=fda_regulatory_procedures_manual_chapter_7-0200
+Grocery corporate headquarters Manufacturer Repacker Hospital/Medical facility Pharmacy-retail Medical laboratory Hospital pharmacies Retailer Other: === Page 131 === Regulatory Procedures Manual July 2021 Chapter 7 Recall Procedures MAN-000010 Page 131 of 153

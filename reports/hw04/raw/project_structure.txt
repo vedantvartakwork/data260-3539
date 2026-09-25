@@ -1,0 +1,43 @@
+data260-3539/
+├── code/
+│   └── web_application/
+│       ├── backend.py
+│       ├── db.py
+│       ├── models.py
+│       ├── query_counter.py
+│       ├── schemas.py
+│       ├── security.py
+│       ├── routers/
+│       │   ├── api_auth.py
+│       │   └── recalls.py
+│       └── frontend/
+│           ├── package.json
+│           └── src/
+│               ├── App.jsx
+│               ├── api.js
+│               ├── components/
+│               └── pages/
+├── src/
+│   └── model_client.py
+├── sql/
+│   └── hw04_schema.sql
+├── scripts/
+│   ├── seed_hw04.py
+│   ├── run_hw4_nplus1_experiment.py
+│   ├── run_hw4_explain.py
+│   ├── generate_hw4_metrics.py
+│   └── verify_hw04.py
+├── tests/
+│   └── test_hw4_structure.py
+├── reports/
+│   └── hw04/
+│       ├── raw/
+│       ├── postman/
+│       ├── METRICS.md
+│       ├── RAG_ANALYSIS.md
+│       ├── questions.yaml
+│       └── verification.json
+├── docker-compose.hw4.yml
+├── rag.py
+├── Makefile
+└── requirements.txt

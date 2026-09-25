@@ -1,0 +1,20 @@
+HOMEWORK 4 - RAG CORPUS AND INDEX EVIDENCE
+
+Documents: 5
+- fda_iom_2026_chapter_7.txt
+- fda_public_warning_guidance.txt
+- fda_regulatory_procedures_manual_chapter_7.txt
+- fda_reportable_food_registry_guidance.txt
+- fda_retail_consignee_lists_guidance.txt
+
+Chunks: 249
+Chunk size: 500
+Chunk overlap: 50
+Metadata stored: source and chunk_id
+Embedding model: sentence-transformers/all-MiniLM-L6-v2
+Vector store: LlamaIndex SimpleVectorStore
+Local LLM: qwen3:8b
+
+Sample chunk metadata:
+{'source': 'fda_iom_2026_chapter_7.txt',
+ 'chunk_id': 'fda_iom_2026_chapter_7-0001'}

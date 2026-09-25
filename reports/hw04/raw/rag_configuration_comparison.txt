@@ -1,0 +1,37 @@
+HOMEWORK 4 - NO RAG / BASIC RAG / CONTEXT RAG
+
+Configuration   Correct answers   Grounded answers   Format compliant
+No RAG          1/6               0/6                4/6
+Basic RAG       4/6               0/6                4/6
+Context RAG     6/6               6/6                6/6
+
+Q5 - Information not in the documents
+Question: What exact font size does the FDA require on every grocery recall poster?
+
+NO RAG:
+The FDA requires a font size of at least 18 points on every grocery recall poster.
+Result: incorrect hallucination
+
+BASIC RAG:
+The provided text does not mention any specific font size requirements for FDA
+recall posters. Therefore, the exact font size cannot be determined.
+Result: reasonable, but it did not use the required exact refusal
+
+CONTEXT RAG:
+I cannot answer this question from the provided documents
+Result: PASS - exact refusal
+
+Q6 - Unrelated question
+Question: Which team won the 2026 World Series?
+
+NO RAG:
+As of now, the 2026 World Series has not occurred, and no team has been declared.
+Result: answered from outside knowledge instead of refusing
+
+BASIC RAG:
+The provided text does not contain any information about the 2026 World Series.
+Result: reasonable, but it did not use the required exact refusal
+
+CONTEXT RAG:
+I cannot answer this question from the provided documents
+Result: PASS - exact refusal

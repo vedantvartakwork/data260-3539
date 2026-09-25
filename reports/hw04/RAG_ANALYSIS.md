@@ -1,0 +1,11 @@
+# RAG comparison analysis
+
+I compared three versions of the same six-question test: the local model by itself, basic RAG, and RAG with context engineering. The questions were intentionally mixed. One could be answered from a single chunk, one needed details spread across more than one chunk, two involved similar or ambiguous recall guidance, one asked for information that was not in the documents, and one was unrelated to the corpus.
+
+The no-RAG version answered only 1 of 6 questions correctly. Its clearest failure was inventing an 18-point FDA font requirement even though the documents never gave one. Basic RAG improved to 4 of 6 because retrieved FDA text supplied the missing factual details. It still did not follow the exact refusal rule for the two unsupported questions, however, and its answers did not include source citations. This made the responses more informative than the no-RAG version but not consistently grounded or format compliant.
+
+The context-engineered version scored 6 of 6 for correctness, grounding, and format compliance. I filtered low-relevance chunks, removed near-duplicate passages, labeled each retained chunk with its source file and chunk ID, and instructed the model to use only that context. It cited sources for answerable questions and returned the required refusal sentence for both the missing-information and unrelated questions. This directly prevented the unsupported font-size claim seen without RAG.
+
+The top-k comparison showed why retrieval depth matters. The two-chunk question failed with k=1 and k=3 because the retrieved context did not contain enough of the expected evidence. With k=5, retrieval and the final answer were both correct. A larger k is not automatically better because it can add distracting passages, so I used filtering and deduplication before giving the context to the model.
+
+The main remaining limitation is that automated keyword and source checks do not measure every aspect of answer quality. A response can include the expected terms while still being vague, and a relevant passage can rank below similar FDA language from another document. For this small local corpus, k=5 with context filtering produced the best balance. In a larger system I would add manually graded questions, citation verification, and a reranker before treating the evaluation as production evidence.

@@ -1,0 +1,42 @@
+[2026-09-24T13:05:19Z] Completed MySQL seed and database verification.
+Database: s3539_rel
+Primary recall rows: 5000
+Related event rows: 200
+Users: 1
+Active sessions during verification: 1
+
+[2026-09-24T13:05:19Z] Completed N+1 comparison with 30 requests for each implementation and page size (180 total requests).
+page_size=10  naive_queries=11   naive_p50_ms=6.023   fixed_queries=1  fixed_p50_ms=3.303   speed_up=1.82x
+page_size=50  naive_queries=51   naive_p50_ms=18.035  fixed_queries=1  fixed_p50_ms=5.656   speed_up=3.19x
+page_size=200 naive_queries=201  naive_p50_ms=59.150  fixed_queries=1  fixed_p50_ms=11.273  speed_up=5.25x
+
+[2026-09-24T13:05:19Z] Completed index experiment.
+Query: SELECT * FROM recall_notices WHERE category = 'Produce';
+Before index: access_type=ALL key=NULL estimated_rows=4967
+Created index: idx_recall_notices_category
+After index: access_type=ref key=idx_recall_notices_category estimated_rows=1188
+
+[2026-09-24T13:05:19Z] Completed grounded RAG experiment with qwen3:8b.
+Documents: 5
+Chunks: 249
+Chunk size: 500
+Chunk overlap: 50
+Embedding model: sentence-transformers/all-MiniLM-L6-v2
+No RAG: correctness=1/6 grounding=0/6 format=4/6
+Basic RAG: correctness=4/6 grounding=0/6 format=4/6
+Context RAG: correctness=6/6 grounding=6/6 format=6/6
+Two-chunk question: k=1 incorrect, k=3 incorrect, k=5 correct
+Unsupported-question refusals: 2/2 exact matches
+
+[2026-09-24T18:57:03Z] Completed final local verification.
+PASS FastAPI health endpoint
+PASS Protected API rejects unauthenticated requests
+PASS Login succeeds and returns opaque HTTP-only session cookie
+PASS Naive page_size=10 uses 11 SQL statements
+PASS Fixed page_size=10 uses 1 SQL statement
+PASS Fixed endpoint removes N+1 growth
+PASS Database contains 5000 primary rows and 200 related rows
+PASS N+1 raw artifact contains 180 requests
+PASS Context RAG uses the exact refusal for both unsupported questions
+PASS React production build
+Result: 11/11 checks passed

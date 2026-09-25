@@ -1,0 +1,23 @@
+HOMEWORK 4 - SIX-QUESTION EVALUATION
+
+Question  Configuration  Retrieval  Correct  Grounded  Refusal  Format
+q1        no_rag         n/a        PASS     no        n/a      PASS
+q1        basic_rag      PASS       PASS     no        n/a      PASS
+q1        context_rag    PASS       PASS     PASS      n/a      PASS
+q2        no_rag         n/a        no       no        n/a      PASS
+q2        basic_rag      no         PASS     no        n/a      PASS
+q2        context_rag    PASS       PASS     PASS      n/a      PASS
+q3        no_rag         n/a        no       no        n/a      PASS
+q3        basic_rag      no         PASS     no        n/a      PASS
+q3        context_rag    no         PASS     PASS      n/a      PASS
+q4        no_rag         n/a        no       no        n/a      PASS
+q4        basic_rag      no         PASS     no        n/a      PASS
+q4        context_rag    no         PASS     PASS      n/a      PASS
+q5        no_rag         n/a        no       no        no       no
+q5        basic_rag      PASS       no       no        no       no
+q5        context_rag    PASS       PASS     PASS      PASS     PASS
+q6        no_rag         n/a        no       no        no       no
+q6        basic_rag      PASS       no       no        no       no
+q6        context_rag    PASS       PASS     PASS      PASS     PASS
+
+Context RAG totals: correctness 6/6, grounding 6/6, format 6/6.

@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: data260-3539-hw4-mysql
+    environment:
+      MYSQL_DATABASE: s3539_rel
+      MYSQL_USER: data260
+      MYSQL_PASSWORD: data260
+      MYSQL_ROOT_PASSWORD: local-root-password
+    ports:
+      - "3307:3306"
+    volumes:
+      - hw4_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-plocal-root-password"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  hw4_mysql_data:

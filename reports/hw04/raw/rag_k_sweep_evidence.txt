@@ -1,0 +1,32 @@
+HOMEWORK 4 - TOP_K SWEEP FOR THE TWO-CHUNK QUESTION
+
+Question q2:
+What product-identifying details and consumer instructions should an FDA public
+recall warning contain?
+
+k   kept   correct retrieval   correct answer
+1   1      No                  No
+3   3      No                  No
+5   5      Yes                 Yes
+
+k=1
+rank 1  score 0.8371  fda_public_warning_guidance-0043
+Only one part of the answer was available.
+
+k=3
+rank 1  score 0.8371  fda_public_warning_guidance-0043
+rank 2  score 0.7746  fda_regulatory_procedures_manual_chapter_7-0089
+rank 3  score 0.7729  fda_regulatory_procedures_manual_chapter_7-0092
+The second required public-warning chunk was still missing.
+
+k=5
+rank 1  score 0.8371  fda_public_warning_guidance-0043
+rank 2  score 0.7746  fda_regulatory_procedures_manual_chapter_7-0089
+rank 3  score 0.7729  fda_regulatory_procedures_manual_chapter_7-0092
+rank 4  score 0.7600  fda_public_warning_guidance-0047
+rank 5  score 0.7396  fda_retail_consignee_lists_guidance-0243
+
+Conclusion:
+k=5 was best because rank 4 supplied the second needed public-warning chunk.
+It also introduced a less relevant retail-consignee chunk at rank 5, showing that
+more context can add noise even when it improves retrieval completeness.

@@ -1,13 +1,41 @@
 PYTHON ?= .venv/bin/python
 MODEL ?= qwen3:8b
 
-.PHONY: test run-web warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+.PHONY: test run-web mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 
 run-web:
 	SESSION_HTTPS_ONLY=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+
+mysql-hw4-up:
+	docker compose -f docker-compose.hw4.yml up -d
+
+mysql-hw4-down:
+	docker compose -f docker-compose.hw4.yml down
+
+seed-hw4:
+	$(PYTHON) scripts/seed_hw04.py
+
+run-hw4-api:
+	SESSION_HTTPS_ONLY=false SESSION_COOKIE_SECURE=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+
+run-hw4-client:
+	npm --prefix code/web_application/frontend run dev
+
+experiment-hw4:
+	$(PYTHON) scripts/run_hw4_nplus1_experiment.py
+	$(PYTHON) scripts/run_hw4_explain.py
+
+metrics-hw4:
+	$(PYTHON) scripts/generate_hw4_metrics.py
+
+rag-hw4:
+	OLLAMA_SEED=3539 $(PYTHON) rag.py
+
+verify-hw04:
+	$(PYTHON) scripts/verify_hw04.py
 
 warmup-hw3:
 	$(PYTHON) scripts/run_hw3_warmup.py

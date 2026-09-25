@@ -1,0 +1,19 @@
+HOMEWORK 4 - EXPLAIN BEFORE AND AFTER INDEX
+
+Query:
+SELECT * FROM recall_notices WHERE category = 'Produce';
+
+BEFORE INDEX
+id  select_type  table           type  possible_keys  key   rows  filtered  Extra
+1   SIMPLE       recall_notices  ALL   NULL           NULL  4967  10.0      Using where
+
+Index added:
+CREATE INDEX idx_recall_notices_category ON recall_notices(category);
+
+AFTER INDEX
+id  select_type  table           type  possible_keys                 key                              rows  filtered
+1   SIMPLE       recall_notices  ref   idx_recall_notices_category  idx_recall_notices_category      1188  100.0
+
+Result:
+The access type changed from ALL (a full table scan) to ref (indexed lookup).
+The estimated rows examined fell from 4967 to 1188.

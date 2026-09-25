@@ -1,0 +1,30 @@
+HOMEWORK 4 - MYSQL DATABASE EVIDENCE
+
+active_database
+s3539_rel
+
+Tables_in_s3539_rel
+recall_events
+recall_notices
+sessions
+users
+
+primary_rows  related_rows  users  active_sessions
+5000          200           1      1
+
+users table
+Field          Type          Null  Key  Default  Extra
+id             int           NO    PRI  NULL     auto_increment
+name           varchar(120)  NO         NULL
+email          varchar(255)  NO    UNI  NULL
+password_hash  varchar(255)  NO         NULL
+
+sessions table
+Field       Type         Null  Key  Default  Extra
+id          varchar(64)  NO    PRI  NULL
+user_id     int          NO    MUL  NULL
+created_at  datetime     NO         now()    DEFAULT_GENERATED
+expires_at  datetime     NO         NULL
+
+Command used:
+docker exec data260-3539-hw4-mysql mysql -udata260 -pdata260 -e "USE s3539_rel; SELECT DATABASE(); SHOW TABLES; SELECT COUNT(...); DESCRIBE users; DESCRIBE sessions;"

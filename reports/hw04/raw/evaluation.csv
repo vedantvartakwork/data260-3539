@@ -1,0 +1,47 @@
+question_id,question_type,configuration,correct_retrieval,correct_answer,grounded,refused_when_needed,format_compliant,answer
+q1,one_chunk,no_rag,,True,False,,True,A responsible party must report a reportable food to the FDA within 24 hours after making the determination.
+q1,one_chunk,basic_rag,True,True,False,,True,"A responsible party must report a reportable food to the FDA as soon as practicable, but in no case later than 24 hours after determining that the article of food is a reportable food."
+q1,one_chunk,context_rag,True,True,True,,True,"A responsible party must submit a reportable food report as soon as practicable, but in no case later than 24 hours after determining that an article of food is a reportable food [Source 2]."
+q2,two_chunks,no_rag,,False,False,,True,"An FDA public recall warning should include product-identifying details such as the product name, brand, lot number, expiration date, and manufacturer information. It should also include clear consumer instructions on how to stop using the product, return it to the seller, and contact the manufacturer for more information."
+q2,two_chunks,basic_rag,False,True,False,,True,"An FDA public recall warning should contain the following product-identifying details:
+
+1. **Information to help identify the recalled product**, including:
+   - Images of the product
+   - Numerical product information (e.g., lot number, expiration date, serial number, unique device identification (UDI) number)
+   - Packaging information
+   - Brand names
+
+2. **Geographic areas and dates of distribution** of the affected product.
+
+3. **A thorough description of the product defect, health hazard involved, and reason(s) for the recall** (e.g., product testing, environmental sampling, etc.).
+
+4. **The name and contact information for the recalling firm**.
+
+5. **Instructions to consumers or users**.
+
+6. **The number and nature of any illnesses/injuries/complaints associated with the product**, related to the product defect.
+
+7. **A description of common symptoms of any illness of concern**.
+
+Additionally, the **headline of the public warning** should include the brand name, type of product, and the hazard prompting the recall (e.g., “XYZ chocolate chip cookies recalled for potential Salmonella contamination”).
+
+The warning should **not include content** that detracts from or defeats the purpose of the warning, such as promoting the qualities of the product being recalled, other products sold by the firm, or the firm in general."
+q2,two_chunks,context_rag,True,True,True,,True,"An FDA public recall warning should contain product-identifying details such as images, numerical product information (e.g., lot number, expiration date, serial number, unique device identification (UDI) number), packaging information, or brand names [Source 1]. Additionally, it should include the geographic areas and dates of distribution of the affected product, a thorough description of the product defect, health hazard involved, and reason(s) for recall, the name and contact information for the recalling firm, instructions to consumers or users, the number and nature of any illnesses/injuries/complaints associated with the product, and a description of common symptoms of any illness of concern [Source 1]. The headline of the public warning should include the brand name, type of product, and the hazard prompting the recall. The warning should also include instructions to consumers or users to help them take appropriate action to avoid the recalled product."
+q3,similar_across_documents,no_rag,,False,False,,True,"Public warnings inform consumers about the recalled product, enabling them to check if they have it and take action. Retail-consignee disclosures notify specific retailers and distributors, allowing them to remove the product from shelves and inform their customers."
+q3,similar_across_documents,basic_rag,False,True,False,,True,"Public warnings and retail-consignee disclosures both play important roles in helping consumers respond to a food recall, but they serve different purposes:
+
+1. **Public Warnings**: These are broad alerts issued by the FDA to inform the general public about a food product that may be unsafe. Public warnings help consumers identify recalled products and take action, such as discarding or returning the product. They are especially useful when the recall involves a wide distribution or when the product is associated with a foodborne illness outbreak. Public warnings ensure that even those who may not have received the product directly are aware of the risk and can take preventive measures.
+
+2. **Retail-Consignee Disclosures**: These provide specific information about the retail locations where the recalled product was sold. By disclosing the names and addresses of retail stores, consumers can quickly determine if they have purchased or received the recalled product. This helps them take immediate action, such as checking their purchases, returning the product, or disposing of it safely. Retail-consignee disclosures are particularly helpful for consumers who may have bought the product from a specific store or online retailer.
+
+Together, public warnings and retail-consignee disclosures ensure that consumers are informed about the recall in a timely manner and have the necessary information to protect their health and safety."
+q3,similar_across_documents,context_rag,False,True,True,,True,"Public warnings help consumers by informing them about the potential risk associated with a recalled food product, prompting them to check if they have the product in their possession. Retail-consignee disclosures provide specific information about where the recalled product was sold, enabling consumers to identify if they purchased the product from a particular location [Source 1]. Together, these measures help consumers take appropriate actions to protect their health and safety."
+q4,ambiguous,no_rag,,False,False,,True,"The FDA should communicate publicly about a recall when there is a risk to public health, to inform the public, healthcare providers, and retailers about the recall, and to provide guidance on how to respond."
+q4,ambiguous,basic_rag,False,True,False,,True,"The FDA should communicate publicly about a recall when it has made a determination that the action is a recall under 21 CFR § 7.3(g). Public notifications of recalls will only be posted in the FDA Enforcement Report after this determination is made. Additionally, the FDA may post public notifications if it believes the announcement is factually correct and beneficial to consumers, even if the firm announces the action prior to the FDA's determination. The FDA may also post public notifications if the recall information is deemed important for public health, such as in cases of major product recalls that have a significant impact on public health. However, the FDA may consider delaying public notification if it may cause unnecessary and harmful anxiety in certain consumers."
+q4,ambiguous,context_rag,False,True,True,,True,"The FDA should communicate publicly about a recall when it determines that the action is a recall under 21 CFR § 7.3(g) [Source 1]. Additionally, the FDA may post public notifications of recalls in the FDA Enforcement Report, which provides a public listing of products in the marketplace that are being recalled, regardless of the level of the hazard [Source 1]. The FDA may also issue its own public announcement of a firm’s recall, especially if the firm does not include a public warning in its initial recall strategy [Source 4]. The FDA may delay public notification if it may cause unnecessary and harmful anxiety in certain consumers [Source 1]."
+q5,not_in_documents,no_rag,,False,False,False,False,The FDA requires a font size of at least 18 points on every grocery recall poster.
+q5,not_in_documents,basic_rag,True,False,False,False,False,"The provided text does not mention any specific font size requirements for FDA recall posters. Therefore, the exact font size required by the FDA for every grocery recall poster cannot be determined from the given information."
+q5,not_in_documents,context_rag,True,True,True,True,True,I cannot answer this question from the provided documents
+q6,unrelated,no_rag,,False,False,False,False,"As of now, the 2026 World Series has not occurred, and no team has been declared the winner."
+q6,unrelated,basic_rag,True,False,False,False,False,"The provided text does not contain any information about the 2026 World Series or which team won it. Therefore, I cannot answer this question based on the given text."
+q6,unrelated,context_rag,True,True,True,True,True,I cannot answer this question from the provided documents

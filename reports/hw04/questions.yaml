@@ -1,0 +1,53 @@
+questions:
+  - id: q1
+    type: one_chunk
+    question: "How quickly must a responsible party report a reportable food to the FDA after making that determination?"
+    expected_answer: "As soon as practicable, but no later than 24 hours after the determination."
+    expected_keywords: ["24 hours"]
+    expected_sources: ["fda_reportable_food_registry_guidance.txt"]
+    should_refuse: false
+
+  - id: q2
+    type: two_chunks
+    question: "What product-identifying details and consumer instructions should an FDA public recall warning contain?"
+    expected_answer: "It should identify the product using details such as its name, brand, packaging, codes, images, and distribution information, explain the hazard, and tell consumers what to do with the product."
+    expected_keywords: ["product", "hazard", "consumer"]
+    expected_sources: ["fda_public_warning_guidance.txt"]
+    minimum_expected_chunks: 2
+    should_refuse: false
+
+  - id: q3
+    type: similar_across_documents
+    question: "How do public warnings and retail-consignee disclosures each help consumers respond to a food recall?"
+    expected_answer: "Both help consumers identify recalled food. Public warnings communicate the hazard and response instructions broadly, while retail-consignee disclosures identify stores or locations that received the recalled product when that information is needed."
+    expected_keywords: ["identify", "warning", "consignee"]
+    expected_sources:
+      - "fda_public_warning_guidance.txt"
+      - "fda_retail_consignee_lists_guidance.txt"
+    should_refuse: false
+
+  - id: q4
+    type: ambiguous
+    question: "When should the FDA communicate publicly about a recall?"
+    expected_answer: "The decision depends on the circumstances. Public warnings are generally used for urgent hazards when other publicity is inadequate, while retail-consignee lists are primarily considered for certain Class I food recalls when they help consumers identify the product."
+    expected_keywords: ["public", "recall", "consumers"]
+    expected_sources:
+      - "fda_public_warning_guidance.txt"
+      - "fda_retail_consignee_lists_guidance.txt"
+    should_refuse: false
+
+  - id: q5
+    type: not_in_documents
+    question: "What exact font size does the FDA require on every grocery recall poster?"
+    expected_answer: "I cannot answer this question from the provided documents"
+    expected_keywords: []
+    expected_sources: []
+    should_refuse: true
+
+  - id: q6
+    type: unrelated
+    question: "Which team won the 2026 World Series?"
+    expected_answer: "I cannot answer this question from the provided documents"
+    expected_keywords: []
+    expected_sources: []
+    should_refuse: true
