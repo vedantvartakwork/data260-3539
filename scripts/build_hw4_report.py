@@ -478,7 +478,7 @@ def build(commit_hash: str) -> None:
     doc.add_paragraph(
         "The repository contains the schema, deterministic seeder, React and FastAPI code, Postman "
         "collection, 180-request raw N+1 CSV and JSON files, EXPLAIN outputs, RAG results, retrieval "
-        "printouts, evaluation data, METRICS.md, RUN_LOG.txt, and verification.json."
+        "printouts, evaluation data, AI_USE.md, METRICS.md, RUN_LOG.txt, and verification.json."
     )
     add_code(doc, "Smoke-test entry point", lines("scripts/verify_hw04.py", 49, 69) + "\n...\n" + lines("scripts/verify_hw04.py", 118, 145))
     verification = json.loads((HW4 / "verification.json").read_text(encoding="utf-8"))

@@ -33,8 +33,10 @@ data260-3539/
 │   └── hw04/
 │       ├── raw/
 │       ├── postman/
+│       ├── AI_USE.md
 │       ├── METRICS.md
 │       ├── RAG_ANALYSIS.md
+│       ├── RUN_LOG.txt
 │       ├── questions.yaml
 │       └── verification.json
 ├── docker-compose.hw4.yml
