@@ -1,0 +1,72 @@
+{
+  "homework": 4,
+  "sid4": 3539,
+  "commit_hash": "8753d1f50e8e9384df50d30a1277c095ce85cbde",
+  "model_configuration": {
+    "llm": "qwen3:8b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "top_k": 3
+  },
+  "seed": 3539,
+  "verify_seed": 263539,
+  "checks": [
+    {
+      "name": "fastapi_health",
+      "passed": true,
+      "details": "HTTP 200"
+    },
+    {
+      "name": "login_required",
+      "passed": true,
+      "details": "HTTP 401 without a session"
+    },
+    {
+      "name": "database_session_cookie",
+      "passed": true,
+      "details": "HTTP 200; HttpOnly/SameSite checked"
+    },
+    {
+      "name": "naive_list_endpoint",
+      "passed": true,
+      "details": "HTTP 200; queries=11"
+    },
+    {
+      "name": "fixed_list_endpoint",
+      "passed": true,
+      "details": "HTTP 200; queries=1"
+    },
+    {
+      "name": "n_plus_one_removed",
+      "passed": true,
+      "details": "naive=11, fixed=1"
+    },
+    {
+      "name": "seeded_primary_rows",
+      "passed": true,
+      "details": "rows=5000"
+    },
+    {
+      "name": "seeded_related_rows",
+      "passed": true,
+      "details": "rows=200"
+    },
+    {
+      "name": "raw_n_plus_one_requests",
+      "passed": true,
+      "details": "rows=180"
+    },
+    {
+      "name": "rag_q5_q6_refusals",
+      "passed": true,
+      "details": "passing refusals=2/2"
+    },
+    {
+      "name": "react_production_build",
+      "passed": true,
+      "details": "code/web_application/frontend/dist/index.html"
+    }
+  ],
+  "passed": true
+}

@@ -485,8 +485,8 @@ def build(commit_hash: str) -> None:
     rows = [[item["name"], "PASS" if item["passed"] else "FAIL", item["details"]] for item in verification["checks"]]
     add_table(doc, ["Check", "Result", "Details"], rows, widths=[2.3, 0.8, 3.4])
     doc.add_paragraph(
-        "Result: 11 of 11 objective checks passed. The verification commit hash will be regenerated "
-        "after the code-and-results commit so it identifies the submitted implementation."
+        "Result: 11 of 11 objective checks passed. verification.json records code-and-results commit "
+        f"{commit_hash}, so the smoke-test evidence identifies the submitted implementation."
     )
 
     doc.add_page_break()
