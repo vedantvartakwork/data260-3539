@@ -1,0 +1,29 @@
+HOMEWORK 5 RUN LOG — Vedant Vartak (SID4 3539)
+
+Configuration
+SID4=3539 PORT_BASE=8839 PREFIX=s3539 SEED=3539 VERIFY_SEED=263539 DOMAIN_ID=3
+Domain: Grocery Supply and Recall Notices
+
+Completed checks
+- Read all seven pages of DATA260_HW5.pdf and reviewed every source file in DATA236_Demo5.
+- Implemented cumulative MySQL models, validation, protected CRUD, relationship endpoint, and React Redux Toolkit/Axios integration.
+- Built the React production bundle successfully (95 modules).
+- Ran the inherited and HW5 Python suite successfully (33 tests).
+- Ran the offline tool runner successfully (9 tests).
+- Verified the domain MCP server exposes exactly search, detail, and aggregate.
+- Verified the MealDB MCP server exposes exactly four required tools.
+- Captured six domain MCP calls (valid and invalid for every tool) and four successful live MealDB calls.
+- Ran 150 deterministic fault-injection calls using VERIFY_SEED=263539.
+- 2026-10-02T06:35Z: Docker MySQL reported healthy; cumulative seed produced manufacturers=12, recall_notices=500, recall_events=200, users=1.
+- 2026-10-02T06:37Z: Live authenticated API flow passed 13/13 checks.
+- 2026-10-02T06:41Z through 06:46Z: local Ollama qwen3:8b completed four bounded scenarios; stop reasons were three normal completions and one safety-rule block.
+
+Fault experiment summary
+- 0% injected failure: 50/50 success.
+- 20% injected failure: 49/50 success.
+- 50% injected failure: 46/50 success.
+- Observed behaviors: 123 first-attempt successes, 22 retry-then-successes, 5 exhausted clean failures.
+
+Final evidence checks
+- Captured the required labeled UI, Postman, database, MCP Inspector, retry, test, and agent screenshots.
+- Final cumulative checks passed: Python suite 33/33, offline tool runner 9/9, React production build, and verification 12/12.

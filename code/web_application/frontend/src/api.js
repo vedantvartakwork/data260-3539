@@ -1,30 +1,30 @@
-const API_ROOT = "/api/v1";
+import axios from "axios";
+
+
+export const apiClient = axios.create({
+  baseURL: "/api/v1",
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+});
 
 async function request(path, options = {}) {
-  const response = await fetch(`${API_ROOT}${path}`, {
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-    ...options,
-  });
-
-  if (response.status === 204) {
-    return null;
+  try {
+    const response = await apiClient.request({ url: path, ...options });
+    return response.status === 204 ? null : response.data;
+  } catch (error) {
+    const detail = error.response?.data?.detail;
+    if (Array.isArray(detail)) {
+      throw new Error(detail.map((item) => item.msg).join("; "));
+    }
+    throw new Error(detail || error.message || "Request failed");
   }
-  const body = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(body.detail || `Request failed with status ${response.status}`);
-  }
-  return body;
 }
 
 export const authApi = {
   login(email, password) {
     return request("/auth/login", {
       method: "POST",
-      body: JSON.stringify({ email, password }),
+      data: { email, password },
     });
   },
   me() {
@@ -48,16 +48,22 @@ export const recallsApi = {
   create(payload) {
     return request("/recalls", {
       method: "POST",
-      body: JSON.stringify(payload),
+      data: payload,
     });
   },
   update(id, payload) {
     return request(`/recalls/${id}`, {
       method: "PUT",
-      body: JSON.stringify(payload),
+      data: payload,
     });
   },
   remove(id) {
     return request(`/recalls/${id}`, { method: "DELETE" });
+  },
+};
+
+export const manufacturersApi = {
+  list() {
+    return request("/manufacturers?skip=0&limit=200");
   },
 };

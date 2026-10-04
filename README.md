@@ -1,6 +1,6 @@
 # DATA 260 Homework Portfolio - SID4 3539
 
-This repository contains the shared application and report evidence for my DATA 260 homework. My assigned domain is grocery supply and recall notices. Homework-specific results are stored under `reports/hw01/`, `reports/hw02/`, and `reports/hw03/`; the application code remains in the shared root-level `code/` and `src/` folders.
+This repository contains the shared application and report evidence for my DATA 260 homework. My assigned domain is grocery supply and recall notices. Homework-specific results are stored under `reports/hw01/` through `reports/hw05/`; the application code remains in the shared root-level `code/` and `src/` folders.
 
 ## My configuration
 
@@ -15,6 +15,33 @@ This repository contains the shared application and report evidence for my DATA 
 | Hardware | Apple M4 MacBook Air, 10 CPU cores, 16 GB memory |
 | Local model | `qwen3:8b` |
 | AWS region | `us-east-2` |
+
+## Homework 5
+
+Homework 5 cumulatively extends the HW4 FastAPI/MySQL/React system with manufacturer relationships, Redux Toolkit and Axios, two MCP servers, tested tool contracts, bounded retries, and a safe local-Ollama agent loop.
+
+```bash
+make mysql-hw5-up
+make seed-hw5
+make run-hw5-api
+make run-hw5-client
+```
+
+The API runs at <http://127.0.0.1:8839>, the React client at <http://127.0.0.1:5173>, and the demo login is `admin@example.edu` / `password`. Run the reproducible evidence commands with:
+
+```bash
+make test-hw5
+make experiment-hw5
+.venv/bin/python scripts/run_hw05_api_integration.py
+.venv/bin/python scripts/run_hw05_agent_scenarios.py
+make verify-hw05
+```
+
+Start the MCP Inspector with either `mcp dev mcp_servers/meals_server.py` or `mcp dev mcp_servers/domain_server.py`. The Postman collection and environment are in `reports/hw05/postman/`.
+
+## Homework 4
+
+Homework 4 adds the cumulative MySQL database, authenticated FastAPI API, React CRUD client, N+1/eager-loading measurements, index experiments, and grounded local RAG evaluation. Its evidence is under `reports/hw04/`.
 
 ## Homework 3
 

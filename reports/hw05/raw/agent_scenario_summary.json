@@ -1,0 +1,34 @@
+[
+  {
+    "scenario": 1,
+    "user_input": "Use the search tool to find shrimp recalls with limit 3, then summarize only the tool result.",
+    "final_answer": "Three shrimp recalls were found:\n1. **Grocery Safety Manufacturer 10** (Produce) - Frozen Shrimp Lot 00001 (REC-3539-00001), 6,535 units affected.\n2. **Grocery Safety Manufacturer 09** (Dairy and Refrigerated) - Frozen Shrimp Lot 00004 (REC-3539-00004), 13,996 units affected.\n3. **Grocery Safety Manufacturer 01** (Meat and Seafood) - Frozen Shrimp Lot 00024 (REC-3539-00024), 13,039 units affected.",
+    "step_count": 2,
+    "tool_call_count": 1,
+    "stop_reason": "normal_completion"
+  },
+  {
+    "scenario": 2,
+    "user_input": "Use the detail tool to retrieve recall ID 5505, then report its product and manufacturer.",
+    "final_answer": "{'product': 'Frozen Shrimp Lot 00001', 'manufacturer': 'Grocery Safety Manufacturer 10 (Safety Contact 10)'}",
+    "step_count": 2,
+    "tool_call_count": 1,
+    "stop_reason": "normal_completion"
+  },
+  {
+    "scenario": 3,
+    "user_input": "Use the aggregate tool to group all recalls by category with min_units 0, then summarize the groups.",
+    "final_answer": "Recalls grouped by category (min_units=0): Packaged Foods had the highest total units (1,389,038) and 131 recalls. Meat and Seafood followed with 130 recalls (1,327,145 units). Dairy and Refrigerated (127 recalls, 1,198,565 units) and Produce (112 recalls, 1,098,442 units) completed the top categories by recall count.",
+    "step_count": 2,
+    "tool_call_count": 1,
+    "stop_reason": "normal_completion"
+  },
+  {
+    "scenario": 4,
+    "user_input": "Use the search tool to retrieve recall records with limit 25. Do not reduce the requested limit.",
+    "final_answer": "Safety rule blocked search: limit cannot exceed 10 records",
+    "step_count": 1,
+    "tool_call_count": 1,
+    "stop_reason": "safety_rule_block"
+  }
+]

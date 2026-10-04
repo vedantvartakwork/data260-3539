@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchRecalls } from "../features/recalls/recallsSlice.js";
 
 
-export default function Home({ records, loading, error, onSearch, user, notice }) {
+export default function Home({ user }) {
+  const dispatch = useDispatch();
+  const { items: records, loading, error, notice } = useSelector((state) => state.recalls);
   const [query, setQuery] = useState("");
 
   function handleSearch(event) {
     event.preventDefault();
-    onSearch(query);
+    dispatch(fetchRecalls(query));
   }
 
   return (
     <>
       <section className="hero">
         <div>
-          <p className="eyebrow">DATA 260 - Homework 4</p>
+          <p className="eyebrow">DATA 260 - Homework 5</p>
           <h1>Grocery Recall Manager</h1>
           <p className="intro">Signed in as {user?.name}. Review and maintain current grocery safety notices.</p>
         </div>
@@ -38,7 +43,7 @@ export default function Home({ records, loading, error, onSearch, user, notice }
             placeholder="Search product or brand"
           />
           <button className="secondary">Search</button>
-          <button type="button" className="plain" onClick={() => { setQuery(""); onSearch(""); }}>
+          <button type="button" className="plain" onClick={() => { setQuery(""); dispatch(fetchRecalls()); }}>
             Clear
           </button>
         </form>
@@ -57,10 +62,12 @@ export default function Home({ records, loading, error, onSearch, user, notice }
                   <div>
                     <span className="record-id">#{record.id}</span>
                     <h3>{record.product_name}</h3>
+                    <span className="record-code">{record.recall_code}</span>
                   </div>
                   <span className="category-pill">{record.category}</span>
                 </div>
                 <p className="brand">{record.brand_name}</p>
+                <p>{record.units_affected.toLocaleString()} units affected</p>
                 <p>{record.recall_details}</p>
                 <p className="related-count">Related events: {record.events.length}</p>
                 <div className="actions">

@@ -15,6 +15,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as auth_router
 from code.web_application.routers.api_auth import router as api_auth_router
 from code.web_application.routers.recalls import router as hw4_recalls_router
+from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
 
 PORT_BASE = 8839
 STATIC_DIR = Path(__file__).resolve().parent
@@ -78,7 +79,7 @@ def reset_recalls() -> None:
 
 
 reset_recalls()
-app = FastAPI(title="Grocery Recall API", version="3.0.0")
+app = FastAPI(title="Grocery Recall API", version="5.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
@@ -98,6 +99,7 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 app.include_router(auth_router)
 app.include_router(api_auth_router)
 app.include_router(hw4_recalls_router)
+app.include_router(hw5_manufacturers_router)
 
 
 @app.get("/recalls", include_in_schema=False)

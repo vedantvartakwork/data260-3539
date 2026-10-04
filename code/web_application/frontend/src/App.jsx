@@ -1,7 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import { authApi, recallsApi } from "./api.js";
+import { authApi } from "./api.js";
+import { fetchRecalls } from "./features/recalls/recallsSlice.js";
 import Login from "./components/Login.jsx";
 import Home from "./components/Home.jsx";
 import CreateRecord from "./components/CreateRecord.jsx";
@@ -18,25 +20,10 @@ function ProtectedRoute({ user, checkingSession, children }) {
 
 
 export default function App() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [checkingSession, setCheckingSession] = useState(true);
-  const [records, setRecords] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
-
-  const loadRecords = useCallback(async (query = "") => {
-    setLoading(true);
-    setError("");
-    try {
-      setRecords(await recallsApi.list(query));
-    } catch (requestError) {
-      setError(requestError.message);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
 
   useEffect(() => {
     authApi.me()
@@ -46,9 +33,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (user) loadRecords();
-    else setRecords([]);
-  }, [user, loadRecords]);
+    if (user) dispatch(fetchRecalls());
+  }, [user, dispatch]);
 
   async function handleLogin(email, password) {
     const loggedInUser = await authApi.login(email, password);
@@ -60,27 +46,6 @@ export default function App() {
     await authApi.logout();
     setUser(null);
     navigate("/login");
-  }
-
-  async function handleCreate(payload) {
-    const created = await recallsApi.create(payload);
-    await loadRecords();
-    setNotice(`Added recall ID ${created.id} successfully.`);
-    navigate("/");
-  }
-
-  async function handleUpdate(id, payload) {
-    await recallsApi.update(id, payload);
-    await loadRecords();
-    setNotice(`Updated recall ID ${id} successfully.`);
-    navigate("/");
-  }
-
-  async function handleDelete(id) {
-    await recallsApi.remove(id);
-    await loadRecords();
-    setNotice(`Deleted recall ID ${id} successfully.`);
-    navigate("/");
   }
 
   return (
@@ -110,14 +75,7 @@ export default function App() {
             path="/"
             element={
               <ProtectedRoute user={user} checkingSession={checkingSession}>
-                <Home
-                  records={records}
-                  loading={loading}
-                  error={error}
-                  onSearch={loadRecords}
-                  user={user}
-                  notice={notice}
-                />
+                <Home user={user} />
               </ProtectedRoute>
             }
           />
@@ -125,7 +83,7 @@ export default function App() {
             path="/create"
             element={
               <ProtectedRoute user={user} checkingSession={checkingSession}>
-                <CreateRecord onCreate={handleCreate} />
+                <CreateRecord />
               </ProtectedRoute>
             }
           />
@@ -133,7 +91,7 @@ export default function App() {
             path="/update/:id"
             element={
               <ProtectedRoute user={user} checkingSession={checkingSession}>
-                <UpdateRecord onUpdate={handleUpdate} />
+                <UpdateRecord />
               </ProtectedRoute>
             }
           />
@@ -141,7 +99,7 @@ export default function App() {
             path="/delete/:id"
             element={
               <ProtectedRoute user={user} checkingSession={checkingSession}>
-                <DeleteRecord onDelete={handleDelete} />
+                <DeleteRecord />
               </ProtectedRoute>
             }
           />

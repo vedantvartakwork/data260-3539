@@ -1,7 +1,7 @@
 PYTHON ?= .venv/bin/python
 MODEL ?= qwen3:8b
 
-.PHONY: test run-web mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+.PHONY: test run-web mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
@@ -36,6 +36,26 @@ rag-hw4:
 
 verify-hw04:
 	$(PYTHON) scripts/verify_hw04.py
+
+mysql-hw5-up: mysql-hw4-up
+
+mysql-hw5-down: mysql-hw4-down
+
+seed-hw5:
+	$(PYTHON) scripts/seed_hw05.py
+
+run-hw5-api: run-hw4-api
+
+run-hw5-client: run-hw4-client
+
+test-hw5:
+	$(PYTHON) scripts/test_hw05_tools.py
+
+experiment-hw5:
+	$(PYTHON) scripts/run_hw05_fault_experiment.py
+
+verify-hw05:
+	$(PYTHON) scripts/verify_hw05.py
 
 warmup-hw3:
 	$(PYTHON) scripts/run_hw3_warmup.py

@@ -1,0 +1,78 @@
+{
+  "homework": 5,
+  "student": "Vedant Vartak",
+  "sid4": 3539,
+  "commit_hash": "3e59ac7da2aab89693d9ca8bcaeda7c0f65699b1",
+  "configuration": {
+    "port_base": 8839,
+    "prefix": "s3539",
+    "seed": 3539,
+    "verify_seed": 263539,
+    "domain_id": 3,
+    "model": "qwen3:8b"
+  },
+  "passed": 12,
+  "total": 12,
+  "checks": [
+    {
+      "name": "personal_configuration",
+      "status": "PASS",
+      "detail": "SID4=3539 PORT_BASE=8839 PREFIX=s3539 SEED=3539 VERIFY_SEED=263539 DOMAIN_ID=3"
+    },
+    {
+      "name": "required_files",
+      "status": "PASS",
+      "detail": "missing=[]"
+    },
+    {
+      "name": "fault_injection_150_calls",
+      "status": "PASS",
+      "detail": "rows=150"
+    },
+    {
+      "name": "domain_exactly_three_tools",
+      "status": "PASS",
+      "detail": "tools=['aggregate', 'detail', 'search']"
+    },
+    {
+      "name": "domain_mcp_inventory",
+      "status": "PASS",
+      "detail": "['aggregate', 'detail', 'search']"
+    },
+    {
+      "name": "mealdb_mcp_inventory",
+      "status": "PASS",
+      "detail": "['meal_details', 'meals_by_ingredient', 'random_meal', 'search_meals_by_name']"
+    },
+    {
+      "name": "domain_mcp_tool_call",
+      "status": "PASS",
+      "detail": "{\"ok\": true, \"data\": {\"matches\": [{\"id\": 1, \"recall_code\": \"REC-3539-00001\", \"product_name\": \"Frozen Shrimp Lot 00001\", \"brand_name\": \"Campus Pantry\", \"category\": \"Meat and Seafood\", \"units_affected\": 1200}], \"count\": 1}, \"error\": null}"
+    },
+    {
+      "name": "mealdb_mcp_tool_call",
+      "status": "PASS",
+      "detail": "{\"meals\": [{\"id\": \"52771\", \"name\": \"Spicy Arrabiata Penne\", \"area\": \"Italian\", \"category\": \"Vegetarian\", \"thumb\": \"https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg\"}], \"message\": null}"
+    },
+    {
+      "name": "fastapi_port_base_smoke",
+      "status": "PASS",
+      "detail": "status=200 body={\"status\":\"ok\"}"
+    },
+    {
+      "name": "offline_tool_runner",
+      "status": "PASS",
+      "detail": "Vedant Vartak - DATA 260 Homework 5 offline tests\nPASS test_search_valid\nPASS test_search_invalid\nPASS test_detail_valid\nPASS test_detail_invalid\nPASS test_aggregate_valid\nPASS test_aggregate_invalid\nPASS test_safety_rule_allowed\nPASS test_safety_rule_blocked\nPASS test_agent_max_steps\nSUMMARY 9/9 tests passed"
+    },
+    {
+      "name": "python_test_suite",
+      "status": "PASS",
+      "detail": "ls) ... ok\ntest_create_update_delete_and_search (test_hw2_backend.BackendTests.test_create_update_delete_and_search) ... ok\ntest_home_and_health (test_hw2_backend.BackendTests.test_home_and_health) ... ok\ntest_validation_rejects_short_details_and_unaccepted_terms (test_hw2_backend.BackendTests.test_validation_rejects_short_details_and_unaccepted_terms) ... ok\ntest_forced_reviewer_issue_loops_to_planner (test_hw2_graph.GraphTests.test_forced_reviewer_issue_loops_to_planner) ... ok\ntest_invalid_output_stops_at_ceiling (test_hw2_graph.GraphTests.test_invalid_output_stops_at_ceiling) ... ok\ntest_sanitizer_removes_embedded_formatting_instruction (test_hw2_graph.GraphTests.test_sanitizer_removes_embedded_formatting_instruction) ... ok\ntest_schema_is_exact_and_bounded (test_hw2_graph.GraphTests.test_schema_is_exact_and_bounded) ... ok\ntest_valid_first_attempt_completes (test_hw2_graph.GraphTests.test_valid_first_attempt_completes) ... ok\ntest_validation_error_is_returned_for_retry (test_hw2_graph.GraphTests.test_validation_error_is_returned_for_retry) ... ok\ntest_home_login_and_invalid_alert (test_hw3_auth.AuthenticationTests.test_home_login_and_invalid_alert) ... ok\ntest_idle_session_cannot_reach_dashboard (test_hw3_auth.AuthenticationTests.test_idle_session_cannot_reach_dashboard) ... ok\ntest_logout_revokes_replayed_cookie (test_hw3_auth.AuthenticationTests.test_logout_revokes_replayed_cookie) ... ok\ntest_secure_cookie_and_protected_dashboard (test_hw3_auth.AuthenticationTests.test_secure_cookie_and_protected_dashboard) ... ok\ntest_password_hash_is_salted_and_verifiable (test_hw4_structure.Homework4StructureTests.test_password_hash_is_salted_and_verifiable) ... ok\ntest_rag_question_set_covers_six_types (test_hw4_structure.Homework4StructureTests.test_rag_question_set_covers_six_types) ... ok\ntest_required_database_models_and_connection_name (test_hw4_structure.Homework4StructureTests.test_required_database_models_and_connection_name) ... ok\ntest_required_react_components_and_routes (test_hw4_structure.Homework4StructureTests.test_required_react_components_and_routes) ... ok\ntest_exact_three_domain_tools_and_envelope (test_hw5_structure.Homework5StructureTests.test_exact_three_domain_tools_and_envelope) ... ok\ntest_execute_tool_returns_json_and_blocks_bulk_search (test_hw5_structure.Homework5StructureTests.test_execute_tool_returns_json_and_blocks_bulk_search) ... ok\ntest_mock_agent_stops_at_ceiling (test_hw5_structure.Homework5StructureTests.test_mock_agent_stops_at_ceiling) ... ok\ntest_related_database_models_and_constraints (test_hw5_structure.Homework5StructureTests.test_related_database_models_and_constraints) ... ok\ntest_required_hw5_files_exist (test_hw5_structure.Homework5StructureTests.test_required_hw5_files_exist) ... ok\ntest_accepts_required_shape (test_pipeline.PublishValidationTests.test_accepts_required_shape) ... ok\ntest_rejects_duplicate_tags_ignoring_case_and_whitespace (test_pipeline.PublishValidationTests.test_rejects_duplicate_tags_ignoring_case_and_whitespace) ... ok\ntest_rejects_summary_over_25_words (test_pipeline.PublishValidationTests.test_rejects_summary_over_25_words) ... ok\ntest_tag_normalization (test_pipeline.PublishValidationTests.test_tag_normalization) ... ok\ntest_four_categories_and_exact_terms_label (test_web.WebRequirementsTests.test_four_categories_and_exact_terms_label) ... ok\ntest_javascript_features (test_web.WebRequirementsTests.test_javascript_features) ... ok\ntest_required_controls (test_web.WebRequirementsTests.test_required_controls) ... ok\ntest_script_is_last_content_before_body_close (test_web.WebRequirementsTests.test_script_is_last_content_before_body_close) ... ok\ntest_title_and_domain_heading (test_web.WebRequirementsTests.test_title_and_domain_heading) ... ok\ntest_visible_list_states_and_responsive_css (test_web.WebRequirementsTests.test_visible_list_states_and_responsive_css) ... ok\n\n----------------------------------------------------------------------\nRan 33 tests in 0.131s\n\nOK"
+    },
+    {
+      "name": "react_production_build",
+      "status": "PASS",
+      "detail": "> data260-grocery-recall-client@5.0.0 build\n> vite build\n\nvite v8.3.1 building client environment for production...\ntransforming...\n\u2713 95 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.41 kB \u2502 gzip:  0.28 kB\ndist/assets/index-3_Eh7o3x.css    3.66 kB \u2502 gzip:  1.39 kB\ndist/assets/index-CsSADxmj.js   268.72 kB \u2502 gzip: 90.33 kB\n\n\u2713 built in 100ms"
+    }
+  ]
+}

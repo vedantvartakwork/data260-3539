@@ -1,0 +1,432 @@
+{
+  "domain_server": {
+    "server": "mcp_servers/domain_server.py",
+    "transport": "stdio",
+    "tools": [
+      "search",
+      "detail",
+      "aggregate"
+    ],
+    "calls": [
+      {
+        "tool": "search",
+        "expected": "success",
+        "inputs": {
+          "query": "shrimp",
+          "limit": 1
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"ok\": true,\n  \"data\": {\n    \"matches\": [\n      {\n        \"id\": 5505,\n        \"recall_code\": \"REC-3539-00001\",\n        \"product_name\": \"Frozen Shrimp Lot 00001\",\n        \"brand_name\": \"Grocery Safety Manufacturer 10\",\n        \"category\": \"Produce\",\n        \"units_affected\": 6535\n      }\n    ],\n    \"count\": 1\n  },\n  \"error\": null\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "ok": true,
+            "data": {
+              "matches": [
+                {
+                  "id": 5505,
+                  "recall_code": "REC-3539-00001",
+                  "product_name": "Frozen Shrimp Lot 00001",
+                  "brand_name": "Grocery Safety Manufacturer 10",
+                  "category": "Produce",
+                  "units_affected": 6535
+                }
+              ],
+              "count": 1
+            },
+            "error": null
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "search",
+        "expected": "rejected",
+        "inputs": {
+          "query": "s",
+          "limit": 5
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"ok\": false,\n  \"data\": null,\n  \"error\": \"Invalid search input: query: String should have at least 2 characters\"\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "ok": false,
+            "data": null,
+            "error": "Invalid search input: query: String should have at least 2 characters"
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "detail",
+        "expected": "success",
+        "inputs": {
+          "recall_id": 5505
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"ok\": true,\n  \"data\": {\n    \"id\": 5505,\n    \"recall_code\": \"REC-3539-00001\",\n    \"product_name\": \"Frozen Shrimp Lot 00001\",\n    \"brand_name\": \"Grocery Safety Manufacturer 10\",\n    \"category\": \"Produce\",\n    \"units_affected\": 6535,\n    \"recall_details\": \"Grocery Safety Manufacturer 10 Frozen Shrimp lot 00001 may contain an undeclared allergen and should be returned for a refund. Consumers should follow the recall instructions.\",\n    \"manufacturer\": {\n      \"id\": 24,\n      \"name\": \"Grocery Safety Manufacturer 10\",\n      \"contact_name\": \"Safety Contact 10\"\n    }\n  },\n  \"error\": null\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "ok": true,
+            "data": {
+              "id": 5505,
+              "recall_code": "REC-3539-00001",
+              "product_name": "Frozen Shrimp Lot 00001",
+              "brand_name": "Grocery Safety Manufacturer 10",
+              "category": "Produce",
+              "units_affected": 6535,
+              "recall_details": "Grocery Safety Manufacturer 10 Frozen Shrimp lot 00001 may contain an undeclared allergen and should be returned for a refund. Consumers should follow the recall instructions.",
+              "manufacturer": {
+                "id": 24,
+                "name": "Grocery Safety Manufacturer 10",
+                "contact_name": "Safety Contact 10"
+              }
+            },
+            "error": null
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "detail",
+        "expected": "rejected",
+        "inputs": {
+          "recall_id": 0
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"ok\": false,\n  \"data\": null,\n  \"error\": \"Invalid detail input: recall_id: Input should be greater than 0\"\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "ok": false,
+            "data": null,
+            "error": "Invalid detail input: recall_id: Input should be greater than 0"
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "aggregate",
+        "expected": "success",
+        "inputs": {
+          "group_by": "category",
+          "min_units": 0
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"ok\": true,\n  \"data\": {\n    \"group_by\": \"category\",\n    \"groups\": [\n      {\n        \"label\": \"Dairy and Refrigerated\",\n        \"recall_count\": 127,\n        \"total_units\": 1198565\n      },\n      {\n        \"label\": \"Meat and Seafood\",\n        \"recall_count\": 130,\n        \"total_units\": 1327145\n      },\n      {\n        \"label\": \"Packaged Foods\",\n        \"recall_count\": 131,\n        \"total_units\": 1389038\n      },\n      {\n        \"label\": \"Produce\",\n        \"recall_count\": 112,\n        \"total_units\": 1098442\n      }\n    ]\n  },\n  \"error\": null\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "ok": true,
+            "data": {
+              "group_by": "category",
+              "groups": [
+                {
+                  "label": "Dairy and Refrigerated",
+                  "recall_count": 127,
+                  "total_units": 1198565
+                },
+                {
+                  "label": "Meat and Seafood",
+                  "recall_count": 130,
+                  "total_units": 1327145
+                },
+                {
+                  "label": "Packaged Foods",
+                  "recall_count": 131,
+                  "total_units": 1389038
+                },
+                {
+                  "label": "Produce",
+                  "recall_count": 112,
+                  "total_units": 1098442
+                }
+              ]
+            },
+            "error": null
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "aggregate",
+        "expected": "rejected",
+        "inputs": {
+          "group_by": "submitter",
+          "min_units": 0
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"ok\": false,\n  \"data\": null,\n  \"error\": \"Invalid aggregate input: group_by: String should match pattern '^(category|manufacturer)$'\"\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "ok": false,
+            "data": null,
+            "error": "Invalid aggregate input: group_by: String should match pattern '^(category|manufacturer)$'"
+          },
+          "isError": false
+        }
+      }
+    ]
+  },
+  "meals_server": {
+    "server": "mcp_servers/meals_server.py",
+    "transport": "stdio",
+    "tools": [
+      "search_meals_by_name",
+      "meals_by_ingredient",
+      "meal_details",
+      "random_meal"
+    ],
+    "calls": [
+      {
+        "tool": "search_meals_by_name",
+        "inputs": {
+          "query": "Arrabiata",
+          "limit": 5
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"meals\": [\n    {\n      \"id\": \"52771\",\n      \"name\": \"Spicy Arrabiata Penne\",\n      \"area\": \"Italian\",\n      \"category\": \"Vegetarian\",\n      \"thumb\": \"https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg\"\n    }\n  ],\n  \"message\": null\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "meals": [
+              {
+                "id": "52771",
+                "name": "Spicy Arrabiata Penne",
+                "area": "Italian",
+                "category": "Vegetarian",
+                "thumb": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+              }
+            ],
+            "message": null
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "meals_by_ingredient",
+        "inputs": {
+          "ingredient": "chicken",
+          "limit": 5
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"meals\": [\n    {\n      \"id\": \"52940\",\n      \"name\": \"Brown Stew Chicken\",\n      \"thumb\": \"https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg\"\n    },\n    {\n      \"id\": \"53161\",\n      \"name\": \"Chicken & chorizo rice pot\",\n      \"thumb\": \"https://www.themealdb.com/images/media/meals/fk80jp1763280767.jpg\"\n    },\n    {\n      \"id\": \"52846\",\n      \"name\": \"Chicken & mushroom Hotpot\",\n      \"thumb\": \"https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg\"\n    },\n    {\n      \"id\": \"52796\",\n      \"name\": \"Chicken Alfredo Primavera\",\n      \"thumb\": \"https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg\"\n    },\n    {\n      \"id\": \"52934\",\n      \"name\": \"Chicken Basquaise\",\n      \"thumb\": \"https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg\"\n    }\n  ],\n  \"message\": null\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "meals": [
+              {
+                "id": "52940",
+                "name": "Brown Stew Chicken",
+                "thumb": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg"
+              },
+              {
+                "id": "53161",
+                "name": "Chicken & chorizo rice pot",
+                "thumb": "https://www.themealdb.com/images/media/meals/fk80jp1763280767.jpg"
+              },
+              {
+                "id": "52846",
+                "name": "Chicken & mushroom Hotpot",
+                "thumb": "https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg"
+              },
+              {
+                "id": "52796",
+                "name": "Chicken Alfredo Primavera",
+                "thumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg"
+              },
+              {
+                "id": "52934",
+                "name": "Chicken Basquaise",
+                "thumb": "https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg"
+              }
+            ],
+            "message": null
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "meal_details",
+        "inputs": {
+          "id": "52771"
+        },
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"id\": \"52771\",\n  \"name\": \"Spicy Arrabiata Penne\",\n  \"category\": \"Vegetarian\",\n  \"area\": \"Italian\",\n  \"instructions\": \"Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\\r\\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\\r\\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.\",\n  \"image\": \"https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg\",\n  \"source\": null,\n  \"youtube\": \"https://www.youtube.com/watch?v=1IszT_guI08\",\n  \"ingredients\": [\n    {\n      \"name\": \"penne rigate\",\n      \"measure\": \"1 pound\"\n    },\n    {\n      \"name\": \"olive oil\",\n      \"measure\": \"1/4 cup\"\n    },\n    {\n      \"name\": \"garlic\",\n      \"measure\": \"3 cloves\"\n    },\n    {\n      \"name\": \"chopped tomatoes\",\n      \"measure\": \"1 tin\"\n    },\n    {\n      \"name\": \"red chilli flakes\",\n      \"measure\": \"1/2 teaspoon\"\n    },\n    {\n      \"name\": \"italian seasoning\",\n      \"measure\": \"1/2 teaspoon\"\n    },\n    {\n      \"name\": \"basil\",\n      \"measure\": \"6 leaves\"\n    },\n    {\n      \"name\": \"Parmigiano-Reggiano\",\n      \"measure\": \"sprinkling\"\n    }\n  ]\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "id": "52771",
+            "name": "Spicy Arrabiata Penne",
+            "category": "Vegetarian",
+            "area": "Italian",
+            "instructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.",
+            "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+            "source": null,
+            "youtube": "https://www.youtube.com/watch?v=1IszT_guI08",
+            "ingredients": [
+              {
+                "name": "penne rigate",
+                "measure": "1 pound"
+              },
+              {
+                "name": "olive oil",
+                "measure": "1/4 cup"
+              },
+              {
+                "name": "garlic",
+                "measure": "3 cloves"
+              },
+              {
+                "name": "chopped tomatoes",
+                "measure": "1 tin"
+              },
+              {
+                "name": "red chilli flakes",
+                "measure": "1/2 teaspoon"
+              },
+              {
+                "name": "italian seasoning",
+                "measure": "1/2 teaspoon"
+              },
+              {
+                "name": "basil",
+                "measure": "6 leaves"
+              },
+              {
+                "name": "Parmigiano-Reggiano",
+                "measure": "sprinkling"
+              }
+            ]
+          },
+          "isError": false
+        }
+      },
+      {
+        "tool": "random_meal",
+        "inputs": {},
+        "output": {
+          "meta": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"id\": \"53037\",\n  \"name\": \"Coddled pork with cider\",\n  \"category\": \"Pork\",\n  \"area\": \"Irish\",\n  \"instructions\": \"STEP 1\\r\\nHeat the butter in a casserole dish until sizzling, then fry the pork for 2-3 mins on each side until browned. Remove from the pan.\\r\\n\\r\\nSTEP 2\\r\\nTip the bacon, carrot, potatoes and swede into the pan, then gently fry until slightly coloured. Stir in the cabbage, sit the chops back on top, add the bay leaf, then pour over the cider and stock. Cover the pan, then leave everything to gently simmer for 20 mins until the pork is cooked through and the vegetables are tender.\\r\\n\\r\\nSTEP 3\\r\\nServe at the table spooned straight from the dish.\",\n  \"image\": \"https://www.themealdb.com/images/media/meals/7vpsfp1608588991.jpg\",\n  \"source\": \"https://www.bbcgoodfood.com/recipes/irish-coddled-pork-cider\",\n  \"youtube\": \"https://www.youtube.com/watch?v=ftn_4mc-65o\",\n  \"ingredients\": [\n    {\n      \"name\": \"Butter\",\n      \"measure\": \"Knob\"\n    },\n    {\n      \"name\": \"Pork Chops\",\n      \"measure\": \"2\"\n    },\n    {\n      \"name\": \"Bacon\",\n      \"measure\": \"4\"\n    },\n    {\n      \"name\": \"Potatoes\",\n      \"measure\": \"2\"\n    },\n    {\n      \"name\": \"Carrots\",\n      \"measure\": \"1\"\n    },\n    {\n      \"name\": \"Swede\",\n      \"measure\": \"1/2\"\n    },\n    {\n      \"name\": \"Cabbage\",\n      \"measure\": \"1/2\"\n    },\n    {\n      \"name\": \"Bay Leaf\",\n      \"measure\": \"1\"\n    },\n    {\n      \"name\": \"Cider\",\n      \"measure\": \"100ml\"\n    },\n    {\n      \"name\": \"Chicken Stock\",\n      \"measure\": \"100g\"\n    }\n  ]\n}",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "id": "53037",
+            "name": "Coddled pork with cider",
+            "category": "Pork",
+            "area": "Irish",
+            "instructions": "STEP 1\r\nHeat the butter in a casserole dish until sizzling, then fry the pork for 2-3 mins on each side until browned. Remove from the pan.\r\n\r\nSTEP 2\r\nTip the bacon, carrot, potatoes and swede into the pan, then gently fry until slightly coloured. Stir in the cabbage, sit the chops back on top, add the bay leaf, then pour over the cider and stock. Cover the pan, then leave everything to gently simmer for 20 mins until the pork is cooked through and the vegetables are tender.\r\n\r\nSTEP 3\r\nServe at the table spooned straight from the dish.",
+            "image": "https://www.themealdb.com/images/media/meals/7vpsfp1608588991.jpg",
+            "source": "https://www.bbcgoodfood.com/recipes/irish-coddled-pork-cider",
+            "youtube": "https://www.youtube.com/watch?v=ftn_4mc-65o",
+            "ingredients": [
+              {
+                "name": "Butter",
+                "measure": "Knob"
+              },
+              {
+                "name": "Pork Chops",
+                "measure": "2"
+              },
+              {
+                "name": "Bacon",
+                "measure": "4"
+              },
+              {
+                "name": "Potatoes",
+                "measure": "2"
+              },
+              {
+                "name": "Carrots",
+                "measure": "1"
+              },
+              {
+                "name": "Swede",
+                "measure": "1/2"
+              },
+              {
+                "name": "Cabbage",
+                "measure": "1/2"
+              },
+              {
+                "name": "Bay Leaf",
+                "measure": "1"
+              },
+              {
+                "name": "Cider",
+                "measure": "100ml"
+              },
+              {
+                "name": "Chicken Stock",
+                "measure": "100g"
+              }
+            ]
+          },
+          "isError": false
+        }
+      }
+    ]
+  }
+}

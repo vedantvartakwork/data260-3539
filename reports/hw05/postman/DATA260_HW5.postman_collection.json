@@ -1,0 +1,47 @@
+{
+  "info": {
+    "name": "DATA 260 Homework 5 - Grocery Recall API",
+    "description": "Authenticated cumulative CRUD evidence for manufacturers and grocery recall notices.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 Login",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\n  \"email\": \"admin@example.edu\",\n  \"password\": \"password\"\n}"},
+        "url": "{{base_url}}/auth/login"
+      }
+    },
+    {
+      "name": "Manufacturers",
+      "item": [
+        {
+          "name": "02 Create manufacturer",
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('201 Created', () => pm.response.to.have.status(201));", "pm.environment.set('manufacturer_id', pm.response.json().id);"]}}],
+          "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Postman Foods 3539\",\n  \"contact_name\": \"Vedant Vartak\",\n  \"contact_email\": \"postman3539@example.edu\"\n}"}, "url": "{{base_url}}/manufacturers"}
+        },
+        {"name": "03 List manufacturers", "request": {"method": "GET", "url": "{{base_url}}/manufacturers?limit=50"}},
+        {"name": "04 Read manufacturer", "request": {"method": "GET", "url": "{{base_url}}/manufacturers/{{manufacturer_id}}"}},
+        {"name": "05 Update manufacturer", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Postman Foods 3539 Updated\",\n  \"contact_name\": \"Vedant Vartak\",\n  \"contact_email\": \"postman3539@example.edu\"\n}"}, "url": "{{base_url}}/manufacturers/{{manufacturer_id}}"}}
+      ]
+    },
+    {
+      "name": "Recall notices",
+      "item": [
+        {
+          "name": "06 Create recall",
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('201 Created', () => pm.response.to.have.status(201));", "pm.environment.set('record_id', pm.response.json().id);"]}}],
+          "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"product_name\": \"Postman Recall Evidence\",\n  \"recall_code\": \"REC-3539-PM01\",\n  \"units_affected\": 3539,\n  \"manufacturer_id\": {{manufacturer_id}},\n  \"brand_name\": \"Postman Foods 3539 Updated\",\n  \"submitter_email\": \"student@example.edu\",\n  \"category\": \"Packaged Foods\",\n  \"recall_details\": \"Selected packages may contain an undeclared allergen and should be returned for a refund.\",\n  \"terms_accepted\": true\n}"}, "url": "{{base_url}}/recalls"}
+        },
+        {"name": "07 List recalls", "request": {"method": "GET", "url": "{{base_url}}/recalls?page_size=10"}},
+        {"name": "08 Read recall", "request": {"method": "GET", "url": "{{base_url}}/recalls/{{record_id}}"}},
+        {"name": "09 Recalls by manufacturer", "request": {"method": "GET", "url": "{{base_url}}/recalls/by-manufacturer/{{manufacturer_id}}"}},
+        {"name": "10 Update recall", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"product_name\": \"Postman Recall Evidence Updated\",\n  \"recall_code\": \"REC-3539-PM01\",\n  \"units_affected\": 4000,\n  \"manufacturer_id\": {{manufacturer_id}},\n  \"brand_name\": \"Postman Foods 3539 Updated\",\n  \"submitter_email\": \"student@example.edu\",\n  \"category\": \"Packaged Foods\",\n  \"recall_details\": \"Updated packages may contain an undeclared allergen; customers should return them for a full refund.\",\n  \"terms_accepted\": true\n}"}, "url": "{{base_url}}/recalls/{{record_id}}"}},
+        {"name": "11 Delete recall", "request": {"method": "DELETE", "url": "{{base_url}}/recalls/{{record_id}}"}}
+      ]
+    },
+    {"name": "12 Delete manufacturer", "request": {"method": "DELETE", "url": "{{base_url}}/manufacturers/{{manufacturer_id}}"}}
+  ]
+}

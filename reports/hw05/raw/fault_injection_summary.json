@@ -1,0 +1,32 @@
+{
+  "verify_seed": 263539,
+  "retry_policy": {
+    "max_attempts": 3,
+    "timeout_seconds": 0.1,
+    "base_delay_seconds": 0.001,
+    "max_delay_seconds": 0.004
+  },
+  "summaries": [
+    {
+      "injected_failure_rate": 0.0,
+      "calls": 50,
+      "success_rate": 1.0,
+      "mean_latency_ms": 0.0,
+      "p99_latency_ms": 0.001
+    },
+    {
+      "injected_failure_rate": 0.2,
+      "calls": 50,
+      "success_rate": 0.98,
+      "mean_latency_ms": 0.276,
+      "p99_latency_ms": 3.715
+    },
+    {
+      "injected_failure_rate": 0.5,
+      "calls": 50,
+      "success_rate": 0.92,
+      "mean_latency_ms": 0.882,
+      "p99_latency_ms": 3.791
+    }
+  ]
+}

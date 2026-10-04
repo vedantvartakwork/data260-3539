@@ -1,0 +1,36 @@
+VEDANT VARTAK — DATA 260 HOMEWORK 5 — MYSQL EVIDENCE
+timestamp_utc: 2026-10-04T07:34:11.556960+00:00
+database: s3539_rel
+tables: manufacturers, recall_events, recall_notices, sessions, users
+
+row_counts:
+  manufacturers: 12
+  recall_notices: 500
+  recall_events: 200
+  users: 1
+  sessions: 1
+
+manufacturers_columns:
+  id | INTEGER | nullable=False
+  name | VARCHAR(160) | nullable=False
+  contact_name | VARCHAR(160) | nullable=False
+  contact_email | VARCHAR(255) | nullable=False
+  created_at | DATETIME | nullable=False
+  updated_at | DATETIME | nullable=False
+
+recall_notices_columns:
+  id | INTEGER | nullable=False
+  product_name | VARCHAR(160) | nullable=False
+  recall_code | VARCHAR(32) | nullable=False
+  units_affected | INTEGER | nullable=False
+  manufacturer_id | INTEGER | nullable=False
+  brand_name | VARCHAR(160) | nullable=False
+  submitter_email | VARCHAR(255) | nullable=False
+  category | VARCHAR(80) | nullable=False
+  recall_details | TEXT | nullable=False
+  terms_accepted | TINYINT | nullable=False
+  created_at | DATETIME | nullable=False
+  updated_at | DATETIME | nullable=False
+
+recall_notices_foreign_keys:
+  fk_recall_notices_manufacturer: ['manufacturer_id'] -> manufacturers['id'] ondelete=RESTRICT
