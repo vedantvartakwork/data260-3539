@@ -224,12 +224,15 @@ def code_output_panels() -> None:
 
 def redux_composites() -> None:
     for source_name, output_name, top, bottom in (
-        ("25_react_pagination_top.png", "25_react_pagination_top_crop.png", 0, 390),
-        ("26_react_pagination_bottom.png", "26_react_pagination_bottom_crop.png", 360, 720),
-        ("27_react_pagination_page2.png", "27_react_pagination_page2_crop.png", 360, 720),
+        ("25_react_pagination_top.png", "25_react_pagination_top_crop.png", 0, 600),
+        ("26_react_pagination_bottom.png", "26_react_pagination_bottom_crop.png", -650, -480),
+        ("27_react_pagination_page2.png", "27_react_pagination_page2_crop.png", -650, -480),
     ):
         source = Image.open(EVIDENCE / source_name).convert("RGB")
-        source.crop((0, top, source.width, min(bottom, source.height))).save(EVIDENCE / output_name)
+        crop_top = top if top >= 0 else max(0, source.height + top)
+        crop_bottom = bottom if bottom > 0 else source.height + bottom if bottom < 0 else source.height
+        crop_right = source.width if top >= 0 else int(source.width * 0.58)
+        source.crop((0, crop_top, crop_right, min(crop_bottom, source.height))).save(EVIDENCE / output_name)
     composite(
         "REDUX HOME: PAGINATED ACCESS TO ALL 500 RECORDS",
         """export const fetchRecalls = createAsyncThunk('recalls/fetch',
