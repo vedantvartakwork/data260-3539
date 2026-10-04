@@ -12,12 +12,12 @@ function errorMessage(error, fallback) {
 
 export const fetchRecalls = createAsyncThunk(
   "recalls/fetch",
-  async (query = "", thunkApi) => {
+  async ({ query = "", page = 1 } = {}, thunkApi) => {
     try {
-      const params = { page_size: 50 };
+      const params = { page, page_size: 50 };
       if (query.trim()) params.q = query.trim();
       const response = await apiClient.get("/recalls", { params });
-      return response.data.records;
+      return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(errorMessage(error, "Unable to load recalls"));
     }
@@ -62,7 +62,10 @@ export const deleteRecall = createAsyncThunk(
 
 const recallsSlice = createSlice({
   name: "recalls",
-  initialState: { items: [], loading: false, error: null, notice: null },
+  initialState: {
+    items: [], page: 1, pageSize: 50, total: 0,
+    loading: false, error: null, notice: null,
+  },
   reducers: {
     clearRecallNotice(state) {
       state.notice = null;
@@ -76,7 +79,10 @@ const recallsSlice = createSlice({
       })
       .addCase(fetchRecalls.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload.records;
+        state.page = action.payload.page;
+        state.pageSize = action.payload.page_size;
+        state.total = action.payload.total;
       })
       .addCase(fetchRecalls.rejected, (state, action) => {
         state.loading = false;

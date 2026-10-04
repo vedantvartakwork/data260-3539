@@ -7,13 +7,17 @@ import { fetchRecalls } from "../features/recalls/recallsSlice.js";
 
 export default function Home({ user }) {
   const dispatch = useDispatch();
-  const { items: records, loading, error, notice } = useSelector((state) => state.recalls);
+  const { items: records, page, pageSize, total, loading, error, notice } = useSelector((state) => state.recalls);
   const [query, setQuery] = useState("");
 
   function handleSearch(event) {
     event.preventDefault();
-    dispatch(fetchRecalls(query));
+    dispatch(fetchRecalls({ query, page: 1 }));
   }
+
+  const firstShown = total === 0 ? 0 : (page - 1) * pageSize + 1;
+  const lastShown = Math.min(page * pageSize, total);
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
 
   return (
     <>
@@ -33,7 +37,7 @@ export default function Home({ user }) {
             <p className="eyebrow">Current records</p>
             <h2>Recall notices</h2>
           </div>
-          <span className="count-pill">{records.length} shown</span>
+          <span className="count-pill">Showing {firstShown}-{lastShown} of {total}</span>
         </div>
 
         <form className="search-row" onSubmit={handleSearch}>
@@ -43,7 +47,7 @@ export default function Home({ user }) {
             placeholder="Search product or brand"
           />
           <button className="secondary">Search</button>
-          <button type="button" className="plain" onClick={() => { setQuery(""); dispatch(fetchRecalls()); }}>
+          <button type="button" className="plain" onClick={() => { setQuery(""); dispatch(fetchRecalls({ page: 1 })); }}>
             Clear
           </button>
         </form>
@@ -55,6 +59,7 @@ export default function Home({ user }) {
         )}
 
         {!loading && !error && records.length > 0 && (
+          <>
           <div className="record-grid">
             {records.map((record) => (
               <article className="record-card" key={record.id}>
@@ -77,6 +82,22 @@ export default function Home({ user }) {
               </article>
             ))}
           </div>
+          <nav className="pagination" aria-label="Recall pagination">
+            <button
+              type="button"
+              className="secondary"
+              disabled={page <= 1}
+              onClick={() => dispatch(fetchRecalls({ query, page: page - 1 }))}
+            >Previous</button>
+            <span>Page {page} of {totalPages}</span>
+            <button
+              type="button"
+              className="secondary"
+              disabled={page >= totalPages}
+              onClick={() => dispatch(fetchRecalls({ query, page: page + 1 }))}
+            >Next</button>
+          </nav>
+          </>
         )}
       </section>
     </>

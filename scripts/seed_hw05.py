@@ -64,6 +64,10 @@ def make_manufacturers() -> list[Manufacturer]:
 def ensure_hw5_schema() -> None:
     """Apply the cumulative HW5 additions without destroying existing HW4 data."""
     Base.metadata.create_all(engine)
+    # SQLite is used only for isolated local/test evidence; create_all already
+    # produces the final schema, while the migration SQL below is MySQL-only.
+    if engine.dialect.name == "sqlite":
+        return
     inspector = inspect(engine)
     columns = {column["name"] for column in inspector.get_columns("recall_notices")}
 

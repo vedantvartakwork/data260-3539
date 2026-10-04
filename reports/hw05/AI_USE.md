@@ -2,8 +2,8 @@
 
 1. I used an AI assistant to help translate the assignment checklist into a cumulative implementation plan, draft code for the FastAPI/Redux/MCP integration, and create repeatable validation scripts. I independently reviewed the requirements, ran the tests, inspected the generated artifacts and live outputs, and will select and capture the final UI and MCP Inspector evidence used in the report.
 
-2. I independently verified that the supplied demo's relationship route order was unsuitable to copy directly: a dynamic `/{course_id}` route appeared before `/by-instructor/{instructor_id}`, which can cause the static relationship path to be parsed as an integer ID.
+2. I independently found that my first Home-page implementation deleted a recall directly from the record card. That bypassed the assignment's required delete-confirmation UI even though the API operation itself worked.
 
-3. I detected the issue by reading the complete demo source after extracting the assignment requirements, then comparing FastAPI's declaration-order matching behavior with the required relationship endpoint. I also used production builds and offline tests rather than assuming generated code was correct.
+3. I detected the issue by tracing the Home button to its Redux dispatch and comparing the rendered flow with the rubric's separate Delete UI requirement. I reproduced it locally: clicking Delete immediately issued the request instead of first showing the selected record and a confirmation action.
 
-4. I declared the static `/by-manufacturer/{manufacturer_id}` relationship route before the dynamic `/{recall_id}` route. This makes the intended relationship path unambiguous. The cumulative test suite and 13-check live API flow verify that the new route coexists with individual recall lookup.
+4. I changed the Home button to navigate to `/delete/:id`, added a confirmation page that loads the selected record, and dispatches `deleteRecall` only after explicit confirmation. I verified the confirmation screen, the success message, and the record's removal from MySQL.

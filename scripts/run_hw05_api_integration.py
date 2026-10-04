@@ -57,6 +57,11 @@ def main() -> None:
         }
         recall = record(results, "create_recall", client.post("/recalls", json=recall_payload), 201)
         recall_id = recall["id"]
+        listed = record(results, "list_recalls", client.get(
+            "/recalls", params={"q": "Integration Recall", "page": 1, "page_size": 50}
+        ), 200)
+        if not any(row["id"] == recall_id for row in listed["records"]):
+            raise RuntimeError("list endpoint did not return the created recall")
         record(results, "read_recall", client.get(f"/recalls/{recall_id}"), 200)
         related = record(results, "relationship_endpoint", client.get(f"/recalls/by-manufacturer/{manufacturer_id}"), 200)
         if not any(row["id"] == recall_id for row in related):

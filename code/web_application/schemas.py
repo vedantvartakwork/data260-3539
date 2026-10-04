@@ -127,6 +127,8 @@ class RecallResponse(RecallInput):
 
 class RecallListResponse(BaseModel):
     implementation: str
+    page: int = 1
     page_size: int
+    total: int = 0
     sql_queries: int
     records: list[RecallResponse]

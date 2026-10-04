@@ -1,13 +1,13 @@
 {
-  "passed": 13,
-  "total": 13,
+  "passed": 14,
+  "total": 14,
   "checks": [
     {
       "name": "login",
       "status": 200,
       "expected": 200,
       "body": {
-        "id": 3,
+        "id": 1,
         "name": "Recall Coordinator",
         "email": "admin@example.edu"
       }
@@ -17,12 +17,12 @@
       "status": 201,
       "expected": 201,
       "body": {
-        "id": 27,
+        "id": 13,
         "name": "Integration Foods 3539",
         "contact_name": "Vedant Vartak",
         "contact_email": "integration3539@example.edu",
-        "created_at": "2026-10-02T06:38:02",
-        "updated_at": "2026-10-02T06:38:02"
+        "created_at": "2026-10-04T21:29:22",
+        "updated_at": "2026-10-04T21:29:22"
       }
     },
     {
@@ -30,12 +30,12 @@
       "status": 200,
       "expected": 200,
       "body": {
-        "id": 27,
+        "id": 13,
         "name": "Integration Foods 3539",
         "contact_name": "Vedant Vartak",
         "contact_email": "integration3539@example.edu",
-        "created_at": "2026-10-02T06:38:02",
-        "updated_at": "2026-10-02T06:38:02"
+        "created_at": "2026-10-04T21:29:22",
+        "updated_at": "2026-10-04T21:29:22"
       }
     },
     {
@@ -44,108 +44,108 @@
       "expected": 200,
       "body": [
         {
-          "id": 15,
+          "id": 1,
           "name": "Grocery Safety Manufacturer 01",
           "contact_name": "Safety Contact 01",
           "contact_email": "safety01@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 16,
+          "id": 2,
           "name": "Grocery Safety Manufacturer 02",
           "contact_name": "Safety Contact 02",
           "contact_email": "safety02@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 17,
+          "id": 3,
           "name": "Grocery Safety Manufacturer 03",
           "contact_name": "Safety Contact 03",
           "contact_email": "safety03@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 18,
+          "id": 4,
           "name": "Grocery Safety Manufacturer 04",
           "contact_name": "Safety Contact 04",
           "contact_email": "safety04@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 19,
+          "id": 5,
           "name": "Grocery Safety Manufacturer 05",
           "contact_name": "Safety Contact 05",
           "contact_email": "safety05@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 20,
+          "id": 6,
           "name": "Grocery Safety Manufacturer 06",
           "contact_name": "Safety Contact 06",
           "contact_email": "safety06@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 21,
+          "id": 7,
           "name": "Grocery Safety Manufacturer 07",
           "contact_name": "Safety Contact 07",
           "contact_email": "safety07@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 22,
+          "id": 8,
           "name": "Grocery Safety Manufacturer 08",
           "contact_name": "Safety Contact 08",
           "contact_email": "safety08@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 23,
+          "id": 9,
           "name": "Grocery Safety Manufacturer 09",
           "contact_name": "Safety Contact 09",
           "contact_email": "safety09@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 24,
+          "id": 10,
           "name": "Grocery Safety Manufacturer 10",
           "contact_name": "Safety Contact 10",
           "contact_email": "safety10@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 25,
+          "id": 11,
           "name": "Grocery Safety Manufacturer 11",
           "contact_name": "Safety Contact 11",
           "contact_email": "safety11@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 26,
+          "id": 12,
           "name": "Grocery Safety Manufacturer 12",
           "contact_name": "Safety Contact 12",
           "contact_email": "safety12@example.edu",
-          "created_at": "2026-10-02T06:37:13",
-          "updated_at": "2026-10-02T06:37:13"
+          "created_at": "2026-10-04T21:27:53",
+          "updated_at": "2026-10-04T21:27:53"
         },
         {
-          "id": 27,
+          "id": 13,
           "name": "Integration Foods 3539",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-02T06:38:02",
-          "updated_at": "2026-10-02T06:38:02"
+          "created_at": "2026-10-04T21:29:22",
+          "updated_at": "2026-10-04T21:29:22"
         }
       ]
     },
@@ -154,12 +154,12 @@
       "status": 200,
       "expected": 200,
       "body": {
-        "id": 27,
+        "id": 13,
         "name": "Integration Foods 3539 Updated",
         "contact_name": "Vedant Vartak",
         "contact_email": "integration3539@example.edu",
-        "created_at": "2026-10-02T06:38:02",
-        "updated_at": "2026-10-02T06:38:02"
+        "created_at": "2026-10-04T21:29:22",
+        "updated_at": "2026-10-04T21:29:22"
       }
     },
     {
@@ -170,24 +170,61 @@
         "product_name": "Integration Recall Evidence",
         "recall_code": "REC-3539-INT01",
         "units_affected": 3539,
-        "manufacturer_id": 27,
+        "manufacturer_id": 13,
         "brand_name": "Integration Foods 3539 Updated",
         "submitter_email": "student@example.edu",
         "category": "Packaged Foods",
         "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
         "terms_accepted": true,
-        "id": 6005,
-        "created_at": "2026-10-02T06:38:02",
-        "updated_at": "2026-10-02T06:38:02",
+        "id": 501,
+        "created_at": "2026-10-04T21:29:22",
+        "updated_at": "2026-10-04T21:29:22",
         "manufacturer": {
-          "id": 27,
+          "id": 13,
           "name": "Integration Foods 3539 Updated",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-02T06:38:02",
-          "updated_at": "2026-10-02T06:38:02"
+          "created_at": "2026-10-04T21:29:22",
+          "updated_at": "2026-10-04T21:29:22"
         },
         "events": []
+      }
+    },
+    {
+      "name": "list_recalls",
+      "status": 200,
+      "expected": 200,
+      "body": {
+        "implementation": "fixed",
+        "page": 1,
+        "page_size": 50,
+        "total": 1,
+        "sql_queries": 2,
+        "records": [
+          {
+            "product_name": "Integration Recall Evidence",
+            "recall_code": "REC-3539-INT01",
+            "units_affected": 3539,
+            "manufacturer_id": 13,
+            "brand_name": "Integration Foods 3539 Updated",
+            "submitter_email": "student@example.edu",
+            "category": "Packaged Foods",
+            "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
+            "terms_accepted": true,
+            "id": 501,
+            "created_at": "2026-10-04T21:29:22",
+            "updated_at": "2026-10-04T21:29:22",
+            "manufacturer": {
+              "id": 13,
+              "name": "Integration Foods 3539 Updated",
+              "contact_name": "Vedant Vartak",
+              "contact_email": "integration3539@example.edu",
+              "created_at": "2026-10-04T21:29:22",
+              "updated_at": "2026-10-04T21:29:22"
+            },
+            "events": []
+          }
+        ]
       }
     },
     {
@@ -198,22 +235,22 @@
         "product_name": "Integration Recall Evidence",
         "recall_code": "REC-3539-INT01",
         "units_affected": 3539,
-        "manufacturer_id": 27,
+        "manufacturer_id": 13,
         "brand_name": "Integration Foods 3539 Updated",
         "submitter_email": "student@example.edu",
         "category": "Packaged Foods",
         "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
         "terms_accepted": true,
-        "id": 6005,
-        "created_at": "2026-10-02T06:38:02",
-        "updated_at": "2026-10-02T06:38:02",
+        "id": 501,
+        "created_at": "2026-10-04T21:29:22",
+        "updated_at": "2026-10-04T21:29:22",
         "manufacturer": {
-          "id": 27,
+          "id": 13,
           "name": "Integration Foods 3539 Updated",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-02T06:38:02",
-          "updated_at": "2026-10-02T06:38:02"
+          "created_at": "2026-10-04T21:29:22",
+          "updated_at": "2026-10-04T21:29:22"
         },
         "events": []
       }
@@ -227,22 +264,22 @@
           "product_name": "Integration Recall Evidence",
           "recall_code": "REC-3539-INT01",
           "units_affected": 3539,
-          "manufacturer_id": 27,
+          "manufacturer_id": 13,
           "brand_name": "Integration Foods 3539 Updated",
           "submitter_email": "student@example.edu",
           "category": "Packaged Foods",
           "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
           "terms_accepted": true,
-          "id": 6005,
-          "created_at": "2026-10-02T06:38:02",
-          "updated_at": "2026-10-02T06:38:02",
+          "id": 501,
+          "created_at": "2026-10-04T21:29:22",
+          "updated_at": "2026-10-04T21:29:22",
           "manufacturer": {
-            "id": 27,
+            "id": 13,
             "name": "Integration Foods 3539 Updated",
             "contact_name": "Vedant Vartak",
             "contact_email": "integration3539@example.edu",
-            "created_at": "2026-10-02T06:38:02",
-            "updated_at": "2026-10-02T06:38:02"
+            "created_at": "2026-10-04T21:29:22",
+            "updated_at": "2026-10-04T21:29:22"
           },
           "events": []
         }
@@ -264,22 +301,22 @@
         "product_name": "Integration Recall Evidence Updated",
         "recall_code": "REC-3539-INT01",
         "units_affected": 4000,
-        "manufacturer_id": 27,
+        "manufacturer_id": 13,
         "brand_name": "Integration Foods 3539 Updated",
         "submitter_email": "student@example.edu",
         "category": "Packaged Foods",
         "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
         "terms_accepted": true,
-        "id": 6005,
-        "created_at": "2026-10-02T06:38:02",
-        "updated_at": "2026-10-02T06:38:02",
+        "id": 501,
+        "created_at": "2026-10-04T21:29:22",
+        "updated_at": "2026-10-04T21:29:22",
         "manufacturer": {
-          "id": 27,
+          "id": 13,
           "name": "Integration Foods 3539 Updated",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-02T06:38:02",
-          "updated_at": "2026-10-02T06:38:02"
+          "created_at": "2026-10-04T21:29:22",
+          "updated_at": "2026-10-04T21:29:22"
         },
         "events": []
       }

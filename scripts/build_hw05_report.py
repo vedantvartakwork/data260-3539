@@ -46,6 +46,12 @@ def git_commit() -> str:
     ).strip()
 
 
+def tagged_commit() -> str:
+    return subprocess.check_output(
+        ["git", "rev-list", "-n", "1", "hw5"], cwd=ROOT, text=True
+    ).strip()
+
+
 def img(path: Path, max_width: float = 7.25 * inch, max_height: float = 6.5 * inch) -> Image:
     with PILImage.open(path) as source:
         width, height = source.size
@@ -212,6 +218,7 @@ def ui_code_page(
 
 def make_report() -> None:
     commit = git_commit()
+    tag_commit = tagged_commit()
     summary = json.loads((ROOT / "reports/hw05/raw/fault_injection_summary.json").read_text())
     story: list = []
 
@@ -226,8 +233,8 @@ def make_report() -> None:
             "https://github.com/vedantvartakwork/data260-3539</link>"
         )
     )
-    story.append(p(f"<b>Implementation commit:</b> <font name='Courier'>{commit}</font>"))
-    story.append(p("<b>Submission tag:</b> <font name='Courier'>hw5</font> (applied to the final report commit)"))
+    story.append(p(f"<b>Verified implementation commit:</b> <font name='Courier'>{commit}</font>"))
+    story.append(p(f"<b>Resolved submission tag:</b> <font name='Courier'>hw5 -&gt; {tag_commit}</font>"))
     config = [
         ["Item", "Value", "Item", "Value"],
         ["SID4", "3539", "PORT_BASE", "8839"],
@@ -279,13 +286,13 @@ def make_report() -> None:
     section(story, "1. Completion and verification", "The final cumulative checks passed without exceptions or skipped requirements.")
     checks = [
         ["Area", "Evidence", "Result"],
-        ["Database/API", "12 manufacturers; 500 recalls; 200 events; authenticated CRUD", "PASS"],
-        ["React/Redux", "Home, create, update, delete; Redux Toolkit thunks; Axios", "PASS"],
+        ["Database/API", "12 manufacturers; 500 recalls; 200 events; 14/14 authenticated checks", "PASS"],
+        ["React/Redux", "Home, create, update, delete; 10-page access to all 500 records", "PASS"],
         ["MealDB MCP", "Exactly four live tools demonstrated", "PASS"],
         ["Domain MCP", "Exactly search/detail/aggregate; valid and invalid calls", "PASS"],
         ["Reliability", "150 deterministic calls; 3-attempt bounded retry", "PASS"],
         ["Offline tests", "9/9 tool and safety tests", "PASS"],
-        ["Cumulative suite", "33/33 Python tests; React production build", "PASS"],
+        ["Cumulative suite", "34/34 Python tests; React production build", "PASS"],
         ["Local agent", "Four qwen3:8b scenarios; one enforced safety block", "PASS"],
         ["Verifier", "12/12 checks", "PASS"],
     ]
@@ -316,193 +323,72 @@ def make_report() -> None:
         p(
             "The verifier independently inventories both MCP servers, calls one tool from each, checks "
             "the live API health endpoint, counts all 150 experiment rows, runs the offline runner and "
-            "33-test suite, and rebuilds the React client."
+            "34-test suite, and rebuilds the React client."
         )
     )
     story.append(PageBreak())
 
-    # Part 1: API/Postman and database.
-    evidence_page(
-        story,
-        "2. FastAPI and Postman CRUD - first half",
-        "A single collection run used the SID-specific environment and completed with zero errors.",
-        "22_postman_part1.png",
-        "Postman run summary and successful manufacturer create/list/read/update plus recall create/list/read operations.",
-        6.55 * inch,
-    )
-    evidence_page(
-        story,
-        "3. FastAPI and Postman CRUD - second half",
-        "The same run verifies the relationship endpoint, update path, authenticated login, and cleanup deletes.",
-        "23_postman_part2.png",
-        "Successful recall update (200), recall delete (204), login (200), and manufacturer delete (204).",
-        6.55 * inch,
-    )
-    evidence_page(
-        story,
-        "4. Live MySQL schema and row counts",
-        "The cumulative seed is stable after the UI and Postman demonstrations; temporary evidence records were removed.",
-        "24_database.png",
-        "Live schema evidence: 12 manufacturers, 500 recall notices, 200 related events, required columns, and RESTRICT foreign key.",
-        7.1 * inch,
-    )
+    # Part 1: exact live API requests/responses, schema code, and Redux UI/code composites.
+    evidence_page(story, "2. Manufacturer CRUD request/response evidence",
+        "Every operation is labeled with the exact HTTP request, returned status, and response excerpt.",
+        "28_api_manufacturers.png", "Manufacturer create, list, read, and update all returned their expected statuses.", 7.15 * inch)
+    evidence_page(story, "3. Recall create, list, read, and relationship evidence",
+        "The previously unclear recall operations are now all shown explicitly, including filtered listing and relationship lookup.",
+        "29_api_recalls_read.png", "Recall create/list/read and GET by manufacturer all returned the created record.", 7.15 * inch)
+    evidence_page(story, "4. Recall update, delete, FK block, and cleanup",
+        "The write half proves update/delete behavior, the 404 after deletion, and RESTRICT enforcement.",
+        "30_api_recalls_write.png", "All status codes match the recorded 14/14 live integration checks.", 7.15 * inch)
+    paired_evidence_page(story, "5. Database schema plus implementation code",
+        "The live MySQL view and the immediately adjacent implementation/output panel establish both schema and behavior.",
+        ("24_database.png", "12 manufacturers, 500 recalls, 200 events, required columns, and RESTRICT foreign key."),
+        ("38_database_api_code.png", "Validation/transaction code with measured database and API output."))
 
-    # Part 1 Redux pages with code and output together.
-    ui_code_page(
-        story,
-        "5. Redux Home page",
-        "Home reads normalized application state through useSelector and dispatches the search thunk.",
-        "15_react_home.png",
-        "Authenticated Home page showing 50 database-backed recall cards and search controls.",
-        """
-const dispatch = useDispatch();
-const { items: records, loading, error, notice } =
-  useSelector((state) => state.recalls);
-
-function handleSearch(event) {
-  event.preventDefault();
-  dispatch(fetchRecalls(query));
-}
-
-<Link className="danger button-link"
-      to={`/delete/${record.id}`}>Delete</Link>
-""",
-    )
-    ui_code_page(
-        story,
-        "6. Redux Create page",
-        "Create dispatches the asynchronous createRecall thunk and returns to Home only after unwrap confirms success.",
-        "17_react_create_success.png",
-        "Created REC-3539-90001; the Redux notice and persisted database record are visible.",
-        """
-async function handleCreate(payload) {
-  await dispatch(createRecall(payload)).unwrap();
-  navigate("/");
-}
-
-export const createRecall = createAsyncThunk(
-  "recalls/create",
-  async (payload, thunkApi) => {
-    const response = await apiClient.post("/recalls", payload);
-    return response.data;
-  }
-);
-""",
-    )
-    ui_code_page(
-        story,
-        "7. Redux Update page",
-        "Update loads one database record, dispatches updateRecall with its numeric ID, and replaces that item in Redux state.",
-        "19_react_update_success.png",
-        "The saved product, brand, units, and details are visibly updated after the API returns 200.",
-        """
-async function handleUpdate(payload) {
-  await dispatch(updateRecall({ id: Number(id), payload })).unwrap();
-  navigate("/");
-}
-
-.addCase(updateRecall.fulfilled, (state, action) => {
-  const index = state.items.findIndex(
-    (item) => item.id === action.payload.id
-  );
-  if (index >= 0) state.items[index] = action.payload;
-});
-""",
-    )
-    ui_code_page(
-        story,
-        "8. Redux Delete page",
-        "Delete uses a dedicated confirmation route and removes the record from Redux only after the API succeeds.",
-        "21_react_delete_success.png",
-        "The success notice confirms temporary recall ID 6006 was deleted and the seeded 500-record state was restored.",
-        """
-async function handleDelete() {
-  await dispatch(deleteRecall(Number(id))).unwrap();
-  navigate("/");
-}
-
-.addCase(deleteRecall.fulfilled, (state, action) => {
-  state.items = state.items.filter(
-    (item) => item.id !== action.payload
-  );
-  state.notice = `Deleted recall ID ${action.payload} successfully.`;
-});
-""",
-    )
-    paired_evidence_page(
-        story,
-        "9. Form and confirmation states",
-        "The input and confirmation screens provide additional evidence of complete user-facing CRUD behavior.",
-        ("16_react_create_form.png", "Create form populated with valid SID-specific evidence data and exact terms label."),
-        ("20_react_delete_confirm.png", "Dedicated confirmation screen prevents an accidental one-click delete."),
-    )
-    paired_evidence_page(
-        story,
-        "10. Create and update form states",
-        "Both form paths reuse the validated RecordForm component while preserving distinct page routes.",
-        ("16_react_create_form.png", "Create form before submission, including the exact terms-and-conditions control."),
-        ("18_react_update_form.png", "Update page loaded persisted values and accepted the revised data."),
-    )
-    evidence_page(
-        story,
-        "11. Explicit delete confirmation",
-        "The destructive action is isolated behind a named confirmation page with a Cancel path.",
-        "20_react_delete_confirm.png",
-        "Delete confirmation for temporary evidence record 6006 before the successful cleanup shown earlier.",
-        6.6 * inch,
-    )
+    evidence_page(story, "6. Redux Home - code and UI in one screenshot",
+        "The composite contains the actual thunk/slice fields and visible UI output, including page 1 and page 2.",
+        "42_redux_home_composite.png", "Showing 1-50 of 500; page 1/10 and page 2/10 prove access beyond the first 50 records.", 7.2 * inch)
+    evidence_page(story, "7. Redux Create - code and UI in one screenshot",
+        "The create thunk and persisted success state appear in the same captured frame.",
+        "43_redux_create_composite.png", "createRecall returned the saved database record and the UI displayed the success notice.", 7.2 * inch)
+    evidence_page(story, "8. Redux Update - code and UI in one screenshot",
+        "The update thunk/reducer and revised record output appear together.",
+        "44_redux_update_composite.png", "The Redux item was replaced only after the API returned the updated record.", 7.2 * inch)
+    evidence_page(story, "9. Redux Delete - code, confirmation, and output",
+        "The dedicated confirmation route and post-delete state appear with the reducer code in one composite screenshot.",
+        "45_redux_delete_composite.png", "Explicit confirmation precedes deletion; the success notice follows API completion.", 7.2 * inch)
 
     # Part 2: public MCP server.
     evidence_page(
         story,
-        "12. MealDB MCP server connection",
+        "10. MealDB MCP server connection",
         "The Inspector connected over stdio using the project virtual environment and exposed exactly four required tools.",
         "01_mealdb_connected.png",
         "Connected MealDB MCP server in Inspector; tools, prompts, and resources inventories completed successfully.",
         6.6 * inch,
     )
-    paired_evidence_page(
-        story,
-        "13. MealDB tools - name and ingredient",
-        "Both discovery tools returned structured JSON from the public MealDB API.",
-        ("02_mealdb_search.png", "search_meals_by_name returned Spicy Arrabiata Penne for the name query."),
-        ("03_mealdb_ingredient.png", "meals_by_ingredient returned five chicken meals with IDs, names, and thumbnails."),
-    )
-    paired_evidence_page(
-        story,
-        "14. MealDB tools - details and random",
-        "The remaining tools return complete meal objects, including normalized ingredient arrays.",
-        ("04_mealdb_detail.png", "meal_details returned instructions, links, and measured ingredients for meal 52771."),
-        ("05_mealdb_random.png", "random_meal returned Spaghetti alla Carbonara with complete structured details."),
-    )
+    for number, filename, title in (
+        (11, "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
+        (12, "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
+        (13, "33_mealdb_meal_details.png", "meal_details"),
+        (14, "34_mealdb_random_meal.png", "random_meal"),
+    ):
+        evidence_page(story, f"{number}. MealDB MCP - {title}",
+            "The exact Inspector input JSON and structured output are readable in the evidence panel.",
+            filename, f"Input and output for {title}; complete raw output is retained in mcp_tool_outputs.json.", 7.25 * inch)
 
     # Part 3: domain MCP server.
-    paired_evidence_page(
-        story,
-        "15. Domain tool contract - search",
-        "The domain MCP server exposes exactly search, detail, and aggregate, all using one stable JSON envelope.",
-        ("06_domain_search_valid.png", "Valid search for shrimp returned ok=true and SID-specific recall matches."),
-        ("07_domain_search_invalid.png", "One-character input returned ok=false, data=null, and a clean validation error."),
-    )
-    paired_evidence_page(
-        story,
-        "16. Domain tool contract - detail",
-        "Detail resolves a positive integer recall ID and includes the related manufacturer object.",
-        ("08_domain_detail_valid.png", "Valid detail for recall 5505 returned recall and manufacturer fields."),
-        ("09_domain_detail_invalid.png", "ID zero was rejected through the same error envelope without an exception."),
-    )
-    paired_evidence_page(
-        story,
-        "17. Domain tool contract - aggregate",
-        "Aggregate restricts grouping to approved, non-sensitive dimensions.",
-        ("10_domain_aggregate_valid.png", "Category aggregation returned recall_count and total_units for all four categories."),
-        ("11_domain_aggregate_invalid.png", "The unsupported submitter dimension was rejected with ok=false."),
-    )
+    for number, name in ((15, "search"), (16, "detail"), (17, "aggregate")):
+        evidence_page(story, f"{number}. Domain MCP contract - {name}",
+            "Expected JSON schema, valid input/output, rejected JSON, complete error, and rejection reason are shown together.",
+            f"{34 + (number - 14)}_domain_contract_{name}.png",
+            f"The {name} contract returns the stable {{ok, data, error}} envelope for both valid and invalid calls.", 7.25 * inch)
 
     # Part 4: reliability.
+    evidence_page(story, "18. Retry code and measured behavior",
+        "The bounded implementation is shown immediately above its measured 150-call output.",
+        "39_retry_code.png", "Three attempts, 100 ms timeout, exponential delay, and observed success/exhaustion outcomes.", 7.15 * inch)
     section(
         story,
-        "18. Retry policy and fault-injection results",
+        "19. Fault-injection metrics and representative rows",
         "The experiment used VERIFY_SEED 263539 and exactly 150 calls: 50 each at 0%, 20%, and 50% injected failure.",
     )
     retry_rows = [["Injected failure", "Calls", "Success", "Mean latency", "p99 latency"]]
@@ -551,25 +437,17 @@ async function handleDelete() {
         )
     )
     story.append(PageBreak())
-    evidence_page(
-        story,
-        "19. Offline tool and safety tests",
-        "The offline runner is deterministic and requires no external network or language model.",
-        "13_offline_tests.png",
-        "Nine of nine tests passed: valid/invalid calls for all tools, allowed/blocked safety cases, and max-step termination.",
-        6.7 * inch,
-    )
+    paired_evidence_page(story, "20. execute_tool and offline assertions",
+        "Implementation and representative assertions are immediately followed by the full named PASS output.",
+        ("40_execute_tests_code.png", "Safe execution entry point, assertion examples, and 9/9 summary."),
+        ("13_offline_tests.png", "Terminal output names every valid/invalid, safety, and max-step test as PASS."))
 
     # Part 5: agent.
-    evidence_page(
-        story,
-        "20. Local Ollama agent scenarios",
-        "All scenarios used qwen3:8b, temperature 0, model seed 3539, and MAX_STEPS=6.",
-        "14_agent_scenarios.png",
-        "Three scenarios completed normally after one grounded tool call; the fourth stopped immediately at the safety boundary.",
-        6.7 * inch,
-    )
-    section(story, "21. Agent reflection", "Selected run: Scenario 4 - deterministic safety-rule block.")
+    paired_evidence_page(story, "21. Bounded agent loop and Ollama scenarios",
+        "The agent loop code and corresponding four-scenario terminal output are shown together.",
+        ("41_agent_loop_code.png", "MAX_STEPS loop, execute_tool call, normal completion, and deterministic safety stop."),
+        ("14_agent_scenarios.png", "Three grounded completions plus one safety-rule block using qwen3:8b."))
+    section(story, "22. Agent reflection", "Selected run: Scenario 4 - deterministic safety-rule block.")
     reflection = [
         "I selected the fourth Ollama run because it demonstrates that the harness, not the language model, owns the safety boundary. The user prompt explicitly asked the agent to retrieve recall records with a limit of 25 and told it not to reduce that limit. In step 1, local qwen3:8b produced a structured action for the search tool with query set to an empty string and limit set to 25. The harness did not send that action directly to the database. Instead, run_agent routed it through the single execute_tool(name, inputs) entry point used by every agent tool call.",
         "Inside execute_tool, the domain-specific safety rule checked the requested search limit before normal schema validation or repository access. Because the limit exceeded the allowed agent maximum of 10, the function returned the shared JSON envelope with ok=false, data=null, and the error 'Safety rule blocked search: limit cannot exceed 10 records.' It raised no exception and issued no SQL query.",
@@ -581,12 +459,12 @@ async function handleDelete() {
     story.append(PageBreak())
 
     # Tool contracts and AI use.
-    section(story, "22. Tool contracts under stress")
+    section(story, "23. Tool contracts and AI-use disclosure")
     contract_rows = [
-        ["Tool", "Accepted input", "Rejected input", "Clean behavior"],
-        ["search", "query 2-80 chars; limit 1-25", "query='s'", "Minimum-length error"],
-        ["detail", "positive recall_id", "recall_id=0", "Positive-ID error"],
-        ["aggregate", "category|manufacturer", "group_by='submitter'", "Approved-dimension error"],
+        ["Tool", "Expected JSON", "Rejected JSON", "Complete error is shown on"],
+        ["search", '{"query": str, "limit": int}', '{"query":"s","limit":5}', "Page 15"],
+        ["detail", '{"recall_id": positive int}', '{"recall_id":0}', "Page 16"],
+        ["aggregate", '{"group_by": enum, "min_units": int}', '{"group_by":"submitter","min_units":0}', "Page 17"],
     ]
     contract_table = Table(contract_rows, colWidths=[0.9 * inch, 2.15 * inch, 1.65 * inch, 2.45 * inch], repeatRows=1)
     contract_table.setStyle(
@@ -608,24 +486,23 @@ async function handleDelete() {
     story.append(Spacer(1, 0.12 * inch))
     story.append(
         p(
-            "All three return {ok, data, error}. Pydantic validation is caught at the tool boundary so "
-            "bad arguments never become uncaught exceptions. The Part 5 agent rule is intentionally "
-            "narrower than the MCP schema: execute_tool blocks search limits above 10 to prevent bulk "
-            "extraction, while direct interactive MCP use still permits up to 25."
+            "Pages 15-17 contain the full expected schema, valid input/output, rejected object, untruncated "
+            "returned error, and explanation for each tool. All three return {ok, data, error}. Pydantic "
+            "validation is caught at the boundary, and execute_tool applies the narrower agent-only limit of 10."
         )
     )
     story.append(p("AI-use disclosure", "Section"))
     disclosures = [
         "1. I used an AI assistant to translate the assignment checklist into a cumulative implementation plan, draft FastAPI/Redux/MCP code, and create repeatable validation scripts. I independently reviewed the requirements, ran the tests, inspected the artifacts, and captured the final evidence.",
-        "2. I independently verified that the supplied demo's relationship route order was unsuitable to copy directly: a dynamic /{course_id} route appeared before /by-instructor/{instructor_id}, which can cause the static path to be parsed as an integer ID.",
-        "3. I detected the issue by reading the complete demo source after extracting the assignment requirements, then comparing FastAPI declaration-order matching with the required relationship endpoint. I also used production builds and offline tests instead of assuming generated code was correct.",
-        "4. I declared the static /by-manufacturer/{manufacturer_id} relationship route before the dynamic /{recall_id} route. The cumulative suite and live API flow verify that relationship lookup coexists with individual recall lookup.",
+        "2. I independently found that my first Home-page implementation deleted a recall directly from the record card, bypassing the required delete-confirmation UI even though the API operation worked.",
+        "3. I detected it by tracing the Home button to its Redux dispatch and reproducing the rendered flow: clicking Delete immediately issued the request instead of first showing the selected record and confirmation action.",
+        "4. I changed Home to navigate to /delete/:id, added a confirmation page that loads the selected record, and dispatches deleteRecall only after explicit confirmation. I verified the confirmation screen, success notice, and MySQL removal.",
     ]
     for disclosure in disclosures:
         story.append(p(disclosure))
     story.append(PageBreak())
 
-    section(story, "23. Submission file alignment")
+    section(story, "24. Submission file alignment")
     files = [
         ["Required item", "Repository location"],
         ["Final report", "reports/hw05/report.pdf"],

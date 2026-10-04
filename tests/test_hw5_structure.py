@@ -71,6 +71,16 @@ class Homework5StructureTests(unittest.TestCase):
         ):
             self.assertTrue((ROOT / relative).is_file(), relative)
 
+    def test_home_exposes_all_records_through_pagination(self) -> None:
+        router = (ROOT / "code/web_application/routers/recalls.py").read_text()
+        home = (ROOT / "code/web_application/frontend/src/components/Home.jsx").read_text()
+        redux = (ROOT / "code/web_application/frontend/src/features/recalls/recallsSlice.js").read_text()
+        self.assertIn("offset((page - 1) * page_size)", router)
+        self.assertIn("total = db.scalar(count_statement)", router)
+        self.assertIn("Showing {firstShown}-{lastShown} of {total}", home)
+        self.assertIn("Page {page} of {totalPages}", home)
+        self.assertIn("state.total = action.payload.total", redux)
+
 
 if __name__ == "__main__":
     unittest.main()

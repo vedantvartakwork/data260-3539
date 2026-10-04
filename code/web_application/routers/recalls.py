@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
-from sqlalchemy import delete, or_, select
+from sqlalchemy import delete, func, or_, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, joinedload
 
@@ -79,7 +79,9 @@ def list_recalls_naive(
     response.headers["X-SQL-Query-Count"] = str(counter[0])
     return RecallListResponse(
         implementation="naive",
+        page=1,
         page_size=page_size,
+        total=len(payload),
         sql_queries=counter[0],
         records=payload,
     )
@@ -105,7 +107,9 @@ def list_recalls_fixed(
     response.headers["X-SQL-Query-Count"] = str(counter[0])
     return RecallListResponse(
         implementation="fixed",
+        page=1,
         page_size=page_size,
+        total=len(payload),
         sql_queries=counter[0],
         records=payload,
     )
@@ -115,20 +119,16 @@ def list_recalls_fixed(
 def list_recalls(
     response: Response,
     q: str = Query(default="", max_length=160),
+    page: int = Query(default=1, ge=1),
     page_size: int = Query(default=50, ge=1, le=200),
     db: Session = Depends(get_db),
     _user: User = Depends(require_user),
 ) -> RecallListResponse:
-    statement = (
-        select(RecallNotice)
-        .options(joinedload(RecallNotice.events), joinedload(RecallNotice.manufacturer))
-        .order_by(RecallNotice.id)
-        .limit(page_size)
-    )
+    filters = []
     needle = q.strip()
     if needle:
         pattern = f"%{needle}%"
-        statement = statement.where(
+        filters.append(
             or_(
                 RecallNotice.product_name.like(pattern),
                 RecallNotice.brand_name.like(pattern),
@@ -136,13 +136,26 @@ def list_recalls(
             )
         )
 
+    statement = (
+        select(RecallNotice)
+        .options(joinedload(RecallNotice.events), joinedload(RecallNotice.manufacturer))
+        .where(*filters)
+        .order_by(RecallNotice.id)
+        .offset((page - 1) * page_size)
+        .limit(page_size)
+    )
+    count_statement = select(func.count(RecallNotice.id)).where(*filters)
+
     with count_sql_queries() as counter:
+        total = db.scalar(count_statement) or 0
         recalls = list(db.execute(statement).unique().scalars())
         payload = [serialize_recall(recall) for recall in recalls]
     response.headers["X-SQL-Query-Count"] = str(counter[0])
     return RecallListResponse(
         implementation="fixed",
+        page=page,
         page_size=page_size,
+        total=total,
         sql_queries=counter[0],
         records=payload,
     )
