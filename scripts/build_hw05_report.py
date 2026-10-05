@@ -266,7 +266,7 @@ def make_report() -> None:
     )
     story.append(p(f"<b>Evidence-build commit:</b> <font name='Courier'>{commit}</font>"))
     story.append(p(f"<b>Verified application snapshot (prior hw5 target):</b> <font name='Courier'>{tag_commit}</font>"))
-    story.append(p("The final submission tag is hw5. This PDF is packaged with the final evidence in a later commit with unchanged application source. Resolve the packaging commit with git rev-parse 'hw5^{commit}'; the hashes above identify the source/evidence baseline, not the self-containing PDF packaging commit. Verification records retain their original run provenance.", "Small"))
+    story.append(p("The final submission tag is hw5. The accompanying SUBMISSION_HASH.txt gives its full resolved packaging hash and report SHA-256. That commit contains this final PDF and required evidence. A PDF cannot embed the hash of the Git commit containing itself without changing that hash. The hashes above identify the baseline; verification records retain their original run provenance.", "Small"))
     config = [
         ["Item", "Value", "Item", "Value"],
         ["SID4", "3539", "PORT_BASE", "8839"],
@@ -580,6 +580,21 @@ def make_report() -> None:
         "The agent loop code and corresponding four-scenario terminal output are shown together.",
         ("41_agent_loop_code.png", "MAX_STEPS loop, execute_tool call, normal completion, and deterministic safety stop."),
         ("14_agent_scenarios.png", "Three grounded completions plus one safety-rule block using qwen3:8b."))
+
+    section(story, "31A. Complete saved agent answers",
+            "Verbatim answers from reports/hw05/raw/agent_scenario_summary.json, checked against the stop events in agent_runs.jsonl. Wrapped text supplies the continuation clipped by the terminal screenshot; these are not newly generated answers.")
+    saved_scenarios = json.loads((ROOT / "reports/hw05/raw/agent_scenario_summary.json").read_text())
+    stop_events = [json.loads(line) for line in (ROOT / "reports/hw05/raw/agent_runs.jsonl").read_text().splitlines() if line.strip()]
+    stop_events = [event for event in stop_events if event.get("event") == "stop"]
+    for scenario in saved_scenarios:
+        assert any(event.get("final_answer") == scenario["final_answer"] and
+                   event.get("user_input") == scenario["user_input"] for event in stop_events)
+        story.append(p(f"Scenario {scenario['scenario']}", "Subsection"))
+        story.append(p(f"Steps: {scenario['step_count']} | Tool calls: {scenario['tool_call_count']} | Stop reason: {scenario['stop_reason']}", "Small"))
+        from xml.sax.saxutils import escape
+        story.append(p(escape(scenario["final_answer"]).replace("\n", "<br/>")))
+        story.append(Spacer(1, 0.08 * inch))
+    story.append(PageBreak())
     section(story, "32. Agent reflection", "Selected run: Scenario 4 - deterministic safety-rule block.")
     reflection = [
         "I selected the fourth Ollama run because it demonstrates that the harness, not the language model, owns the safety boundary. The user prompt explicitly asked the agent to retrieve recall records with a limit of 25 and told it not to reduce that limit. In step 1, local qwen3:8b produced a structured action for the search tool with query set to an empty string and limit set to 25. The harness did not send that action directly to the database. Instead, run_agent routed it through the single execute_tool(name, inputs) entry point used by every agent tool call.",
