@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 from PIL import Image as PILImage
@@ -201,6 +202,16 @@ def paired_evidence_page(
     story.append(PageBreak())
 
 
+def source_page(story: list, title: str, filename: str, start: str, end: str, output: str) -> None:
+    section(story, title, f"Exact source excerpt: {filename}. The measured result is immediately below.")
+    source = (ROOT / filename).read_text()
+    excerpt = source[source.index(start):source.index(end)].rstrip()
+    story.append(Preformatted(excerpt, styles["CodeBlock"]))
+    story.append(p("Verified output", "Subsection"))
+    story.append(Preformatted(output, styles["CodeBlock"]))
+    story.append(PageBreak())
+
+
 def ui_code_page(
     story: list,
     title: str,
@@ -218,6 +229,22 @@ def ui_code_page(
 
 
 def make_report() -> None:
+    # Retain original captures; crop only unrelated chrome and unused space.
+    for filename in (
+        "62_postman_create_request.png", "61_postman_create_response.png",
+        "63_postman_list_response.png", "69_postman_manufacturer_read.png",
+        "65_postman_relationship_response.png", "71_postman_update_response.png",
+    ):
+        with PILImage.open(EVIDENCE / filename) as original:
+            original.crop((int(original.width * 0.52), int(original.height * 0.27),
+                           original.width, int(original.height * 0.73))).save(
+                               EVIDENCE / filename.replace(".png", "_detail.png"))
+    for number in range(54, 60):
+        filename = next(EVIDENCE.glob(f"{number}_*with_input.png"))
+        with PILImage.open(filename) as original:
+            original.crop((int(original.width * 0.315), int(original.height * 0.075),
+                           original.width, int(original.height * 0.96))).save(
+                               filename.with_name(filename.stem + "_detail.png"))
     # Retain the genuine test output and name, excluding unrelated earlier-run scrollback.
     with PILImage.open(EVIDENCE / "13_offline_tests.png") as original:
         original.crop((0, 598, original.width, original.height)).save(EVIDENCE / "80_offline_tests_crop.png")
@@ -238,8 +265,8 @@ def make_report() -> None:
         )
     )
     story.append(p(f"<b>Evidence-build commit:</b> <font name='Courier'>{commit}</font>"))
-    story.append(p(f"<b>Resolved submission tag:</b> <font name='Courier'>hw5 -&gt; {tag_commit}</font>"))
-    story.append(p("Repository link verified. supriyaselvanganesan has write access; Sbnikitha's write invitation is pending acceptance. Generated verification/report evidence follows the tagged application snapshot; application source is checked for exact tag alignment.", "Small"))
+    story.append(p(f"<b>Verified application snapshot (prior hw5 target):</b> <font name='Courier'>{tag_commit}</font>"))
+    story.append(p("The final submission tag is hw5. This PDF is packaged with the final evidence in a later commit with unchanged application source. Resolve the packaging commit with git rev-parse 'hw5^{commit}'; the hashes above identify the source/evidence baseline, not the self-containing PDF packaging commit. Verification records retain their original run provenance.", "Small"))
     config = [
         ["Item", "Value", "Item", "Value"],
         ["SID4", "3539", "PORT_BASE", "8839"],
@@ -343,23 +370,23 @@ def make_report() -> None:
     paired_evidence_page(
         story,
         "4. Actual Postman request and response - recall creation",
-        "These are unedited Postman application captures from the same run shown above. The first records the submitted JSON request and the second shows the stored 201 response for recall 6008.",
-        ("62_postman_create_request.png", "Request tab: POST /api/v1/recalls with the recall payload and 201 Created status."),
-        ("61_postman_create_response.png", "Response tab: the returned recall object, including ID 6008 and its manufacturer relation."),
+        "These are close crops of original Postman application captures from the same run shown above. The first records the submitted JSON request and the second shows the stored 201 response for recall 6008. Original captures are retained.",
+        ("62_postman_create_request_detail.png", "Cropped request pane: submitted JSON and 201 Created status; original capture is retained."),
+        ("61_postman_create_response_detail.png", "Cropped response pane: returned recall 6008 and its manufacturer relation; original capture is retained."),
     )
     paired_evidence_page(
         story,
         "5. Actual Postman responses - list and direct record read",
         "The list request demonstrates the fixed eager-load implementation and page metadata. The next capture is a completed direct-read response for the manufacturer used by the recall workflow; Section 3 independently records the matching direct recall read.",
-        ("63_postman_list_response.png", "GET /api/v1/recalls?page_size=10 returned 200 with implementation metadata, total, page size, and records."),
-        ("69_postman_manufacturer_read.png", "GET /api/v1/manufacturers/29 returned 200 and the complete saved manufacturer."),
+        ("63_postman_list_response_detail.png", "Enlarged list response pane: implementation metadata, total, page size, and records; original is retained."),
+        ("69_postman_manufacturer_read_detail.png", "Enlarged direct manufacturer-read response pane; original is retained."),
     )
     paired_evidence_page(
         story,
         "6. Actual Postman responses - relationship, update, and delete",
         "The relationship query and update are captured directly in Postman. The Runner capture in Section 3 records the subsequent 204 delete response for this same recall, since a successful DELETE has no response body to display.",
-        ("65_postman_relationship_response.png", "GET /api/v1/recalls/by-manufacturer/29 returned 200 and includes recall 6008 with manufacturer data."),
-        ("71_postman_update_response.png", "PUT /api/v1/recalls/6008 returned 200 with the updated recall; the same run then returned DELETE 204."),
+        ("65_postman_relationship_response_detail.png", "Enlarged relationship response pane, including recall 6008; original is retained."),
+        ("71_postman_update_response_detail.png", "Enlarged updated-recall response pane; original is retained. The Runner records subsequent DELETE 204."),
     )
     evidence_page(story, "6A. Actual Postman response - manufacturer deletion",
         "This final cleanup action is shown in the real Postman Runner after its dependent recall was deleted. HTTP 204 deliberately has no response body; the completed request and status are both visible.",
@@ -376,6 +403,15 @@ def make_report() -> None:
     evidence_page(story, "9. Authentication, format validation, and numeric default",
         "The requested security and schema details are explicit rather than inferred from PASS claims.",
         "49_security_validation.png", "Salted PBKDF2 hashing, unique-field formats, and the units_affected default are documented from source.", 7.15 * inch)
+    sys.path.insert(0, str(ROOT))
+    from code.web_application.security import hash_password, verify_password
+    first_hash = hash_password("report-fixture-only")
+    second_hash = hash_password("report-fixture-only")
+    source_page(story, "9A. Actual password-hashing function",
+        "code/web_application/security.py", "PBKDF2_ITERATIONS =", "def verify_password",
+        f"Different salts produce different hashes: {first_hash != second_hash}\n"
+        f"Correct password verifies: {verify_password('report-fixture-only', first_hash)}\n"
+        f"Incorrect password rejected: {not verify_password('wrong', first_hash)}")
 
     evidence_page(story, "10. Redux store and slice setup",
         "The store registration, async thunk, and slice state are shown as implementation evidence.",
@@ -437,10 +473,11 @@ def make_report() -> None:
         (24, "detail", "56_domain_detail_valid_with_input.png", "57_domain_detail_invalid_with_input.png"),
         (26, "aggregate", "58_domain_aggregate_valid_with_input.png", "59_domain_aggregate_invalid_with_input.png"),
     ):
-        paired_evidence_page(story, f"{number}. Actual Domain Inspector calls - {name}",
-            "The expanded Protocol panes show exact inputs and responses for one valid and one rejected call.",
-            (valid_shot, f"Actual valid {name} call in MCP Inspector, including submitted arguments and response."),
-            (invalid_shot, f"Actual invalid {name} call, rejected arguments, and complete failure envelope in MCP Inspector."))
+        for shot, kind in ((valid_shot, "valid"), (invalid_shot, "invalid")):
+            evidence_page(story, f"{number}. Actual Domain Inspector - {name} {kind}",
+                "A full-page close crop enlarges the actual result and Protocol input panes. Original screenshots are retained; the following contract page supplies untruncated JSON.",
+                shot.replace(".png", "_detail.png"),
+                f"Actual {kind} {name} call. This crop changes only framing, not submitted inputs or returned output.", 7.1 * inch)
         evidence_page(story, f"{number + 1}. Domain MCP contract - {name}",
             "Expected JSON schema, valid input/output, rejected JSON, complete error, and rejection reason are shown together.",
             f"{35 + ((number - 22) // 2)}_domain_contract_{name}.png",
@@ -449,7 +486,23 @@ def make_report() -> None:
     # Part 4: reliability.
     evidence_page(story, "Part 3 - Operation timeout, retries, and stress",
         "The operation is executed through Future.result(timeout=remaining), so a hanging call is interrupted from the caller's perspective rather than merely checked after failure.",
-        "39_retry_code.png", "Runtime test: a 200 ms operation returns a clean timeout within the 30 ms caller deadline; retries remain bounded.", 7.15 * inch)
+        "39_retry_code.png", "The test uses a 30 ms timeout budget and verifies that the caller returns in under 120 ms despite a 200 ms operation.", 7.15 * inch)
+    from code.hw5_retry import RetryPolicy, call_with_retry
+    recorded_delays = []
+    attempts = [0]
+    def transient_operation():
+        attempts[0] += 1
+        if attempts[0] < 3:
+            raise ConnectionError("controlled transient failure")
+        return "success"
+    result = call_with_retry(transient_operation,
+        RetryPolicy(max_attempts=3, timeout_seconds=0.1,
+                    base_delay_seconds=0.001, max_delay_seconds=0.004),
+        sleep=recorded_delays.append)
+    source_page(story, "28A. Actual bounded exponential-backoff calculation",
+        "code/hw5_retry.py", "            delay = min(", "    return RetryResult(\n        ok=False",
+        f"Controlled failures before success: 2\nAttempts: {result.attempts}\n"
+        f"Success: {result.ok}\nRequested backoff delays (ms): {[round(d * 1000, 3) for d in recorded_delays]}")
     section(
         story,
         "29. Fault-injection metrics and representative rows",

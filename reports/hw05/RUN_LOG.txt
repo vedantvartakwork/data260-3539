@@ -138,6 +138,16 @@ INFO:httpx:HTTP Request: GET http://127.0.0.1:8839/health "HTTP/1.1 200 OK"
 
 EXIT STATUS: 0
 
+2026-10-05 report evidence packaging update
+Added exact password-hashing and bounded exponential-backoff source excerpts.
+Measured salted hashing/correct-password/incorrect-password checks passed.
+Controlled retry: two failures, third-attempt success, requested delays 1 and 2 ms.
+Enlarged Postman response crops; valid/invalid domain Inspector captures split onto separate pages.
+Offline runner: 9/9 PASS. Python unittest suite: 37 tests, OK.
+Application code and MCP servers unchanged from verified hw5 source snapshot.
+Original verification.json and experiment records retain their recorded run provenance.
+Final packaging includes the updated 46-page report, original captures, readable crops, raw logs and verification files.
+
 FINAL AUDIT CONSOLE - Vedant Vartak - 2026-10-05T17:07:23.274178+00:00
 PASS reproducible VERIFY_SEED sequence: 150/150 records
 p99 convention: nearest rank ceil(0.99 * n)
