@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import json
+import time
 import unittest
 from pathlib import Path
 
 from code.hw5_agent import MockModel, run_agent
+from code.hw5_retry import RetryPolicy, call_with_retry
 from code.hw5_tools import InMemoryRecallRepository, execute_tool
 from code.web_application import models
 
@@ -80,6 +82,17 @@ class Homework5StructureTests(unittest.TestCase):
         self.assertIn("Showing {firstShown}-{lastShown} of {total}", home)
         self.assertIn("Page {page} of {totalPages}", home)
         self.assertIn("state.total = action.payload.total", redux)
+
+    def test_retry_interrupts_hanging_operation_at_deadline(self) -> None:
+        started = time.perf_counter()
+        result = call_with_retry(
+            lambda: time.sleep(0.20),
+            RetryPolicy(max_attempts=1, timeout_seconds=0.03),
+        )
+        elapsed = time.perf_counter() - started
+        self.assertFalse(result.ok)
+        self.assertIn("timed out", result.error or "")
+        self.assertLess(elapsed, 0.12)
 
 
 if __name__ == "__main__":

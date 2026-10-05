@@ -73,7 +73,13 @@ def panel(title: str, sections: list[tuple[str, str, str]], path: Path) -> None:
     image.save(path)
 
 
-def composite(title: str, code: str, screenshot_names: list[str], output_name: str) -> None:
+def composite(
+    title: str,
+    code: str,
+    screenshot_names: list[str],
+    output_name: str,
+    code_heading: str = "RELEVANT REDUX / REACT CODE",
+) -> None:
     code_lines = wrapped(code, 92)
     code_h = 100 + 31 * len(code_lines)
     screenshots = []
@@ -87,7 +93,7 @@ def composite(title: str, code: str, screenshot_names: list[str], output_name: s
     draw.text((55, 35), title, fill=GREEN, font=TITLE)
     y = 100
     draw.rounded_rectangle((45, y, WIDTH - 45, y + code_h), radius=18, fill=PANEL, outline="#365443", width=2)
-    draw.text((70, y + 18), "RELEVANT REDUX / REACT CODE", fill=GREEN, font=SUB)
+    draw.text((70, y + 18), code_heading, fill=GREEN, font=SUB)
     draw_lines(draw, 70, y + 63, code_lines)
     y += code_h + 28
     for shot in screenshots:
@@ -197,9 +203,10 @@ def code_output_panels() -> None:
     panel(
         "RETRY IMPLEMENTATION AND MEASURED OUTPUT",
         [
-            ("CODE", "for attempt in range(1, policy.max_attempts + 1):\n    try: return RetryResult(value=operation(), attempts=attempt)\n    except policy.retry_on as exc:\n        if attempt >= policy.max_attempts or elapsed >= policy.timeout_seconds: break\n        delay = min(base_delay * 2 ** (attempt - 1), max_delay)\n        sleep(min(delay, remaining_timeout))", "ok"),
+            ("ACTUAL OPERATION TIMEOUT", "remaining = policy.timeout_seconds - (clock() - started)\nexecutor = ThreadPoolExecutor(max_workers=1)\nfuture = executor.submit(operation)\ntry:\n    data = future.result(timeout=remaining)\nexcept FutureTimeoutError:\n    future.cancel()\n    executor.shutdown(wait=False, cancel_futures=True)\n    last_error = TimeoutError('operation timed out')\n    break", "ok"),
             ("POLICY", "max_attempts=3; timeout=100ms; delays=1ms, 2ms; cap=4ms; VERIFY_SEED=263539", "note"),
-            ("OUTPUT", "150 total calls (50 each at 0%, 20%, 50%)\nSuccess rates: 100%, 98%, 92%\nObserved: immediate success; failure|success; failure|failure|failure", "ok"),
+            ("RUNTIME ASSERTION", "A deliberately sleeping 200ms operation is called with a 30ms deadline. The test asserts ok=false, error contains 'timed out', and caller elapsed time is under 120ms.", "ok"),
+            ("FAULT OUTPUT", "150 total calls (50 each at 0%, 20%, 50%)\nObserved: immediate success; failure|success; failure|failure|failure", "ok"),
         ],
         EVIDENCE / "39_retry_code.png",
     )
@@ -219,6 +226,42 @@ def code_output_panels() -> None:
             ("OUTPUT", "Scenario 1: steps=2, tool_calls=1, normal_completion\nScenario 2: steps=2, tool_calls=1, normal_completion\nScenario 3: steps=2, tool_calls=1, normal_completion\nScenario 4: steps=1, tool_calls=1, safety_rule_block", "ok"),
         ],
         EVIDENCE / "41_agent_loop_code.png",
+    )
+    panel(
+        "REDUX STORE AND SLICE IMPLEMENTATION",
+        [
+            ("STORE", "export const store = configureStore({\n  reducer: { recalls: recallsReducer },\n});\n\n<Provider store={store}><App /></Provider>", "ok"),
+            ("ASYNC THUNK", "export const fetchRecalls = createAsyncThunk(\n  'recalls/fetch',\n  async ({ query = '', page = 1 } = {}) => {\n    const response = await apiClient.get('/recalls',\n      { params: { q: query || undefined, page, page_size: 50 } });\n    return response.data;\n  }\n);", "ok"),
+            ("SLICE STATE", "initialState: { items: [], page: 1, pageSize: 50, total: 0, status: 'idle' }\nfulfilled: state.items = action.payload.records; state.total = action.payload.total", "ok"),
+        ],
+        EVIDENCE / "46_redux_store_slice.png",
+    )
+    panel(
+        "MEALDB MCP SERVER IMPLEMENTATION",
+        [
+            ("STDIO + STDERR", "logging.basicConfig(stream=sys.stderr, level=logging.INFO)\nmcp = FastMCP('meals')\nif __name__ == '__main__': mcp.run(transport='stdio')", "ok"),
+            ("TIMEOUT + ERROR HANDLING", "try:\n    response = httpx.get(url, params=params, timeout=10.0)\n    response.raise_for_status()\n    payload = response.json()\nexcept (httpx.HTTPError, ValueError) as exc:\n    LOGGER.error('TheMealDB request failed: %s', exc)\n    raise RuntimeError(f'TheMealDB request failed: {exc}') from exc", "ok"),
+            ("EXACT TOOL SURFACE", "@mcp.tool search_meals_by_name\n@mcp.tool meals_by_ingredient\n@mcp.tool meal_details\n@mcp.tool random_meal", "note"),
+        ],
+        EVIDENCE / "47_mealdb_server_code.png",
+    )
+    panel(
+        "DOMAIN MCP SERVER IMPLEMENTATION",
+        [
+            ("STDIO + STDERR", "logging.basicConfig(stream=sys.stderr, level=logging.INFO)\nmcp = FastMCP('s3539_rel-recall-tools')\nif __name__ == '__main__': mcp.run(transport='stdio')", "ok"),
+            ("EXACT THREE TOOLS", "@mcp.tool(name='search')\ndef search(query: str, limit: int = 5): ...\n@mcp.tool(name='detail')\ndef detail(recall_id: int): ...\n@mcp.tool(name='aggregate')\ndef aggregate(group_by: str, min_units: int = 0): ...", "ok"),
+            ("BOUNDARY ERROR ENVELOPE", "call_domain_tool validates typed inputs and catches ValidationError, returning the same JSON-serializable {ok, data, error} shape for success and failure.", "note"),
+        ],
+        EVIDENCE / "48_domain_server_code.png",
+    )
+    panel(
+        "PASSWORD, UNIQUE FORMAT, AND NUMERIC DEFAULT",
+        [
+            ("PASSWORD HASHING", "PBKDF2-HMAC-SHA256; 240,000 iterations; random 16-byte salt; constant-time hmac.compare_digest verification. Only password_hash is stored.", "ok"),
+            ("UNIQUE FIELD FORMAT", "recall_code: Field(pattern=r'^REC-[A-Z0-9][A-Z0-9-]{2,23}$'); normalized with strip().upper(). Database column is unique=True and indexed. contact_email and submitter_email use EmailStr.", "ok"),
+            ("NUMERIC DEFAULT", "units_affected: int = Field(default=0, ge=0, le=100_000_000)\nSQLAlchemy: mapped_column(Integer, nullable=False, default=0)", "ok"),
+        ],
+        EVIDENCE / "49_security_validation.png",
     )
 
 
@@ -255,7 +298,7 @@ export const createRecall = createAsyncThunk('recalls/create', async (payload) =
   const response = await apiClient.post('/recalls', payload);
   return response.data;
 });""",
-        ["17_react_create_success.png"], "43_redux_create_composite.png",
+        ["16_react_create_form.png", "17_react_create_success.png"], "43_redux_create_composite.png",
     )
     composite(
         "REDUX UPDATE: THUNK + UPDATED UI OUTPUT",
@@ -264,7 +307,7 @@ export const createRecall = createAsyncThunk('recalls/create', async (payload) =
   const index = state.items.findIndex(item => item.id === action.payload.id);
   if (index >= 0) state.items[index] = action.payload;
 });""",
-        ["19_react_update_success.png"], "44_redux_update_composite.png",
+        ["18_react_update_form.png", "19_react_update_success.png"], "44_redux_update_composite.png",
     )
     composite(
         "REDUX DELETE: CONFIRMATION ROUTE + UI OUTPUT",

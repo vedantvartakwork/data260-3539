@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
 from dataclasses import dataclass
 from typing import Any, Callable
 
@@ -35,8 +36,17 @@ def call_with_retry(
     started = clock()
     last_error: Exception | None = None
     for attempt in range(1, policy.max_attempts + 1):
+        remaining = policy.timeout_seconds - (clock() - started)
+        if remaining <= 0:
+            last_error = TimeoutError(
+                f"operation timed out after {policy.timeout_seconds:.3f} seconds"
+            )
+            break
+        executor = ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(operation)
         try:
-            data = operation()
+            data = future.result(timeout=remaining)
+            executor.shutdown(wait=False, cancel_futures=True)
             return RetryResult(
                 ok=True,
                 data=data,
@@ -44,7 +54,15 @@ def call_with_retry(
                 attempts=attempt,
                 latency_ms=(clock() - started) * 1000,
             )
+        except FutureTimeoutError:
+            future.cancel()
+            executor.shutdown(wait=False, cancel_futures=True)
+            last_error = TimeoutError(
+                f"operation timed out after {policy.timeout_seconds:.3f} seconds"
+            )
+            break
         except Exception as exc:  # boundary converts exhausted failures to data
+            executor.shutdown(wait=False, cancel_futures=True)
             last_error = exc
             elapsed = clock() - started
             if attempt >= policy.max_attempts or elapsed >= policy.timeout_seconds:

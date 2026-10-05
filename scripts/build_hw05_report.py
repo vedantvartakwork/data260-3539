@@ -328,67 +328,96 @@ def make_report() -> None:
     )
     story.append(PageBreak())
 
-    # Part 1: exact live API requests/responses, schema code, and Redux UI/code composites.
-    evidence_page(story, "2. Manufacturer CRUD request/response evidence",
+    # Part 1: actual Postman screenshots plus readable request/response companions.
+    evidence_page(story, "2. Actual Postman Runner evidence - first operations",
+        "This is the original Postman application capture, not a reconstructed panel. It shows the selected HW5 environment and successful manufacturer operations.",
+        "22_postman_part1.png", "Postman Runner UI: HW5 collection, local environment, response statuses, timings, and test summary.", 7.1 * inch)
+    evidence_page(story, "3. Actual Postman Runner evidence - final operations",
+        "This second original Postman capture shows the update, delete, login, and cleanup operations in the same collection run.",
+        "23_postman_part2.png", "Postman Runner UI: update recall, delete recall, login, and manufacturer cleanup returned 200/204 responses.", 7.1 * inch)
+    evidence_page(story, "4. Manufacturer CRUD request/response companion",
         "Every operation is labeled with the exact HTTP request, returned status, and response excerpt.",
         "28_api_manufacturers.png", "Manufacturer create, list, read, and update all returned their expected statuses.", 7.15 * inch)
-    evidence_page(story, "3. Recall create, list, read, and relationship evidence",
+    evidence_page(story, "5. Recall create, list, read, and relationship companion",
         "The previously unclear recall operations are now all shown explicitly, including filtered listing and relationship lookup.",
         "29_api_recalls_read.png", "Recall create/list/read and GET by manufacturer all returned the created record.", 7.15 * inch)
-    evidence_page(story, "4. Recall update, delete, FK block, and cleanup",
+    evidence_page(story, "6. Recall update, delete, FK block, and cleanup",
         "The write half proves update/delete behavior, the 404 after deletion, and RESTRICT enforcement.",
         "30_api_recalls_write.png", "All status codes match the recorded 14/14 live integration checks.", 7.15 * inch)
-    paired_evidence_page(story, "5. Database schema plus implementation code",
-        "The live MySQL view and the immediately adjacent implementation/output panel establish both schema and behavior.",
-        ("24_database.png", "12 manufacturers, 500 recalls, 200 events, required columns, and RESTRICT foreign key."),
-        ("38_database_api_code.png", "Validation/transaction code with measured database and API output."))
+    evidence_page(story, "7. Enlarged live MySQL evidence",
+        "The database capture is given a full page so the row counts, schema, and foreign key are readable.",
+        "24_database.png", "12 manufacturers, 500 recalls, 200 events, required columns, and RESTRICT foreign key.", 7.25 * inch)
+    evidence_page(story, "8. Database and API implementation evidence",
+        "The relevant validation and transaction code is immediately followed by measured output.",
+        "38_database_api_code.png", "Validation, 409 handling, relationship integrity, and live row counts.", 7.15 * inch)
+    evidence_page(story, "9. Authentication, format validation, and numeric default",
+        "The requested security and schema details are explicit rather than inferred from PASS claims.",
+        "49_security_validation.png", "Salted PBKDF2 hashing, unique-field formats, and the units_affected default are documented from source.", 7.15 * inch)
 
-    evidence_page(story, "6. Redux Home - code and UI in one screenshot",
+    evidence_page(story, "10. Redux store and slice setup",
+        "The store registration, async thunk, and slice state are shown as implementation evidence.",
+        "46_redux_store_slice.png", "configureStore registers the recalls reducer; the thunk and fulfilled reducer preserve pagination metadata.", 7.15 * inch)
+    evidence_page(story, "11. Redux Home - code and UI in one screenshot",
         "The composite contains the actual thunk/slice fields and visible UI output, including page 1 and page 2.",
         "42_redux_home_composite.png", "Showing 1-50 of 500; page 1/10 and page 2/10 prove access beyond the first 50 records.", 7.2 * inch)
-    evidence_page(story, "7. Redux Create - code and UI in one screenshot",
-        "The create thunk and persisted success state appear in the same captured frame.",
-        "43_redux_create_composite.png", "createRecall returned the saved database record and the UI displayed the success notice.", 7.2 * inch)
-    evidence_page(story, "8. Redux Update - code and UI in one screenshot",
-        "The update thunk/reducer and revised record output appear together.",
-        "44_redux_update_composite.png", "The Redux item was replaced only after the API returned the updated record.", 7.2 * inch)
-    evidence_page(story, "9. Redux Delete - code, confirmation, and output",
+    evidence_page(story, "12. Redux Create - form, code, and saved output",
+        "The create form, thunk, and persisted success result appear in one report frame.",
+        "43_redux_create_composite.png", "The completed form is visible before createRecall returns the saved record and success notice.", 7.2 * inch)
+    evidence_page(story, "13. Redux Update - form, code, and revised output",
+        "The update form, thunk/reducer, and revised record output appear together.",
+        "44_redux_update_composite.png", "The edited form is visible before Redux replaces the item with the API response.", 7.2 * inch)
+    evidence_page(story, "14. Redux Delete - code, confirmation, and output",
         "The dedicated confirmation route and post-delete state appear with the reducer code in one composite screenshot.",
         "45_redux_delete_composite.png", "Explicit confirmation precedes deletion; the success notice follows API completion.", 7.2 * inch)
 
-    # Part 2: public MCP server.
+    # Part 2: implementation plus actual Inspector screenshots and readable companions.
+    evidence_page(story, "15. MealDB MCP implementation",
+        "This source evidence shows the exact four-tool surface, stdio transport, stderr logging, HTTP timeout, and handled failures.",
+        "47_mealdb_server_code.png", "MealDB server implementation excerpts and failure boundary.", 7.15 * inch)
     evidence_page(
         story,
-        "10. MealDB MCP server connection",
+        "16. MealDB MCP server connection",
         "The Inspector connected over stdio using the project virtual environment and exposed exactly four required tools.",
         "01_mealdb_connected.png",
         "Connected MealDB MCP server in Inspector; tools, prompts, and resources inventories completed successfully.",
         6.6 * inch,
     )
-    for number, filename, title in (
-        (11, "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
-        (12, "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
-        (13, "33_mealdb_meal_details.png", "meal_details"),
-        (14, "34_mealdb_random_meal.png", "random_meal"),
+    for number, actual, filename, title in (
+        (17, "02_mealdb_search.png", "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
+        (18, "03_mealdb_ingredient.png", "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
+        (19, "04_mealdb_detail.png", "33_mealdb_meal_details.png", "meal_details"),
+        (20, "05_mealdb_random.png", "34_mealdb_random_meal.png", "random_meal"),
     ):
-        evidence_page(story, f"{number}. MealDB MCP - {title}",
-            "The exact Inspector input JSON and structured output are readable in the evidence panel.",
-            filename, f"Input and output for {title}; complete raw output is retained in mcp_tool_outputs.json.", 7.25 * inch)
+        paired_evidence_page(story, f"{number}. MealDB Inspector - {title}",
+            "The original Inspector screenshot is paired with a readable exact-input/output companion.",
+            (actual, f"Actual MCP Inspector tool call and returned structured result for {title}."),
+            (filename, f"Exact input JSON and readable output for {title}; complete raw output is retained."))
 
     # Part 3: domain MCP server.
-    for number, name in ((15, "search"), (16, "detail"), (17, "aggregate")):
-        evidence_page(story, f"{number}. Domain MCP contract - {name}",
+    evidence_page(story, "21. Domain MCP implementation",
+        "The server exposes exactly three stdio tools and routes all calls through the validated shared boundary.",
+        "48_domain_server_code.png", "stderr logging, stdio transport, exact tool signatures, and stable error envelope.", 7.15 * inch)
+    for number, name, valid_shot, invalid_shot in (
+        (22, "search", "06_domain_search_valid.png", "07_domain_search_invalid.png"),
+        (24, "detail", "08_domain_detail_valid.png", "09_domain_detail_invalid.png"),
+        (26, "aggregate", "10_domain_aggregate_valid.png", "11_domain_aggregate_invalid.png"),
+    ):
+        paired_evidence_page(story, f"{number}. Actual Domain Inspector calls - {name}",
+            "The original Inspector captures show one valid and one rejected call.",
+            (valid_shot, f"Actual valid {name} call in MCP Inspector."),
+            (invalid_shot, f"Actual invalid {name} call and returned failure envelope in MCP Inspector."))
+        evidence_page(story, f"{number + 1}. Domain MCP contract - {name}",
             "Expected JSON schema, valid input/output, rejected JSON, complete error, and rejection reason are shown together.",
-            f"{34 + (number - 14)}_domain_contract_{name}.png",
+            f"{35 + ((number - 22) // 2)}_domain_contract_{name}.png",
             f"The {name} contract returns the stable {{ok, data, error}} envelope for both valid and invalid calls.", 7.25 * inch)
 
     # Part 4: reliability.
-    evidence_page(story, "18. Retry code and measured behavior",
-        "The bounded implementation is shown immediately above its measured 150-call output.",
-        "39_retry_code.png", "Three attempts, 100 ms timeout, exponential delay, and observed success/exhaustion outcomes.", 7.15 * inch)
+    evidence_page(story, "28. Real operation timeout, retry code, and behavior",
+        "The operation is executed through Future.result(timeout=remaining), so a hanging call is interrupted from the caller's perspective rather than merely checked after failure.",
+        "39_retry_code.png", "Runtime test: a 200 ms operation returns a clean timeout within the 30 ms caller deadline; retries remain bounded.", 7.15 * inch)
     section(
         story,
-        "19. Fault-injection metrics and representative rows",
+        "29. Fault-injection metrics and representative rows",
         "The experiment used VERIFY_SEED 263539 and exactly 150 calls: 50 each at 0%, 20%, and 50% injected failure.",
     )
     retry_rows = [["Injected failure", "Calls", "Success", "Mean latency", "p99 latency"]]
@@ -437,17 +466,17 @@ def make_report() -> None:
         )
     )
     story.append(PageBreak())
-    paired_evidence_page(story, "20. execute_tool and offline assertions",
+    paired_evidence_page(story, "30. execute_tool and offline assertions",
         "Implementation and representative assertions are immediately followed by the full named PASS output.",
         ("40_execute_tests_code.png", "Safe execution entry point, assertion examples, and 9/9 summary."),
         ("13_offline_tests.png", "Terminal output names every valid/invalid, safety, and max-step test as PASS."))
 
     # Part 5: agent.
-    paired_evidence_page(story, "21. Bounded agent loop and Ollama scenarios",
+    paired_evidence_page(story, "31. Bounded agent loop and Ollama scenarios",
         "The agent loop code and corresponding four-scenario terminal output are shown together.",
         ("41_agent_loop_code.png", "MAX_STEPS loop, execute_tool call, normal completion, and deterministic safety stop."),
         ("14_agent_scenarios.png", "Three grounded completions plus one safety-rule block using qwen3:8b."))
-    section(story, "22. Agent reflection", "Selected run: Scenario 4 - deterministic safety-rule block.")
+    section(story, "32. Agent reflection", "Selected run: Scenario 4 - deterministic safety-rule block.")
     reflection = [
         "I selected the fourth Ollama run because it demonstrates that the harness, not the language model, owns the safety boundary. The user prompt explicitly asked the agent to retrieve recall records with a limit of 25 and told it not to reduce that limit. In step 1, local qwen3:8b produced a structured action for the search tool with query set to an empty string and limit set to 25. The harness did not send that action directly to the database. Instead, run_agent routed it through the single execute_tool(name, inputs) entry point used by every agent tool call.",
         "Inside execute_tool, the domain-specific safety rule checked the requested search limit before normal schema validation or repository access. Because the limit exceeded the allowed agent maximum of 10, the function returned the shared JSON envelope with ok=false, data=null, and the error 'Safety rule blocked search: limit cannot exceed 10 records.' It raised no exception and issued no SQL query.",
@@ -459,14 +488,18 @@ def make_report() -> None:
     story.append(PageBreak())
 
     # Tool contracts and AI use.
-    section(story, "23. Tool contracts and AI-use disclosure")
-    contract_rows = [
-        ["Tool", "Expected JSON", "Rejected JSON", "Complete error is shown on"],
-        ["search", '{"query": str, "limit": int}', '{"query":"s","limit":5}', "Page 15"],
-        ["detail", '{"recall_id": positive int}', '{"recall_id":0}', "Page 16"],
-        ["aggregate", '{"group_by": enum, "min_units": int}', '{"group_by":"submitter","min_units":0}', "Page 17"],
+    section(story, "33. Tool contracts and AI-use disclosure")
+    contract_text = [
+        ["Tool", "Expected JSON", "Rejected JSON", "Complete error location"],
+        ["search", '{"query": str, "limit": int}', '{"query":"s","limit":5}', "Section 23: Domain MCP contract - search"],
+        ["detail", '{"recall_id": positive int}', '{"recall_id":0}', "Section 25: Domain MCP contract - detail"],
+        ["aggregate", '{"group_by": enum, "min_units": int}', '{"group_by":"submitter", "min_units":0}', "Section 27: Domain MCP contract - aggregate"],
     ]
-    contract_table = Table(contract_rows, colWidths=[0.9 * inch, 2.15 * inch, 1.65 * inch, 2.45 * inch], repeatRows=1)
+    contract_rows = [
+        [Paragraph(str(cell), styles["Small"]) for cell in row]
+        for row in contract_text
+    ]
+    contract_table = Table(contract_rows, colWidths=[0.75 * inch, 1.75 * inch, 1.7 * inch, 2.95 * inch], repeatRows=1)
     contract_table.setStyle(
         TableStyle(
             [
@@ -484,13 +517,7 @@ def make_report() -> None:
     )
     story.append(contract_table)
     story.append(Spacer(1, 0.12 * inch))
-    story.append(
-        p(
-            "Pages 15-17 contain the full expected schema, valid input/output, rejected object, untruncated "
-            "returned error, and explanation for each tool. All three return {ok, data, error}. Pydantic "
-            "validation is caught at the boundary, and execute_tool applies the narrower agent-only limit of 10."
-        )
-    )
+    story.append(p("Sections 23, 25, and 27 contain each full expected schema, valid input/output, rejected object, untruncated returned error, and explanation. All three return {ok, data, error}. Pydantic validation is caught at the boundary, and execute_tool applies the narrower agent-only limit of 10."))
     story.append(p("AI-use disclosure", "Section"))
     disclosures = [
         "1. I used an AI assistant to translate the assignment checklist into a cumulative implementation plan, draft FastAPI/Redux/MCP code, and create repeatable validation scripts. I independently reviewed the requirements, ran the tests, inspected the artifacts, and captured the final evidence.",
@@ -502,7 +529,7 @@ def make_report() -> None:
         story.append(p(disclosure))
     story.append(PageBreak())
 
-    section(story, "24. Submission file alignment")
+    section(story, "34. Submission file alignment")
     files = [
         ["Required item", "Repository location"],
         ["Final report", "reports/hw05/report.pdf"],
