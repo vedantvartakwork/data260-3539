@@ -1,0 +1,98 @@
+{
+  "homework": 5,
+  "sid4": 3539,
+  "timestamp_utc": "2026-10-05T21:05:15.238351+00:00",
+  "audited_commit": "fcf24af64451a922c46316925edd387ce09a5101",
+  "report_sha256": "d80ec37e2fa520c02229d347d7f3441941b8e2a5c4b94986dafec2ce81b42cd8",
+  "report_pages": 48,
+  "passed": 8,
+  "total": 8,
+  "checks": [
+    {
+      "name": "required_file_inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_selected_report_48_pages_sha256",
+      "status": "PASS"
+    },
+    {
+      "name": "all_150_seeded_failure_sequences",
+      "status": "PASS"
+    },
+    {
+      "name": "retained_csv_summary_metrics_alignment",
+      "status": "PASS"
+    },
+    {
+      "name": "all_four_mealdb_and_six_domain_saved_calls",
+      "status": "PASS"
+    },
+    {
+      "name": "four_scenarios_match_agent_jsonl",
+      "status": "PASS"
+    },
+    {
+      "name": "saved_api_14_of_14",
+      "status": "PASS"
+    },
+    {
+      "name": "live_verification_14_of_14",
+      "status": "PASS"
+    }
+  ],
+  "required_files": [
+    "README.md",
+    "Makefile",
+    "requirements.txt",
+    "docker-compose.hw4.yml",
+    "code/hw5_tools.py",
+    "code/hw5_retry.py",
+    "code/hw5_agent.py",
+    "code/web_application/backend.py",
+    "code/web_application/db.py",
+    "code/web_application/models.py",
+    "code/web_application/schemas.py",
+    "code/web_application/security.py",
+    "code/web_application/routers/recalls.py",
+    "code/web_application/routers/manufacturers.py",
+    "code/web_application/frontend/src/store.js",
+    "code/web_application/frontend/src/features/recalls/recallsSlice.js",
+    "code/web_application/frontend/src/components/Home.jsx",
+    "code/web_application/frontend/src/components/CreateRecord.jsx",
+    "code/web_application/frontend/src/components/UpdateRecord.jsx",
+    "code/web_application/frontend/src/components/DeleteRecord.jsx",
+    "mcp_servers/domain_server.py",
+    "mcp_servers/meals_server.py",
+    "sql/hw05_migration.sql",
+    "scripts/test_hw05_tools.py",
+    "scripts/verify_hw05.py",
+    "scripts/run_hw05_api_integration.py",
+    "scripts/run_hw05_agent_scenarios.py",
+    "scripts/run_hw05_fault_experiment.py",
+    "reports/hw05/report.pdf",
+    "output/pdf/Vartak_HW5.pdf",
+    "reports/hw05/verification.json",
+    "reports/hw05/RUN_LOG.txt",
+    "reports/hw05/METRICS.md",
+    "reports/hw05/AI_USE.md",
+    "reports/hw05/REFLECTION.md",
+    "reports/hw05/TOOL_CONTRACTS.md",
+    "reports/hw05/raw/fault_injection_calls.csv",
+    "reports/hw05/raw/fault_injection_summary.json",
+    "reports/hw05/raw/agent_runs.jsonl",
+    "reports/hw05/raw/agent_scenario_summary.json",
+    "reports/hw05/raw/inspector_final_calls.json",
+    "reports/hw05/raw/mcp_tool_outputs.json",
+    "reports/hw05/raw/api_integration.json",
+    "reports/hw05/raw/database_evidence.txt",
+    "reports/hw05/postman/DATA260_HW5.postman_collection.json",
+    "reports/hw05/postman/DATA260_HW5.postman_environment.json"
+  ],
+  "collaborator_access": {
+    "supriyaselvanganesan": "write",
+    "Sbnikitha": "pending_write_invitation"
+  },
+  "access_checked_utc_date": "2026-10-05",
+  "note": "Application baseline hash on PDF cover precedes selected-report packaging. Resolve the final hw5 tag via Git. Collaborator acceptance and Canvas upload are separate pending actions."
+}

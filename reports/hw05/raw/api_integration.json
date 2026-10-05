@@ -17,12 +17,12 @@
       "status": 201,
       "expected": 201,
       "body": {
-        "id": 31,
+        "id": 32,
         "name": "Integration Foods 3539",
         "contact_name": "Vedant Vartak",
         "contact_email": "integration3539@example.edu",
-        "created_at": "2026-10-05T17:03:24",
-        "updated_at": "2026-10-05T17:03:24"
+        "created_at": "2026-10-05T21:05:15",
+        "updated_at": "2026-10-05T21:05:15"
       }
     },
     {
@@ -30,12 +30,12 @@
       "status": 200,
       "expected": 200,
       "body": {
-        "id": 31,
+        "id": 32,
         "name": "Integration Foods 3539",
         "contact_name": "Vedant Vartak",
         "contact_email": "integration3539@example.edu",
-        "created_at": "2026-10-05T17:03:24",
-        "updated_at": "2026-10-05T17:03:24"
+        "created_at": "2026-10-05T21:05:15",
+        "updated_at": "2026-10-05T21:05:15"
       }
     },
     {
@@ -140,12 +140,12 @@
           "updated_at": "2026-10-02T06:37:13"
         },
         {
-          "id": 31,
+          "id": 32,
           "name": "Integration Foods 3539",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-05T17:03:24",
-          "updated_at": "2026-10-05T17:03:24"
+          "created_at": "2026-10-05T21:05:15",
+          "updated_at": "2026-10-05T21:05:15"
         }
       ]
     },
@@ -154,12 +154,12 @@
       "status": 200,
       "expected": 200,
       "body": {
-        "id": 31,
+        "id": 32,
         "name": "Integration Foods 3539 Updated",
         "contact_name": "Vedant Vartak",
         "contact_email": "integration3539@example.edu",
-        "created_at": "2026-10-05T17:03:24",
-        "updated_at": "2026-10-05T17:03:24"
+        "created_at": "2026-10-05T21:05:15",
+        "updated_at": "2026-10-05T21:05:15"
       }
     },
     {
@@ -170,22 +170,22 @@
         "product_name": "Integration Recall Evidence",
         "recall_code": "REC-3539-INT01",
         "units_affected": 3539,
-        "manufacturer_id": 31,
+        "manufacturer_id": 32,
         "brand_name": "Integration Foods 3539 Updated",
         "submitter_email": "student@example.edu",
         "category": "Packaged Foods",
         "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
         "terms_accepted": true,
-        "id": 6010,
-        "created_at": "2026-10-05T17:03:24",
-        "updated_at": "2026-10-05T17:03:24",
+        "id": 6011,
+        "created_at": "2026-10-05T21:05:15",
+        "updated_at": "2026-10-05T21:05:15",
         "manufacturer": {
-          "id": 31,
+          "id": 32,
           "name": "Integration Foods 3539 Updated",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-05T17:03:24",
-          "updated_at": "2026-10-05T17:03:24"
+          "created_at": "2026-10-05T21:05:15",
+          "updated_at": "2026-10-05T21:05:15"
         },
         "events": []
       }
@@ -205,22 +205,22 @@
             "product_name": "Integration Recall Evidence",
             "recall_code": "REC-3539-INT01",
             "units_affected": 3539,
-            "manufacturer_id": 31,
+            "manufacturer_id": 32,
             "brand_name": "Integration Foods 3539 Updated",
             "submitter_email": "student@example.edu",
             "category": "Packaged Foods",
             "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
             "terms_accepted": true,
-            "id": 6010,
-            "created_at": "2026-10-05T17:03:24",
-            "updated_at": "2026-10-05T17:03:24",
+            "id": 6011,
+            "created_at": "2026-10-05T21:05:15",
+            "updated_at": "2026-10-05T21:05:15",
             "manufacturer": {
-              "id": 31,
+              "id": 32,
               "name": "Integration Foods 3539 Updated",
               "contact_name": "Vedant Vartak",
               "contact_email": "integration3539@example.edu",
-              "created_at": "2026-10-05T17:03:24",
-              "updated_at": "2026-10-05T17:03:24"
+              "created_at": "2026-10-05T21:05:15",
+              "updated_at": "2026-10-05T21:05:15"
             },
             "events": []
           }
@@ -235,22 +235,22 @@
         "product_name": "Integration Recall Evidence",
         "recall_code": "REC-3539-INT01",
         "units_affected": 3539,
-        "manufacturer_id": 31,
+        "manufacturer_id": 32,
         "brand_name": "Integration Foods 3539 Updated",
         "submitter_email": "student@example.edu",
         "category": "Packaged Foods",
         "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
         "terms_accepted": true,
-        "id": 6010,
-        "created_at": "2026-10-05T17:03:24",
-        "updated_at": "2026-10-05T17:03:24",
+        "id": 6011,
+        "created_at": "2026-10-05T21:05:15",
+        "updated_at": "2026-10-05T21:05:15",
         "manufacturer": {
-          "id": 31,
+          "id": 32,
           "name": "Integration Foods 3539 Updated",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-05T17:03:24",
-          "updated_at": "2026-10-05T17:03:24"
+          "created_at": "2026-10-05T21:05:15",
+          "updated_at": "2026-10-05T21:05:15"
         },
         "events": []
       }
@@ -264,22 +264,22 @@
           "product_name": "Integration Recall Evidence",
           "recall_code": "REC-3539-INT01",
           "units_affected": 3539,
-          "manufacturer_id": 31,
+          "manufacturer_id": 32,
           "brand_name": "Integration Foods 3539 Updated",
           "submitter_email": "student@example.edu",
           "category": "Packaged Foods",
           "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
           "terms_accepted": true,
-          "id": 6010,
-          "created_at": "2026-10-05T17:03:24",
-          "updated_at": "2026-10-05T17:03:24",
+          "id": 6011,
+          "created_at": "2026-10-05T21:05:15",
+          "updated_at": "2026-10-05T21:05:15",
           "manufacturer": {
-            "id": 31,
+            "id": 32,
             "name": "Integration Foods 3539 Updated",
             "contact_name": "Vedant Vartak",
             "contact_email": "integration3539@example.edu",
-            "created_at": "2026-10-05T17:03:24",
-            "updated_at": "2026-10-05T17:03:24"
+            "created_at": "2026-10-05T21:05:15",
+            "updated_at": "2026-10-05T21:05:15"
           },
           "events": []
         }
@@ -301,22 +301,22 @@
         "product_name": "Integration Recall Evidence Updated",
         "recall_code": "REC-3539-INT01",
         "units_affected": 4000,
-        "manufacturer_id": 31,
+        "manufacturer_id": 32,
         "brand_name": "Integration Foods 3539 Updated",
         "submitter_email": "student@example.edu",
         "category": "Packaged Foods",
         "recall_details": "Selected packages may contain an undeclared allergen and should be returned for a refund.",
         "terms_accepted": true,
-        "id": 6010,
-        "created_at": "2026-10-05T17:03:24",
-        "updated_at": "2026-10-05T17:03:24",
+        "id": 6011,
+        "created_at": "2026-10-05T21:05:15",
+        "updated_at": "2026-10-05T21:05:15",
         "manufacturer": {
-          "id": 31,
+          "id": 32,
           "name": "Integration Foods 3539 Updated",
           "contact_name": "Vedant Vartak",
           "contact_email": "integration3539@example.edu",
-          "created_at": "2026-10-05T17:03:24",
-          "updated_at": "2026-10-05T17:03:24"
+          "created_at": "2026-10-05T21:05:15",
+          "updated_at": "2026-10-05T21:05:15"
         },
         "events": []
       }

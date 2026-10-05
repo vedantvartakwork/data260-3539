@@ -39,6 +39,29 @@ make verify-hw05
 
 Start the MCP Inspector with either `mcp dev mcp_servers/meals_server.py` or `mcp dev mcp_servers/domain_server.py`. The Postman collection and environment are in `reports/hw05/postman/`.
 
+### Final HW5 submission files
+
+The selected final 48-page report is `reports/hw05/report.pdf`, with an identical
+upload copy at `output/pdf/Vartak_HW5.pdf`. Its SHA-256 is
+`d80ec37e2fa520c02229d347d7f3441941b8e2a5c4b94986dafec2ce81b42cd8`.
+The older hash printed on the PDF cover identifies the tested application
+baseline before this selected-PDF packaging update. Resolve the final submitted
+state with `git rev-parse 'hw5^{commit}'`; application source is unchanged.
+
+The complete HW5 evidence is under `reports/hw05/`: `verification.json`,
+`RUN_LOG.txt`, `METRICS.md`, `REFLECTION.md`, `TOOL_CONTRACTS.md`, `AI_USE.md`,
+and the `raw/`, `evidence/`, and `postman/` folders. Run
+`.venv/bin/python scripts/audit_hw05_submission.py` to check file inventory,
+report identity, retained experiment metrics, and saved agent/MCP records.
+Run `make verify-hw05` with MySQL and the backend running for the live smoke
+test; its commit fields identify the state actually tested, not a fabricated
+self-referential packaging hash.
+
+GitHub access check on 2026-10-05: `supriyaselvanganesan` has write access;
+`Sbnikitha` has a pending write invitation. Acceptance must still be confirmed
+before claiming that both collaborators have access. Pushing this repository
+does not upload the PDF to Canvas.
+
 ## Homework 4
 
 Homework 4 adds the cumulative MySQL database, authenticated FastAPI API, React CRUD client, N+1/eager-loading measurements, index experiments, and grounded local RAG evaluation. Its evidence is under `reports/hw04/`.
