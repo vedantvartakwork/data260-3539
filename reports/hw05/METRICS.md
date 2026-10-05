@@ -8,9 +8,9 @@ Policy: at most 3 attempts, 100 ms total timeout, bounded exponential delays of 
 
 | Injected failure rate | Success rate | Mean latency (ms) | p99 latency (ms) |
 |---:|---:|---:|---:|
-| 0% | 100% | 0.000 | 0.001 |
-| 20% | 98% | 0.276 | 3.715 |
-| 50% | 92% | 0.882 | 3.791 |
+| 0% | 100% | 0.031 | 0.067 |
+| 20% | 98% | 0.323 | 3.941 |
+| 50% | 92% | 0.984 | 4.003 |
 
 The policy is suitable for an interactive assistant because normal calls have negligible delay and transient failures usually recover within a few milliseconds. Under sustained 50% injected failure, 92% of calls still complete, but the remaining clean failures show why attempts must remain bounded. For batch processing, I would increase the total timeout and maximum attempts, add randomized jitter, and permit longer capped delays because throughput and eventual completion matter more than immediate response time.
 

@@ -367,60 +367,76 @@
           "content": [
             {
               "type": "text",
-              "text": "{\n  \"id\": \"53037\",\n  \"name\": \"Coddled pork with cider\",\n  \"category\": \"Pork\",\n  \"area\": \"Irish\",\n  \"instructions\": \"STEP 1\\r\\nHeat the butter in a casserole dish until sizzling, then fry the pork for 2-3 mins on each side until browned. Remove from the pan.\\r\\n\\r\\nSTEP 2\\r\\nTip the bacon, carrot, potatoes and swede into the pan, then gently fry until slightly coloured. Stir in the cabbage, sit the chops back on top, add the bay leaf, then pour over the cider and stock. Cover the pan, then leave everything to gently simmer for 20 mins until the pork is cooked through and the vegetables are tender.\\r\\n\\r\\nSTEP 3\\r\\nServe at the table spooned straight from the dish.\",\n  \"image\": \"https://www.themealdb.com/images/media/meals/7vpsfp1608588991.jpg\",\n  \"source\": \"https://www.bbcgoodfood.com/recipes/irish-coddled-pork-cider\",\n  \"youtube\": \"https://www.youtube.com/watch?v=ftn_4mc-65o\",\n  \"ingredients\": [\n    {\n      \"name\": \"Butter\",\n      \"measure\": \"Knob\"\n    },\n    {\n      \"name\": \"Pork Chops\",\n      \"measure\": \"2\"\n    },\n    {\n      \"name\": \"Bacon\",\n      \"measure\": \"4\"\n    },\n    {\n      \"name\": \"Potatoes\",\n      \"measure\": \"2\"\n    },\n    {\n      \"name\": \"Carrots\",\n      \"measure\": \"1\"\n    },\n    {\n      \"name\": \"Swede\",\n      \"measure\": \"1/2\"\n    },\n    {\n      \"name\": \"Cabbage\",\n      \"measure\": \"1/2\"\n    },\n    {\n      \"name\": \"Bay Leaf\",\n      \"measure\": \"1\"\n    },\n    {\n      \"name\": \"Cider\",\n      \"measure\": \"100ml\"\n    },\n    {\n      \"name\": \"Chicken Stock\",\n      \"measure\": \"100g\"\n    }\n  ]\n}",
+              "text": "{\"id\":\"52811\",\"name\":\"Ribollita\",\"category\":\"Vegetarian\",\"area\":\"Italian\",\"instructions\":\"Put 2 tablespoons of the oil in a large pot over medium heat. When it’s hot, add onion, carrot, celery and garlic; sprinkle with salt and pepper and cook, stirring occasionally, until vegetables are soft, 5 to 10 minutes.\\r\\nHeat the oven to 500 degrees. Drain the beans; if they’re canned, rinse them as well. Add them to the pot along with tomatoes and their juices and stock, rosemary and thyme. Bring to a boil, then reduce heat so the soup bubbles steadily; cover and cook, stirring once or twice to break up the tomatoes, until the flavors meld, 15 to 20 minutes.\\r\\nFish out and discard rosemary and thyme stems, if you like, and stir in kale. Taste and adjust seasoning. Lay bread slices on top of the stew so they cover the top and overlap as little as possible. Scatter red onion slices over the top, drizzle with the remaining 3 tablespoons oil and sprinkle with Parmesan.\\r\\nPut the pot in the oven and bake until the bread, onions and cheese are browned and crisp, 10 to 15 minutes. (If your pot fits under the broiler, you can also brown the top there.) Divide the soup and bread among 4 bowls and serve.\",\"image\":\"https://www.themealdb.com/images/media/meals/xrrwpx1487347049.jpg\",\"source\":\"https://cooking.nytimes.com/recipes/1016052-ribollita\",\"youtube\":\"https://www.youtube.com/watch?v=BiQUYTBb6eQ\",\"ingredients\":[{\"name\":\"Olive Oil\",\"measure\":\"5 tablespoons\"},{\"name\":\"Onion\",\"measure\":\"1 chopped\"},{\"name\":\"Carrots\",\"measure\":\"1 chopped\"},{\"name\":\"Celery\",\"measure\":\"1 stalk chopped\"},{\"name\":\"Garlic\",\"measure\":\"1 tablespoon minced\"},{\"name\":\"Cannellini Beans\",\"measure\":\"2 cups\"},{\"name\":\"Canned tomatoes\",\"measure\":\"1\"},{\"name\":\"Water\",\"measure\":\"4 cups\"},{\"name\":\"Rosemary\",\"measure\":\"1 fresh sprig\"},{\"name\":\"Thyme\",\"measure\":\"1 fresh sprig\"},{\"name\":\"Kale\",\"measure\":\"1 pound chopped\"},{\"name\":\"Wholegrain Bread\",\"measure\":\"4 thick slices\"},{\"name\":\"Red Onions\",\"measure\":\"1 thinly sliced\"},{\"name\":\"Parmesan\",\"measure\":\"½ cup freshly grated\"}]}",
               "annotations": null,
               "meta": null
             }
           ],
           "structuredContent": {
-            "id": "53037",
-            "name": "Coddled pork with cider",
-            "category": "Pork",
-            "area": "Irish",
-            "instructions": "STEP 1\r\nHeat the butter in a casserole dish until sizzling, then fry the pork for 2-3 mins on each side until browned. Remove from the pan.\r\n\r\nSTEP 2\r\nTip the bacon, carrot, potatoes and swede into the pan, then gently fry until slightly coloured. Stir in the cabbage, sit the chops back on top, add the bay leaf, then pour over the cider and stock. Cover the pan, then leave everything to gently simmer for 20 mins until the pork is cooked through and the vegetables are tender.\r\n\r\nSTEP 3\r\nServe at the table spooned straight from the dish.",
-            "image": "https://www.themealdb.com/images/media/meals/7vpsfp1608588991.jpg",
-            "source": "https://www.bbcgoodfood.com/recipes/irish-coddled-pork-cider",
-            "youtube": "https://www.youtube.com/watch?v=ftn_4mc-65o",
+            "id": "52811",
+            "name": "Ribollita",
+            "category": "Vegetarian",
+            "area": "Italian",
+            "instructions": "Put 2 tablespoons of the oil in a large pot over medium heat. When it’s hot, add onion, carrot, celery and garlic; sprinkle with salt and pepper and cook, stirring occasionally, until vegetables are soft, 5 to 10 minutes.\r\nHeat the oven to 500 degrees. Drain the beans; if they’re canned, rinse them as well. Add them to the pot along with tomatoes and their juices and stock, rosemary and thyme. Bring to a boil, then reduce heat so the soup bubbles steadily; cover and cook, stirring once or twice to break up the tomatoes, until the flavors meld, 15 to 20 minutes.\r\nFish out and discard rosemary and thyme stems, if you like, and stir in kale. Taste and adjust seasoning. Lay bread slices on top of the stew so they cover the top and overlap as little as possible. Scatter red onion slices over the top, drizzle with the remaining 3 tablespoons oil and sprinkle with Parmesan.\r\nPut the pot in the oven and bake until the bread, onions and cheese are browned and crisp, 10 to 15 minutes. (If your pot fits under the broiler, you can also brown the top there.) Divide the soup and bread among 4 bowls and serve.",
+            "image": "https://www.themealdb.com/images/media/meals/xrrwpx1487347049.jpg",
+            "source": "https://cooking.nytimes.com/recipes/1016052-ribollita",
+            "youtube": "https://www.youtube.com/watch?v=BiQUYTBb6eQ",
             "ingredients": [
               {
-                "name": "Butter",
-                "measure": "Knob"
+                "name": "Olive Oil",
+                "measure": "5 tablespoons"
               },
               {
-                "name": "Pork Chops",
-                "measure": "2"
-              },
-              {
-                "name": "Bacon",
-                "measure": "4"
-              },
-              {
-                "name": "Potatoes",
-                "measure": "2"
+                "name": "Onion",
+                "measure": "1 chopped"
               },
               {
                 "name": "Carrots",
+                "measure": "1 chopped"
+              },
+              {
+                "name": "Celery",
+                "measure": "1 stalk chopped"
+              },
+              {
+                "name": "Garlic",
+                "measure": "1 tablespoon minced"
+              },
+              {
+                "name": "Cannellini Beans",
+                "measure": "2 cups"
+              },
+              {
+                "name": "Canned tomatoes",
                 "measure": "1"
               },
               {
-                "name": "Swede",
-                "measure": "1/2"
+                "name": "Water",
+                "measure": "4 cups"
               },
               {
-                "name": "Cabbage",
-                "measure": "1/2"
+                "name": "Rosemary",
+                "measure": "1 fresh sprig"
               },
               {
-                "name": "Bay Leaf",
-                "measure": "1"
+                "name": "Thyme",
+                "measure": "1 fresh sprig"
               },
               {
-                "name": "Cider",
-                "measure": "100ml"
+                "name": "Kale",
+                "measure": "1 pound chopped"
               },
               {
-                "name": "Chicken Stock",
-                "measure": "100g"
+                "name": "Wholegrain Bread",
+                "measure": "4 thick slices"
+              },
+              {
+                "name": "Red Onions",
+                "measure": "1 thinly sliced"
+              },
+              {
+                "name": "Parmesan",
+                "measure": "½ cup freshly grated"
               }
             ]
           },

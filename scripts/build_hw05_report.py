@@ -383,14 +383,14 @@ def make_report() -> None:
         6.6 * inch,
     )
     for number, actual, filename, title in (
-        (17, "02_mealdb_search.png", "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
-        (18, "03_mealdb_ingredient.png", "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
-        (19, "04_mealdb_detail.png", "33_mealdb_meal_details.png", "meal_details"),
-        (20, "05_mealdb_random.png", "34_mealdb_random_meal.png", "random_meal"),
+        (17, "50_mealdb_search_with_input.png", "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
+        (18, "51_mealdb_ingredient_with_input.png", "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
+        (19, "52_mealdb_detail_with_input.png", "33_mealdb_meal_details.png", "meal_details"),
+        (20, "53_mealdb_random_with_input.png", "34_mealdb_random_meal.png", "random_meal"),
     ):
         paired_evidence_page(story, f"{number}. MealDB Inspector - {title}",
-            "The original Inspector screenshot is paired with a readable exact-input/output companion.",
-            (actual, f"Actual MCP Inspector tool call and returned structured result for {title}."),
+            "The Inspector screenshot visibly includes the submitted arguments and returned output, paired with a readable exact-input/output companion.",
+            (actual, f"Actual MCP Inspector call for {title}, with the Protocol pane expanded to show its exact arguments and response."),
             (filename, f"Exact input JSON and readable output for {title}; complete raw output is retained."))
 
     # Part 3: domain MCP server.
@@ -398,14 +398,14 @@ def make_report() -> None:
         "The server exposes exactly three stdio tools and routes all calls through the validated shared boundary.",
         "48_domain_server_code.png", "stderr logging, stdio transport, exact tool signatures, and stable error envelope.", 7.15 * inch)
     for number, name, valid_shot, invalid_shot in (
-        (22, "search", "06_domain_search_valid.png", "07_domain_search_invalid.png"),
-        (24, "detail", "08_domain_detail_valid.png", "09_domain_detail_invalid.png"),
-        (26, "aggregate", "10_domain_aggregate_valid.png", "11_domain_aggregate_invalid.png"),
+        (22, "search", "54_domain_search_valid_with_input.png", "55_domain_search_invalid_with_input.png"),
+        (24, "detail", "56_domain_detail_valid_with_input.png", "57_domain_detail_invalid_with_input.png"),
+        (26, "aggregate", "58_domain_aggregate_valid_with_input.png", "59_domain_aggregate_invalid_with_input.png"),
     ):
         paired_evidence_page(story, f"{number}. Actual Domain Inspector calls - {name}",
-            "The original Inspector captures show one valid and one rejected call.",
-            (valid_shot, f"Actual valid {name} call in MCP Inspector."),
-            (invalid_shot, f"Actual invalid {name} call and returned failure envelope in MCP Inspector."))
+            "The expanded Protocol panes show exact inputs and responses for one valid and one rejected call.",
+            (valid_shot, f"Actual valid {name} call in MCP Inspector, including submitted arguments and response."),
+            (invalid_shot, f"Actual invalid {name} call, rejected arguments, and complete failure envelope in MCP Inspector."))
         evidence_page(story, f"{number + 1}. Domain MCP contract - {name}",
             "Expected JSON schema, valid input/output, rejected JSON, complete error, and rejection reason are shown together.",
             f"{35 + ((number - 22) // 2)}_domain_contract_{name}.png",
@@ -458,10 +458,9 @@ def make_report() -> None:
             "interactive assistant favors a short, predictable response ceiling."
         )
     )
-    story.append(img(EVIDENCE / "12_retry_examples.png", max_height=4.15 * inch))
     story.append(
         p(
-            "Representative rows show immediate success, failure-then-success, and three exhausted attempts; the summary above is derived from all 150 CSV rows.",
+            "The numbers in this table are from the final 150-call run in raw/fault_injection_calls.csv and its matching raw/fault_injection_summary.json. Representative rows in the CSV include immediate success, failure-then-success, and three exhausted attempts.",
             "Caption",
         )
     )
