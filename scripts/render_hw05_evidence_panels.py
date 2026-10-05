@@ -54,21 +54,28 @@ def draw_lines(draw: ImageDraw.ImageDraw, x: int, y: int, lines: list[str], *, c
     return y
 
 
-def panel(title: str, sections: list[tuple[str, str, str]], path: Path) -> None:
+def panel(title: str, sections: list[tuple[str, str, str]], path: Path, *, large: bool = False) -> None:
+    line_width = 82 if large else 105
+    spacing = 43 if large else 31
+    text_font = font(32) if large else MONO
     heights = []
     for _, text, _ in sections:
-        heights.append(58 + 31 * len(wrapped(text)))
+        heights.append(58 + spacing * len(wrapped(text, line_width)))
     height = 100 + sum(heights) + 40 * len(sections) + 40
     image = Image.new("RGB", (WIDTH, max(900, height)), BG)
     draw = ImageDraw.Draw(image)
     draw.text((55, 38), title, fill=GREEN, font=TITLE)
     y = 110
     for heading, text, kind in sections:
-        lines = wrapped(text)
-        box_h = 58 + 31 * len(lines)
+        lines = wrapped(text, line_width)
+        box_h = 58 + spacing * len(lines)
         draw.rounded_rectangle((45, y, WIDTH - 45, y + box_h), radius=18, fill=PANEL, outline="#365443", width=2)
         draw.text((70, y + 18), heading, fill=RED if kind == "error" else GREEN, font=SUB)
-        draw_lines(draw, 70, y + 58, lines, color=WHITE if kind != "note" else MUTED)
+        if large:
+            for line_index, line in enumerate(lines):
+                draw.text((70, y + 58 + spacing * line_index), line, fill=WHITE, font=text_font)
+        else:
+            draw_lines(draw, 70, y + 58, lines, color=WHITE if kind != "note" else MUTED)
         y += box_h + 32
     image.save(path)
 
@@ -148,8 +155,13 @@ def mcp_panels() -> None:
     for index, call in enumerate(raw["meals_server"]["calls"], start=1):
         output = call["output"].get("structuredContent")
         compact = json.dumps(output, ensure_ascii=False, indent=2)
-        if len(compact) > 2600:
-            compact = compact[:2600] + "\n... complete result retained in raw/mcp_tool_outputs.json"
+        if isinstance(output, dict) and "ingredients" in output:
+            # Preserve the complete recipe, with one ingredient per line for legibility.
+            fields = {key: value for key, value in output.items() if key != "ingredients"}
+            compact = json.dumps(fields, ensure_ascii=False, indent=2)[:-2]
+            compact += ',\n  "ingredients": [\n'
+            compact += ",\n".join("    " + json.dumps(item, ensure_ascii=False) for item in output["ingredients"])
+            compact += "\n  ]\n}"
         panel(
             f"MEALDB MCP TOOL {index}/4: {call['tool']}",
             [
@@ -157,12 +169,13 @@ def mcp_panels() -> None:
                 ("STRUCTURED OUTPUT", compact, "ok"),
             ],
             EVIDENCE / f"{30 + index}_mealdb_{call['tool']}.png",
+            large=True,
         )
 
     schemas = {
-        "search": '{"query": "string, 2-80 characters", "limit": "integer, 1-25"}',
-        "detail": '{"recall_id": "positive integer"}',
-        "aggregate": '{"group_by": "category|manufacturer", "min_units": "integer, 0-100000000"}',
+        "search": '{"type":"object","additionalProperties":false,"required":["query"],"properties":{"query":{"type":"string","minLength":2,"maxLength":80},"limit":{"type":"integer","minimum":1,"maximum":25,"default":5}}}',
+        "detail": '{"type":"object","additionalProperties":false,"required":["recall_id"],"properties":{"recall_id":{"type":"integer","exclusiveMinimum":0}}}',
+        "aggregate": '{"type":"object","additionalProperties":false,"required":["group_by"],"properties":{"group_by":{"type":"string","pattern":"^(category|manufacturer)$"},"min_units":{"type":"integer","minimum":0,"maximum":100000000,"default":0}}}',
     }
     reasons = {
         "search": "One character is below the declared minimum and creates an excessively broad lookup.",

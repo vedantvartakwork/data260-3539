@@ -1,9 +1,9 @@
 # Homework 5 AI Use
 
-1. I used an AI assistant to help translate the assignment checklist into a cumulative implementation plan, draft code for the FastAPI/Redux/MCP integration, and create repeatable validation scripts. I independently reviewed the requirements, ran the tests, inspected the generated artifacts and live outputs, and will select and capture the final UI and MCP Inspector evidence used in the report.
+1. I used an AI assistant extensively for implementation, tests, local tool operation, screenshot capture, report generation, and the final handout audit. I supplied my identity, assignment materials, review feedback, and earlier screenshots, and requested corrections. The assistant ran the automated checks and captured the final MealDB evidence; these are not claimed as independently performed manual work.
 
-2. I independently found that my first Home-page implementation deleted a recall directly from the record card. That bypassed the assignment's required delete-confirmation UI even though the API operation itself worked.
+2. An unsuitable earlier report paired a random-meal Inspector screenshot with a different meal in its companion output. Earlier latency tables also mixed runs. Those outputs could not support the report's claims reliably.
 
-3. I detected the issue by tracing the Home button to its Redux dispatch and comparing the rendered flow with the rubric's separate Delete UI requirement. I reproduced it locally: clicking Delete immediately issued the request instead of first showing the selected record and a confirmation action.
+3. Review feedback identified the mismatched meal IDs and latency values. During the correction, the assistant compared screenshots with machine-readable responses and checked the metrics against the raw CSV rather than relying on a generated summary alone.
 
-4. I changed the Home button to navigate to `/delete/:id`, added a confirmation page that loads the selected record, and dispatches `deleteRecall` only after explicit confirmation. I verified the confirmation screen, the success message, and the record's removal from MySQL.
+4. I requested a corrected submission. The assistant replaced the MealDB captures and generated their readable panels from those same calls, retained the exact raw responses, and aligned the latency table to one recorded experiment. The delete-confirmation screen is an added safety/usability feature, not an explicit assignment requirement.

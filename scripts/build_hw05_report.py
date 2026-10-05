@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import subprocess
 from pathlib import Path
@@ -233,8 +234,9 @@ def make_report() -> None:
             "https://github.com/vedantvartakwork/data260-3539</link>"
         )
     )
-    story.append(p(f"<b>Verified implementation commit:</b> <font name='Courier'>{commit}</font>"))
+    story.append(p(f"<b>Evidence-build commit:</b> <font name='Courier'>{commit}</font>"))
     story.append(p(f"<b>Resolved submission tag:</b> <font name='Courier'>hw5 -&gt; {tag_commit}</font>"))
+    story.append(p("Repository link verified. supriyaselvanganesan has write access; Sbnikitha's write invitation is pending acceptance. Generated verification/report evidence follows the tagged application snapshot; application source is checked for exact tag alignment.", "Small"))
     config = [
         ["Item", "Value", "Item", "Value"],
         ["SID4", "3539", "PORT_BASE", "8839"],
@@ -283,7 +285,7 @@ def make_report() -> None:
     story.append(PageBreak())
 
     # Requirements matrix.
-    section(story, "1. Completion and verification", "The final cumulative checks passed without exceptions or skipped requirements.")
+    section(story, "1. Completion and verification", "Automated local checks are summarized below; repository access is verified separately.")
     checks = [
         ["Area", "Evidence", "Result"],
         ["Database/API", "12 manufacturers; 500 recalls; 200 events; 14/14 authenticated checks", "PASS"],
@@ -292,9 +294,9 @@ def make_report() -> None:
         ["Domain MCP", "Exactly search/detail/aggregate; valid and invalid calls", "PASS"],
         ["Reliability", "150 deterministic calls; 3-attempt bounded retry", "PASS"],
         ["Offline tests", "9/9 tool and safety tests", "PASS"],
-        ["Cumulative suite", "34/34 Python tests; React production build", "PASS"],
+        ["Cumulative suite", "37/37 Python tests; React production build", "PASS"],
         ["Local agent", "Four qwen3:8b scenarios; one enforced safety block", "PASS"],
-        ["Verifier", "12/12 checks", "PASS"],
+        ["Verifier", "14/14 checks including real STDIO and tag alignment", "PASS"],
     ]
     check_table = Table(checks, colWidths=[1.3 * inch, 5.15 * inch, 0.72 * inch], repeatRows=1)
     check_table.setStyle(
@@ -330,23 +332,41 @@ def make_report() -> None:
 
     # Part 1: actual Postman screenshots plus readable request/response companions.
     evidence_page(story, "2. Actual Postman Runner evidence - first operations",
-        "This is the original Postman application capture, not a reconstructed panel. It shows the selected HW5 environment and successful manufacturer operations.",
+        "This is the original Postman application capture, not a reconstructed panel. It shows the selected HW5 environment and successful manufacturer operations. It is an earlier temporary demonstration run; the linked recall workflow in Sections 3-6 uses manufacturer 29 and recall 6008 consistently.",
         "22_postman_part1.png", "Postman Runner UI: HW5 collection, local environment, response statuses, timings, and test summary.", 7.1 * inch)
-    evidence_page(story, "3. Actual Postman Runner evidence - final operations",
-        "This second original Postman capture shows the update, delete, login, and cleanup operations in the same collection run.",
-        "23_postman_part2.png", "Postman Runner UI: update recall, delete recall, login, and manufacturer cleanup returned 200/204 responses.", 7.1 * inch)
-    evidence_page(story, "4. Manufacturer CRUD request/response companion",
-        "Every operation is labeled with the exact HTTP request, returned status, and response excerpt.",
-        "28_api_manufacturers.png", "Manufacturer create, list, read, and update all returned their expected statuses.", 7.15 * inch)
-    evidence_page(story, "5. Recall create, list, read, and relationship companion",
-        "The previously unclear recall operations are now all shown explicitly, including filtered listing and relationship lookup.",
-        "29_api_recalls_read.png", "Recall create/list/read and GET by manufacturer all returned the created record.", 7.15 * inch)
-    evidence_page(story, "6. Recall update, delete, FK block, and cleanup",
-        "The write half proves update/delete behavior, the 404 after deletion, and RESTRICT enforcement.",
-        "30_api_recalls_write.png", "All status codes match the recorded 14/14 live integration checks.", 7.15 * inch)
+    evidence_page(story, "3. Actual Postman Runner evidence - recall operations",
+        "This new Postman run visibly shows recall creation, listing, reading, the manufacturer relationship endpoint, update, and delete. Login was sent before the run. It is a separate run from the manufacturer capture and companion panels: recall ID 6008 and manufacturer ID 29 identify this capture.",
+        "60_postman_recall_crud_relationship.png", "Actual Runner results: create 201; list, read, relationship, and update 200; delete 204. Two assertions passed, with zero failed assertions and zero request errors.", 7.1 * inch)
+    paired_evidence_page(
+        story,
+        "4. Actual Postman request and response - recall creation",
+        "These are unedited Postman application captures from the same run shown above. The first records the submitted JSON request and the second shows the stored 201 response for recall 6008.",
+        ("62_postman_create_request.png", "Request tab: POST /api/v1/recalls with the recall payload and 201 Created status."),
+        ("61_postman_create_response.png", "Response tab: the returned recall object, including ID 6008 and its manufacturer relation."),
+    )
+    paired_evidence_page(
+        story,
+        "5. Actual Postman responses - list and direct record read",
+        "The list request demonstrates the fixed eager-load implementation and page metadata. The next capture is a completed direct-read response for the manufacturer used by the recall workflow; Section 3 independently records the matching direct recall read.",
+        ("63_postman_list_response.png", "GET /api/v1/recalls?page_size=10 returned 200 with implementation metadata, total, page size, and records."),
+        ("69_postman_manufacturer_read.png", "GET /api/v1/manufacturers/29 returned 200 and the complete saved manufacturer."),
+    )
+    paired_evidence_page(
+        story,
+        "6. Actual Postman responses - relationship, update, and delete",
+        "The relationship query and update are captured directly in Postman. The Runner capture in Section 3 records the subsequent 204 delete response for this same recall, since a successful DELETE has no response body to display.",
+        ("65_postman_relationship_response.png", "GET /api/v1/recalls/by-manufacturer/29 returned 200 and includes recall 6008 with manufacturer data."),
+        ("71_postman_update_response.png", "PUT /api/v1/recalls/6008 returned 200 with the updated recall; the same run then returned DELETE 204."),
+    )
+    evidence_page(story, "6A. Actual Postman response - manufacturer deletion",
+        "This final cleanup action is shown in the real Postman Runner after its dependent recall was deleted. HTTP 204 deliberately has no response body; the completed request and status are both visible.",
+        "74_postman_manufacturer_delete.png", "DELETE /api/v1/manufacturers/29 returned 204 No Content in Postman, completing the temporary demonstration data cleanup.", 7.1 * inch)
     evidence_page(story, "7. Enlarged live MySQL evidence",
         "The database capture is given a full page so the row counts, schema, and foreign key are readable.",
         "24_database.png", "12 manufacturers, 500 recalls, 200 events, required columns, and RESTRICT foreign key.", 7.25 * inch)
+    evidence_page(story, "7A. Database evidence — readable detail",
+        "This close crop retains the row counts and schema columns while removing unused terminal space. The preceding page remains the complete, unmodified capture.",
+        "24_database_detail.png", "Close view of the recorded MySQL row counts and required schema columns.", 7.25 * inch)
     evidence_page(story, "8. Database and API implementation evidence",
         "The relevant validation and transaction code is immediately followed by measured output.",
         "38_database_api_code.png", "Validation, 409 handling, relationship integrity, and live row counts.", 7.15 * inch)
@@ -371,7 +391,7 @@ def make_report() -> None:
         "45_redux_delete_composite.png", "Explicit confirmation precedes deletion; the success notice follows API completion.", 7.2 * inch)
 
     # Part 2: implementation plus actual Inspector screenshots and readable companions.
-    evidence_page(story, "15. MealDB MCP implementation",
+    evidence_page(story, "Part 2A - MealDB MCP implementation",
         "This source evidence shows the exact four-tool surface, stdio transport, stderr logging, HTTP timeout, and handled failures.",
         "47_mealdb_server_code.png", "MealDB server implementation excerpts and failure boundary.", 7.15 * inch)
     evidence_page(
@@ -383,18 +403,30 @@ def make_report() -> None:
         6.6 * inch,
     )
     for number, actual, filename, title in (
-        (17, "50_mealdb_search_with_input.png", "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
-        (18, "51_mealdb_ingredient_with_input.png", "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
-        (19, "52_mealdb_detail_with_input.png", "33_mealdb_meal_details.png", "meal_details"),
-        (20, "53_mealdb_random_with_input.png", "34_mealdb_random_meal.png", "random_meal"),
+        (17, "76_mealdb_search_final.jpg", "31_mealdb_search_meals_by_name.png", "search_meals_by_name"),
+        (18, "77_mealdb_ingredient_final.jpg", "32_mealdb_meals_by_ingredient.png", "meals_by_ingredient"),
+        (19, "78_mealdb_detail_final.jpg", "33_mealdb_meal_details.png", "meal_details"),
+        (20, "79_mealdb_random_final.jpg", "34_mealdb_random_meal.png", "random_meal"),
     ):
-        paired_evidence_page(story, f"{number}. MealDB Inspector - {title}",
-            "The Inspector screenshot visibly includes the submitted arguments and returned output, paired with a readable exact-input/output companion.",
-            (actual, f"Actual MCP Inspector call for {title}, with the Protocol pane expanded to show its exact arguments and response."),
-            (filename, f"Exact input JSON and readable output for {title}; complete raw output is retained."))
+        evidence_page(
+            story,
+            f"{number}. MealDB Inspector — {title}",
+            "The actual Inspector view visibly includes the submitted arguments and returned output.",
+            actual,
+            f"Actual MCP Inspector call for {title}, with the Protocol pane expanded to show its exact arguments and response.",
+            7.0 * inch,
+        )
+        evidence_page(
+            story,
+            f"{number}A. MealDB result — {title}",
+            "The exact companion panel is placed on its own page so the result is readable at normal viewing size.",
+            filename,
+            f"Exact input JSON and readable output for {title}; complete raw output is retained.",
+            7.0 * inch,
+        )
 
     # Part 3: domain MCP server.
-    evidence_page(story, "21. Domain MCP implementation",
+    evidence_page(story, "Part 2B - Domain MCP implementation",
         "The server exposes exactly three stdio tools and routes all calls through the validated shared boundary.",
         "48_domain_server_code.png", "stderr logging, stdio transport, exact tool signatures, and stable error envelope.", 7.15 * inch)
     for number, name, valid_shot, invalid_shot in (
@@ -412,7 +444,7 @@ def make_report() -> None:
             f"The {name} contract returns the stable {{ok, data, error}} envelope for both valid and invalid calls.", 7.25 * inch)
 
     # Part 4: reliability.
-    evidence_page(story, "28. Real operation timeout, retry code, and behavior",
+    evidence_page(story, "Part 3 - Operation timeout, retries, and stress",
         "The operation is executed through Future.result(timeout=remaining), so a hanging call is interrupted from the caller's perspective rather than merely checked after failure.",
         "39_retry_code.png", "Runtime test: a 200 ms operation returns a clean timeout within the 30 ms caller deadline; retries remain bounded.", 7.15 * inch)
     section(
@@ -452,7 +484,7 @@ def make_report() -> None:
     story.append(
         p(
             "Policy: at most three attempts, 100 ms total timeout, and bounded exponential delays of "
-            "1 ms then 2 ms (4 ms cap). Normal calls have negligible delay. At 50% injected failure, "
+            "1 ms then 2 ms (4 ms cap). p99 uses nearest rank (the maximum of 50 samples). Normal calls have negligible delay. At 50% injected failure, "
             "92% still completed, while the remaining failures returned a clean error after exhausting "
             "the fixed attempt budget. A batch workload could tolerate more attempts and jitter; the "
             "interactive assistant favors a short, predictable response ceiling."
@@ -464,14 +496,31 @@ def make_report() -> None:
             "Caption",
         )
     )
+    story.append(p("Three measured retry outcomes from the same run", "Subsection"))
+    with (ROOT / "reports/hw05/raw/fault_injection_calls.csv").open(newline="") as stream:
+        calls = list(csv.DictReader(stream))
+    for label, predicate in [
+        ("First-attempt success", lambda row: row["attempt_outcomes"] == "success"),
+        ("Failure followed by retry success", lambda row: row["attempt_outcomes"] == "failure|success"),
+        ("All allowed attempts exhausted", lambda row: row["success"] == "False"),
+    ]:
+        row = next(row for row in calls if predicate(row))
+        story.append(p(label, "Subsection"))
+        excerpt = (
+            f"seed={row['verify_seed']}; failure_rate={row['injected_failure_rate']}; call={row['call_index']}\n"
+            f"success={row['success']}; attempts={row['attempts']}; latency_ms={row['latency_ms']}\n"
+            f"outcomes={row['attempt_outcomes']}\n"
+            f"error={row['error'] or 'null'}"
+        )
+        story.append(Preformatted(excerpt, styles["CodeBlock"]))
     story.append(PageBreak())
-    paired_evidence_page(story, "30. execute_tool and offline assertions",
+    paired_evidence_page(story, "Part 4 - execute_tool and offline assertions",
         "Implementation and representative assertions are immediately followed by the full named PASS output.",
         ("40_execute_tests_code.png", "Safe execution entry point, assertion examples, and 9/9 summary."),
         ("13_offline_tests.png", "Terminal output names every valid/invalid, safety, and max-step test as PASS."))
 
     # Part 5: agent.
-    paired_evidence_page(story, "31. Bounded agent loop and Ollama scenarios",
+    paired_evidence_page(story, "Part 5 - Bounded agent loop and Ollama scenarios",
         "The agent loop code and corresponding four-scenario terminal output are shown together.",
         ("41_agent_loop_code.png", "MAX_STEPS loop, execute_tool call, normal completion, and deterministic safety stop."),
         ("14_agent_scenarios.png", "Three grounded completions plus one safety-rule block using qwen3:8b."))
@@ -518,12 +567,7 @@ def make_report() -> None:
     story.append(Spacer(1, 0.12 * inch))
     story.append(p("Sections 23, 25, and 27 contain each full expected schema, valid input/output, rejected object, untruncated returned error, and explanation. All three return {ok, data, error}. Pydantic validation is caught at the boundary, and execute_tool applies the narrower agent-only limit of 10."))
     story.append(p("AI-use disclosure", "Section"))
-    disclosures = [
-        "1. I used an AI assistant to translate the assignment checklist into a cumulative implementation plan, draft FastAPI/Redux/MCP code, and create repeatable validation scripts. I independently reviewed the requirements, ran the tests, inspected the artifacts, and captured the final evidence.",
-        "2. I independently found that my first Home-page implementation deleted a recall directly from the record card, bypassing the required delete-confirmation UI even though the API operation worked.",
-        "3. I detected it by tracing the Home button to its Redux dispatch and reproducing the rendered flow: clicking Delete immediately issued the request instead of first showing the selected record and confirmation action.",
-        "4. I changed Home to navigate to /delete/:id, added a confirmation page that loads the selected record, and dispatches deleteRecall only after explicit confirmation. I verified the confirmation screen, success notice, and MySQL removal.",
-    ]
+    disclosures = [line for line in (ROOT / "reports/hw05/AI_USE.md").read_text().splitlines() if line[:2] in ("1.", "2.", "3.", "4.")]
     for disclosure in disclosures:
         story.append(p(disclosure))
     story.append(PageBreak())
@@ -561,8 +605,8 @@ def make_report() -> None:
     story.append(Spacer(1, 0.16 * inch))
     story.append(
         p(
-            "The repository deliberately excludes temporary demonstration rows: UI record 6006 and "
-            "Postman recall 6007/manufacturer 28 were deleted after proof was captured. The final live "
+            "Temporary UI/Postman demonstration records were deleted after proof was captured; "
+            "the final authenticated API run also cleaned up its temporary fixtures. The final live "
             "database therefore matches the deterministic cumulative seed."
         )
     )

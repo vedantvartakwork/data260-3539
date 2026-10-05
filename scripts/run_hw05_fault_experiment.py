@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import random
 import statistics
 import sys
@@ -25,7 +26,8 @@ JSON_PATH = OUTPUT_DIR / "fault_injection_summary.json"
 
 def percentile(values: list[float], fraction: float) -> float:
     ordered = sorted(values)
-    index = max(0, min(len(ordered) - 1, int(len(ordered) * fraction) - 1))
+    # Nearest-rank percentile; for 50 observations p99 is the largest sample.
+    index = max(0, min(len(ordered) - 1, math.ceil(len(ordered) * fraction) - 1))
     return ordered[index]
 
 

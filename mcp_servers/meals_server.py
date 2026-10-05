@@ -8,6 +8,7 @@ from typing import Any
 
 import httpx
 from mcp.server.fastmcp import FastMCP
+from mcp.types import CallToolResult, TextContent
 from pydantic import BaseModel, Field
 
 
@@ -57,41 +58,44 @@ def _meal_details(meal: dict[str, Any]) -> dict[str, Any]:
 
 
 @mcp.tool()
-def search_meals_by_name(query: str, limit: int = 5) -> dict[str, Any]:
-    """Search meals by name and return compact result cards."""
+def search_meals_by_name(query: str, limit: int = 5) -> list[dict[str, Any]]:
+    """Search meals by name and return a list of compact meal objects.
+
+    An empty search result is represented by an empty list, rather than a
+    wrapper object, so successful calls always satisfy the documented list
+    output contract.
+    """
     parsed = SearchLimit(limit=limit)
     meals = _get("search.php", {"s": query})[: parsed.limit]
-    return {
-        "meals": [
-            {
-                "id": meal.get("idMeal"),
-                "name": meal.get("strMeal"),
-                "area": meal.get("strArea"),
-                "category": meal.get("strCategory"),
-                "thumb": meal.get("strMealThumb"),
-            }
-            for meal in meals
-        ],
-        "message": None if meals else "no matches",
-    }
+    if not meals:
+        return CallToolResult(content=[TextContent(type="text", text="no matches")], structuredContent={"result": []})
+    return [
+        {
+            "id": meal.get("idMeal"),
+            "name": meal.get("strMeal"),
+            "area": meal.get("strArea"),
+            "category": meal.get("strCategory"),
+            "thumb": meal.get("strMealThumb"),
+        }
+        for meal in meals
+    ]
 
 
 @mcp.tool()
-def meals_by_ingredient(ingredient: str, limit: int = 12) -> dict[str, Any]:
-    """Filter meals by their main ingredient."""
+def meals_by_ingredient(ingredient: str, limit: int = 12) -> list[dict[str, Any]]:
+    """Filter meals by ingredient and return a list of compact meal objects."""
     parsed = SearchLimit(limit=limit)
     meals = _get("filter.php", {"i": ingredient})[: parsed.limit]
-    return {
-        "meals": [
-            {
-                "id": meal.get("idMeal"),
-                "name": meal.get("strMeal"),
-                "thumb": meal.get("strMealThumb"),
-            }
-            for meal in meals
-        ],
-        "message": None if meals else "no matches",
-    }
+    if not meals:
+        return CallToolResult(content=[TextContent(type="text", text="no matches")], structuredContent={"result": []})
+    return [
+        {
+            "id": meal.get("idMeal"),
+            "name": meal.get("strMeal"),
+            "thumb": meal.get("strMealThumb"),
+        }
+        for meal in meals
+    ]
 
 
 @mcp.tool()

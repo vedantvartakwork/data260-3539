@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import csv
 import asyncio
+import os
+from datetime import datetime, timezone
 import json
 import subprocess
 import sys
@@ -20,6 +22,7 @@ from code.hw5_tools import InMemoryRecallRepository, call_domain_tool
 from mcp_servers.domain_server import mcp as domain_mcp
 from mcp_servers.meals_server import search_meals_by_name
 from mcp_servers.meals_server import mcp as meals_mcp
+from scripts.capture_hw05_tool_outputs import capture_server
 
 
 OUT = ROOT / "reports/hw05/verification.json"
@@ -70,9 +73,18 @@ def main() -> None:
     )
     add(checks, "domain_mcp_tool_call", domain_result.get("ok") is True, json.dumps(domain_result))
     try:
-        meal_result = search_meals_by_name("Arrabiata", 1)
-        meal_ok = len(meal_result.get("meals", [])) == 1
-        meal_detail = json.dumps(meal_result)[:1000]
+        domain_wire = asyncio.run(capture_server("mcp_servers/domain_server.py", [{"tool": "search", "inputs": {"query": "shrimp", "limit": 1}}]))
+        domain_output = domain_wire["calls"][0]["output"]
+        domain_ok = not domain_output.get("isError") and domain_output.get("structuredContent", {}).get("ok") is True
+        add(checks, "domain_stdio_process_smoke", domain_ok, json.dumps(domain_output)[:1500])
+    except Exception as exc:
+        add(checks, "domain_stdio_process_smoke", False, str(exc))
+    try:
+        meal_wire = asyncio.run(capture_server("mcp_servers/meals_server.py", [{"tool": "search_meals_by_name", "inputs": {"query": "Arrabiata", "limit": 1}}]))
+        meal_output = meal_wire["calls"][0]["output"]
+        meal_result = meal_output.get("structuredContent", {}).get("result")
+        meal_ok = not meal_output.get("isError") and isinstance(meal_result, list) and len(meal_result) == 1
+        meal_detail = json.dumps(meal_output)[:1500]
     except Exception as exc:
         meal_ok, meal_detail = False, str(exc)
     add(checks, "mealdb_mcp_tool_call", meal_ok, meal_detail)
@@ -91,11 +103,17 @@ def main() -> None:
     passed, detail = run(["npm", "run", "build"], ROOT / "code/web_application/frontend")
     add(checks, "react_production_build", passed, detail)
 
+    tag_hash = subprocess.run(["git", "rev-list", "-n", "1", "hw5"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    source_diff = subprocess.run(["git", "diff", "hw5", "--", "code", "mcp_servers", "scripts/verify_hw05.py", "scripts/capture_hw05_tool_outputs.py"], cwd=ROOT, capture_output=True, text=True)
+    add(checks, "tagged_source_alignment", bool(tag_hash) and source_diff.returncode == 0 and not source_diff.stdout, "hw5=" + tag_hash + "; smoke launches source identical to tagged application=" + str(not source_diff.stdout))
+
     payload = {
         "homework": 5,
         "student": "Vedant Vartak",
         "sid4": 3539,
         "commit_hash": commit_hash,
+        "tagged_commit_hash": tag_hash,
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "configuration": {
             "port_base": 8839,
             "prefix": "s3539",

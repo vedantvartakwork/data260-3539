@@ -26,4 +26,7 @@ Fault experiment summary
 
 Final evidence checks
 - Captured the required labeled UI, Postman, database, MCP Inspector, retry, test, and agent screenshots.
-- Final cumulative checks passed: Python suite 33/33, offline tool runner 9/9, React production build, and verification 12/12.
+- Previous final checks: Python suite 35/35, offline tool runner 9/9, React production build, authenticated API 14/14, and verification 12/12. Superseded by the timestamped final audit below.
+- 2026-10-05: Retook all four MealDB Inspector calls against the final list-returning implementation; screenshots and raw companion outputs come from the same calls. Ingredient limit is 3; random meal is Ham hock colcannon (53035).
+- 2026-10-05: Original seven-page handout audited again. GitHub API confirms supriyaselvanganesan has write access; Sbnikitha has a pending write invitation. Acceptance remains outside the assistant's control.
+- 2026-10-05: Fixed nearest-rank p99 computation using the retained CSV; successful meal-list contracts unchanged, empty searches now display no matches; added two offline regression tests.

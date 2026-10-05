@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import time
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from code.hw5_agent import MockModel, run_agent
@@ -15,6 +16,22 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class Homework5StructureTests(unittest.TestCase):
+    def test_mealdb_list_and_empty_result_contract(self) -> None:
+        from mcp_servers import meals_server
+        from mcp.types import CallToolResult
+        for handler, argument in ((meals_server.search_meals_by_name, "test"), (meals_server.meals_by_ingredient, "test")):
+            with patch.object(meals_server, "_get", return_value=[]):
+                result = handler(argument)
+                self.assertIsInstance(result, CallToolResult)
+                self.assertEqual(result.structuredContent, {"result": []})
+                self.assertEqual(result.content[0].text, "no matches")
+            with patch.object(meals_server, "_get", return_value=[{"idMeal": "1", "strMeal": "Test"}]):
+                self.assertIsInstance(handler(argument), list)
+
+    def test_nearest_rank_p99(self) -> None:
+        from scripts.run_hw05_fault_experiment import percentile
+        self.assertEqual(percentile(list(range(1, 51)), 0.99), 50)
+
     def setUp(self) -> None:
         self.repository = InMemoryRecallRepository()
 
