@@ -218,6 +218,9 @@ def ui_code_page(
 
 
 def make_report() -> None:
+    # Retain the genuine test output and name, excluding unrelated earlier-run scrollback.
+    with PILImage.open(EVIDENCE / "13_offline_tests.png") as original:
+        original.crop((0, 598, original.width, original.height)).save(EVIDENCE / "80_offline_tests_crop.png")
     commit = git_commit()
     tag_commit = tagged_commit()
     summary = json.loads((ROOT / "reports/hw05/raw/fault_injection_summary.json").read_text())
@@ -325,13 +328,13 @@ def make_report() -> None:
         p(
             "The verifier independently inventories both MCP servers, calls one tool from each, checks "
             "the live API health endpoint, counts all 150 experiment rows, runs the offline runner and "
-            "34-test suite, and rebuilds the React client."
+            "37-test suite, and rebuilds the React client. Both MCP calls use newly launched STDIO processes; application source is compared to the hw5 tag."
         )
     )
     story.append(PageBreak())
 
     # Part 1: actual Postman screenshots plus readable request/response companions.
-    evidence_page(story, "2. Actual Postman Runner evidence - first operations",
+    evidence_page(story, "Part 1 - Database/API: actual Postman operations",
         "This is the original Postman application capture, not a reconstructed panel. It shows the selected HW5 environment and successful manufacturer operations. It is an earlier temporary demonstration run; the linked recall workflow in Sections 3-6 uses manufacturer 29 and recall 6008 consistently.",
         "22_postman_part1.png", "Postman Runner UI: HW5 collection, local environment, response statuses, timings, and test summary.", 7.1 * inch)
     evidence_page(story, "3. Actual Postman Runner evidence - recall operations",
@@ -517,7 +520,7 @@ def make_report() -> None:
     paired_evidence_page(story, "Part 4 - execute_tool and offline assertions",
         "Implementation and representative assertions are immediately followed by the full named PASS output.",
         ("40_execute_tests_code.png", "Safe execution entry point, assertion examples, and 9/9 summary."),
-        ("13_offline_tests.png", "Terminal output names every valid/invalid, safety, and max-step test as PASS."))
+        ("80_offline_tests_crop.png", "Unaltered offline-test region cropped from the original terminal capture; name, all nine PASS results and summary remain visible. The latest 9/9 rerun is recorded in RUN_LOG.txt."))
 
     # Part 5: agent.
     paired_evidence_page(story, "Part 5 - Bounded agent loop and Ollama scenarios",
