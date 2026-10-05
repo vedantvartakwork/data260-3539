@@ -544,8 +544,8 @@ def make_report() -> None:
         ["aggregate", '{"group_by": enum, "min_units": int}', '{"group_by":"submitter", "min_units":0}', "Section 27: Domain MCP contract - aggregate"],
     ]
     contract_rows = [
-        [Paragraph(str(cell), styles["Small"]) for cell in row]
-        for row in contract_text
+        [str(cell) if row_index == 0 else Paragraph(str(cell), styles["Small"]) for cell in row]
+        for row_index, row in enumerate(contract_text)
     ]
     contract_table = Table(contract_rows, colWidths=[0.75 * inch, 1.75 * inch, 1.7 * inch, 2.95 * inch], repeatRows=1)
     contract_table.setStyle(
