@@ -1,0 +1,63 @@
+VEDANT VARTAK - DATA 260 HOMEWORK 6 RUN LOG
+Repository: https://github.com/vedantvartakwork/data260-3539
+SID4=3539  PORT_BASE=8839  PREFIX=s3539  SEED=3539  VERIFY_SEED=263539
+Database=s3539_doc  Model=qwen3:8b  Embeddings=all-MiniLM-L6
+
+2026-10-14 America/Los_Angeles
+
+1. Start MongoDB 7 locally
+   docker compose -f docker-compose.hw6.yml up -d
+   Result: data260-3539-hw6-mongodb healthy on localhost:27017.
+
+2. Install the Homework 6 Python dependency
+   .venv/bin/python -m pip install "pymongo>=4.11,<5"
+   Result: PyMongo installed in the existing project virtual environment.
+
+3. Capture MongoDB schema, validator, CRUD, and invalid-input evidence
+   .venv/bin/python scripts/capture_hw06_database_evidence.py
+   Result: POST 201, list/read/update 200, DELETE 204, deleted record 404;
+   missing field, invalid enum, and invalid datetime each returned 422;
+   a direct MongoDB write that bypassed the API was rejected with code 121.
+   Raw: reports/hw06/raw/database_crud_evidence.json
+
+4. Run the file-memory and consolidation demonstration
+   .venv/bin/python scripts/capture_hw06_file_memory_evidence.py
+   Result: 55 meaningful original lines -> 38 consolidated lines,
+   18 duplicate lines removed, 3 contradictions explicitly resolved,
+   0 incorrect resolutions. /memory, /compact, /dream, /help verified.
+   Raw: reports/hw06/raw/file_memory_evidence.json
+
+5. Run the 30-turn memory-window experiment with local Ollama
+   .venv/bin/python scripts/run_hw06_memory_experiment.py
+   Result: four complete runs: N=4, N=12, N=30, and compression policy;
+   each run contains 30 conversation turns plus five scored probes.
+   Raw: reports/hw06/raw/*_transcript.jsonl and *_turn_metrics.jsonl
+
+6. Capture a real 10-user-message MongoDB memory conversation
+   .venv/bin/python scripts/capture_hw06_memory_evidence.py
+   Result: 20 stored messages, two session summaries, episodic facts with
+   local all-MiniLM-L6 embeddings, and a final answer that recalled the
+   student's name, database, model, and API port.
+   Raw: reports/hw06/raw/memory_api_evidence.json
+
+7. Start and verify the integrated FastAPI application
+   .venv/bin/uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+   .venv/bin/python scripts/capture_hw06_http_evidence.py
+   Result: /health 200; /api/chat 200; /api/memory/{user_id} 200;
+   /api/aggregate/{user_id} 200. The API stored and retrieved MongoDB memory.
+
+8. Run named offline tests and the submission verifier
+   .venv/bin/python -m unittest tests.test_hw06 -v
+   Result: 12/12 tests passed.
+   .venv/bin/python scripts/verify_hw06.py
+   Result: pass=true for tests, compilation, required files, MongoDB CRUD,
+   four experiments, live memory evidence, and file-memory consolidation.
+
+9. Capture live browser evidence from the same running API
+   http://127.0.0.1:8839/docs
+   Result: saved genuine Swagger request/response captures for HW6 routes,
+   document listing, chat input, chat 200 output, memory 200 output, and
+   aggregate 200 output in reports/hw06/screenshots/.
+
+No hosted language model was called by the Homework 6 application or experiment.
+The qwen3:8b completion model and all-MiniLM-L6 embedding model ran locally.

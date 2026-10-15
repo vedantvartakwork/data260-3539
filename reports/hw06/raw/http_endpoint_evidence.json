@@ -1,0 +1,393 @@
+{
+  "student": "Vedant Vartak",
+  "base_url": "http://127.0.0.1:8839",
+  "health": {
+    "status": 200,
+    "body": {
+      "status": "ok"
+    }
+  },
+  "POST /api/chat": {
+    "status": 200,
+    "body": {
+      "user_id": "vedant-hw6",
+      "session_id": "demo-3539",
+      "reply": "The MongoDB database you should use is s3539_doc.",
+      "memory_used": {
+        "short_term_count": 12,
+        "short_term_messages": [
+          {
+            "role": "user",
+            "content": "The local language model is qwen3:8b through Ollama."
+          },
+          {
+            "role": "assistant",
+            "content": "OK: The use of the local language model qwen3:8b through Ollama is confirmed and aligns with the project's prohibition against hosted models."
+          },
+          {
+            "role": "user",
+            "content": "The document API runs on port 8839."
+          },
+          {
+            "role": "assistant",
+            "content": "OK: The document API running on port 8839 is correctly specified and matches the consolidated memory."
+          },
+          {
+            "role": "user",
+            "content": "Never call a hosted model for this assignment."
+          },
+          {
+            "role": "assistant",
+            "content": "OK: The prohibition against calling hosted models is confirmed and aligns with the project's requirements."
+          },
+          {
+            "role": "user",
+            "content": "Session summaries should be made every four user messages."
+          },
+          {
+            "role": "assistant",
+            "content": "OK: The session summary interval of every four user messages is correctly specified and matches the consolidated memory."
+          },
+          {
+            "role": "user",
+            "content": "Episodic facts should be retrieved with cosine similarity."
+          },
+          {
+            "role": "assistant",
+            "content": "OK: The use of cosine similarity for retrieving episodic facts is a valid approach and aligns with the project's requirements for efficient and relevant memory retrieval."
+          },
+          {
+            "role": "user",
+            "content": "What are my name, database, local model, and API port? Answer in one concise sentence."
+          },
+          {
+            "role": "assistant",
+            "content": "Your name is Vedant Vartak, your database is s3539_doc, your local model is qwen3:8b, and your API port is 8839."
+          }
+        ],
+        "session_summary": "- Assistant: OK: Preference for concise JSON responses during API debugging is noted and aligns with the project's structured output requirements.\n- User: The local language model is qwen3:8b through Ollama.\n- Assistant: OK: The use of the local language model qwen3:8b through Ollama is confirmed and aligns with the project's prohibition against hosted models.\n- User: The document API runs on port 8839.\n- Assistant: OK: The document API running on port 8839 is correctly specified and matches the consolidated memory.\n- User: Never call a hosted model for this assignment.\n- Assistant: OK: The prohibition against calling hosted models is confirmed and aligns with the project's requirements.\n- User: Session summaries should be made every four user messages.\n- Assistant: OK: The session summary interval of every four user messages is correctly specified and matches the consolidated memory.",
+        "lifetime_summary": null,
+        "episodic_facts": [
+          {
+            "fact": "Remember that my grocery safety project uses MongoDB.",
+            "importance": 0.9,
+            "similarity": 0.597006
+          },
+          {
+            "fact": "What are my name, database, local model, and API port?",
+            "importance": 0.65,
+            "similarity": 0.412579
+          },
+          {
+            "fact": "The database is named s3539_doc.",
+            "importance": 0.65,
+            "similarity": 0.298242
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1308,
+        "completion_tokens": 15,
+        "latency_ms": 11376.338,
+        "model": "qwen3:8b"
+      }
+    }
+  },
+  "GET /api/memory/vedant-hw6": {
+    "status": 200,
+    "body": {
+      "user_id": "vedant-hw6",
+      "messages": [
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "I prefer concise JSON responses when we debug APIs.",
+          "created_at": "2026-10-15T02:25:10.206000",
+          "id": "6ad039862096224ed04fb6f7"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "OK: Preference for concise JSON responses during API debugging is noted and aligns with the project's structured output requirements.",
+          "created_at": "2026-10-15T02:25:12.980000",
+          "id": "6ad039882096224ed04fb6f8"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "The local language model is qwen3:8b through Ollama.",
+          "created_at": "2026-10-15T02:25:13.103000",
+          "id": "6ad039892096224ed04fb6fb"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "OK: The use of the local language model qwen3:8b through Ollama is confirmed and aligns with the project's prohibition against hosted models.",
+          "created_at": "2026-10-15T02:25:18.120000",
+          "id": "6ad0398e2096224ed04fb6fc"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "The document API runs on port 8839.",
+          "created_at": "2026-10-15T02:25:18.356000",
+          "id": "6ad0398e2096224ed04fb6fe"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "OK: The document API running on port 8839 is correctly specified and matches the consolidated memory.",
+          "created_at": "2026-10-15T02:25:21.796000",
+          "id": "6ad039912096224ed04fb6ff"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "Never call a hosted model for this assignment.",
+          "created_at": "2026-10-15T02:25:21.900000",
+          "id": "6ad039912096224ed04fb701"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "OK: The prohibition against calling hosted models is confirmed and aligns with the project's requirements.",
+          "created_at": "2026-10-15T02:25:25.669000",
+          "id": "6ad039952096224ed04fb702"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "Session summaries should be made every four user messages.",
+          "created_at": "2026-10-15T02:25:25.810000",
+          "id": "6ad039952096224ed04fb704"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "OK: The session summary interval of every four user messages is correctly specified and matches the consolidated memory.",
+          "created_at": "2026-10-15T02:25:29.733000",
+          "id": "6ad039992096224ed04fb705"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "Episodic facts should be retrieved with cosine similarity.",
+          "created_at": "2026-10-15T02:25:29.863000",
+          "id": "6ad039992096224ed04fb708"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "OK: The use of cosine similarity for retrieving episodic facts is a valid approach and aligns with the project's requirements for efficient and relevant memory retrieval.",
+          "created_at": "2026-10-15T02:25:35.969000",
+          "id": "6ad0399f2096224ed04fb709"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "What are my name, database, local model, and API port? Answer in one concise sentence.",
+          "created_at": "2026-10-15T02:25:36.046000",
+          "id": "6ad039a02096224ed04fb70b"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "Your name is Vedant Vartak, your database is s3539_doc, your local model is qwen3:8b, and your API port is 8839.",
+          "created_at": "2026-10-15T02:25:41.863000",
+          "id": "6ad039a52096224ed04fb70c"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "user",
+          "content": "What MongoDB database should I use? Answer briefly.",
+          "created_at": "2026-10-15T02:28:08.689000",
+          "id": "6ad03a3866c97f8405de4cf0"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "role": "assistant",
+          "content": "The MongoDB database you should use is s3539_doc.",
+          "created_at": "2026-10-15T02:28:19.212000",
+          "id": "6ad03a4366c97f8405de4cf1"
+        }
+      ],
+      "summaries": [
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "scope": "session",
+          "text": "- Assistant: OK: Preference for concise JSON responses during API debugging is noted and aligns with the project's structured output requirements.\n- User: The local language model is qwen3:8b through Ollama.\n- Assistant: OK: The use of the local language model qwen3:8b through Ollama is confirmed and aligns with the project's prohibition against hosted models.\n- User: The document API runs on port 8839.\n- Assistant: OK: The document API running on port 8839 is correctly specified and matches the consolidated memory.\n- User: Never call a hosted model for this assignment.\n- Assistant: OK: The prohibition against calling hosted models is confirmed and aligns with the project's requirements.\n- User: Session summaries should be made every four user messages.\n- Assistant: OK: The session summary interval of every four user messages is correctly specified and matches the consolidated memory.",
+          "created_at": "2026-10-15T02:25:29.860000",
+          "id": "6ad039992096224ed04fb707"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "scope": "session",
+          "text": "- User: My name is Vedant Vartak and my project prefix is s3539.\n- Assistant: OK: Your name and project prefix match the consolidated memory.\n- User: Remember that my grocery safety project uses MongoDB.\n- Assistant: OK: Your grocery safety project uses MongoDB, as confirmed by the consolidated memory.\n- User: The database is named s3539_doc.\n- Assistant: OK: The database name s3539_doc is correctly specified and matches the consolidated memory.\n- User: I prefer concise JSON responses when we debug APIs.\n- Assistant: OK: Preference for concise JSON responses during API debugging is noted and aligns with the project's structured output requirements.",
+          "created_at": "2026-10-15T02:25:13.101000",
+          "id": "6ad039892096224ed04fb6fa"
+        }
+      ],
+      "episodes": [
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "Answer briefly.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:28:20.056000",
+          "id": "6ad03a4466c97f8405de4cf3"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "What MongoDB database should I use?",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:28:19.297000",
+          "id": "6ad03a4366c97f8405de4cf2"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "Answer in one concise sentence.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:42.414000",
+          "id": "6ad039a62096224ed04fb70e"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "What are my name, database, local model, and API port?",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:42.172000",
+          "id": "6ad039a62096224ed04fb70d"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "Episodic facts should be retrieved with cosine similarity.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:36.041000",
+          "id": "6ad039a02096224ed04fb70a"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "Session summaries should be made every four user messages.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:29.848000",
+          "id": "6ad039992096224ed04fb706"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "Never call a hosted model for this assignment.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:25.806000",
+          "id": "6ad039952096224ed04fb703"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "The document API runs on port 8839.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:21.893000",
+          "id": "6ad039912096224ed04fb700"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "The local language model is qwen3:8b through Ollama.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:18.342000",
+          "id": "6ad0398e2096224ed04fb6fd"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "I prefer concise JSON responses when we debug APIs.",
+          "importance": 0.9,
+          "created_at": "2026-10-15T02:25:13.080000",
+          "id": "6ad039892096224ed04fb6f9"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "The database is named s3539_doc.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:10.200000",
+          "id": "6ad039862096224ed04fb6f6"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "Remember that my grocery safety project uses MongoDB.",
+          "importance": 0.9,
+          "created_at": "2026-10-15T02:25:07.842000",
+          "id": "6ad039832096224ed04fb6f3"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "fact": "My name is Vedant Vartak and my project prefix is s3539.",
+          "importance": 0.65,
+          "created_at": "2026-10-15T02:25:06.075000",
+          "id": "6ad039822096224ed04fb6f0"
+        }
+      ]
+    }
+  },
+  "GET /api/aggregate/vedant-hw6": {
+    "status": 200,
+    "body": {
+      "user_id": "vedant-hw6",
+      "daily_message_counts": [
+        {
+          "date": "2026-10-15",
+          "message_count": 22
+        }
+      ],
+      "recent_summaries": [
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "scope": "session",
+          "text": "- Assistant: OK: Preference for concise JSON responses during API debugging is noted and aligns with the project's structured output requirements.\n- User: The local language model is qwen3:8b through Ollama.\n- Assistant: OK: The use of the local language model qwen3:8b through Ollama is confirmed and aligns with the project's prohibition against hosted models.\n- User: The document API runs on port 8839.\n- Assistant: OK: The document API running on port 8839 is correctly specified and matches the consolidated memory.\n- User: Never call a hosted model for this assignment.\n- Assistant: OK: The prohibition against calling hosted models is confirmed and aligns with the project's requirements.\n- User: Session summaries should be made every four user messages.\n- Assistant: OK: The session summary interval of every four user messages is correctly specified and matches the consolidated memory.",
+          "created_at": "2026-10-15T02:25:29.860000",
+          "id": "6ad039992096224ed04fb707"
+        },
+        {
+          "user_id": "vedant-hw6",
+          "session_id": "demo-3539",
+          "scope": "session",
+          "text": "- User: My name is Vedant Vartak and my project prefix is s3539.\n- Assistant: OK: Your name and project prefix match the consolidated memory.\n- User: Remember that my grocery safety project uses MongoDB.\n- Assistant: OK: Your grocery safety project uses MongoDB, as confirmed by the consolidated memory.\n- User: The database is named s3539_doc.\n- Assistant: OK: The database name s3539_doc is correctly specified and matches the consolidated memory.\n- User: I prefer concise JSON responses when we debug APIs.\n- Assistant: OK: Preference for concise JSON responses during API debugging is noted and aligns with the project's structured output requirements.",
+          "created_at": "2026-10-15T02:25:13.101000",
+          "id": "6ad039892096224ed04fb6fa"
+        }
+      ]
+    }
+  },
+  "registered_hw6_paths": [
+    "/api/aggregate/{user_id}",
+    "/api/chat",
+    "/api/memory/{user_id}",
+    "/api/v1/documents",
+    "/api/v1/documents/{document_id}"
+  ]
+}

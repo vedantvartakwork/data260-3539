@@ -1,0 +1,41 @@
+# Consolidated Homework 6 Memory
+
+<!-- Source: reports/hw06/MEMORY.original.md. Conflicts use the newest confirmed value. -->
+
+- student_name: Vedant Vartak
+- sid4: 3539
+- port_base: 8839
+- prefix: s3539
+- database: s3539_doc
+- api_framework: FastAPI
+- database_driver: PyMongo
+- local_model: qwen3:8b
+- verify_seed: 263539
+- domain_id: 3
+- preferred_output: JSON
+- test_mode: offline deterministic
+- short_term_window: 12
+- Resolution for short_term_window: kept '12' as the newest confirmed value; rejected '8' as outdated.
+- summary_interval: 4
+- Resolution for summary_interval: kept '4' as the newest confirmed value; rejected '6' as outdated.
+- episodic_top_k: 3
+- Resolution for episodic_top_k: kept '3' as the newest confirmed value; rejected '5' as outdated.
+- deployment: local only
+- model_provider: Ollama
+- hosted_models: prohibited
+- cors_origin: http://127.0.0.1:5173
+- memory_scope: per user and session
+- message_roles: user and assistant
+- episode_limit_per_message: 3
+- importance_range: 0 through 1
+- document_title_limit: 100
+- document_status_default: active
+- categories: Produce, Meat and Seafood, Dairy and Refrigerated, Packaged Foods
+- recall_collection: recall_documents
+- message_collection: messages
+- summary_collection: summaries
+- episode_collection: episodes
+- metrics_format: JSONL
+- raw_evidence_folder: reports/hw06/raw
+- report_name: Vartak_HW6.pdf
+- tag_name: hw6

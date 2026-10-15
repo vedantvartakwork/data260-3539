@@ -1,0 +1,23 @@
+probes:
+  - id: identity
+    question: What is my name?
+    expected: Mentions Vedant Vartak.
+  - id: database
+    question: Which database does this project use?
+    expected: Mentions MongoDB and s3539_doc.
+  - id: model
+    question: Which language model must remain local?
+    expected: Mentions qwen3:8b through Ollama.
+  - id: window
+    question: What is the configured short-term memory window?
+    expected: States 12 messages in the default configuration.
+  - id: safety
+    question: What model-provider action is prohibited?
+    expected: Says hosted language models must not be called.
+
+rubric:
+  5: Complete, exact, and grounded in stored memory.
+  4: Correct with one minor omission.
+  3: Partially correct but missing an important detail.
+  2: Weakly related or substantially incomplete.
+  1: Incorrect, unsupported, or no answer.

@@ -1,0 +1,232 @@
+{
+  "student": "Vedant Vartak",
+  "database": "s3539_doc",
+  "create": {
+    "status_code": 201,
+    "body": {
+      "title": "HW6 Frozen Berry Recall",
+      "description": "Selected packages may contain an undeclared allergen.",
+      "status": "active",
+      "category": "Produce",
+      "recalled_at": "2026-10-15T02:16:33.388000",
+      "id": "6ad03781b121ccb601af8a19",
+      "created_at": "2026-10-15T02:16:33.421000",
+      "updated_at": "2026-10-15T02:16:33.421000"
+    }
+  },
+  "list": {
+    "status_code": 200,
+    "body": [
+      {
+        "title": "HW6 Frozen Berry Recall",
+        "description": "Selected packages may contain an undeclared allergen.",
+        "status": "active",
+        "category": "Produce",
+        "recalled_at": "2026-10-15T02:16:33.388000",
+        "id": "6ad03781b121ccb601af8a19",
+        "created_at": "2026-10-15T02:16:33.421000",
+        "updated_at": "2026-10-15T02:16:33.421000"
+      }
+    ]
+  },
+  "get_one": {
+    "status_code": 200,
+    "body": {
+      "title": "HW6 Frozen Berry Recall",
+      "description": "Selected packages may contain an undeclared allergen.",
+      "status": "active",
+      "category": "Produce",
+      "recalled_at": "2026-10-15T02:16:33.388000",
+      "id": "6ad03781b121ccb601af8a19",
+      "created_at": "2026-10-15T02:16:33.421000",
+      "updated_at": "2026-10-15T02:16:33.421000"
+    }
+  },
+  "update": {
+    "status_code": 200,
+    "body": {
+      "title": "HW6 Frozen Berry Recall",
+      "description": "Selected packages may contain an undeclared allergen.",
+      "status": "monitoring",
+      "category": "Produce",
+      "recalled_at": "2026-10-15T02:16:33.388000",
+      "id": "6ad03781b121ccb601af8a19",
+      "created_at": "2026-10-15T02:16:33.421000",
+      "updated_at": "2026-10-15T02:16:33.434000"
+    }
+  },
+  "invalid_missing_fields": {
+    "status_code": 422,
+    "body": {
+      "detail": [
+        {
+          "type": "missing",
+          "loc": [
+            "body",
+            "category"
+          ],
+          "msg": "Field required",
+          "input": {
+            "title": "Only a title"
+          }
+        },
+        {
+          "type": "missing",
+          "loc": [
+            "body",
+            "recalled_at"
+          ],
+          "msg": "Field required",
+          "input": {
+            "title": "Only a title"
+          }
+        }
+      ]
+    }
+  },
+  "invalid_enum": {
+    "status_code": 422,
+    "body": {
+      "detail": [
+        {
+          "type": "enum",
+          "loc": [
+            "body",
+            "category"
+          ],
+          "msg": "Input should be 'Produce', 'Meat and Seafood', 'Dairy and Refrigerated' or 'Packaged Foods'",
+          "input": "Invalid",
+          "ctx": {
+            "expected": "'Produce', 'Meat and Seafood', 'Dairy and Refrigerated' or 'Packaged Foods'"
+          }
+        }
+      ]
+    }
+  },
+  "invalid_type": {
+    "status_code": 422,
+    "body": {
+      "detail": [
+        {
+          "type": "datetime_from_date_parsing",
+          "loc": [
+            "body",
+            "recalled_at"
+          ],
+          "msg": "Input should be a valid datetime or date, invalid character in year",
+          "input": "not-a-datetime",
+          "ctx": {
+            "error": "invalid character in year"
+          }
+        }
+      ]
+    }
+  },
+  "mongo_schema_validation": {
+    "blocked": true,
+    "code": 121,
+    "message": "Document failed validation,"
+  },
+  "delete": {
+    "status_code": 204,
+    "body": null
+  },
+  "get_after_delete": {
+    "status_code": 404,
+    "body": {
+      "detail": "Document not found"
+    }
+  },
+  "compass_shell_snapshot": {
+    "collections": [
+      "episodes",
+      "messages",
+      "recall_documents",
+      "summaries"
+    ],
+    "recall_document_count": 5,
+    "sample_documents": [
+      {
+        "_id": "6ad03781b121ccb601af8a1b",
+        "title": "Seeded grocery recall 1",
+        "description": "Selected packages may contain an undeclared allergen.",
+        "category": "Produce",
+        "status": "active",
+        "recalled_at": "2026-10-15 02:16:33.453000",
+        "created_at": "2026-10-15 02:16:33.453000",
+        "updated_at": "2026-10-15 02:16:33.453000"
+      },
+      {
+        "_id": "6ad03781b121ccb601af8a1c",
+        "title": "Seeded grocery recall 2",
+        "description": "Selected packages may contain an undeclared allergen.",
+        "category": "Produce",
+        "status": "active",
+        "recalled_at": "2026-10-15 02:16:33.453000",
+        "created_at": "2026-10-15 02:16:33.453000",
+        "updated_at": "2026-10-15 02:16:33.453000"
+      },
+      {
+        "_id": "6ad03781b121ccb601af8a1d",
+        "title": "Seeded grocery recall 3",
+        "description": "Selected packages may contain an undeclared allergen.",
+        "category": "Produce",
+        "status": "active",
+        "recalled_at": "2026-10-15 02:16:33.453000",
+        "created_at": "2026-10-15 02:16:33.453000",
+        "updated_at": "2026-10-15 02:16:33.453000"
+      }
+    ],
+    "recall_validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": [
+          "title",
+          "status",
+          "category",
+          "recalled_at",
+          "created_at",
+          "updated_at"
+        ],
+        "properties": {
+          "title": {
+            "bsonType": "string",
+            "minLength": 2,
+            "maxLength": 100
+          },
+          "description": {
+            "bsonType": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1000
+          },
+          "status": {
+            "enum": [
+              "active",
+              "monitoring",
+              "resolved"
+            ]
+          },
+          "category": {
+            "enum": [
+              "Produce",
+              "Meat and Seafood",
+              "Dairy and Refrigerated",
+              "Packaged Foods"
+            ]
+          },
+          "recalled_at": {
+            "bsonType": "date"
+          },
+          "created_at": {
+            "bsonType": "date"
+          },
+          "updated_at": {
+            "bsonType": "date"
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,8 @@ from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as au
 from code.web_application.routers.api_auth import router as api_auth_router
 from code.web_application.routers.recalls import router as hw4_recalls_router
 from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
+from code.hw6.routes.documents import router as hw6_documents_router
+from code.hw6.routes.memory import router as hw6_memory_router
 
 PORT_BASE = 8839
 STATIC_DIR = Path(__file__).resolve().parent
@@ -100,6 +102,8 @@ app.include_router(auth_router)
 app.include_router(api_auth_router)
 app.include_router(hw4_recalls_router)
 app.include_router(hw5_manufacturers_router)
+app.include_router(hw6_documents_router)
+app.include_router(hw6_memory_router)
 
 
 @app.get("/recalls", include_in_schema=False)

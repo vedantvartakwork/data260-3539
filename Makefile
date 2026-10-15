@@ -1,13 +1,31 @@
 PYTHON ?= .venv/bin/python
 MODEL ?= qwen3:8b
 
-.PHONY: test run-web mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+.PHONY: test run-web mongo-hw6-up mongo-hw6-down run-hw6-api test-hw6 experiment-hw6 verify-hw06 mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 
 run-web:
 	SESSION_HTTPS_ONLY=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+
+mongo-hw6-up:
+	docker compose -f docker-compose.hw6.yml up -d
+
+mongo-hw6-down:
+	docker compose -f docker-compose.hw6.yml down
+
+run-hw6-api:
+	SESSION_HTTPS_ONLY=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839
+
+test-hw6:
+	$(PYTHON) -m unittest tests.test_hw06 -v
+
+experiment-hw6:
+	$(PYTHON) scripts/run_hw06_memory_experiment.py
+
+verify-hw06:
+	$(PYTHON) scripts/verify_hw06.py
 
 mysql-hw4-up:
 	docker compose -f docker-compose.hw4.yml up -d
