@@ -1,0 +1,60 @@
+{
+  "homework": 6,
+  "student": "Vedant Vartak",
+  "sid4": 3539,
+  "commit": "8b67c22b9f88b113fcaf27841540a72a60478d08",
+  "model": "qwen3:8b",
+  "config": {
+    "port_base": 8839,
+    "prefix": "s3539",
+    "database": "s3539_doc",
+    "domain_id": 3,
+    "short_term_n": 12,
+    "summarize_every_user_messages": 4,
+    "episodic_top_k": 3
+  },
+  "seeds": {
+    "seed": 3539,
+    "verify_seed": 263539
+  },
+  "checks": {
+    "offline_tests": {
+      "pass": true,
+      "details": "test_chat_request_rejects_unsafe_identifier (tests.test_hw06.HW6Tests.test_chat_request_rejects_unsafe_identifier) ... ok\ntest_compaction_merges_duplicates_and_documents_conflict (tests.test_hw06.HW6Tests.test_compaction_merges_duplicates_and_documents_conflict) ... ok\ntest_cosine_and_fact_extraction (tests.test_hw06.HW6Tests.test_cosine_and_fact_extraction) ... ok\ntest_document_schema_rejects_missing_enum_and_type (tests.test_hw06.HW6Tests.test_document_schema_rejects_missing_enum_and_type) ... ok\ntest_document_schema_valid_and_default (tests.test_hw06.HW6Tests.test_document_schema_valid_and_default) ... ok\ntest_document_update_requires_a_field (tests.test_hw06.HW6Tests.test_document_update_requires_a_field) ... ok\ntest_episodic_fact_is_stored_and_retrieved (tests.test_hw06.HW6Tests.test_episodic_fact_is_stored_and_retrieved) ... ok\ntest_file_commands (tests.test_hw06.HW6Tests.test_file_commands) ... ok\ntest_generated_normalizer_follows_agent_rules (tests.test_hw06.HW6Tests.test_generated_normalizer_follows_agent_rules) ... ok\ntest_memory_aggregate_counts_messages (tests.test_hw06.HW6Tests.test_memory_aggregate_counts_messages) ... ok\ntest_periodic_session_summary_is_created (tests.test_hw06.HW6Tests.test_periodic_session_summary_is_created) ... ok\ntest_short_term_window_is_bounded (tests.test_hw06.HW6Tests.test_short_term_window_is_bounded) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.004s\n\nOK"
+    },
+    "python_compile": {
+      "pass": true,
+      "details": "compileall passed"
+    },
+    "required_files": {
+      "pass": true,
+      "details": [
+        "AGENT.md",
+        "MEMORY.md",
+        "docker-compose.hw6.yml",
+        "code/hw6/config.py",
+        "code/hw6/db.py",
+        "code/hw6/memory.py",
+        "reports/hw06/MEMORY.original.md",
+        "reports/hw06/memory_probes.yaml",
+        "reports/hw06/AI_USE.md"
+      ]
+    },
+    "mongodb_crud_evidence": {
+      "pass": true
+    },
+    "memory_experiment": {
+      "pass": true,
+      "details": "4 runs x (30 conversation turns + 5 probes)"
+    },
+    "live_memory_evidence": {
+      "pass": true,
+      "details": "10 user turns with MongoDB messages, summaries, and episodes"
+    },
+    "file_memory_consolidation": {
+      "pass": true,
+      "details": "55 meaningful lines consolidated below 40 with audited conflicts"
+    }
+  },
+  "pass": true
+}
