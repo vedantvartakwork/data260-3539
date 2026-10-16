@@ -99,7 +99,7 @@ def main() -> None:
             "mongodb_crud_evidence": {"pass": database_pass},
             "memory_experiment": {"pass": experiment_pass, "details": "4 runs x (30 conversation turns + 5 probes)"},
             "live_memory_evidence": {"pass": memory_pass, "details": "10 user turns with MongoDB messages, summaries, and episodes"},
-            "file_memory_consolidation": {"pass": file_memory_pass, "details": "55 meaningful lines consolidated below 40 with audited conflicts"},
+            "file_memory_consolidation": {"pass": file_memory_pass, "details": "55 meaningful lines plus dream facts consolidated to 40 or fewer with audited conflicts"},
         },
         "pass": tests_pass and compile_pass and files_pass and database_pass and experiment_pass and memory_pass and file_memory_pass,
     }

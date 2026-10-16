@@ -199,7 +199,7 @@ scripts/
     )
     code_output_page(story, "2. Part 1 - MongoDB collection schema and validator", "The database-level validator independently enforces required fields, enums, types, title length, and timestamps.", validator_code, db_output)
 
-    schema_code = excerpt("code/hw6/schemas.py", "class RecallStatus", "\n\nclass ChatRequest")
+    schema_code = excerpt("code/hw6/schemas.py", "class RecallStatus", "\n\nclass RecallDocumentOut")
     status_output = "\n".join([
         f"POST create -> {database['create']['status_code']}",
         f"GET list -> {database['list']['status_code']}",
@@ -224,7 +224,12 @@ scripts/
     evidence_page(story, "12. Part 1 - MongoDB recall collection", "A live mongosh inspection confirms the configured database, collection, document count, and sample BSON documents.", "mongodb_shell_recall_documents.png", "Exact terminal output from s3539_doc.recall_documents; two sample documents are readable.")
     evidence_page(story, "13. Part 2 - MongoDB memory collections", "The same live mongosh inspection verifies messages, summaries, and episodes with counts and sample records.", "mongodb_shell_memory_collections.png", "Exact terminal output for the three required memory collections.")
 
-    chat_code = excerpt("code/hw6/memory.py", "    def chat(", "\n        return {\n            \"user_id\"")
+    chat_code = "\n\n# ... bounded retrieval and local generation ...\n".join([
+        excerpt("code/hw6/memory.py", "    def chat(", "\n        started ="),
+        excerpt("code/hw6/memory.py", "        started =", "\n        system_prompt ="),
+        excerpt("code/hw6/memory.py", "        system_prompt =", "\n        for fact, importance"),
+        excerpt("code/hw6/memory.py", "        for fact, importance", "\n        components ="),
+    ])
     chat_output = """POST /api/chat -> 200
 short-term window: latest 12 prior messages
 session summary: latest per-user/per-session summary
@@ -285,24 +290,32 @@ recent context, and the explicit no-hosted-model constraint.""", styles["CodeBlo
 
 test_generated_normalizer_follows_agent_rules ... ok""")
 
-    manager_code = "\n\n".join([
+    dream_code = "\n\n".join([
+        excerpt("code/hw6/file_memory.py", "    def _append_dream_facts", "\n\n    def command"),
+        excerpt("code/hw6/file_memory.py", "        if name == \"/dream\":", "        return None"),
+    ])
+    dream_output = (
+        f"dream={file_memory['dream_command']}\n"
+        f"dream_added_lines={file_memory['dream_added_lines']}"
+    )
+    code_output_page(story, "23. Part 4 - /dream writes durable facts", "The /dream command deterministically identifies useful long-term facts in recent user messages, rejects duplicates, and appends unique dream_fact entries to MEMORY.md.", dream_code, dream_output)
+
+    consolidation_code = "\n\n".join([
         excerpt("code/hw6/file_memory.py", "def normalize_memory_fact", "\n\nclass FileMemoryManager"),
         excerpt("code/hw6/file_memory.py", "    def needs_consolidation", "\n\n    def consolidate"),
         "# Inside consolidate():\n" + excerpt("code/hw6/file_memory.py", "        for key, occurrences", "        output.extend"),
-        excerpt("code/hw6/file_memory.py", "    def command", "        return None"),
+        excerpt("code/hw6/file_memory.py", "        if name == \"/compact\":", "        if name == \"/dream\":"),
     ])
     compact_output = (
-        f"dream={file_memory['dream_command']}\n"
-        f"dream_added_lines={file_memory['dream_added_lines']}\n"
         f"needs_consolidation_before={file_memory['needs_consolidation_before']}\n"
         f"meaningful_lines_before={file_memory['meaningful_lines_before']}\n"
         f"meaningful_lines_after={file_memory['meaningful_lines_after']}\n"
         f"compact={file_memory['compact_command']}\n"
         f"incorrect_resolutions={file_memory['incorrect_resolutions']}"
     )
-    code_output_page(story, "23. Part 4 - /dream writes memory and /compact consolidates", "The /dream command deterministically identifies useful long-term facts in recent user messages and appends unique dream_fact entries to MEMORY.md. Consolidation triggers above 40 meaningful lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", manager_code, compact_output)
+    code_output_page(story, "24. Part 4 - /compact consolidates durable memory", "Consolidation triggers above 40 meaningful lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", consolidation_code, compact_output)
 
-    section(story, "24. Part 4 - Original vs. consolidated durable memory", "The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has 38 meaningful lines.")
+    section(story, "25. Part 4 - Original vs. consolidated durable memory", "The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has 38 meaningful lines.")
     before_lines = (REPORT_DIR / "MEMORY.original.md").read_text().splitlines()
     after_lines = (ROOT / "MEMORY.md").read_text().splitlines()
     story.append(p("Original excerpt", "Subsection"))
@@ -312,7 +325,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(p("Audited resolutions: short_term_window=12 (rejected 8), summary_interval=4 (rejected 6), episodic_top_k=3 (rejected 5). No incorrect resolution was found.", "Small"))
     story.append(PageBreak())
 
-    section(story, "25. Part 4 - MongoDB memory versus file memory")
+    section(story, "26. Part 4 - MongoDB memory versus file memory")
     comparison = [
         ["Criterion", "MongoDB", "AGENT.md / MEMORY.md"],
         ["Inspectability", "Queryable collections with timestamps, embeddings and indexes", "Human-readable, diffable and reviewable in Git"],
@@ -326,7 +339,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(PageBreak())
 
     test_output = verification["checks"]["offline_tests"]["details"]
-    section(story, "26. Verification - 13/13 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
+    section(story, "27. Verification - 13/13 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
     story.append(Preformatted(test_output, styles["CodeBlock"]))
     check_rows = [["Verifier check", "Pass", "Details"]]
     for name, item in verification["checks"].items():
@@ -334,7 +347,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(styled_table(check_rows, [1.7 * inch, 0.55 * inch, 4.9 * inch]))
     story.append(PageBreak())
 
-    section(story, "27. AI-use disclosure")
+    section(story, "28. AI-use disclosure")
     ai_lines = (REPORT_DIR / "AI_USE.md").read_text().splitlines()[2:]
     for line in ai_lines:
         if line.strip():
@@ -343,7 +356,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(p("I verified the implementation with named tests, MongoDB validation, raw 30-turn experiment records, real local-model responses, and exact request/response captures. The Homework 6 application did not call a hosted model.", "Small"))
     story.append(PageBreak())
 
-    section(story, "28. Submission manifest")
+    section(story, "29. Submission manifest")
     manifest = [
         ["Required artifact", "Repository path"],
         ["Final report", "reports/hw06/report.pdf"],
