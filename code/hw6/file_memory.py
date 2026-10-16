@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
+import re
 from typing import Any
 
 from code.hw6.config import PROJECT_ROOT
@@ -85,6 +86,61 @@ class FileMemoryManager:
             "conflicts_resolved": conflicts,
         }
 
+    def _dream_facts(self, recent_messages: list[dict[str, Any]]) -> list[str]:
+        """Extract up to three durable facts from recent user messages.
+
+        The extraction is intentionally local and deterministic.  It favors
+        explicit memory requests and concrete configuration/preferences while
+        ignoring assistant replies and short conversational filler.
+        """
+        candidates: list[str] = []
+        cues = (
+            "remember", "prefer", "my ", "project", "database", "model",
+            "port", "deadline", "allergy", "must", "should", "uses ",
+        )
+        for row in reversed(recent_messages):
+            if row.get("role", "user") != "user":
+                continue
+            content = " ".join(str(row.get("content", "")).split())
+            for sentence in re.split(r"(?<=[.!?])\s+", content):
+                fact = sentence.strip().strip("- ")
+                if len(fact) < 12 or not any(cue in fact.lower() for cue in cues):
+                    continue
+                fact = re.sub(r"^(please\s+)?remember\s+(that\s+)?", "", fact, flags=re.IGNORECASE)
+                fact = fact.rstrip(".!? ") + "."
+                if fact.casefold() not in {item.casefold() for item in candidates}:
+                    candidates.append(fact)
+                if len(candidates) == 3:
+                    return list(reversed(candidates))
+        return list(reversed(candidates))
+
+    def _append_dream_facts(self, facts: list[str]) -> int:
+        if not facts:
+            return 0
+        existing = self.memory_path.read_text(encoding="utf-8") if self.memory_path.exists() else "# Homework 6 Memory\n"
+        existing_values = {
+            line.split(":", 1)[1].strip().casefold()
+            for line in self._meaningful_lines(existing)
+            if line.startswith("- dream_fact_") and ":" in line
+        }
+        used_indexes = [
+            int(match.group(1))
+            for match in (re.match(r"- dream_fact_(\d+):", line) for line in existing.splitlines())
+            if match
+        ]
+        next_index = max(used_indexes, default=0) + 1
+        additions: list[str] = []
+        for fact in facts:
+            if fact.casefold() in existing_values:
+                continue
+            additions.append(normalize_memory_fact(f"dream_fact_{next_index}", fact))
+            existing_values.add(fact.casefold())
+            next_index += 1
+        if additions:
+            separator = "" if existing.endswith("\n") else "\n"
+            self.memory_path.write_text(existing + separator + "\n".join(additions) + "\n", encoding="utf-8")
+        return len(additions)
+
     def command(self, command: str, recent_messages: list[dict[str, Any]]) -> str | None:
         name = command.strip().lower()
         if name == "/help":
@@ -103,6 +159,12 @@ class FileMemoryManager:
         if name == "/dream":
             if not recent_messages:
                 return "Dream reflection: there are no recent messages to reflect on."
-            topics = ", ".join(row["content"][:45] for row in recent_messages[-4:])
-            return f"Dream reflection: recent themes include {topics}. Preserve confirmed facts and revisit unresolved questions."
+            facts = self._dream_facts(recent_messages)
+            added = self._append_dream_facts(facts)
+            if not facts:
+                return "Dream reflection: no durable long-term facts were identified in the recent messages."
+            return (
+                f"Dream reflection: identified {len(facts)} useful long-term fact(s) "
+                f"and added {added} new fact(s) to MEMORY.md."
+            )
         return None

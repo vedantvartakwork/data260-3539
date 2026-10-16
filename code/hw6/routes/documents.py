@@ -40,12 +40,23 @@ def get_document(document_id: str) -> dict:
     return result
 
 
-@router.patch("/{document_id}", response_model=RecallDocumentOut)
-def update_document(document_id: str, payload: RecallDocumentUpdate) -> dict:
+def _update_document(document_id: str, payload: RecallDocumentUpdate) -> dict:
     result = repository().update(document_id, payload.model_dump(exclude_unset=True))
     if result is None:
         raise HTTPException(status_code=404, detail="Document not found")
     return result
+
+
+@router.put("/{document_id}", response_model=RecallDocumentOut)
+def replace_document(document_id: str, payload: RecallDocumentUpdate) -> dict:
+    """Update a recall document through the assignment-required PUT route."""
+    return _update_document(document_id, payload)
+
+
+@router.patch("/{document_id}", response_model=RecallDocumentOut, include_in_schema=False)
+def patch_document(document_id: str, payload: RecallDocumentUpdate) -> dict:
+    """Keep PATCH as a backward-compatible alias for earlier clients."""
+    return _update_document(document_id, payload)
 
 
 @router.delete("/{document_id}", status_code=status.HTTP_204_NO_CONTENT)

@@ -12,6 +12,7 @@ from pydantic import ValidationError
 from code.hw6.file_memory import FileMemoryManager, normalize_memory_fact
 from code.hw6.memory import ChatService, DeterministicEmbedder, DeterministicModel, cosine_similarity, extract_facts
 from code.hw6.repositories import InMemoryMemoryRepository
+from code.hw6.routes.documents import router as document_router
 from code.hw6.schemas import ChatRequest, RecallDocumentCreate, RecallDocumentUpdate
 
 
@@ -92,7 +93,21 @@ class HW6Tests(unittest.TestCase):
             manager = FileMemoryManager(agent, memory)
             self.assertIn("/compact", manager.command("/help", []))
             self.assertIn("Vedant", manager.command("/memory", []))
-            self.assertIn("recent themes", manager.command("/dream", [{"content": "MongoDB"}]))
+            dream = manager.command(
+                "/dream",
+                [{"role": "user", "content": "Remember that my project database is MongoDB."}],
+            )
+            self.assertIn("added 1 new fact", dream)
+            self.assertIn("dream_fact_1: my project database is MongoDB.", memory.read_text(encoding="utf-8"))
+
+    def test_document_update_exposes_required_put_route(self) -> None:
+        route_methods = {
+            method
+            for route in document_router.routes
+            if route.path == "/api/v1/documents/{document_id}"
+            for method in route.methods
+        }
+        self.assertIn("PUT", route_methods)
 
     def test_compaction_merges_duplicates_and_documents_conflict(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

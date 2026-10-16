@@ -38,6 +38,8 @@ def main() -> None:
         database_evidence = json.loads((raw_dir / "database_crud_evidence.json").read_text())
         database_pass = (
             database_evidence["create"]["status_code"] == 201
+            and database_evidence["update"]["method"] == "PUT"
+            and database_evidence["update"]["status_code"] == 200
             and database_evidence["delete"]["status_code"] == 204
             and database_evidence["mongo_schema_validation"]["blocked"] is True
         )
@@ -67,7 +69,9 @@ def main() -> None:
         file_evidence = json.loads((raw_dir / "file_memory_evidence.json").read_text())
         file_memory_pass = (
             file_evidence["meaningful_lines_before"] == 55
-            and file_evidence["meaningful_lines_after"] < 40
+            and file_evidence["meaningful_lines_after"] <= 40
+            and "added 2 new fact" in file_evidence["dream_command"]
+            and len(file_evidence["dream_added_lines"]) == 2
             and not file_evidence["incorrect_resolutions"]
         )
     except (OSError, KeyError, TypeError, json.JSONDecodeError):

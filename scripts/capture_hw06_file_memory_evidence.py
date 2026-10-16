@@ -27,7 +27,13 @@ def main() -> None:
         before = len(manager._meaningful_lines(memory.read_text(encoding="utf-8")))
         required = manager.needs_consolidation()
         help_output = manager.command("/help", [])
-        dream_output = manager.command("/dream", [{"content": "MongoDB memory"}, {"content": "explicit conflict resolution"}])
+        dream_messages = [
+            {"role": "user", "content": "Remember that my project database is MongoDB."},
+            {"role": "assistant", "content": "I will keep that project fact in mind."},
+            {"role": "user", "content": "I prefer local qwen3:8b and must not use hosted models."},
+        ]
+        dream_output = manager.command("/dream", dream_messages)
+        dream_memory = memory.read_text(encoding="utf-8")
         compact_output = manager.command("/compact", [])
         after = len(manager._meaningful_lines(memory.read_text(encoding="utf-8")))
         evidence = {
@@ -37,6 +43,12 @@ def main() -> None:
             "meaningful_lines_after": after,
             "help_command": help_output,
             "dream_command": dream_output,
+            "dream_messages": dream_messages,
+            "dream_added_lines": [
+                line
+                for line in dream_memory.splitlines()
+                if line.startswith("- dream_fact_")
+            ],
             "compact_command": compact_output,
             "incorrect_resolutions": [],
             "resolution_audit": "All three conflicts use the final confirmed values: window 12, summary interval 4, and episodic top-k 3.",

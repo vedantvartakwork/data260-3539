@@ -8,10 +8,10 @@
       "description": "Selected packages may contain an undeclared allergen.",
       "status": "active",
       "category": "Produce",
-      "recalled_at": "2026-10-15T02:16:33.388000",
-      "id": "6ad03781b121ccb601af8a19",
-      "created_at": "2026-10-15T02:16:33.421000",
-      "updated_at": "2026-10-15T02:16:33.421000"
+      "recalled_at": "2026-10-16T08:40:26.420000",
+      "id": "6ad1e2fa3be72899eb1e4a6f",
+      "created_at": "2026-10-16T08:40:26.435000",
+      "updated_at": "2026-10-16T08:40:26.435000"
     }
   },
   "list": {
@@ -22,10 +22,10 @@
         "description": "Selected packages may contain an undeclared allergen.",
         "status": "active",
         "category": "Produce",
-        "recalled_at": "2026-10-15T02:16:33.388000",
-        "id": "6ad03781b121ccb601af8a19",
-        "created_at": "2026-10-15T02:16:33.421000",
-        "updated_at": "2026-10-15T02:16:33.421000"
+        "recalled_at": "2026-10-16T08:40:26.420000",
+        "id": "6ad1e2fa3be72899eb1e4a6f",
+        "created_at": "2026-10-16T08:40:26.435000",
+        "updated_at": "2026-10-16T08:40:26.435000"
       }
     ]
   },
@@ -36,23 +36,24 @@
       "description": "Selected packages may contain an undeclared allergen.",
       "status": "active",
       "category": "Produce",
-      "recalled_at": "2026-10-15T02:16:33.388000",
-      "id": "6ad03781b121ccb601af8a19",
-      "created_at": "2026-10-15T02:16:33.421000",
-      "updated_at": "2026-10-15T02:16:33.421000"
+      "recalled_at": "2026-10-16T08:40:26.420000",
+      "id": "6ad1e2fa3be72899eb1e4a6f",
+      "created_at": "2026-10-16T08:40:26.435000",
+      "updated_at": "2026-10-16T08:40:26.435000"
     }
   },
   "update": {
+    "method": "PUT",
     "status_code": 200,
     "body": {
       "title": "HW6 Frozen Berry Recall",
       "description": "Selected packages may contain an undeclared allergen.",
       "status": "monitoring",
       "category": "Produce",
-      "recalled_at": "2026-10-15T02:16:33.388000",
-      "id": "6ad03781b121ccb601af8a19",
-      "created_at": "2026-10-15T02:16:33.421000",
-      "updated_at": "2026-10-15T02:16:33.434000"
+      "recalled_at": "2026-10-16T08:40:26.420000",
+      "id": "6ad1e2fa3be72899eb1e4a6f",
+      "created_at": "2026-10-16T08:40:26.435000",
+      "updated_at": "2026-10-16T08:40:26.440000"
     }
   },
   "invalid_missing_fields": {
@@ -147,34 +148,34 @@
     "recall_document_count": 5,
     "sample_documents": [
       {
-        "_id": "6ad03781b121ccb601af8a1b",
+        "_id": "6ad1e2fa3be72899eb1e4a71",
         "title": "Seeded grocery recall 1",
         "description": "Selected packages may contain an undeclared allergen.",
         "category": "Produce",
         "status": "active",
-        "recalled_at": "2026-10-15 02:16:33.453000",
-        "created_at": "2026-10-15 02:16:33.453000",
-        "updated_at": "2026-10-15 02:16:33.453000"
+        "recalled_at": "2026-10-16 08:40:26.446000",
+        "created_at": "2026-10-16 08:40:26.446000",
+        "updated_at": "2026-10-16 08:40:26.446000"
       },
       {
-        "_id": "6ad03781b121ccb601af8a1c",
+        "_id": "6ad1e2fa3be72899eb1e4a72",
         "title": "Seeded grocery recall 2",
         "description": "Selected packages may contain an undeclared allergen.",
         "category": "Produce",
         "status": "active",
-        "recalled_at": "2026-10-15 02:16:33.453000",
-        "created_at": "2026-10-15 02:16:33.453000",
-        "updated_at": "2026-10-15 02:16:33.453000"
+        "recalled_at": "2026-10-16 08:40:26.446000",
+        "created_at": "2026-10-16 08:40:26.446000",
+        "updated_at": "2026-10-16 08:40:26.446000"
       },
       {
-        "_id": "6ad03781b121ccb601af8a1d",
+        "_id": "6ad1e2fa3be72899eb1e4a73",
         "title": "Seeded grocery recall 3",
         "description": "Selected packages may contain an undeclared allergen.",
         "category": "Produce",
         "status": "active",
-        "recalled_at": "2026-10-15 02:16:33.453000",
-        "created_at": "2026-10-15 02:16:33.453000",
-        "updated_at": "2026-10-15 02:16:33.453000"
+        "recalled_at": "2026-10-16 08:40:26.446000",
+        "created_at": "2026-10-16 08:40:26.446000",
+        "updated_at": "2026-10-16 08:40:26.446000"
       }
     ],
     "recall_validator": {

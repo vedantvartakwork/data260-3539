@@ -67,7 +67,7 @@ styles.add(ParagraphStyle(name="Subsection", parent=styles["Heading2"], fontName
 styles.add(ParagraphStyle(name="Body11", parent=styles["BodyText"], fontName="Helvetica", fontSize=11, leading=15, textColor=INK, spaceAfter=7))
 styles.add(ParagraphStyle(name="Small", parent=styles["BodyText"], fontName="Helvetica", fontSize=9, leading=12, textColor=MUTED, spaceAfter=4))
 styles.add(ParagraphStyle(name="Caption", parent=styles["BodyText"], fontName="Helvetica-Oblique", fontSize=9, leading=11, textColor=MUTED, alignment=TA_CENTER, spaceBefore=4, spaceAfter=7))
-styles.add(ParagraphStyle(name="CodeBlock", fontName="Courier", fontSize=6.5, leading=7.8, textColor=INK, backColor=colors.HexColor("#F2F5F3"), borderColor=RULE, borderWidth=0.5, borderPadding=6, spaceBefore=4, spaceAfter=5))
+styles.add(ParagraphStyle(name="CodeBlock", fontName="Courier", fontSize=8.2, leading=9.7, textColor=INK, backColor=colors.HexColor("#F2F5F3"), borderColor=RULE, borderWidth=0.5, borderPadding=6, spaceBefore=4, spaceAfter=5))
 
 
 def p(text: str, style: str = "Body11") -> Paragraph:
@@ -145,13 +145,13 @@ def make_report() -> None:
     story.append(p("DATA 260 - Agentic AI and Distributed Systems", "Small"))
     story.append(p("Homework 6: Document Storage and Multi-Layer Memory", "TitleGreen"))
     story.append(p("Repository: <link href='https://github.com/vedantvartakwork/data260-3539'>https://github.com/vedantvartakwork/data260-3539</link>"))
-    story.append(p(f"Implementation base commit: <font name='Courier'>{commit}</font>", "Small"))
-    story.append(p("Submission tag: <font name='Courier'>hw6</font>. The final tag is created after report packaging so it contains this report and all required evidence.", "Small"))
+    story.append(p(f"Resolved audited implementation/evidence commit: <font name='Courier'>{commit}</font>", "Small"))
+    story.append(p("Submission tag: <font name='Courier'>hw6</font>. The final packaging commit is the immediate successor and contains this report, raw evidence, screenshots, source, and verification record. Resolve it with <font name='Courier'>git rev-list -n 1 hw6</font>.", "Small"))
     story.append(Spacer(1, 0.12 * inch))
     config = [
         ["Parameter", "Value", "Derivation / purpose"],
         ["SID4", "3539", "last four student-ID digits"],
-        ["PORT_BASE", "8839", "5300 + SID4"],
+        ["PORT_BASE", "8839", "8000 + (SID4 mod 900)"],
         ["PREFIX", "s3539", "database/user namespace"],
         ["SEED", "3539", "repeatable seed"],
         ["VERIFY_SEED", "263539", "260000 + SID4"],
@@ -163,7 +163,7 @@ def make_report() -> None:
     ]
     story.append(styled_table(config, [1.35 * inch, 2.25 * inch, 3.55 * inch]))
     story.append(Spacer(1, 0.15 * inch))
-    story.append(p("Collaborators credited by the assignment: Sbnikitha and supriyaselvanganesan.", "Small"))
+    story.append(p("Repository access checked 2026-10-16: supriyaselvanganesan has write access; Sbnikitha has an active write invitation awaiting acceptance.", "Small"))
     story.append(p("All application model calls were local. Raw JSONL/CSV, browser captures, verification, and the run log are committed under reports/hw06/.", "Body11"))
     story.append(PageBreak())
 
@@ -175,7 +175,7 @@ def make_report() -> None:
         ["Local generation", "qwen3:8b through Ollama", "raw/*_transcript.jsonl"],
         ["Episodic retrieval", "all-MiniLM-L6 + cosine top-k", "episodes collection + memory response"],
         ["Durable file memory", "AGENT.md + MEMORY.md", "MEMORY.original.md; file_memory_evidence.json"],
-        ["Verification", "12 offline tests + artifact verifier", "tests/test_hw06.py; verification.json"],
+        ["Verification", "13 offline tests + artifact verifier", "tests/test_hw06.py; verification.json"],
     ]
     story.append(styled_table(architecture, [1.35 * inch, 2.65 * inch, 3.15 * inch]))
     story.append(Spacer(1, 0.15 * inch))
@@ -201,10 +201,10 @@ scripts/
 
     schema_code = excerpt("code/hw6/schemas.py", "class RecallStatus", "\n\nclass ChatRequest")
     status_output = "\n".join([
-        f"POST create -> {database['create']['status_code']} id={database['create']['body']['id']}",
+        f"POST create -> {database['create']['status_code']}",
         f"GET list -> {database['list']['status_code']}",
         f"GET one -> {database['get_one']['status_code']}",
-        f"PATCH update -> {database['update']['status_code']} status={database['update']['body']['status']}",
+        f"{database['update']['method']} update -> {database['update']['status_code']} status={database['update']['body']['status']}",
         f"DELETE -> {database['delete']['status_code']}",
         f"GET after delete -> {database['get_after_delete']['status_code']}",
         f"missing required fields -> {database['invalid_missing_fields']['status_code']}",
@@ -213,8 +213,16 @@ scripts/
     ])
     code_output_page(story, "3. Part 1 - API models, CRUD, and invalid inputs", "Pydantic rejects malformed requests before persistence; repository methods return correct status codes and JSON.", schema_code, status_output)
 
-    evidence_page(story, "4. Part 1 - Live HW6 route map", "The running integrated API exposes all document CRUD routes and the three memory routes.", "swagger_hw6_routes.jpg", "Genuine FastAPI Swagger UI capture from http://127.0.0.1:8839/docs.")
-    evidence_page(story, "5. Part 1 - Live document collection", "A real GET request reached MongoDB and returned seeded validated recall documents with timestamps and ObjectIDs.", "swagger_documents_response.jpg", "Request URL, 200 status, and response body are visible in the same capture.")
+    evidence_page(story, "4. Part 1 - Live HW6 route map", "The running integrated API exposes POST, GET list, GET one, PUT, and DELETE document routes plus the three memory routes.", "swagger_hw6_routes.jpg", "Genuine FastAPI Swagger UI capture from http://127.0.0.1:8839/docs; the required PUT route is visible.")
+    evidence_page(story, "5. Part 1 - POST document request", "The live create request shows the exact validated JSON sent to the API.", "swagger_document_create.jpg", "POST /api/v1/documents with title, description, status, category, and recalled_at.")
+    evidence_page(story, "6. Part 1 - POST document response", "The same create call returned a MongoDB ObjectID, timestamps, and HTTP 201.", "swagger_document_create_response.jpg", "Successful POST response with the created document and status 201.")
+    evidence_page(story, "7. Part 1 - GET document list", "A real list call reached MongoDB and returned stored recall documents.", "swagger_document_list.jpg", "GET /api/v1/documents response with request URL and HTTP 200.")
+    evidence_page(story, "8. Part 1 - GET one document", "The exact created ObjectID is used in a successful read-by-id request.", "swagger_document_get_one.jpg", "GET /api/v1/documents/{document_id} with request URL, response body, and HTTP 200.")
+    evidence_page(story, "9. Part 1 - PUT document request", "The required PUT update sends a validated status change for the same document.", "swagger_document_put.jpg", "PUT /api/v1/documents/{document_id} request body.")
+    evidence_page(story, "10. Part 1 - PUT document response", "The required update returned the modified document and HTTP 200.", "swagger_document_put_response.jpg", "Successful PUT response for the same document ID.")
+    evidence_page(story, "11. Part 1 - DELETE document", "The same document was deleted through the live API.", "swagger_document_delete.jpg", "DELETE /api/v1/documents/{document_id} with request URL and HTTP 204.")
+    evidence_page(story, "12. Part 1 - MongoDB recall collection", "A live mongosh inspection confirms the configured database, collection, document count, and sample BSON documents.", "mongodb_shell_recall_documents.png", "Exact terminal output from s3539_doc.recall_documents; two sample documents are readable.")
+    evidence_page(story, "13. Part 2 - MongoDB memory collections", "The same live mongosh inspection verifies messages, summaries, and episodes with counts and sample records.", "mongodb_shell_memory_collections.png", "Exact terminal output for the three required memory collections.")
 
     chat_code = excerpt("code/hw6/memory.py", "    def chat(", "\n        return {\n            \"user_id\"")
     chat_output = """POST /api/chat -> 200
@@ -223,12 +231,12 @@ session summary: latest per-user/per-session summary
 episodic memory: cosine-ranked top 3 facts
 reply: Your name is Vedant Vartak, you are using the s3539_doc MongoDB
 database, the qwen3:8b local model, and the API runs on port 8839."""
-    code_output_page(story, "6. Part 2 - Multi-layer chat-memory pipeline", "Each request saves the user message, loads bounded short-term memory, latest summaries and top-k episodes, calls local Ollama, saves the assistant reply, extracts up to three facts, and records telemetry.", chat_code, chat_output)
+    code_output_page(story, "14. Part 2 - Multi-layer chat-memory pipeline", "Each request saves the user message, loads bounded short-term memory, latest summaries and top-k episodes, calls local Ollama, saves the assistant reply, extracts up to three facts, and records telemetry.", chat_code, chat_output)
 
-    evidence_page(story, "7. Part 2 - Exact chat input", "The user/session identifiers and memory probe are visible before execution.", "swagger_chat_input.jpg", "Exact JSON submitted to POST /api/chat.")
-    evidence_page(story, "8. Part 2 - Memory-aware chat output", "The output is from the same live call and includes a grounded answer plus the memory_used payload.", "swagger_chat_response.jpg", "200 response: the local model recalled the name, database, model, and port.")
-    evidence_page(story, "9. Part 2 - GET memory", "The memory endpoint exposes the latest 16 messages plus summaries and episodes for inspection.", "swagger_memory_response.jpg", "Live request URL, status 200, and stored MongoDB messages.")
-    evidence_page(story, "10. Part 2 - GET aggregate", "The aggregate endpoint returns daily message counts and recent summaries.", "swagger_aggregate_response.jpg", "Live aggregate response: daily count and summary documents are visible.")
+    evidence_page(story, "15. Part 2 - Exact chat input", "The user/session identifiers and memory probe are visible before execution.", "swagger_chat_input.jpg", "Exact JSON submitted to POST /api/chat.")
+    evidence_page(story, "16. Part 2 - Memory-aware chat output", "The output is from the same live call and includes a grounded answer plus the memory_used payload.", "swagger_chat_response.jpg", "200 response: the local model recalled the name, database, model, and port.")
+    evidence_page(story, "17. Part 2 - GET memory", "The memory endpoint exposes the latest 16 messages plus summaries and episodes for inspection.", "swagger_memory_response.jpg", "Live request URL, status 200, and stored MongoDB messages.")
+    evidence_page(story, "18. Part 2 - GET aggregate", "The aggregate endpoint returns daily message counts and recent summaries.", "swagger_aggregate_response.jpg", "Live aggregate response: daily count and summary documents are visible.")
 
     retrieval_code = "\n\n".join([
         excerpt("code/hw6/memory.py", "class SentenceTransformerEmbedder", "\n\nclass DeterministicEmbedder"),
@@ -243,9 +251,9 @@ example retrieved facts:
   0.681312  What are my name, database, local model, and API port?
   0.397206  Never call a hosted model for this assignment.
   0.363459  Remember that my grocery safety project uses MongoDB."""
-    code_output_page(story, "11. Part 2 - Episodic facts, embeddings, and cosine retrieval", "The production embedder is lazy and local; deterministic embeddings are used only by offline tests.", retrieval_code, retrieval_output)
+    code_output_page(story, "19. Part 2 - Episodic facts, embeddings, and cosine retrieval", "The production embedder is lazy and local; deterministic embeddings are used only by offline tests.", retrieval_code, retrieval_output)
 
-    section(story, "12. Part 3 - Controlled memory experiment", "The same deterministic 30-message script and five probes ran in fresh sessions for N=4, N=12, N=30, and a compression/eviction policy.")
+    section(story, "20. Part 3 - Controlled memory experiment", "The same deterministic 30-message script and five probes ran in fresh sessions for N=4, N=12, N=30, and a compression/eviction policy.")
     rows = [["Run", "N", "Summary every", "Top-k", "Mean prompt", "Mean completion", "Mean latency ms", "Probe /5"]]
     for row in experiments:
         rows.append([row["name"], row["short_term_n"], row["summarize_every"], row["episodic_top_k"], row["mean_prompt_tokens"], row["mean_completion_tokens"], row["mean_latency_ms"], row["mean_probe_score"]])
@@ -260,7 +268,7 @@ recent context, and the explicit no-hosted-model constraint.""", styles["CodeBlo
     compact = next(row for row in experiments if row["name"] == "compact_policy")
     n30 = next(row for row in experiments if row["name"] == "window_n30")
     savings = (1 - compact["mean_prompt_tokens"] / n30["mean_prompt_tokens"]) * 100
-    section(story, "13. Part 3 - Compression, quality, and projected cost", "The selected policy keeps four recent messages, summarizes every two user messages, and retrieves five episodes.")
+    section(story, "21. Part 3 - Compression, quality, and projected cost", "The selected policy keeps four recent messages, summarizes every two user messages, and retrieves five episodes.")
     story.append(p(f"Compared with N=30, it reduced mean prompt tokens by <b>{savings:.1f}%</b>, reduced mean latency from <b>{n30['mean_latency_ms']:.3f} ms</b> to <b>{compact['mean_latency_ms']:.3f} ms</b>, and improved mean probe score from <b>{n30['mean_probe_score']}</b> to <b>{compact['mean_probe_score']}</b>."))
     costs = []
     for row in experiments:
@@ -272,7 +280,7 @@ recent context, and the explicit no-hosted-model constraint.""", styles["CodeBlo
     story.append(PageBreak())
 
     agent_excerpt = excerpt("AGENT.md", "# Homework 6", None)
-    code_output_page(story, "14. Part 4 - AGENT.md categories and generated function", "Project, stack, coding-convention, testing, and prohibited-action instructions are injected into the system prompt. The generated function is pure, typed, documented, and tested.", agent_excerpt[:3300], """normalize_memory_fact(' model ', ' qwen3:8b ')
+    code_output_page(story, "22. Part 4 - AGENT.md categories and generated function", "Project, stack, coding-convention, testing, and prohibited-action instructions are injected into the system prompt. The generated function is pure, typed, documented, and tested.", agent_excerpt[:3300], """normalize_memory_fact(' model ', ' qwen3:8b ')
 -> - model: qwen3:8b
 
 test_generated_normalizer_follows_agent_rules ... ok""")
@@ -284,15 +292,17 @@ test_generated_normalizer_follows_agent_rules ... ok""")
         excerpt("code/hw6/file_memory.py", "    def command", "        return None"),
     ])
     compact_output = (
+        f"dream={file_memory['dream_command']}\n"
+        f"dream_added_lines={file_memory['dream_added_lines']}\n"
         f"needs_consolidation_before={file_memory['needs_consolidation_before']}\n"
         f"meaningful_lines_before={file_memory['meaningful_lines_before']}\n"
         f"meaningful_lines_after={file_memory['meaningful_lines_after']}\n"
         f"compact={file_memory['compact_command']}\n"
         f"incorrect_resolutions={file_memory['incorrect_resolutions']}"
     )
-    code_output_page(story, "15. Part 4 - MEMORY.md consolidation and commands", "Consolidation triggers above 40 meaningful lines or after 24 hours. It keeps the newest conflicting value and records every resolution.", manager_code, compact_output)
+    code_output_page(story, "23. Part 4 - /dream writes memory and /compact consolidates", "The /dream command deterministically identifies useful long-term facts in recent user messages and appends unique dream_fact entries to MEMORY.md. Consolidation triggers above 40 meaningful lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", manager_code, compact_output)
 
-    section(story, "16. Part 4 - Original vs. consolidated durable memory", "The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has 38 meaningful lines.")
+    section(story, "24. Part 4 - Original vs. consolidated durable memory", "The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has 38 meaningful lines.")
     before_lines = (REPORT_DIR / "MEMORY.original.md").read_text().splitlines()
     after_lines = (ROOT / "MEMORY.md").read_text().splitlines()
     story.append(p("Original excerpt", "Subsection"))
@@ -302,7 +312,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(p("Audited resolutions: short_term_window=12 (rejected 8), summary_interval=4 (rejected 6), episodic_top_k=3 (rejected 5). No incorrect resolution was found.", "Small"))
     story.append(PageBreak())
 
-    section(story, "17. Part 4 - MongoDB memory versus file memory")
+    section(story, "25. Part 4 - MongoDB memory versus file memory")
     comparison = [
         ["Criterion", "MongoDB", "AGENT.md / MEMORY.md"],
         ["Inspectability", "Queryable collections with timestamps, embeddings and indexes", "Human-readable, diffable and reviewable in Git"],
@@ -316,7 +326,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(PageBreak())
 
     test_output = verification["checks"]["offline_tests"]["details"]
-    section(story, "18. Verification - 12/12 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
+    section(story, "26. Verification - 13/13 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
     story.append(Preformatted(test_output, styles["CodeBlock"]))
     check_rows = [["Verifier check", "Pass", "Details"]]
     for name, item in verification["checks"].items():
@@ -324,7 +334,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(styled_table(check_rows, [1.7 * inch, 0.55 * inch, 4.9 * inch]))
     story.append(PageBreak())
 
-    section(story, "19. AI-use disclosure")
+    section(story, "27. AI-use disclosure")
     ai_lines = (REPORT_DIR / "AI_USE.md").read_text().splitlines()[2:]
     for line in ai_lines:
         if line.strip():
@@ -333,7 +343,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(p("I verified the implementation with named tests, MongoDB validation, raw 30-turn experiment records, real local-model responses, and exact request/response captures. The Homework 6 application did not call a hosted model.", "Small"))
     story.append(PageBreak())
 
-    section(story, "20. Submission manifest")
+    section(story, "28. Submission manifest")
     manifest = [
         ["Required artifact", "Repository path"],
         ["Final report", "reports/hw06/report.pdf"],

@@ -1,0 +1,40 @@
+VEDANT VARTAK - DATA 260 HW6 - MONGODB EVIDENCE
+Database: s3539_doc
+Collections: episodes, messages, recall_documents, summaries
+
+recall_documents count=5
+{
+  _id: ObjectId('6ad1b6f77cb92062edbbf8e0'),
+  title: 'Seeded grocery recall 1',
+  category: 'Produce',
+  status: 'active',
+  recalled_at: ISODate('2026-10-16T05:32:39.817Z')
+}
+{
+  _id: ObjectId('6ad1b6f77cb92062edbbf8e1'),
+  title: 'Seeded grocery recall 2',
+  category: 'Produce',
+  status: 'active',
+  recalled_at: ISODate('2026-10-16T05:32:39.817Z')
+}
+
+messages count=24
+{
+  user_id: 'vedant-hw6',
+  session_id: 'demo-3539',
+  role: 'user',
+  content: 'My name is Vedant Vartak and my project prefix is s3539.'
+}
+
+summaries count=4
+{
+  user_id: 'vedant-hw6',
+  scope: 'session'
+}
+
+episodes count=14
+{
+  user_id: 'vedant-hw6',
+  fact: 'My name is Vedant Vartak and my project prefix is s3539.',
+  importance: 0.65
+}

@@ -47,7 +47,10 @@ def main() -> None:
         "create": response_record(create),
         "list": response_record(client.get("/api/v1/documents?limit=50")),
         "get_one": response_record(client.get(f"/api/v1/documents/{document_id}")),
-        "update": response_record(client.patch(f"/api/v1/documents/{document_id}", json={"status": "monitoring"})),
+        "update": {
+            "method": "PUT",
+            **response_record(client.put(f"/api/v1/documents/{document_id}", json={"status": "monitoring"})),
+        },
         "invalid_missing_fields": response_record(client.post("/api/v1/documents", json={"title": "Only a title"})),
         "invalid_enum": response_record(client.post("/api/v1/documents", json={**payload, "category": "Invalid"})),
         "invalid_type": response_record(client.post("/api/v1/documents", json={**payload, "recalled_at": "not-a-datetime"})),
