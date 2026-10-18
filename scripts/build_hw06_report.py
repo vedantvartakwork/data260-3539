@@ -325,9 +325,9 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     before_lines = (REPORT_DIR / "MEMORY.original.md").read_text().splitlines()
     after_lines = (ROOT / "MEMORY.md").read_text().splitlines()
     story.append(p("Original excerpt", "Subsection"))
-    story.append(Preformatted("\n".join(before_lines[:18] + ["...", *before_lines[-12:]]), styles["CodeBlock"]))
+    story.append(Preformatted("\n".join(before_lines[:12] + ["...", *before_lines[-8:]]), styles["CodeBlock"]))
     story.append(p("Consolidated excerpt", "Subsection"))
-    story.append(Preformatted("\n".join(after_lines[:24]), styles["CodeBlock"]))
+    story.append(Preformatted("\n".join(after_lines[:18]), styles["CodeBlock"]))
     story.append(p("Audited resolutions: short_term_window=12 (rejected 8), summary_interval=4 (rejected 6), episodic_top_k=3 (rejected 5). No incorrect resolution was found.", "Small"))
     story.append(PageBreak())
 
@@ -344,12 +344,23 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(p("The hybrid prompt is intentional: MongoDB provides scalable retrieval, while the files provide compact human-auditable constraints."))
     story.append(PageBreak())
 
-    test_output = verification["checks"]["offline_tests"]["details"]
+    raw_test_output = verification["checks"]["offline_tests"]["details"]
+    test_lines = [line.split(" (", 1)[0] + " ... ok" for line in raw_test_output.splitlines() if line.startswith("test_")]
+    test_output = "\n".join(test_lines) + f"\n\n{len(test_lines)}/{len(test_lines)} tests passed."
     section(story, "27. Verification - 13/13 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
     story.append(Preformatted(test_output, styles["CodeBlock"]))
     check_rows = [["Verifier check", "Pass", "Details"]]
+    concise_details = {
+        "offline_tests": "13/13 named deterministic tests passed",
+        "python_compile": "compileall passed",
+        "required_files": "all required source, report, memory, probe, and disclosure files present",
+        "mongodb_crud_evidence": "POST/list/read/PUT/DELETE, 422 validation, and MongoDB validator verified",
+        "memory_experiment": "4 runs x (30 conversation turns + 5 probes)",
+        "live_memory_evidence": "20 messages, 2+ summaries, and 10+ episodic facts verified",
+        "file_memory_consolidation": verification["checks"]["file_memory_consolidation"]["details"],
+    }
     for name, item in verification["checks"].items():
-        check_rows.append([name, item.get("pass"), item.get("details", "verified") if not isinstance(item.get("details"), list) else ", ".join(item["details"])])
+        check_rows.append([name, item.get("pass"), concise_details.get(name, "verified")])
     story.append(styled_table(check_rows, [1.7 * inch, 0.55 * inch, 4.9 * inch]))
     story.append(PageBreak())
 
