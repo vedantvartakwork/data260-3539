@@ -34,6 +34,7 @@ SHOTS = REPORT_DIR / "screenshots"
 REPORT = REPORT_DIR / "report.pdf"
 OUTPUT_COPY = ROOT / "output/pdf/Vartak_HW6.pdf"
 DESKTOP_COPY = Path("/Users/vedantvartak/Desktop/Homework6/Vartak_HW6.pdf")
+COURSE_DESKTOP_COPY = Path("/Users/vedantvartak/Desktop/DATA 260 Agentic AI & Distributed Systems/vvv_hw6.pdf")
 
 GREEN = colors.HexColor("#0B5130")
 MID_GREEN = colors.HexColor("#247A4B")
@@ -46,6 +47,10 @@ ORANGE = colors.HexColor("#D9781F")
 
 def git_commit() -> str:
     return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+
+
+def git_tag_commit() -> str:
+    return subprocess.check_output(["git", "rev-list", "-n", "1", "hw6"], cwd=ROOT, text=True).strip()
 
 
 def page_chrome(canvas, doc) -> None:
@@ -67,7 +72,7 @@ styles.add(ParagraphStyle(name="Subsection", parent=styles["Heading2"], fontName
 styles.add(ParagraphStyle(name="Body11", parent=styles["BodyText"], fontName="Helvetica", fontSize=11, leading=15, textColor=INK, spaceAfter=7))
 styles.add(ParagraphStyle(name="Small", parent=styles["BodyText"], fontName="Helvetica", fontSize=9, leading=12, textColor=MUTED, spaceAfter=4))
 styles.add(ParagraphStyle(name="Caption", parent=styles["BodyText"], fontName="Helvetica-Oblique", fontSize=9, leading=11, textColor=MUTED, alignment=TA_CENTER, spaceBefore=4, spaceAfter=7))
-styles.add(ParagraphStyle(name="CodeBlock", fontName="Courier", fontSize=8.2, leading=9.7, textColor=INK, backColor=colors.HexColor("#F2F5F3"), borderColor=RULE, borderWidth=0.5, borderPadding=6, spaceBefore=4, spaceAfter=5))
+styles.add(ParagraphStyle(name="CodeBlock", fontName="Courier", fontSize=8.8, leading=10.2, textColor=INK, backColor=colors.HexColor("#F2F5F3"), borderColor=RULE, borderWidth=0.5, borderPadding=6, spaceBefore=4, spaceAfter=5))
 
 
 def p(text: str, style: str = "Body11") -> Paragraph:
@@ -134,6 +139,7 @@ def styled_table(data: list[list[object]], widths: list[float]) -> Table:
 
 def make_report() -> None:
     commit = git_commit()
+    tag_commit = git_tag_commit()
     database = json.loads((RAW / "database_crud_evidence.json").read_text())
     experiments = json.loads((RAW / "experiment_summary.json").read_text())
     file_memory = json.loads((RAW / "file_memory_evidence.json").read_text())
@@ -145,8 +151,8 @@ def make_report() -> None:
     story.append(p("DATA 260 - Agentic AI and Distributed Systems", "Small"))
     story.append(p("Homework 6: Document Storage and Multi-Layer Memory", "TitleGreen"))
     story.append(p("Repository: <link href='https://github.com/vedantvartakwork/data260-3539'>https://github.com/vedantvartakwork/data260-3539</link>"))
-    story.append(p(f"Resolved audited implementation/evidence commit: <font name='Courier'>{commit}</font>", "Small"))
-    story.append(p("Submission tag: <font name='Courier'>hw6</font>. The final packaging commit is the immediate successor and contains this report, raw evidence, screenshots, source, and verification record. Resolve it with <font name='Courier'>git rev-list -n 1 hw6</font>.", "Small"))
+    story.append(p(f"Report build commit: <font name='Courier'>{commit}</font>", "Small"))
+    story.append(p(f"Resolved <font name='Courier'>hw6</font> tagged implementation/evidence commit: <font name='Courier'>{tag_commit}</font>", "Small"))
     story.append(Spacer(1, 0.12 * inch))
     config = [
         ["Parameter", "Value", "Derivation / purpose"],
@@ -313,9 +319,9 @@ test_generated_normalizer_follows_agent_rules ... ok""")
         f"compact={file_memory['compact_command']}\n"
         f"incorrect_resolutions={file_memory['incorrect_resolutions']}"
     )
-    code_output_page(story, "24. Part 4 - /compact consolidates durable memory", "Consolidation triggers above 40 meaningful lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", consolidation_code, compact_output)
+    code_output_page(story, "24. Part 4 - /compact consolidates durable memory", "Consolidation triggers above 40 non-empty, non-comment memory lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", consolidation_code, compact_output)
 
-    section(story, "25. Part 4 - Original vs. consolidated durable memory", "The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has 38 meaningful lines.")
+    section(story, "25. Part 4 - Original vs. consolidated durable memory", f"The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has {file_memory['meaningful_lines_after']} meaningful lines and {file_memory['physical_lines_after']} physical lines, both below 40.")
     before_lines = (REPORT_DIR / "MEMORY.original.md").read_text().splitlines()
     after_lines = (ROOT / "MEMORY.md").read_text().splitlines()
     story.append(p("Original excerpt", "Subsection"))
@@ -381,6 +387,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_COPY.parent.mkdir(parents=True, exist_ok=True)
     DESKTOP_COPY.parent.mkdir(parents=True, exist_ok=True)
+    COURSE_DESKTOP_COPY.parent.mkdir(parents=True, exist_ok=True)
     document = SimpleDocTemplate(
         str(REPORT),
         pagesize=letter,
@@ -395,9 +402,11 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     document.build(story, onFirstPage=page_chrome, onLaterPages=page_chrome)
     shutil.copy2(REPORT, OUTPUT_COPY)
     shutil.copy2(REPORT, DESKTOP_COPY)
+    shutil.copy2(REPORT, COURSE_DESKTOP_COPY)
     print(REPORT)
     print(OUTPUT_COPY)
     print(DESKTOP_COPY)
+    print(COURSE_DESKTOP_COPY)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,5 @@
 # Consolidated Homework 6 Memory
-
-<!-- Source: reports/hw06/MEMORY.original.md. Conflicts use the newest confirmed value. -->
-
+<!-- consolidated_at_utc: 2026-10-18T19:08:14.440808+00:00 -->
 - student_name: Vedant Vartak
 - sid4: 3539
 - port_base: 8839
@@ -15,11 +13,11 @@
 - preferred_output: JSON
 - test_mode: offline deterministic
 - short_term_window: 12
-- Resolution for short_term_window: kept '12' as the newest confirmed value; rejected '8' as outdated.
+- Resolution for short_term_window: kept '12' as the newest value; rejected '8' as conflicting or outdated.
 - summary_interval: 4
-- Resolution for summary_interval: kept '4' as the newest confirmed value; rejected '6' as outdated.
+- Resolution for summary_interval: kept '4' as the newest value; rejected '6' as conflicting or outdated.
 - episodic_top_k: 3
-- Resolution for episodic_top_k: kept '3' as the newest confirmed value; rejected '5' as outdated.
+- Resolution for episodic_top_k: kept '3' as the newest value; rejected '5' as conflicting or outdated.
 - deployment: local only
 - model_provider: Ollama
 - hosted_models: prohibited

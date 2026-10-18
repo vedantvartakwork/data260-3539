@@ -2,7 +2,7 @@
   "homework": 6,
   "student": "Vedant Vartak",
   "sid4": 3539,
-  "commit": "65ea917bfdd428b27a09d5488ec849702f585755",
+  "commit": "2f46a95dddbbe3f238692356909e2f1133c10307",
   "model": "qwen3:8b",
   "config": {
     "port_base": 8839,
@@ -53,7 +53,7 @@
     },
     "file_memory_consolidation": {
       "pass": true,
-      "details": "55 meaningful lines plus dream facts consolidated to 40 or fewer with audited conflicts"
+      "details": "55 meaningful lines consolidated to 37; final MEMORY.md has 39 physical lines"
     }
   },
   "pass": true

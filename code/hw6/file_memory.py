@@ -34,7 +34,13 @@ class FileMemoryManager:
 
     @staticmethod
     def _meaningful_lines(text: str) -> list[str]:
-        return [line.strip() for line in text.splitlines() if line.strip() and not line.lstrip().startswith("#")]
+        return [
+            line.strip()
+            for line in text.splitlines()
+            if line.strip()
+            and not line.lstrip().startswith("#")
+            and not line.lstrip().startswith("<!--")
+        ]
 
     def prompt_context(self) -> str:
         agent = self.agent_path.read_text(encoding="utf-8") if self.agent_path.exists() else ""
@@ -65,7 +71,7 @@ class FileMemoryManager:
             key, value = (part.strip() for part in normalized.split(":", 1))
             values.setdefault(key, []).append(value)
 
-        output = ["# Consolidated Homework 6 Memory", "", f"<!-- consolidated_at_utc: {datetime.now(timezone.utc).isoformat()} -->", ""]
+        output = ["# Consolidated Homework 6 Memory", f"<!-- consolidated_at_utc: {datetime.now(timezone.utc).isoformat()} -->"]
         conflicts = 0
         duplicates_removed = sum(len(items) - len(dict.fromkeys(items)) for items in values.values())
         for key, occurrences in values.items():

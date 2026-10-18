@@ -121,6 +121,7 @@ class HW6Tests(unittest.TestCase):
             self.assertTrue(manager.needs_consolidation())
             result = manager.consolidate()
             self.assertLess(result["after"], 40)
+            self.assertLess(len(memory.read_text(encoding="utf-8").splitlines()), 40)
             self.assertEqual(result["conflicts_resolved"], 1)
             self.assertIn("rejected '8'", memory.read_text(encoding="utf-8"))
             self.assertIn("- window: 12", memory.read_text(encoding="utf-8"))

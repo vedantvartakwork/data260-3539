@@ -13,6 +13,7 @@ if str(PROJECT_ROOT_BOOTSTRAP) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT_BOOTSTRAP))
 
 from code.hw6.config import PROJECT_ROOT, settings
+from code.hw6.file_memory import FileMemoryManager
 
 
 def run(command: list[str]) -> tuple[bool, str]:
@@ -67,9 +68,15 @@ def main() -> None:
         memory_pass = False
     try:
         file_evidence = json.loads((raw_dir / "file_memory_evidence.json").read_text())
+        canonical_memory = (PROJECT_ROOT / "MEMORY.md").read_text(encoding="utf-8")
+        canonical_meaningful = FileMemoryManager._meaningful_lines(canonical_memory)
+        canonical_physical_lines = canonical_memory.splitlines()
         file_memory_pass = (
             file_evidence["meaningful_lines_before"] == 55
-            and file_evidence["meaningful_lines_after"] <= 40
+            and file_evidence["meaningful_lines_after"] < 40
+            and file_evidence["meaningful_lines_after"] == len(canonical_meaningful)
+            and file_evidence["physical_lines_after"] == len(canonical_physical_lines)
+            and len(canonical_physical_lines) < 40
             and "added 2 new fact" in file_evidence["dream_command"]
             and len(file_evidence["dream_added_lines"]) == 2
             and not file_evidence["incorrect_resolutions"]
@@ -99,13 +106,21 @@ def main() -> None:
             "mongodb_crud_evidence": {"pass": database_pass},
             "memory_experiment": {"pass": experiment_pass, "details": "4 runs x (30 conversation turns + 5 probes)"},
             "live_memory_evidence": {"pass": memory_pass, "details": "10 user turns with MongoDB messages, summaries, and episodes"},
-            "file_memory_consolidation": {"pass": file_memory_pass, "details": "55 meaningful lines plus dream facts consolidated to 40 or fewer with audited conflicts"},
+            "file_memory_consolidation": {
+                "pass": file_memory_pass,
+                "details": (
+                    f"55 meaningful lines consolidated to {file_evidence.get('meaningful_lines_after', 'unknown')}; "
+                    f"final MEMORY.md has {file_evidence.get('physical_lines_after', 'unknown')} physical lines"
+                ),
+            },
         },
         "pass": tests_pass and compile_pass and files_pass and database_pass and experiment_pass and memory_pass and file_memory_pass,
     }
     destination = report_dir / "verification.json"
-    destination.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(record, indent=2))
+    rendered = json.dumps(record, indent=2) + "\n"
+    destination.write_text(rendered, encoding="utf-8")
+    (raw_dir / "verification_terminal.txt").write_text(rendered, encoding="utf-8")
+    print(rendered, end="")
     raise SystemExit(0 if record["pass"] else 1)
 
 

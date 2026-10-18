@@ -22,8 +22,9 @@ Database=s3539_doc  Model=qwen3:8b  Embeddings=all-MiniLM-L6
 
 4. Run the file-memory and consolidation demonstration
    .venv/bin/python scripts/capture_hw06_file_memory_evidence.py
-   Result: /dream identified two durable facts and appended both to MEMORY.md;
-   55 meaningful original lines plus those facts -> 40 consolidated lines,
+   Result: /dream identified two durable facts and appended both in a separate
+   command demonstration; the original 55 meaningful lines -> 37 meaningful
+   lines (39 physical lines) in the committed consolidated MEMORY.md,
    18 duplicate lines removed, 3 contradictions explicitly resolved,
    0 incorrect resolutions. /memory, /compact, /dream, /help verified.
    Raw: reports/hw06/raw/file_memory_evidence.json

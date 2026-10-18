@@ -2,7 +2,8 @@
   "student": "Vedant Vartak",
   "needs_consolidation_before": true,
   "meaningful_lines_before": 55,
-  "meaningful_lines_after": 40,
+  "meaningful_lines_after": 37,
+  "physical_lines_after": 39,
   "help_command": "Commands: /memory shows durable memory; /compact consolidates it; /dream reflects on recent messages; /help shows this list.",
   "dream_command": "Dream reflection: identified 2 useful long-term fact(s) and added 2 new fact(s) to MEMORY.md.",
   "dream_messages": [
@@ -23,10 +24,10 @@
     "- dream_fact_1: my project database is MongoDB.",
     "- dream_fact_2: I prefer local qwen3:8b and must not use hosted models."
   ],
-  "compact_command": "Compacted MEMORY.md from 57 to 40 meaningful lines; removed 18 duplicate lines and documented 3 conflict resolutions.",
+  "compact_command": "Compacted MEMORY.md from 55 to 37 meaningful lines; removed 18 duplicate lines and documented 3 conflict resolutions.",
   "incorrect_resolutions": [],
   "resolution_audit": "All three conflicts use the final confirmed values: window 12, summary interval 4, and episodic top-k 3.",
-  "memory_command_after": "Durable memory has 40 meaningful lines.\n\n# Consolidated Homework 6 Memory\n\n<!-- consolidated_at_utc: 2026-10-16T08:40:27.054915+00:00 -->\n\n- student_name: Vedant Vartak\n- sid4: 3539\n- port_base: 8839\n- prefix: s3539\n- database: s3539_doc\n- api_framework: FastAPI\n- database_driver: PyMongo\n- local_model: qwen3:8b\n- verify_seed: 263539\n- domain_id: 3\n- preferred_output: JSON\n- test_mode: offline deterministic\n- short_term_window: 12\n- Resolution for short_term_window: kept '12' as the newest value; rejected '8' as conflicting or outdated.\n- summary_interval: 4\n- Resolution for summary_interval: kept '4' as the newest value; rejected '6' as conflicting or outdated.\n- episodic_top_k: 3\n- Resolution for episodic_top_k: kept '3' as the newest value; rejected '5' as conflicting or outdated.\n- deployment: local only\n- model_provider: Ollama\n- hosted_models: prohibited\n- cors_origin: http://127.0.0.1:5173\n- memory_scope: per user and session\n- message_roles: user and assistant\n- episode_limit_per_message: 3\n- importance_range: 0 through 1\n- document_title_limit: 100\n- document_status_default: active\n- categories: Produce, Meat and Seafood, Dairy and Refrigerated, Packaged Foods\n- recall_collection: recall_documents\n- message_collection: messages\n- summary_collection: summaries\n- episode_collection: episodes\n- metrics_format: JSONL\n- raw_evidence_folder: reports/hw06/raw\n- report_name: Vartak_HW6.pdf\n- tag_name: hw6\n- dream_fact_1: my project database is MongoDB.\n- dream_fact_2: I prefer local qwen3:8b and must not use hosted models.\n",
+  "memory_command_after": "Durable memory has 37 meaningful lines.\n\n# Consolidated Homework 6 Memory\n<!-- consolidated_at_utc: 2026-10-18T19:08:14.440808+00:00 -->\n- student_name: Vedant Vartak\n- sid4: 3539\n- port_base: 8839\n- prefix: s3539\n- database: s3539_doc\n- api_framework: FastAPI\n- database_driver: PyMongo\n- local_model: qwen3:8b\n- verify_seed: 263539\n- domain_id: 3\n- preferred_output: JSON\n- test_mode: offline deterministic\n- short_term_window: 12\n- Resolution for short_term_window: kept '12' as the newest value; rejected '8' as conflicting or outdated.\n- summary_interval: 4\n- Resolution for summary_interval: kept '4' as the newest value; rejected '6' as conflicting or outdated.\n- episodic_top_k: 3\n- Resolution for episodic_top_k: kept '3' as the newest value; rejected '5' as conflicting or outdated.\n- deployment: local only\n- model_provider: Ollama\n- hosted_models: prohibited\n- cors_origin: http://127.0.0.1:5173\n- memory_scope: per user and session\n- message_roles: user and assistant\n- episode_limit_per_message: 3\n- importance_range: 0 through 1\n- document_title_limit: 100\n- document_status_default: active\n- categories: Produce, Meat and Seafood, Dairy and Refrigerated, Packaged Foods\n- recall_collection: recall_documents\n- message_collection: messages\n- summary_collection: summaries\n- episode_collection: episodes\n- metrics_format: JSONL\n- raw_evidence_folder: reports/hw06/raw\n- report_name: Vartak_HW6.pdf\n- tag_name: hw6\n",
   "generated_function_check": {
     "call": "normalize_memory_fact(' model ', ' qwen3:8b ')",
     "result": "- model: qwen3:8b",
