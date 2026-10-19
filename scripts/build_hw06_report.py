@@ -33,16 +33,17 @@ RAW = REPORT_DIR / "raw"
 SHOTS = REPORT_DIR / "screenshots"
 REPORT = REPORT_DIR / "report.pdf"
 OUTPUT_COPY = ROOT / "output/pdf/Vartak_HW6.pdf"
+DOWNLOAD_COPY = Path("/Users/vedantvartak/Downloads/Vartak_HW6.pdf")
 DESKTOP_COPY = Path("/Users/vedantvartak/Desktop/Homework6/Vartak_HW6.pdf")
-COURSE_DESKTOP_COPY = Path("/Users/vedantvartak/Desktop/DATA 260 Agentic AI & Distributed Systems/vvv_hw6.pdf")
+COURSE_DESKTOP_COPY = Path("/Users/vedantvartak/Desktop/DATA 260 Agentic AI & Distributed Systems/Vartak_HW6.pdf")
 
-GREEN = colors.HexColor("#0B5130")
-MID_GREEN = colors.HexColor("#247A4B")
-PALE_GREEN = colors.HexColor("#E8F4EC")
-INK = colors.HexColor("#17211B")
-MUTED = colors.HexColor("#58665E")
-RULE = colors.HexColor("#B7C8BE")
-ORANGE = colors.HexColor("#D9781F")
+GREEN = colors.black
+MID_GREEN = colors.black
+PALE_GREEN = colors.white
+INK = colors.black
+MUTED = colors.black
+RULE = colors.black
+ORANGE = colors.black
 
 
 def git_commit() -> str:
@@ -54,15 +55,7 @@ def git_tag_commit() -> str:
 
 
 def page_chrome(canvas, doc) -> None:
-    canvas.saveState()
-    canvas.setStrokeColor(RULE)
-    canvas.setLineWidth(0.5)
-    canvas.line(0.55 * inch, 10.45 * inch, 7.95 * inch, 10.45 * inch)
-    canvas.setFont("Helvetica", 8)
-    canvas.setFillColor(MUTED)
-    canvas.drawString(0.58 * inch, 10.57 * inch, "DATA 260 | Homework 6 | Vedant Vartak")
-    canvas.drawRightString(7.92 * inch, 0.34 * inch, f"Page {doc.page}")
-    canvas.restoreState()
+    """Keep pages plain: no running header, footer, or page number."""
 
 
 styles = getSampleStyleSheet()
@@ -72,7 +65,7 @@ styles.add(ParagraphStyle(name="Subsection", parent=styles["Heading2"], fontName
 styles.add(ParagraphStyle(name="Body11", parent=styles["BodyText"], fontName="Helvetica", fontSize=11, leading=15, textColor=INK, spaceAfter=7))
 styles.add(ParagraphStyle(name="Small", parent=styles["BodyText"], fontName="Helvetica", fontSize=9, leading=12, textColor=MUTED, spaceAfter=4))
 styles.add(ParagraphStyle(name="Caption", parent=styles["BodyText"], fontName="Helvetica-Oblique", fontSize=9, leading=11, textColor=MUTED, alignment=TA_CENTER, spaceBefore=4, spaceAfter=7))
-styles.add(ParagraphStyle(name="CodeBlock", fontName="Courier", fontSize=8.8, leading=10.2, textColor=INK, backColor=colors.HexColor("#F2F5F3"), borderColor=RULE, borderWidth=0.5, borderPadding=6, spaceBefore=4, spaceAfter=5))
+styles.add(ParagraphStyle(name="CodeBlock", fontName="Courier", fontSize=8.8, leading=10.2, textColor=INK, backColor=colors.white, borderColor=RULE, borderWidth=0.5, borderPadding=6, spaceBefore=4, spaceAfter=5))
 
 
 def p(text: str, style: str = "Body11") -> Paragraph:
@@ -148,7 +141,6 @@ def make_report() -> None:
 
     story.append(Spacer(1, 0.28 * inch))
     story.append(p("Vedant Vartak", "Subsection"))
-    story.append(p("DATA 260 - Agentic AI and Distributed Systems", "Small"))
     story.append(p("Homework 6: Document Storage and Multi-Layer Memory", "TitleGreen"))
     story.append(p("Repository: <link href='https://github.com/vedantvartakwork/data260-3539'>https://github.com/vedantvartakwork/data260-3539</link>"))
     story.append(p(f"Report build commit: <font name='Courier'>{commit}</font>", "Small"))
@@ -169,7 +161,6 @@ def make_report() -> None:
     ]
     story.append(styled_table(config, [1.35 * inch, 2.25 * inch, 3.55 * inch]))
     story.append(Spacer(1, 0.15 * inch))
-    story.append(p("Repository access checked 2026-10-16: supriyaselvanganesan has write access; Sbnikitha has an active write invitation awaiting acceptance.", "Small"))
     story.append(p("All application model calls were local. Raw JSONL/CSV, browser captures, verification, and the run log are committed under reports/hw06/.", "Body11"))
     story.append(PageBreak())
 
@@ -296,6 +287,35 @@ recent context, and the explicit no-hosted-model constraint.""", styles["CodeBlo
 
 test_generated_normalizer_follows_agent_rules ... ok""")
 
+    command_code = '''def command(self, command: str,
+            recent_messages: list[dict[str, Any]]) -> str | None:
+    name = command.strip().lower()
+    if name == "/help":
+        return (
+            "Commands: /memory shows durable memory; "
+            "/compact consolidates it; /dream reflects on "
+            "recent messages; /help shows this list."
+        )
+    if name == "/memory":
+        if not self.memory_path.exists():
+            return "No durable MEMORY.md exists yet."
+        text = self.memory_path.read_text(encoding="utf-8")
+        count = len(self._meaningful_lines(text))
+        return f"Durable memory has {count} meaningful lines.\\n\\n{text}"'''
+    memory_preview = "\n".join(file_memory["memory_command_after"].splitlines()[:9])
+    command_output = (
+        "/help\nCommands: /memory shows durable memory; /compact consolidates it;\n"
+        "/dream reflects on recent messages; /help shows this list.\n\n"
+        f"/memory\n{memory_preview}\n..."
+    )
+    code_output_page(
+        story,
+        "23. Part 4 - /memory and /help commands",
+        "The command dispatcher exposes the required help text and returns the current durable memory with a verified meaningful-line count.",
+        command_code,
+        command_output,
+    )
+
     dream_code = "\n\n".join([
         excerpt("code/hw6/file_memory.py", "    def _append_dream_facts", "\n\n    def command"),
         excerpt("code/hw6/file_memory.py", "        if name == \"/dream\":", "        return None"),
@@ -304,7 +324,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
         f"dream={file_memory['dream_command']}\n"
         f"dream_added_lines={file_memory['dream_added_lines']}"
     )
-    code_output_page(story, "23. Part 4 - /dream writes durable facts", "The /dream command deterministically identifies useful long-term facts in recent user messages, rejects duplicates, and appends unique dream_fact entries to MEMORY.md.", dream_code, dream_output)
+    code_output_page(story, "24. Part 4 - /dream writes durable facts", "The /dream command deterministically identifies useful long-term facts in recent user messages, rejects duplicates, and appends unique dream_fact entries to MEMORY.md.", dream_code, dream_output)
 
     consolidation_code = "\n\n".join([
         excerpt("code/hw6/file_memory.py", "def normalize_memory_fact", "\n\nclass FileMemoryManager"),
@@ -319,9 +339,9 @@ test_generated_normalizer_follows_agent_rules ... ok""")
         f"compact={file_memory['compact_command']}\n"
         f"incorrect_resolutions={file_memory['incorrect_resolutions']}"
     )
-    code_output_page(story, "24. Part 4 - /compact consolidates durable memory", "Consolidation triggers above 40 non-empty, non-comment memory lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", consolidation_code, compact_output)
+    code_output_page(story, "25. Part 4 - /compact consolidates durable memory", "Consolidation triggers above 40 non-empty, non-comment memory lines or after 24 hours, keeps the newest conflicting value, and records every resolution.", consolidation_code, compact_output)
 
-    section(story, "25. Part 4 - Original vs. consolidated durable memory", f"The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has {file_memory['meaningful_lines_after']} meaningful lines and {file_memory['physical_lines_after']} physical lines, both below 40.")
+    section(story, "26. Part 4 - Original vs. consolidated durable memory", f"The committed original has 55 meaningful lines, at least three duplicate groups, and three contradictions. The consolidated file has {file_memory['meaningful_lines_after']} meaningful lines and {file_memory['physical_lines_after']} physical lines, both below 40.")
     before_lines = (REPORT_DIR / "MEMORY.original.md").read_text().splitlines()
     after_lines = (ROOT / "MEMORY.md").read_text().splitlines()
     story.append(p("Original excerpt", "Subsection"))
@@ -331,7 +351,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(p("Audited resolutions: short_term_window=12 (rejected 8), summary_interval=4 (rejected 6), episodic_top_k=3 (rejected 5). No incorrect resolution was found.", "Small"))
     story.append(PageBreak())
 
-    section(story, "26. Part 4 - MongoDB memory versus file memory")
+    section(story, "27. Part 4 - MongoDB memory versus file memory")
     comparison = [
         ["Criterion", "MongoDB", "AGENT.md / MEMORY.md"],
         ["Inspectability", "Queryable collections with timestamps, embeddings and indexes", "Human-readable, diffable and reviewable in Git"],
@@ -347,7 +367,7 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     raw_test_output = verification["checks"]["offline_tests"]["details"]
     test_lines = [line.split(" (", 1)[0] + " ... ok" for line in raw_test_output.splitlines() if line.startswith("test_")]
     test_output = "\n".join(test_lines) + f"\n\n{len(test_lines)}/{len(test_lines)} tests passed."
-    section(story, "27. Verification - 13/13 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
+    section(story, "28. Verification - 13/13 offline tests and artifact checks", "Tests avoid external APIs and use deterministic repositories/models. Live MongoDB and Ollama evidence is verified separately.")
     story.append(Preformatted(test_output, styles["CodeBlock"]))
     check_rows = [["Verifier check", "Pass", "Details"]]
     concise_details = {
@@ -364,39 +384,17 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     story.append(styled_table(check_rows, [1.7 * inch, 0.55 * inch, 4.9 * inch]))
     story.append(PageBreak())
 
-    section(story, "28. AI-use disclosure")
+    section(story, "29. AI-use disclosure")
     ai_lines = (REPORT_DIR / "AI_USE.md").read_text().splitlines()[2:]
     for line in ai_lines:
         if line.strip():
             story.append(p(escape(line)))
     story.append(Spacer(1, 0.12 * inch))
     story.append(p("I verified the implementation with named tests, MongoDB validation, raw 30-turn experiment records, real local-model responses, and exact request/response captures. The Homework 6 application did not call a hosted model.", "Small"))
-    story.append(PageBreak())
-
-    section(story, "29. Submission manifest")
-    manifest = [
-        ["Required artifact", "Repository path"],
-        ["Final report", "reports/hw06/report.pdf"],
-        ["Canvas copy", "output/pdf/Vartak_HW6.pdf"],
-        ["Run log", "reports/hw06/RUN_LOG.txt"],
-        ["Metrics", "reports/hw06/METRICS.md"],
-        ["AI use", "reports/hw06/AI_USE.md"],
-        ["Verification", "reports/hw06/verification.json"],
-        ["Raw turn records", "reports/hw06/raw/"],
-        ["Memory probes", "reports/hw06/memory_probes.yaml"],
-        ["Original memory", "reports/hw06/MEMORY.original.md"],
-        ["Consolidated memory", "MEMORY.md"],
-        ["Durable instructions", "AGENT.md"],
-        ["Implementation", "code/hw6/"],
-        ["Tests", "tests/test_hw06.py"],
-        ["Verification command", "make verify-hw06"],
-    ]
-    story.append(styled_table(manifest, [2.1 * inch, 5.05 * inch]))
-    story.append(Spacer(1, 0.15 * inch))
-    story.append(p("Raw evidence is authoritative; report tables and screenshots were checked against those files. End of report.", "Body11"))
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_COPY.parent.mkdir(parents=True, exist_ok=True)
+    DOWNLOAD_COPY.parent.mkdir(parents=True, exist_ok=True)
     DESKTOP_COPY.parent.mkdir(parents=True, exist_ok=True)
     COURSE_DESKTOP_COPY.parent.mkdir(parents=True, exist_ok=True)
     document = SimpleDocTemplate(
@@ -412,10 +410,12 @@ test_generated_normalizer_follows_agent_rules ... ok""")
     )
     document.build(story, onFirstPage=page_chrome, onLaterPages=page_chrome)
     shutil.copy2(REPORT, OUTPUT_COPY)
+    shutil.copy2(REPORT, DOWNLOAD_COPY)
     shutil.copy2(REPORT, DESKTOP_COPY)
     shutil.copy2(REPORT, COURSE_DESKTOP_COPY)
     print(REPORT)
     print(OUTPUT_COPY)
+    print(DOWNLOAD_COPY)
     print(DESKTOP_COPY)
     print(COURSE_DESKTOP_COPY)
 
