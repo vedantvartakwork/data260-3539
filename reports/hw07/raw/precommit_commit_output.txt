@@ -1,0 +1,65 @@
+[WARNING] Unstaged files detected.
+[INFO] Stashing unstaged files to /Users/vedantvartak/.cache/pre-commit/patch1792565568-10647.
+ruff check...............................................................Passed
+ruff format..............................................................Passed
+[INFO] Restored changes from /Users/vedantvartak/.cache/pre-commit/patch1792565568-10647.
+[main cdd9234] Implement DATA 260 Homework 7
+ 66 files changed, 9799 insertions(+), 67 deletions(-)
+ create mode 100644 .pre-commit-config.yaml
+ create mode 100644 code/hw7/__init__.py
+ create mode 100644 code/hw7/agent.py
+ create mode 100644 code/hw7/bike_agent.py
+ create mode 100644 code/hw7/bike_tools.py
+ create mode 100644 code/hw7/config.py
+ create mode 100644 code/hw7/file_tools.py
+ create mode 100644 code/hw7/injection_security.py
+ create mode 100644 code/hw7/jwt_auth.py
+ create mode 100644 code/hw7/reflexion.py
+ create mode 100644 code/hw7/routes.py
+ create mode 100644 code/hw7/static/bike_agent.html
+ create mode 100644 pyproject.toml
+ create mode 100644 reports/hw07/AI_USE.md
+ create mode 100644 reports/hw07/METRICS.md
+ create mode 100644 reports/hw07/RUN_LOG.txt
+ create mode 100644 reports/hw07/evidence_html/agent.html
+ create mode 100644 reports/hw07/evidence_html/auth.html
+ create mode 100644 reports/hw07/evidence_html/bike_membership.html
+ create mode 100644 reports/hw07/evidence_html/bike_pay.html
+ create mode 100644 reports/hw07/evidence_html/files.html
+ create mode 100644 reports/hw07/evidence_html/lint.html
+ create mode 100644 reports/hw07/evidence_html/reflexion.html
+ create mode 100644 reports/hw07/evidence_html/security.html
+ create mode 100644 reports/hw07/fixtures/capital_bikeshare_30_day_pricing.txt
+ create mode 100644 reports/hw07/fixtures/hostile_pricing_fixture.html
+ create mode 100644 reports/hw07/fixtures/membership_wins_500_rows.csv
+ create mode 100644 reports/hw07/fixtures/pay_per_use_wins_500_rows.csv
+ create mode 100644 reports/hw07/raw/agent_fixed_task_runs.json
+ create mode 100644 reports/hw07/raw/bike_membership_wins_summary.json
+ create mode 100644 reports/hw07/raw/bike_pay_per_use_wins_summary.json
+ create mode 100644 reports/hw07/raw/bike_pricing_snapshot_metadata.json
+ create mode 100644 reports/hw07/raw/file_tools_integration.json
+ create mode 100644 reports/hw07/raw/jwt_rbac_http_evidence.json
+ create mode 100644 reports/hw07/raw/jwt_rbac_terminal.txt
+ create mode 100644 reports/hw07/raw/original_vs_reflexion.json
+ create mode 100644 reports/hw07/raw/prompt_injection_before_after.json
+ create mode 100644 reports/hw07/raw/ruff_after_fix.txt
+ create mode 100644 reports/hw07/raw/ruff_before_fix.txt
+ create mode 100644 reports/hw07/raw/safety_gate_10_commands.json
+ create mode 100644 reports/hw07/raw/tool_reliability_20_attempts.json
+ create mode 100644 reports/hw07/raw/tool_reliability_20_model_attempts.json
+ create mode 100644 reports/hw07/screenshots/agent.png
+ create mode 100644 reports/hw07/screenshots/auth.png
+ create mode 100644 reports/hw07/screenshots/bike_membership.png
+ create mode 100644 reports/hw07/screenshots/bike_pay.png
+ create mode 100644 reports/hw07/screenshots/files.png
+ create mode 100644 reports/hw07/screenshots/lint.png
+ create mode 100644 reports/hw07/screenshots/reflexion.png
+ create mode 100644 reports/hw07/screenshots/security.png
+ create mode 100644 scripts/capture_hw07_auth_evidence.py
+ create mode 100644 scripts/render_hw07_evidence_pages.py
+ create mode 100644 scripts/run_hw07_experiments.py
+ create mode 100644 scripts/run_hw07_model_reliability.py
+ create mode 100644 scripts/seed_hw07.py
+ create mode 100644 scripts/verify_hw07.py
+ create mode 100644 sql/hw07_migration.sql
+ create mode 100644 tests/test_hw07.py

@@ -33,7 +33,7 @@ def check_raw() -> tuple[bool, str]:
         and all(row["well_formed_after_repair"] for row in reliability),
         "Reflexion comparison": bool(reflexion),
         "10 safety-gate cases": len(gate) == 10,
-        "3 prompt-injection attacks": len(attacks) == 3,
+        "3 prompt-injection attacks": len(attacks.get("attacks", attacks)) == 3,
         "membership scenario": bike_a["dataset_rows"] >= 500
         and bike_a["result"]["decision"] == "Buy Monthly Membership",
         "pay scenario": bike_b["dataset_rows"] >= 500

@@ -9,7 +9,111 @@ pre{white-space:pre-wrap;word-break:break-word;background:#171717;color:#f5f5f5;
 .ok{color:#08772c;font-weight:750} .bad{color:#b42318;font-weight:750} .pill{display:inline-block;padding:3px 9px;border-radius:99px;background:#e8e8e8;font-weight:700}
 table{width:100%;border-collapse:collapse;background:#fff} th,td{border:1px solid #aaa;padding:9px;text-align:left;vertical-align:top} th{background:#222;color:#fff}
 .wide{grid-column:1/-1} footer{padding:0 42px 24px;color:#555;font-size:13px}
-</style></head><body><header><h1>Part 2 — Handwritten Agent</h1><p>Tasks A/B/C and bounded error recovery; tool inputs and observations are preserved</p></header><main><div class="grid"><section class="card wide"><h2><span class="ok">PASS</span> Real qwen3:8b reliability — 20 attempts</h2><pre>{
+</style></head><body><header><h1>Part 2 — Handwritten Agent</h1><p>Tasks A/B/C and bounded error recovery; tool inputs and observations are preserved</p></header><main><div class="grid"><section class="card "><h2><span class="ok">PASS</span> A</h2><pre>{
+  &quot;request&quot;: &quot;Search for shrimp and detail the first result.&quot;,
+  &quot;tool_calls&quot;: [
+    {
+      &quot;tool&quot;: &quot;search&quot;,
+      &quot;inputs&quot;: {
+        &quot;query&quot;: &quot;shrimp&quot;,
+        &quot;limit&quot;: 1
+      },
+      &quot;success&quot;: true
+    },
+    {
+      &quot;tool&quot;: &quot;detail&quot;,
+      &quot;inputs&quot;: {
+        &quot;recall_id&quot;: 1
+      },
+      &quot;success&quot;: true
+    }
+  ],
+  &quot;final_answer&quot;: &quot;The first shrimp result is Frozen Shrimp Lot 00001, recall REC-3539-00001, with 1,200 affected units.&quot;,
+  &quot;tool_call_count&quot;: 2,
+  &quot;steps&quot;: 3,
+  &quot;stop_reason&quot;: &quot;success&quot;,
+  &quot;repairs&quot;: 0
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> B</h2><pre>{
+  &quot;request&quot;: &quot;Aggregate by category and find one supporting example.&quot;,
+  &quot;tool_calls&quot;: [
+    {
+      &quot;tool&quot;: &quot;aggregate&quot;,
+      &quot;inputs&quot;: {
+        &quot;group_by&quot;: &quot;category&quot;,
+        &quot;min_units&quot;: 0
+      },
+      &quot;success&quot;: true
+    },
+    {
+      &quot;tool&quot;: &quot;search&quot;,
+      &quot;inputs&quot;: {
+        &quot;query&quot;: &quot;shrimp&quot;,
+        &quot;limit&quot;: 1
+      },
+      &quot;success&quot;: true
+    }
+  ],
+  &quot;final_answer&quot;: &quot;Meat and Seafood has 1,200 units in the fixture; Frozen Shrimp Lot 00001 is a supporting example.&quot;,
+  &quot;tool_call_count&quot;: 2,
+  &quot;steps&quot;: 3,
+  &quot;stop_reason&quot;: &quot;success&quot;,
+  &quot;repairs&quot;: 0
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> C</h2><pre>{
+  &quot;request&quot;: &quot;Compare shrimp and yogurt using search plus two detail lookups.&quot;,
+  &quot;tool_calls&quot;: [
+    {
+      &quot;tool&quot;: &quot;search&quot;,
+      &quot;inputs&quot;: {
+        &quot;query&quot;: &quot;shrimp&quot;,
+        &quot;limit&quot;: 1
+      },
+      &quot;success&quot;: true
+    },
+    {
+      &quot;tool&quot;: &quot;detail&quot;,
+      &quot;inputs&quot;: {
+        &quot;recall_id&quot;: 1
+      },
+      &quot;success&quot;: true
+    },
+    {
+      &quot;tool&quot;: &quot;search&quot;,
+      &quot;inputs&quot;: {
+        &quot;query&quot;: &quot;yogurt&quot;,
+        &quot;limit&quot;: 1
+      },
+      &quot;success&quot;: true
+    },
+    {
+      &quot;tool&quot;: &quot;detail&quot;,
+      &quot;inputs&quot;: {
+        &quot;recall_id&quot;: 2
+      },
+      &quot;success&quot;: true
+    }
+  ],
+  &quot;final_answer&quot;: &quot;Shrimp affects 1,200 units and yogurt affects 800, so shrimp affects 400 more units.&quot;,
+  &quot;tool_call_count&quot;: 4,
+  &quot;steps&quot;: 5,
+  &quot;stop_reason&quot;: &quot;success&quot;,
+  &quot;repairs&quot;: 0
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> missing_id</h2><pre>{
+  &quot;request&quot;: &quot;Show recall 99999.&quot;,
+  &quot;tool_calls&quot;: [
+    {
+      &quot;tool&quot;: &quot;detail&quot;,
+      &quot;inputs&quot;: {
+        &quot;recall_id&quot;: 99999
+      },
+      &quot;success&quot;: true
+    }
+  ],
+  &quot;final_answer&quot;: &quot;Recall 99999 was not found; the agent stopped without inventing details.&quot;,
+  &quot;tool_call_count&quot;: 1,
+  &quot;steps&quot;: 2,
+  &quot;stop_reason&quot;: &quot;success&quot;,
+  &quot;repairs&quot;: 0
+}</pre></section><section class="card wide"><h2><span class="ok">PASS</span> Real qwen3:8b reliability — 20 attempts</h2><pre>{
   &quot;attempts&quot;: 20,
   &quot;well_formed_before_repair&quot;: 20,
   &quot;well_formed_after_repair&quot;: 20,

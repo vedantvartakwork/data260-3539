@@ -89,13 +89,29 @@ def auth_page() -> str:
 def agent_page() -> str:
     fixed = load("agent_fixed_task_runs.json")
     model = load("tool_reliability_20_model_attempts.json")
-    runs = fixed.get("runs", fixed if isinstance(fixed, list) else [])
+    runs = fixed.get("runs", fixed) if isinstance(fixed, dict) else fixed
     if isinstance(runs, dict):
         runs = [value | {"name": key} for key, value in runs.items()]
     blocks = []
     for run in runs:
         title = run.get("task") or run.get("case") or run.get("name", "Agent run")
-        blocks.append(card(str(title), run, bool(run.get("success", True))))
+        concise = {
+            "request": run.get("user_input"),
+            "tool_calls": [
+                {
+                    "tool": call.get("tool"),
+                    "inputs": call.get("inputs"),
+                    "success": call.get("observation", {}).get("success", True),
+                }
+                for call in run.get("invocations", [])
+            ],
+            "final_answer": run.get("answer"),
+            "tool_call_count": run.get("tool_calls"),
+            "steps": run.get("steps"),
+            "stop_reason": run.get("stop_reason"),
+            "repairs": run.get("repairs"),
+        }
+        blocks.append(card(str(title), concise, run.get("stop_reason") == "success"))
     summary = (
         model.get("summary", {})
         if isinstance(model, dict)
