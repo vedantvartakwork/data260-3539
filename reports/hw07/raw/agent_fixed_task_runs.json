@@ -6,7 +6,7 @@
     "steps": 3,
     "tool_calls": 2,
     "tokens": 36,
-    "latency_ms": 0.117,
+    "latency_ms": 0.103,
     "repairs": 0,
     "initial_failure": null,
     "invocations": [
@@ -69,7 +69,7 @@
     "steps": 3,
     "tool_calls": 2,
     "tokens": 36,
-    "latency_ms": 0.269,
+    "latency_ms": 0.281,
     "repairs": 0,
     "initial_failure": null,
     "invocations": [
@@ -134,7 +134,7 @@
     "steps": 5,
     "tool_calls": 4,
     "tokens": 60,
-    "latency_ms": 0.071,
+    "latency_ms": 0.07,
     "repairs": 0,
     "initial_failure": null,
     "invocations": [
@@ -247,7 +247,7 @@
     "steps": 2,
     "tool_calls": 1,
     "tokens": 24,
-    "latency_ms": 0.014,
+    "latency_ms": 0.013,
     "repairs": 0,
     "initial_failure": null,
     "invocations": [

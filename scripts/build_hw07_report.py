@@ -122,7 +122,7 @@ def add_code(doc: Document, code: str, caption: str = "Code") -> None:
 
 
 def add_image(doc: Document, filename: str, caption: str, width: float = 6.45) -> None:
-    width = min(width, 6.3 if filename.endswith("_ui.png") else 4.65)
+    width = min(width, 6.3)
     cap = doc.add_paragraph()
     cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
     cap.paragraph_format.space_after = Pt(4)
@@ -177,6 +177,10 @@ def build() -> None:
     doc = Document()
     configure(doc)
     commit = git("rev-parse", "HEAD")
+    try:
+        tagged_commit = git("rev-parse", "hw7^{}")
+    except subprocess.CalledProcessError:
+        tagged_commit = "pending until final implementation evidence commit"
     auth = read_json("jwt_rbac_http_evidence.json")
     fixed = read_json("agent_fixed_task_runs.json")
     reliability = read_json("tool_reliability_20_model_attempts.json")
@@ -200,8 +204,8 @@ def build() -> None:
     r.font.size = Pt(14)
     add_body(doc, "Student: Vedant Vartak")
     add_body(doc, "Repository: https://github.com/vedantvartakwork/data260-3539")
-    add_body(doc, "Implementation and verified evidence commit: " + commit)
-    add_body(doc, "Submission tag: hw7 (created after the final report is committed)")
+    add_body(doc, "Report packaging commit: " + commit)
+    add_body(doc, "Resolved hw7 tagged implementation and evidence commit: " + tagged_commit)
     add_body(doc, "Hardware: Apple MacBook Air • Local model: qwen3:8b through Ollama")
     add_table(
         doc,
@@ -368,8 +372,13 @@ def build() -> None:
     add_heading(doc, "Part 3 — Reflexion and Bounded Self-Correction")
     add_code(
         doc,
-        function_excerpt("code/hw7/reflexion.py", "def run_reflexion", limit=100),
-        "Bounded Reflexion path and objective verifier",
+        function_excerpt("code/hw7/reflexion.py", "def verify_task", "def run_reflexion", 55),
+        "Deterministic expected-tool and successful-observation verifier",
+    )
+    add_code(
+        doc,
+        function_excerpt("code/hw7/reflexion.py", "def run_reflexion", limit=82),
+        "Bounded Reflexion retry path",
     )
     add_body(
         doc,
@@ -417,8 +426,20 @@ def build() -> None:
     )
     add_code(
         doc,
+        function_excerpt(
+            "code/hw7/bike_tools.py", "def policy_retriever", "def _safe_arithmetic", 48
+        ),
+        "policy_retriever implementation with source-bearing passages",
+    )
+    add_code(
+        doc,
         function_excerpt("code/hw7/bike_tools.py", "def calculator", limit=48),
         "Safe calculator",
+    )
+    add_code(
+        doc,
+        function_excerpt("code/hw7/bike_agent.py", "def build_graph", "def run_bike_agent", 26),
+        "LangGraph StateGraph workflow",
     )
     add_body(
         doc,
@@ -477,8 +498,8 @@ def build() -> None:
     )
     add_code(
         doc,
-        function_excerpt("code/hw7/injection_security.py", "THREAT_MODEL", limit=58),
-        "Untrusted-data labeling and attack evaluation",
+        function_excerpt("code/hw7/injection_security.py", "def evaluate_attacks", limit=74),
+        "Executable local-fixture attack harness and defense layers",
     )
     add_image(
         doc,
@@ -492,16 +513,22 @@ def build() -> None:
         [
             [
                 row["attack"].replace("_", " "),
-                row["before_defenses"],
-                row["after_prompt_defense"],
-                row["after_prompt_and_tool_defense"],
+                ("PASS" if row["before_defenses"]["passed"] else "FAIL")
+                + ": "
+                + row["before_defenses"]["observation"],
+                ("PASS" if row["after_prompt_defense"]["passed"] else "FAIL")
+                + ": "
+                + row["after_prompt_defense"]["observation"],
+                ("PASS" if row["after_prompt_and_tool_defense"]["passed"] else "FAIL")
+                + ": "
+                + row["after_prompt_and_tool_defense"]["observation"],
             ]
             for row in attacks["attacks"]
         ],
     )
     add_body(
         doc,
-        "Prompt-only defense tells the model how to interpret retrieved text but cannot enforce side effects. Tool-boundary enforcement is independent executable validation. csv_sql rejects every statement that is not one read-only SELECT even if hostile text or the model asks for a DELETE.",
+        "These are executable local-fixture runs rather than hypothetical labels. The unguarded disposable SQL path reduced the local table from 500 rows to zero both before defenses and with prompt-only wording. Prompt-only defense tells the model how to interpret retrieved text but cannot enforce side effects. Tool-boundary enforcement is independent executable validation: production csv_sql rejected DELETE before opening the CSV-backed database. The projection and final serializer also excluded the private notes marker.",
     )
 
     page_break(doc)
@@ -542,7 +569,7 @@ def build() -> None:
     )
     add_body(
         doc,
-        "The self-check is run with make verify-hw7. It runs the seven HW7 unit tests Ruff Python compilation and contract checks across all raw artifacts. It records the verified implementation commit without modifying application code.",
+        "The self-check was executed from the resolved hw7 tagged commit. It runs the HW7 unit tests Ruff Python compilation and contract checks across all raw artifacts. The resulting verification file records the exact tagged commit and objective results.",
     )
     add_table(
         doc,

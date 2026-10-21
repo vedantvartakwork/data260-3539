@@ -229,7 +229,13 @@ def security_and_files() -> tuple[list[dict], list[dict], dict]:
     with tempfile.TemporaryDirectory(prefix="data260-hw7-attacks-") as temp:
         trips = Path(temp) / "trips.csv"
         make_csv(trips, 4, 8)
-        attacks = evaluate_attacks(str(trips))
+        rows = list(csv.DictReader(trips.open(newline="", encoding="utf-8")))
+        rows[0]["notes"] = "PRIVATE_TEST_MARKER_3539"
+        with trips.open("w", newline="", encoding="utf-8") as stream:
+            writer = csv.DictWriter(stream, fieldnames=rows[0].keys())
+            writer.writeheader()
+            writer.writerows(rows)
+        attacks = evaluate_attacks(str(trips), hostile)
     write_json(
         RAW / "prompt_injection_before_after.json",
         {"threat_model": THREAT_MODEL, "attacks": attacks},
@@ -325,7 +331,14 @@ The deterministic verifier produced no observed false rejection. Task A intentio
         text += f"| {item['scenario']} | 500 | {result['actual_rides']} | ${result['pay_per_use_cost']:.2f} | ${result['membership_cost'] + result['residual_charges']:.2f} | {result['decision']} | {result['step_count']} | {result['stop_reason']} |\n"
     text += "\n## Part 5 - Prompt-injection outcomes\n\n| Attack | Before | Prompt defense | Prompt + tool defense |\n|---|---|---|---|\n"
     for row in attacks:
-        text += f"| {row['attack']} | {row['before_defenses']} | {row['after_prompt_defense']} | {row['after_prompt_and_tool_defense']} |\n"
+        before = row["before_defenses"]
+        prompt = row["after_prompt_defense"]
+        combined = row["after_prompt_and_tool_defense"]
+        text += (
+            f"| {row['attack']} | {'PASS' if before['passed'] else 'FAIL'}: {before['observation']} "
+            f"| {'PASS' if prompt['passed'] else 'FAIL'}: {prompt['observation']} "
+            f"| {'PASS' if combined['passed'] else 'FAIL'}: {combined['observation']} |\n"
+        )
     text += f"\n## Part 6 - Safety gate\n\nFinal result: {sum(item['allowed'] for item in gate)}/5 allowed cases passed and {sum(not item['allowed'] for item in gate)}/5 blocked cases passed. No false allow remained.\n"
     (REPORT / "METRICS.md").write_text(text, encoding="utf-8")
 
@@ -340,19 +353,47 @@ def main() -> None:
     bikes = bike_scenarios()
     attacks, gate, found = security_and_files()
     metrics_md(reliability_rows, comparison, bikes, attacks, gate)
-    run_log = {
-        "student": "Vedant Vartak",
-        "started_utc": started.isoformat(),
-        "finished_utc": datetime.now(UTC).isoformat(),
-        "model": "qwen3:8b",
-        "seed": 3539,
-        "verify_seed": 263539,
-        "outputs": sorted(str(path.relative_to(REPORT)) for path in RAW.glob("*")),
-        "pricing_snapshot_sha256": hashlib.sha256(POLICY_TEXT.encode()).hexdigest(),
-        "file_integration": found,
-    }
-    (REPORT / "RUN_LOG.txt").write_text(json.dumps(run_log, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(run_log, indent=2))
+    finished = datetime.now(UTC)
+    model_log_path = RAW / "tool_reliability_20_model_attempts.json"
+    part2_runs = (
+        json.loads(model_log_path.read_text(encoding="utf-8"))
+        if model_log_path.exists()
+        else reliability_rows
+    )
+    log_lines = [
+        "VEDANT VARTAK - DATA 260 HOMEWORK 7 RUN LOG",
+        f"started_utc={started.isoformat()}",
+        f"finished_utc={finished.isoformat()}",
+        "model=qwen3:8b seed=3539 verify_seed=263539",
+        "",
+        "PART 2 - FULL TOOL-USE ATTEMPT LOGS",
+        json.dumps(part2_runs, indent=2),
+        "",
+        "PART 3 - ORIGINAL VERSUS REFLEXION",
+        json.dumps(comparison, indent=2),
+        "",
+        "PART 4 - BIKE AGENT RUNS",
+        json.dumps(bikes, indent=2),
+        "",
+        "PART 5 - FULL HOSTILE-FIXTURE ATTACK TRACES",
+        json.dumps({"threat_model": THREAT_MODEL, "attacks": attacks}, indent=2),
+        "",
+        "PART 6 - FILE TOOL AND SAFETY-GATE RUNS",
+        json.dumps({"file_integration": found, "safety_gate": gate}, indent=2),
+        "",
+        "ARTIFACT MANIFEST",
+        json.dumps(
+            {
+                "outputs": sorted(str(path.relative_to(REPORT)) for path in RAW.glob("*")),
+                "pricing_snapshot_sha256": hashlib.sha256(POLICY_TEXT.encode()).hexdigest(),
+            },
+            indent=2,
+        ),
+        "",
+    ]
+    run_log = "\n".join(log_lines)
+    (REPORT / "RUN_LOG.txt").write_text(run_log, encoding="utf-8")
+    print(run_log)
 
 
 if __name__ == "__main__":

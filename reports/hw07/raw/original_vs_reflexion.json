@@ -8,7 +8,7 @@
       "steps": 2,
       "tool_calls": 1,
       "tokens": 24,
-      "latency_ms": 0.023,
+      "latency_ms": 0.02,
       "repairs": 0,
       "initial_failure": null,
       "invocations": [
@@ -47,12 +47,12 @@
       "retries": 1,
       "tool_calls": 3,
       "tokens": 60,
-      "latency_ms": 0.123,
+      "latency_ms": 0.073,
       "unsupported_claims": 0,
       "verifier_false_rejections": 0,
       "reflections": [
         {
-          "run_id": "6839353b-af6a-4e91-8aa6-6d2073b8f083",
+          "run_id": "736e25ee-3f47-4751-845b-b4202db3423a",
           "user_id": "vedant",
           "attempt": 1,
           "failure_evidence": "only 1 tool calls; expected at least 2",
@@ -71,7 +71,7 @@
       "steps": 3,
       "tool_calls": 2,
       "tokens": 36,
-      "latency_ms": 0.036,
+      "latency_ms": 0.03,
       "repairs": 0,
       "initial_failure": null,
       "invocations": [
@@ -137,7 +137,7 @@
       "retries": 0,
       "tool_calls": 2,
       "tokens": 36,
-      "latency_ms": 0.05,
+      "latency_ms": 0.043,
       "unsupported_claims": 0,
       "verifier_false_rejections": 0,
       "reflections": []
@@ -152,7 +152,7 @@
       "steps": 5,
       "tool_calls": 4,
       "tokens": 60,
-      "latency_ms": 0.059,
+      "latency_ms": 0.052,
       "repairs": 0,
       "initial_failure": null,
       "invocations": [
@@ -266,7 +266,7 @@
       "retries": 0,
       "tool_calls": 4,
       "tokens": 60,
-      "latency_ms": 0.083,
+      "latency_ms": 0.084,
       "unsupported_claims": 0,
       "verifier_false_rejections": 0,
       "reflections": []
