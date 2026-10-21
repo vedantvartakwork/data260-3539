@@ -123,14 +123,15 @@ def add_code(doc: Document, code: str, caption: str = "Code") -> None:
 
 def add_image(doc: Document, filename: str, caption: str, width: float = 6.45) -> None:
     width = min(width, 6.3)
-    cap = doc.add_paragraph()
-    cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    cap.paragraph_format.space_after = Pt(4)
-    cap.paragraph_format.keep_with_next = True
-    r = cap.add_run(caption)
-    r.italic = True
-    r.font.name = "Arial"
-    r.font.size = Pt(9.5)
+    if caption:
+        cap = doc.add_paragraph()
+        cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        cap.paragraph_format.space_after = Pt(4)
+        cap.paragraph_format.keep_with_next = True
+        r = cap.add_run(caption)
+        r.italic = True
+        r.font.name = "Arial"
+        r.font.size = Pt(9.5)
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     run = p.add_run()
@@ -176,13 +177,11 @@ def configure(doc: Document) -> None:
 def build() -> None:
     doc = Document()
     configure(doc)
-    commit = git("rev-parse", "HEAD")
     try:
         tagged_commit = git("rev-parse", "hw7^{}")
     except subprocess.CalledProcessError:
         tagged_commit = "pending until final implementation evidence commit"
     auth = read_json("jwt_rbac_http_evidence.json")
-    fixed = read_json("agent_fixed_task_runs.json")
     reliability = read_json("tool_reliability_20_model_attempts.json")
     membership = read_json("bike_membership_wins_summary.json")
     pay = read_json("bike_pay_per_use_wins_summary.json")
@@ -204,7 +203,6 @@ def build() -> None:
     r.font.size = Pt(14)
     add_body(doc, "Student: Vedant Vartak")
     add_body(doc, "Repository: https://github.com/vedantvartakwork/data260-3539")
-    add_body(doc, "Report packaging commit: " + commit)
     add_body(doc, "Resolved hw7 tagged implementation and evidence commit: " + tagged_commit)
     add_body(doc, "Hardware: Apple MacBook Air • Local model: qwen3:8b through Ollama")
     add_table(
@@ -257,14 +255,20 @@ def build() -> None:
     )
     add_code(
         doc,
-        function_excerpt("code/web_application/routers/recalls.py", "def list_recalls", limit=58),
-        "Role-protected domain routes",
+        function_excerpt("code/hw7/jwt_auth.py", "def require_roles", "@router.post", 28),
+        "Reusable role dependency",
+    )
+    add_code(
+        doc,
+        function_excerpt(
+            "code/web_application/routers/recalls.py", "def create_recall", "def update_recall", 28
+        ),
+        "Writer or moderator create route",
     )
     add_body(
         doc,
         "Intended output: a valid login returns HTTP 200 and an access token invalid or missing credentials return 401 a reader cannot create and receives 403 a writer creates with 201 and only a moderator deletes with 204.",
     )
-    page_break(doc)
     add_image(
         doc,
         "auth.png",
@@ -312,8 +316,13 @@ def build() -> None:
     )
     add_code(
         doc,
-        function_excerpt("code/hw7/agent.py", "def run_agent", limit=92),
-        "run_agent implementation",
+        function_excerpt("code/hw7/agent.py", "def run_agent", limit=46),
+        "Bounded loop and one-repair policy",
+    )
+    add_code(
+        doc,
+        function_excerpt("code/hw7/agent.py", "result_text = execute_tool", limit=29),
+        "Tool execution and tool-role observation append",
     )
     add_body(
         doc,
@@ -324,15 +333,7 @@ def build() -> None:
         doc,
         "agent.png",
         "Exact saved A/B/C/error-recovery runs and the real qwen3:8b reliability summary.",
-        6.3,
-    )
-    add_table(
-        doc,
-        ["Case", "Tool calls", "Stop", "Result excerpt"],
-        [
-            [name, run["tool_calls"], run["stop_reason"], run["answer"][:120]]
-            for name, run in fixed.items()
-        ],
+        5.7,
     )
     add_heading(doc, "Twenty real model attempts", 2)
     failure_kinds = [
@@ -384,11 +385,15 @@ def build() -> None:
         doc,
         "Each reflection contains only the failed assertion and a revised strategy. It is stored under the current run identifier treated as untrusted data and never changes system instructions permissions or safety gates. Limits are two retries plus hard tool-call and token budgets.",
     )
+    add_body(
+        doc,
+        "The following saved output compares the original and Reflexion runs including failed evidence scoped reflection and successful retry.",
+    )
     add_image(
         doc,
         "reflexion.png",
-        "Original and Reflexion runs including the failed evidence the scoped reflection and the successful retry.",
-        6.2,
+        "",
+        5.5,
     )
     add_table(
         doc,

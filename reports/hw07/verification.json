@@ -2,7 +2,7 @@
   "homework": 7,
   "student": "Vedant Vartak",
   "sid4": 3539,
-  "commit": "cdd9234b37cb1252c00fa63ce685ae6bb8db2319",
+  "commit": "9fe40e3e90022c839d813c8d031e6912d082ab76",
   "model": "qwen3:8b",
   "configuration": {
     "PORT_BASE": 8839,
@@ -11,12 +11,12 @@
   },
   "SEED": 3539,
   "VERIFY_SEED": 263539,
-  "generated_at": "2026-10-21T07:41:38.031221+00:00",
+  "generated_at": "2026-10-21T17:06:20.295431+00:00",
   "checks": [
     {
       "name": "HW7 unit tests",
       "passed": true,
-      "detail": "test_agent_multistep_repair_and_missing_id (tests.test_hw07.Homework7Tests.test_agent_multistep_repair_and_missing_id) ... ok\ntest_bounded_reflexion_records_failed_then_retried_evidence (tests.test_hw07.Homework7Tests.test_bounded_reflexion_records_failed_then_retried_evidence) ... ok\ntest_file_tool_integration_and_10_command_gate (tests.test_hw07.Homework7Tests.test_file_tool_integration_and_10_command_gate) ... ok\ntest_jwt_round_trip_and_expiry (tests.test_hw07.Homework7Tests.test_jwt_round_trip_and_expiry) ... ok\ntest_mrkl_tools_and_two_500_row_acceptance_cases (tests.test_hw07.Homework7Tests.test_mrkl_tools_and_two_500_row_acceptance_cases) ... ok\ntest_prompt_injection_and_read_only_sql_boundary (tests.test_hw07.Homework7Tests.test_prompt_injection_and_read_only_sql_boundary) ... ok\ntest_required_hw7_artifact_paths (tests.test_hw07.Homework7Tests.test_required_hw7_artifact_paths) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.015s\n\nOK"
+      "detail": "test_agent_multistep_repair_and_missing_id (tests.test_hw07.Homework7Tests.test_agent_multistep_repair_and_missing_id) ... ok\ntest_bounded_reflexion_records_failed_then_retried_evidence (tests.test_hw07.Homework7Tests.test_bounded_reflexion_records_failed_then_retried_evidence) ... ok\ntest_file_tool_integration_and_10_command_gate (tests.test_hw07.Homework7Tests.test_file_tool_integration_and_10_command_gate) ... ok\ntest_jwt_round_trip_and_expiry (tests.test_hw07.Homework7Tests.test_jwt_round_trip_and_expiry) ... ok\ntest_mrkl_tools_and_two_500_row_acceptance_cases (tests.test_hw07.Homework7Tests.test_mrkl_tools_and_two_500_row_acceptance_cases) ... ok\ntest_prompt_injection_and_read_only_sql_boundary (tests.test_hw07.Homework7Tests.test_prompt_injection_and_read_only_sql_boundary) ... ok\ntest_required_hw7_artifact_paths (tests.test_hw07.Homework7Tests.test_required_hw7_artifact_paths) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.017s\n\nOK"
     },
     {
       "name": "Ruff",
@@ -31,7 +31,7 @@
     {
       "name": "Raw artifact contracts",
       "passed": true,
-      "detail": "{\"10 safety-gate cases\": true, \"20 real model attempts\": true, \"3 prompt-injection attacks\": true, \"Reflexion comparison\": true, \"live auth statuses\": true, \"membership scenario\": true, \"pay scenario\": true}"
+      "detail": "{\"10 safety-gate cases\": true, \"20 real model attempts\": true, \"3 executable prompt-injection attacks\": true, \"Reflexion comparison\": true, \"live auth statuses\": true, \"membership scenario\": true, \"pay scenario\": true}"
     }
   ],
   "passed": true
