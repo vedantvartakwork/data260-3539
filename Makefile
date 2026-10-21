@@ -125,3 +125,6 @@ docker-test:
 
 docker-stop:
 	docker stop data260-3539-hw2
+
+verify-hw7:
+	$(PYTHON) scripts/verify_hw07.py

@@ -1,0 +1,194 @@
+{
+  "student": "Vedant Vartak",
+  "captured_at": "2026-10-21T06:40:46.543156+00:00",
+  "invalid_login": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8839/auth/login",
+    "status_code": 401,
+    "body": {
+      "detail": "Invalid username or password"
+    }
+  },
+  "reader_login": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8839/auth/login",
+    "status_code": 200,
+    "body": {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidXNlcm5hbWUiOiJyZWFkZXIzNTM5Iiwicm9sZSI6InJlYWRlciIsImlhdCI6MTc5MjU2NDg0NiwiZXhwIjoxNzkyNTY2NjQ2fQ.3zfvfAat4OJTdDTddMO59aL9MGE2OtJ9zzP75HVfn8w",
+      "token_type": "bearer",
+      "expires_in": 1800
+    }
+  },
+  "writer_login": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8839/auth/login",
+    "status_code": 200,
+    "body": {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1IiwidXNlcm5hbWUiOiJ3cml0ZXIzNTM5Iiwicm9sZSI6IndyaXRlciIsImlhdCI6MTc5MjU2NDg0NiwiZXhwIjoxNzkyNTY2NjQ2fQ.ifFJ2rhWfyCj_GkM8USpbpNa-lsoRmn_mkhS1e8svqc",
+      "token_type": "bearer",
+      "expires_in": 1800
+    }
+  },
+  "moderator_login": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8839/auth/login",
+    "status_code": 200,
+    "body": {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2IiwidXNlcm5hbWUiOiJtb2RlcmF0b3IzNTM5Iiwicm9sZSI6Im1vZGVyYXRvciIsImlhdCI6MTc5MjU2NDg0NiwiZXhwIjoxNzkyNTY2NjQ2fQ.qg-HLXPyocPTosGiXhnXLTpoiJAEgNc07TO_tW7KX6A",
+      "token_type": "bearer",
+      "expires_in": 1800
+    }
+  },
+  "me_missing": {
+    "method": "GET",
+    "url": "http://127.0.0.1:8839/auth/me",
+    "status_code": 401,
+    "body": {
+      "detail": "Bearer token required"
+    }
+  },
+  "me_invalid": {
+    "method": "GET",
+    "url": "http://127.0.0.1:8839/auth/me",
+    "status_code": 401,
+    "body": {
+      "detail": "Invalid or expired bearer token"
+    }
+  },
+  "me_reader": {
+    "method": "GET",
+    "url": "http://127.0.0.1:8839/auth/me",
+    "status_code": 200,
+    "body": {
+      "id": 4,
+      "username": "reader3539",
+      "role": "reader"
+    }
+  },
+  "list_reader": {
+    "method": "GET",
+    "url": "http://127.0.0.1:8839/api/v1/recalls?page_size=2",
+    "status_code": 200,
+    "body": {
+      "implementation": "fixed",
+      "page": 1,
+      "page_size": 2,
+      "total": 500,
+      "sql_queries": 2,
+      "records": [
+        {
+          "product_name": "Frozen Shrimp Lot 00001",
+          "recall_code": "REC-3539-00001",
+          "units_affected": 6535,
+          "manufacturer_id": 24,
+          "brand_name": "Grocery Safety Manufacturer 10",
+          "submitter_email": "recall1@example.edu",
+          "category": "Produce",
+          "recall_details": "Grocery Safety Manufacturer 10 Frozen Shrimp lot 00001 may contain an undeclared allergen and should be returned for a refund. Consumers should follow the recall instructions.",
+          "terms_accepted": true,
+          "id": 5505,
+          "created_at": "2026-10-02T06:37:13",
+          "updated_at": "2026-10-02T06:37:13",
+          "manufacturer": {
+            "id": 24,
+            "name": "Grocery Safety Manufacturer 10",
+            "contact_name": "Safety Contact 10",
+            "contact_email": "safety10@example.edu",
+            "created_at": "2026-10-02T06:37:13",
+            "updated_at": "2026-10-02T06:37:13"
+          },
+          "events": [
+            {
+              "id": 202,
+              "recall_id": 5505,
+              "event_type": "notice",
+              "note": "Seeded related recall event 001 using SEED 3539.",
+              "created_at": "2026-10-02T06:37:13"
+            }
+          ]
+        },
+        {
+          "product_name": "Chicken Salad Lot 00002",
+          "recall_code": "REC-3539-00002",
+          "units_affected": 18135,
+          "manufacturer_id": 20,
+          "brand_name": "Grocery Safety Manufacturer 06",
+          "submitter_email": "recall2@example.edu",
+          "category": "Packaged Foods",
+          "recall_details": "Grocery Safety Manufacturer 06 Chicken Salad lot 00002 may contain an undeclared allergen and should be returned for a refund. Consumers should follow the recall instructions.",
+          "terms_accepted": true,
+          "id": 5506,
+          "created_at": "2026-10-02T06:37:13",
+          "updated_at": "2026-10-02T06:37:13",
+          "manufacturer": {
+            "id": 20,
+            "name": "Grocery Safety Manufacturer 06",
+            "contact_name": "Safety Contact 06",
+            "contact_email": "safety06@example.edu",
+            "created_at": "2026-10-02T06:37:13",
+            "updated_at": "2026-10-02T06:37:13"
+          },
+          "events": [
+            {
+              "id": 203,
+              "recall_id": 5506,
+              "event_type": "follow-up",
+              "note": "Seeded related recall event 002 using SEED 3539.",
+              "created_at": "2026-10-02T06:37:13"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "create_reader": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8839/api/v1/recalls",
+    "status_code": 403,
+    "body": {
+      "detail": "Role 'reader' is not allowed"
+    }
+  },
+  "create_writer": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8839/api/v1/recalls",
+    "status_code": 201,
+    "body": {
+      "product_name": "HW7 JWT Evidence Granola Bars",
+      "recall_code": "REC-3539-HW7JWT",
+      "units_affected": 3539,
+      "manufacturer_id": 15,
+      "brand_name": "JWT Evidence Brand",
+      "submitter_email": "hw7@example.edu",
+      "category": "Packaged Foods",
+      "recall_details": "Selected packages are included in the HW7 role authorization evidence run.",
+      "terms_accepted": true,
+      "id": 6012,
+      "created_at": "2026-10-21T06:40:46",
+      "updated_at": "2026-10-21T06:40:46",
+      "manufacturer": {
+        "id": 15,
+        "name": "Grocery Safety Manufacturer 01",
+        "contact_name": "Safety Contact 01",
+        "contact_email": "safety01@example.edu",
+        "created_at": "2026-10-02T06:37:13",
+        "updated_at": "2026-10-02T06:37:13"
+      },
+      "events": []
+    }
+  },
+  "delete_writer": {
+    "method": "DELETE",
+    "url": "http://127.0.0.1:8839/api/v1/recalls/6012",
+    "status_code": 403,
+    "body": {
+      "detail": "Role 'writer' is not allowed"
+    }
+  },
+  "delete_moderator": {
+    "method": "DELETE",
+    "url": "http://127.0.0.1:8839/api/v1/recalls/6012",
+    "status_code": 204,
+    "body": ""
+  }
+}

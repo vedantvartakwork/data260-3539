@@ -6,11 +6,14 @@ USE s3539_rel;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(80) NOT NULL,
   name VARCHAR(120) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password_hash VARCHAR(255) NOT NULL,
+  role ENUM('reader', 'writer', 'moderator') NOT NULL DEFAULT 'reader',
   PRIMARY KEY (id),
-  UNIQUE KEY uq_users_email (email)
+  UNIQUE KEY uq_users_email (email),
+  UNIQUE KEY uq_users_username (username)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS sessions (

@@ -1,0 +1,1036 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/agent.py:3:1
+   |
+ 1 |   """Hand-written bounded tool agent built on the HW1 Ollama adapter."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import json
+ 6 | | import time
+ 7 | | from dataclasses import asdict, dataclass, field
+ 8 | | from pathlib import Path
+ 9 | | from typing import Any, Protocol
+10 | |
+11 | | from code.hw5_tools import RecallRepository, execute_tool
+12 | | from src.model_client import OllamaClient
+   | |_________________________________________^
+help: Organize imports
+   |
+6  | import time
+7  + from code.hw5_tools import RecallRepository, execute_tool
+8  | from dataclasses import asdict, dataclass, field
+9  | from pathlib import Path
+10 | from typing import Any, Protocol
+11 |
+   - from code.hw5_tools import RecallRepository, execute_tool
+12 | from src.model_client import OllamaClient
+   -
+13 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/bike_agent.py:3:1
+   |
+ 1 |   """LangGraph-based MRKL workflow for Capital Bikeshare cost recommendations."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import csv
+ 6 | | import hashlib
+ 7 | | import json
+ 8 | | import time
+ 9 | | from dataclasses import dataclass, field
+10 | | from datetime import datetime, timezone
+11 | | from pathlib import Path
+12 | | from typing import Any, TypedDict
+13 | |
+14 | | from langgraph.graph import END, START, StateGraph
+15 | |
+16 | | from code.hw7.bike_tools import calculator, csv_sql, policy_retriever
+   | |_____________________________________________________________________^
+help: Organize imports
+   |
+8  | import time
+9  + from code.hw7.bike_tools import calculator, csv_sql, policy_retriever
+10 | from dataclasses import dataclass, field
+--------------------------------------------------------------------------------
+15 | from langgraph.graph import END, START, StateGraph
+   -
+   - from code.hw7.bike_tools import calculator, csv_sql, policy_retriever
+16 |
+   |
+
+F401 [*] `csv` imported but unused
+ --> code/hw7/bike_agent.py:5:8
+  |
+3 | from __future__ import annotations
+4 |
+5 | import csv
+  |        ^^^
+6 | import hashlib
+7 | import json
+  |
+help: Remove unused import: `csv`
+  |
+4 |
+  - import csv
+5 | import hashlib
+  |
+
+F401 [*] `json` imported but unused
+ --> code/hw7/bike_agent.py:7:8
+  |
+5 | import csv
+6 | import hashlib
+7 | import json
+  |        ^^^^
+8 | import time
+9 | from dataclasses import dataclass, field
+  |
+help: Remove unused import: `json`
+  |
+6 | import hashlib
+  - import json
+7 | import time
+  |
+
+UP017 [*] Use `datetime.UTC` alias
+   --> code/hw7/bike_agent.py:124:69
+    |
+122 |         "actual_rides": stats["rides"],
+123 |         "weekly": stats["weekly"],
+124 |         "citations": [{"url": citation, "captured_at": datetime.now(timezone.utc).isoformat()}],
+    |                                                                     ^^^^^^^^^^^^
+125 |         "assumptions": ["CSV duration_minutes values are valid minutes.", "Frozen policy prices govern this evidence run."],
+126 |         "stop_reason": "success",
+    |
+help: Convert to `datetime.UTC` alias
+    |
+9   | from dataclasses import dataclass, field
+    - from datetime import datetime, timezone
+10  + from datetime import datetime, timezone, UTC
+11  | from pathlib import Path
+--------------------------------------------------------------------------------
+123 |         "weekly": stats["weekly"],
+    -         "citations": [{"url": citation, "captured_at": datetime.now(timezone.utc).isoformat()}],
+124 +         "citations": [{"url": citation, "captured_at": datetime.now(UTC).isoformat()}],
+125 |         "assumptions": ["CSV duration_minutes values are valid minutes.", "Frozen policy prices govern this evidence run."],
+    |
+
+UP017 [*] Use `datetime.UTC` alias
+   --> code/hw7/bike_agent.py:160:37
+    |
+158 |     return {
+159 |         "source_url": url,
+160 |         "accessed_at": datetime.now(timezone.utc).isoformat(),
+    |                                     ^^^^^^^^^^^^
+161 |         "sha256": hashlib.sha256(text.encode()).hexdigest(),
+162 |         "file": str(destination),
+    |
+help: Convert to `datetime.UTC` alias
+    |
+9   | from dataclasses import dataclass, field
+    - from datetime import datetime, timezone
+10  + from datetime import datetime, timezone, UTC
+11  | from pathlib import Path
+--------------------------------------------------------------------------------
+159 |         "source_url": url,
+    -         "accessed_at": datetime.now(timezone.utc).isoformat(),
+160 +         "accessed_at": datetime.now(UTC).isoformat(),
+161 |         "sha256": hashlib.sha256(text.encode()).hexdigest(),
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/bike_tools.py:3:1
+   |
+ 1 |   """Pure, schema-documented MRKL tools for the public bike-share exercise."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import ast
+ 6 | | import csv
+ 7 | | import io
+ 8 | | import json
+ 9 | | import re
+10 | | import sqlite3
+11 | | import urllib.request
+12 | | from datetime import datetime, timezone
+13 | | from html.parser import HTMLParser
+14 | | from pathlib import Path
+15 | | from typing import Any
+16 | |
+17 | | from pydantic import BaseModel, ConfigDict, Field
+   | |_________________________________________________^
+help: Organize imports
+   |
+18 |
+   -
+19 | CALCULATOR_PATTERN = re.compile(r"^[0-9+\-*/().\s]+$")
+   |
+
+F401 [*] `io` imported but unused
+ --> code/hw7/bike_tools.py:7:8
+  |
+5 | import ast
+6 | import csv
+7 | import io
+  |        ^^
+8 | import json
+9 | import re
+  |
+help: Remove unused import: `io`
+  |
+6 | import csv
+  - import io
+7 | import json
+  |
+
+UP017 [*] Use `datetime.UTC` alias
+  --> code/hw7/bike_tools.py:54:28
+   |
+52 |     result: dict[str, Any] = {
+53 |         "success": error is None,
+54 |         "ts": datetime.now(timezone.utc).isoformat(),
+   |                            ^^^^^^^^^^^^
+55 |     }
+56 |     if error is None:
+   |
+help: Convert to `datetime.UTC` alias
+   |
+11 | import urllib.request
+   - from datetime import datetime, timezone
+12 + from datetime import datetime, timezone, UTC
+13 | from html.parser import HTMLParser
+--------------------------------------------------------------------------------
+53 |         "success": error is None,
+   -         "ts": datetime.now(timezone.utc).isoformat(),
+54 +         "ts": datetime.now(UTC).isoformat(),
+55 |     }
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/file_tools.py:3:1
+   |
+ 1 |   """Sandboxed file tools and a pure-Python command safety gate."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import difflib
+ 6 | | import glob
+ 7 | | import re
+ 8 | | import shlex
+ 9 | | import subprocess
+10 | | from pathlib import Path
+11 | | from typing import Any
+   | |______________________^
+help: Organize imports
+   |
+12 |
+   -
+13 | SAFE_PREFIXES = ("pwd", "ls", "find", "rg", "grep", "head", "tail", "wc", "python -m compileall")
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> code/hw7/injection_security.py:3:1
+  |
+1 |   """Prompt-injection threat model and reproducible before/after attack harness."""
+2 |
+3 | / from __future__ import annotations
+4 | |
+5 | | from dataclasses import asdict, dataclass
+6 | | from typing import Any
+7 | |
+8 | | from code.hw7.bike_tools import csv_sql
+  | |_______________________________________^
+help: Organize imports
+  |
+4 |
+5 + from code.hw7.bike_tools import csv_sql
+6 | from dataclasses import asdict, dataclass
+7 | from typing import Any
+  -
+  - from code.hw7.bike_tools import csv_sql
+  -
+8 |
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/jwt_auth.py:3:1
+   |
+ 1 |   """Dependency-free HS256 JWT authentication and role-based authorization."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import base64
+ 6 | | import hashlib
+ 7 | | import hmac
+ 8 | | import json
+ 9 | | import os
+10 | | import time
+11 | | from collections.abc import Callable
+12 | | from typing import Any
+13 | |
+14 | | from fastapi import APIRouter, Depends, HTTPException, status
+15 | | from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+16 | | from pydantic import BaseModel, Field
+17 | | from sqlalchemy import select
+18 | | from sqlalchemy.orm import Session
+19 | |
+20 | | from code.web_application.db import get_db
+21 | | from code.web_application.models import User
+22 | | from code.web_application.security import verify_password
+   | |_________________________________________________________^
+help: Organize imports
+   |
+10 | import time
+11 + from code.web_application.db import get_db
+12 + from code.web_application.models import User
+13 + from code.web_application.security import verify_password
+14 | from collections.abc import Callable
+--------------------------------------------------------------------------------
+21 | from sqlalchemy.orm import Session
+   -
+   - from code.web_application.db import get_db
+   - from code.web_application.models import User
+   - from code.web_application.security import verify_password
+   -
+22 |
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/hw7/jwt_auth.py:96:56
+   |
+95 | def require_jwt_user(
+96 |     credentials: HTTPAuthorizationCredentials | None = Depends(bearer),
+   |                                                        ^^^^^^^^^^^^^^^
+97 |     db: Session = Depends(get_db),
+98 | ) -> User:
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/hw7/jwt_auth.py:97:19
+   |
+95 | def require_jwt_user(
+96 |     credentials: HTTPAuthorizationCredentials | None = Depends(bearer),
+97 |     db: Session = Depends(get_db),
+   |                   ^^^^^^^^^^^^^^^
+98 | ) -> User:
+99 |     if credentials is None or credentials.scheme.lower() != "bearer":
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/hw7/jwt_auth.py:113:33
+    |
+112 | def require_roles(*allowed: str) -> Callable[..., User]:
+113 |     def dependency(user: User = Depends(require_jwt_user)) -> User:
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+114 |         if user.role not in allowed:
+115 |             raise HTTPException(status_code=403, detail=f"Role '{user.role}' is not allowed")
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/hw7/jwt_auth.py:122:44
+    |
+121 | @router.post("/login", response_model=TokenResponse)
+122 | def login(payload: JWTLogin, db: Session = Depends(get_db)) -> TokenResponse:
+    |                                            ^^^^^^^^^^^^^^^
+123 |     user = db.scalar(select(User).where(User.username == payload.username.strip().lower()))
+124 |     if user is None or not verify_password(payload.password, user.password_hash):
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/hw7/jwt_auth.py:130:21
+    |
+129 | @router.get("/me", response_model=IdentityResponse)
+130 | def me(user: User = Depends(require_jwt_user)) -> IdentityResponse:
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+131 |     return IdentityResponse(id=user.id, username=user.username, role=user.role)
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/reflexion.py:3:1
+   |
+ 1 |   """Bounded Reflexion with deterministic verification and concise stored evidence."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import time
+ 6 | | import uuid
+ 7 | | from dataclasses import asdict, dataclass, field
+ 8 | | from typing import Any, Callable
+ 9 | |
+10 | | from code.hw5_tools import RecallRepository
+11 | | from code.hw7.agent import ActionModel, AgentResult, run_agent
+   | |______________________________________________________________^
+help: Organize imports
+   |
+6  | import uuid
+7  + from code.hw5_tools import RecallRepository
+8  + from code.hw7.agent import ActionModel, AgentResult, run_agent
+9  | from dataclasses import asdict, dataclass, field
+10 | from typing import Any, Callable
+   -
+   - from code.hw5_tools import RecallRepository
+   - from code.hw7.agent import ActionModel, AgentResult, run_agent
+   -
+11 |
+   |
+
+UP035 [*] Import from `collections.abc` instead: `Callable`
+  --> code/hw7/reflexion.py:8:1
+   |
+ 6 | import uuid
+ 7 | from dataclasses import asdict, dataclass, field
+ 8 | from typing import Any, Callable
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 9 |
+10 | from code.hw5_tools import RecallRepository
+   |
+help: Import from `collections.abc`
+   |
+7  | from dataclasses import asdict, dataclass, field
+   - from typing import Any, Callable
+8  + from typing import Any
+9  + from collections.abc import Callable
+10 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/hw7/routes.py:3:1
+   |
+ 1 |   """Homework 7 bike-share upload UI and execution endpoint."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import tempfile
+ 6 | | from pathlib import Path
+ 7 | |
+ 8 | | from fastapi import APIRouter, File, Form, UploadFile
+ 9 | | from fastapi.responses import HTMLResponse
+10 | |
+11 | | from code.hw7.bike_agent import run_bike_agent
+   | |______________________________________________^
+help: Organize imports
+   |
+5  | import tempfile
+6  + from code.hw7.bike_agent import run_bike_agent
+7  | from pathlib import Path
+8  |
+9  | from fastapi import APIRouter, File, Form, UploadFile
+10 | from fastapi.responses import HTMLResponse
+   -
+   - from code.hw7.bike_agent import run_bike_agent
+   -
+11 |
+   |
+
+B008 Do not perform function call `File` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/hw7/routes.py:24:28
+   |
+22 | @router.post("/api/hw7/bikeshare/run")
+23 | async def run_bikeshare(
+24 |     csv_file: UploadFile = File(...),
+   |                            ^^^^^^^^^
+25 |     pricing_url: str = Form(...),
+26 | ) -> dict:
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/web_application/backend.py:3:1
+   |
+ 1 |   """FastAPI backend for the DATA 260 grocery recall application."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | import os
+ 6 | | from pathlib import Path
+ 7 | |
+ 8 | | from fastapi import FastAPI, HTTPException, Query
+ 9 | | from fastapi.middleware.cors import CORSMiddleware
+10 | | from fastapi.responses import FileResponse
+11 | | from fastapi.staticfiles import StaticFiles
+12 | | from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
+13 | | from starlette.middleware.sessions import SessionMiddleware
+14 | |
+15 | | from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as auth_router
+16 | | from code.web_application.routers.api_auth import router as api_auth_router
+17 | | from code.web_application.routers.recalls import router as hw4_recalls_router
+18 | | from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
+19 | | from code.hw6.routes.documents import router as hw6_documents_router
+20 | | from code.hw6.routes.memory import router as hw6_memory_router
+21 | | from code.hw7.jwt_auth import router as hw7_jwt_router
+22 | | from code.hw7.routes import router as hw7_router
+   | |________________________________________________^
+23 |
+24 |   PORT_BASE = 8839
+   |
+help: Organize imports
+   |
+5  | import os
+6  + from code.hw6.routes.documents import router as hw6_documents_router
+7  + from code.hw6.routes.memory import router as hw6_memory_router
+8  + from code.hw7.jwt_auth import router as hw7_jwt_router
+9  + from code.hw7.routes import router as hw7_router
+10 + from code.web_application.routers.api_auth import router as api_auth_router
+11 + from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS
+12 + from code.web_application.routers.auth import router as auth_router
+13 + from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
+14 + from code.web_application.routers.recalls import router as hw4_recalls_router
+15 | from pathlib import Path
+--------------------------------------------------------------------------------
+22 | from starlette.middleware.sessions import SessionMiddleware
+   -
+   - from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as auth_router
+   - from code.web_application.routers.api_auth import router as api_auth_router
+   - from code.web_application.routers.recalls import router as hw4_recalls_router
+   - from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
+   - from code.hw6.routes.documents import router as hw6_documents_router
+   - from code.hw6.routes.memory import router as hw6_memory_router
+   - from code.hw7.jwt_auth import router as hw7_jwt_router
+   - from code.hw7.routes import router as hw7_router
+23 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/web_application/models.py:3:1
+   |
+ 1 |   """SQLAlchemy models for recalls, manufacturers, authentication, and events."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | from datetime import datetime
+ 6 | |
+ 7 | | from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Integer, String, Text, func
+ 8 | | from sqlalchemy.orm import Mapped, mapped_column, relationship
+ 9 | |
+10 | | from code.web_application.db import Base
+   | |________________________________________^
+help: Organize imports
+   |
+4  |
+5  + from code.web_application.db import Base
+6  | from datetime import datetime
+7  |
+8  | from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Integer, String, Text, func
+9  | from sqlalchemy.orm import Mapped, mapped_column, relationship
+   -
+   - from code.web_application.db import Base
+10 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> code/web_application/routers/recalls.py:3:1
+   |
+ 1 |   """Protected grocery-recall CRUD and N+1 demonstration endpoints."""
+ 2 |
+ 3 | / from __future__ import annotations
+ 4 | |
+ 5 | | from fastapi import APIRouter, Depends, HTTPException, Query, Response
+ 6 | | from sqlalchemy import delete, func, or_, select
+ 7 | | from sqlalchemy.exc import IntegrityError
+ 8 | | from sqlalchemy.orm import Session, joinedload
+ 9 | |
+10 | | from code.web_application.db import get_db
+11 | | from code.web_application.models import Manufacturer, RecallEvent, RecallNotice, User
+12 | | from code.web_application.query_counter import count_sql_queries
+13 | | from code.hw7.jwt_auth import require_jwt_user, require_roles
+14 | | from code.web_application.schemas import (
+15 | |     RecallCreate,
+16 | |     RecallEventResponse,
+17 | |     RecallListResponse,
+18 | |     RecallResponse,
+19 | |     RecallUpdate,
+20 | | )
+   | |_^
+help: Organize imports
+   |
+4  |
+   - from fastapi import APIRouter, Depends, HTTPException, Query, Response
+   - from sqlalchemy import delete, func, or_, select
+   - from sqlalchemy.exc import IntegrityError
+   - from sqlalchemy.orm import Session, joinedload
+   -
+5  + from code.hw7.jwt_auth import require_jwt_user, require_roles
+6  | from code.web_application.db import get_db
+7  | from code.web_application.models import Manufacturer, RecallEvent, RecallNotice, User
+8  | from code.web_application.query_counter import count_sql_queries
+   - from code.hw7.jwt_auth import require_jwt_user, require_roles
+9  | from code.web_application.schemas import (
+--------------------------------------------------------------------------------
+16 |
+17 + from fastapi import APIRouter, Depends, HTTPException, Query, Response
+18 + from sqlalchemy import delete, func, or_, select
+19 + from sqlalchemy.exc import IntegrityError
+20 + from sqlalchemy.orm import Session, joinedload
+21 |
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/web_application/routers/recalls.py:55:19
+   |
+53 |     response: Response,
+54 |     page_size: int = Query(default=10, ge=1, le=200),
+55 |     db: Session = Depends(get_db),
+   |                   ^^^^^^^^^^^^^^^
+56 |     _user: User = Depends(require_jwt_user),
+57 | ) -> RecallListResponse:
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/web_application/routers/recalls.py:56:19
+   |
+54 |     page_size: int = Query(default=10, ge=1, le=200),
+55 |     db: Session = Depends(get_db),
+56 |     _user: User = Depends(require_jwt_user),
+   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+57 | ) -> RecallListResponse:
+58 |     with count_sql_queries() as counter:
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/web_application/routers/recalls.py:94:19
+   |
+92 |     response: Response,
+93 |     page_size: int = Query(default=10, ge=1, le=200),
+94 |     db: Session = Depends(get_db),
+   |                   ^^^^^^^^^^^^^^^
+95 |     _user: User = Depends(require_jwt_user),
+96 | ) -> RecallListResponse:
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+  --> code/web_application/routers/recalls.py:95:19
+   |
+93 |     page_size: int = Query(default=10, ge=1, le=200),
+94 |     db: Session = Depends(get_db),
+95 |     _user: User = Depends(require_jwt_user),
+   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+96 | ) -> RecallListResponse:
+97 |     with count_sql_queries() as counter:
+   |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:124:19
+    |
+122 |     page: int = Query(default=1, ge=1),
+123 |     page_size: int = Query(default=50, ge=1, le=200),
+124 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+125 |     _user: User = Depends(require_jwt_user),
+126 | ) -> RecallListResponse:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:125:19
+    |
+123 |     page_size: int = Query(default=50, ge=1, le=200),
+124 |     db: Session = Depends(get_db),
+125 |     _user: User = Depends(require_jwt_user),
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+126 | ) -> RecallListResponse:
+127 |     filters = []
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:167:19
+    |
+165 | def recalls_by_manufacturer(
+166 |     manufacturer_id: int,
+167 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+168 |     _user: User = Depends(require_jwt_user),
+169 | ) -> list[RecallResponse]:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:168:19
+    |
+166 |     manufacturer_id: int,
+167 |     db: Session = Depends(get_db),
+168 |     _user: User = Depends(require_jwt_user),
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+169 | ) -> list[RecallResponse]:
+170 |     if db.get(Manufacturer, manufacturer_id) is None:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:186:19
+    |
+184 | def get_recall(
+185 |     recall_id: int,
+186 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+187 |     _user: User = Depends(require_jwt_user),
+188 | ) -> RecallResponse:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:187:19
+    |
+185 |     recall_id: int,
+186 |     db: Session = Depends(get_db),
+187 |     _user: User = Depends(require_jwt_user),
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+188 | ) -> RecallResponse:
+189 |     row = db.execute(
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:202:19
+    |
+200 | def create_recall(
+201 |     payload: RecallCreate,
+202 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+203 |     _user: User = Depends(require_roles("writer", "moderator")),
+204 | ) -> RecallResponse:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:203:19
+    |
+201 |     payload: RecallCreate,
+202 |     db: Session = Depends(get_db),
+203 |     _user: User = Depends(require_roles("writer", "moderator")),
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+204 | ) -> RecallResponse:
+205 |     if db.get(Manufacturer, payload.manufacturer_id) is None:
+    |
+
+B008 Do not perform function call `require_roles` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:203:27
+    |
+201 |     payload: RecallCreate,
+202 |     db: Session = Depends(get_db),
+203 |     _user: User = Depends(require_roles("writer", "moderator")),
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+204 | ) -> RecallResponse:
+205 |     if db.get(Manufacturer, payload.manufacturer_id) is None:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:222:19
+    |
+220 |     recall_id: int,
+221 |     payload: RecallUpdate,
+222 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+223 |     _user: User = Depends(require_roles("writer", "moderator")),
+224 | ) -> RecallResponse:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:223:19
+    |
+221 |     payload: RecallUpdate,
+222 |     db: Session = Depends(get_db),
+223 |     _user: User = Depends(require_roles("writer", "moderator")),
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+224 | ) -> RecallResponse:
+225 |     row = db.get(RecallNotice, recall_id)
+    |
+
+B008 Do not perform function call `require_roles` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:223:27
+    |
+221 |     payload: RecallUpdate,
+222 |     db: Session = Depends(get_db),
+223 |     _user: User = Depends(require_roles("writer", "moderator")),
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+224 | ) -> RecallResponse:
+225 |     row = db.get(RecallNotice, recall_id)
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:251:19
+    |
+249 | def delete_recall(
+250 |     recall_id: int,
+251 |     db: Session = Depends(get_db),
+    |                   ^^^^^^^^^^^^^^^
+252 |     _user: User = Depends(require_roles("moderator")),
+253 | ) -> None:
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:252:19
+    |
+250 |     recall_id: int,
+251 |     db: Session = Depends(get_db),
+252 |     _user: User = Depends(require_roles("moderator")),
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+253 | ) -> None:
+254 |     deleted = db.execute(
+    |
+
+B008 Do not perform function call `require_roles` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> code/web_application/routers/recalls.py:252:27
+    |
+250 |     recall_id: int,
+251 |     db: Session = Depends(get_db),
+252 |     _user: User = Depends(require_roles("moderator")),
+    |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+253 | ) -> None:
+254 |     deleted = db.execute(
+    |
+
+F401 [*] `time` imported but unused
+  --> scripts/run_hw07_experiments.py:11:8
+   |
+ 9 | import sys
+10 | import tempfile
+11 | import time
+   |        ^^^^
+12 | from datetime import datetime, timezone
+13 | from pathlib import Path
+   |
+help: Remove unused import: `time`
+   |
+10 | import tempfile
+   - import time
+11 | from datetime import datetime, timezone
+   |
+
+E402 Module level import not at top of file
+  --> scripts/run_hw07_experiments.py:19:1
+   |
+17 |     sys.path.insert(0, str(ROOT))
+18 |
+19 | from code.hw5_tools import InMemoryRecallRepository
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+20 | from code.hw7.agent import ScriptedActionModel, run_agent
+21 | from code.hw7.bike_agent import run_bike_agent, save_pricing_snapshot
+   |
+help: Move module level imports to top of file
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/run_hw07_experiments.py:19:1
+   |
+17 |       sys.path.insert(0, str(ROOT))
+18 |
+19 | / from code.hw5_tools import InMemoryRecallRepository
+20 | | from code.hw7.agent import ScriptedActionModel, run_agent
+21 | | from code.hw7.bike_agent import run_bike_agent, save_pricing_snapshot
+22 | | from code.hw7.file_tools import confirm_bash, glob_files, read_file, search_in_files, write_file
+23 | | from code.hw7.injection_security import THREAT_MODEL, evaluate_attacks
+24 | | from code.hw7.reflexion import run_reflexion, verify_task
+   | |_________________________________________________________^
+help: Organize imports
+   |
+25 |
+   -
+26 | REPORT = ROOT / "reports/hw07"
+   |
+
+E402 Module level import not at top of file
+  --> scripts/run_hw07_experiments.py:20:1
+   |
+19 | from code.hw5_tools import InMemoryRecallRepository
+20 | from code.hw7.agent import ScriptedActionModel, run_agent
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+21 | from code.hw7.bike_agent import run_bike_agent, save_pricing_snapshot
+22 | from code.hw7.file_tools import confirm_bash, glob_files, read_file, search_in_files, write_file
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts/run_hw07_experiments.py:21:1
+   |
+19 | from code.hw5_tools import InMemoryRecallRepository
+20 | from code.hw7.agent import ScriptedActionModel, run_agent
+21 | from code.hw7.bike_agent import run_bike_agent, save_pricing_snapshot
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+22 | from code.hw7.file_tools import confirm_bash, glob_files, read_file, search_in_files, write_file
+23 | from code.hw7.injection_security import THREAT_MODEL, evaluate_attacks
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts/run_hw07_experiments.py:22:1
+   |
+20 | from code.hw7.agent import ScriptedActionModel, run_agent
+21 | from code.hw7.bike_agent import run_bike_agent, save_pricing_snapshot
+22 | from code.hw7.file_tools import confirm_bash, glob_files, read_file, search_in_files, write_file
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+23 | from code.hw7.injection_security import THREAT_MODEL, evaluate_attacks
+24 | from code.hw7.reflexion import run_reflexion, verify_task
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts/run_hw07_experiments.py:23:1
+   |
+21 | from code.hw7.bike_agent import run_bike_agent, save_pricing_snapshot
+22 | from code.hw7.file_tools import confirm_bash, glob_files, read_file, search_in_files, write_file
+23 | from code.hw7.injection_security import THREAT_MODEL, evaluate_attacks
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+24 | from code.hw7.reflexion import run_reflexion, verify_task
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts/run_hw07_experiments.py:24:1
+   |
+22 | from code.hw7.file_tools import confirm_bash, glob_files, read_file, search_in_files, write_file
+23 | from code.hw7.injection_security import THREAT_MODEL, evaluate_attacks
+24 | from code.hw7.reflexion import run_reflexion, verify_task
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: Move module level imports to top of file
+
+UP017 [*] Use `datetime.UTC` alias
+   --> scripts/run_hw07_experiments.py:273:28
+    |
+272 | def main() -> None:
+273 |     started = datetime.now(timezone.utc)
+    |                            ^^^^^^^^^^^^
+274 |     RAW.mkdir(parents=True, exist_ok=True)
+275 |     repo = InMemoryRecallRepository()
+    |
+help: Convert to `datetime.UTC` alias
+    |
+11  | import time
+    - from datetime import datetime, timezone
+12  + from datetime import datetime, timezone, UTC
+13  | from pathlib import Path
+--------------------------------------------------------------------------------
+272 | def main() -> None:
+    -     started = datetime.now(timezone.utc)
+273 +     started = datetime.now(UTC)
+274 |     RAW.mkdir(parents=True, exist_ok=True)
+    |
+
+UP017 [*] Use `datetime.UTC` alias
+   --> scripts/run_hw07_experiments.py:285:38
+    |
+283 |         "student": "Vedant Vartak",
+284 |         "started_utc": started.isoformat(),
+285 |         "finished_utc": datetime.now(timezone.utc).isoformat(),
+    |                                      ^^^^^^^^^^^^
+286 |         "model": "qwen3:8b",
+287 |         "seed": 3539,
+    |
+help: Convert to `datetime.UTC` alias
+    |
+11  | import time
+    - from datetime import datetime, timezone
+12  + from datetime import datetime, timezone, UTC
+13  | from pathlib import Path
+--------------------------------------------------------------------------------
+284 |         "started_utc": started.isoformat(),
+    -         "finished_utc": datetime.now(timezone.utc).isoformat(),
+285 +         "finished_utc": datetime.now(UTC).isoformat(),
+286 |         "model": "qwen3:8b",
+    |
+
+E402 Module level import not at top of file
+  --> scripts/seed_hw07.py:14:1
+   |
+12 | sys.path.insert(0, str(ROOT))
+13 |
+14 | from code.web_application.db import db_session_basede26, engine
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+15 | from code.web_application.models import User
+16 | from code.web_application.security import hash_password
+   |
+help: Move module level imports to top of file
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/seed_hw07.py:14:1
+   |
+12 |   sys.path.insert(0, str(ROOT))
+13 |
+14 | / from code.web_application.db import db_session_basede26, engine
+15 | | from code.web_application.models import User
+16 | | from code.web_application.security import hash_password
+   | |_______________________________________________________^
+help: Organize imports
+   |
+17 |
+   -
+18 | USERS = (
+   |
+
+E402 Module level import not at top of file
+  --> scripts/seed_hw07.py:15:1
+   |
+14 | from code.web_application.db import db_session_basede26, engine
+15 | from code.web_application.models import User
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+16 | from code.web_application.security import hash_password
+   |
+help: Move module level imports to top of file
+
+E402 Module level import not at top of file
+  --> scripts/seed_hw07.py:16:1
+   |
+14 | from code.web_application.db import db_session_basede26, engine
+15 | from code.web_application.models import User
+16 | from code.web_application.security import hash_password
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: Move module level imports to top of file
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_hw07.py:1:1
+   |
+ 1 | / from __future__ import annotations
+ 2 | |
+ 3 | | import csv
+ 4 | | import json
+ 5 | | import tempfile
+ 6 | | import unittest
+ 7 | | from pathlib import Path
+ 8 | |
+ 9 | | from fastapi import HTTPException
+10 | |
+11 | | from code.hw5_tools import InMemoryRecallRepository
+12 | | from code.hw7.agent import ScriptedActionModel, run_agent
+13 | | from code.hw7.bike_agent import run_bike_agent
+14 | | from code.hw7.bike_tools import calculator, csv_sql, policy_retriever
+15 | | from code.hw7.file_tools import (
+16 | |     confirm_bash,
+17 | |     edit_file,
+18 | |     glob_files,
+19 | |     is_destructive,
+20 | |     read_file,
+21 | |     search_in_files,
+22 | |     write_file,
+23 | | )
+24 | | from code.hw7.injection_security import evaluate_attacks
+25 | | from code.hw7.jwt_auth import create_access_token, decode_access_token
+26 | | from code.hw7.reflexion import run_reflexion, verify_task
+27 | | from code.web_application.models import User
+   | |____________________________________________^
+help: Organize imports
+   |
+6  | import unittest
+   - from pathlib import Path
+   -
+   - from fastapi import HTTPException
+   -
+7  | from code.hw5_tools import InMemoryRecallRepository
+--------------------------------------------------------------------------------
+23 | from code.web_application.models import User
+24 + from pathlib import Path
+25 |
+26 + from fastapi import HTTPException
+27 |
+   |
+
+F401 [*] `json` imported but unused
+ --> tests/test_hw07.py:4:8
+  |
+3 | import csv
+4 | import json
+  |        ^^^^
+5 | import tempfile
+6 | import unittest
+  |
+help: Remove unused import: `json`
+  |
+3 | import csv
+  - import json
+4 | import tempfile
+  |
+
+Found 59 errors.
+[*] 25 fixable with `--fix`.

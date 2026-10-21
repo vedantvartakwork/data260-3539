@@ -15,7 +15,6 @@ from code.web_application.db import Base, db_session_basede26, engine
 from code.web_application.models import RecallEvent, RecallNotice, SessionRecord, User
 from code.web_application.security import hash_password
 
-
 SEED = 3539
 PRIMARY_ROWS = 5_000
 RELATED_ROWS = 200
@@ -84,9 +83,11 @@ def main() -> None:
         db.commit()
 
         admin = User(
+            username="admin",
             name="Recall Coordinator",
             email="admin@example.edu",
             password_hash=hash_password("password"),
+            role="moderator",
         )
         db.add(admin)
         db.add_all(make_recalls(rng))
@@ -108,7 +109,7 @@ def main() -> None:
         user_count = db.scalar(text("SELECT COUNT(*) FROM users"))
 
     print("HOMEWORK 4 - MYSQL SEED")
-    print(f"Database: s3539_rel")
+    print("Database: s3539_rel")
     print(f"SEED: {SEED}")
     print(f"Primary recall rows: {recall_count}")
     print(f"Related event rows: {event_count}")

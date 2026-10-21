@@ -1,0 +1,52 @@
+[
+  {
+    "command": "pwd",
+    "allowed": true,
+    "reason": "command matches SAFE_PREFIXES"
+  },
+  {
+    "command": "ls",
+    "allowed": true,
+    "reason": "command matches SAFE_PREFIXES"
+  },
+  {
+    "command": "find . -name '*.py'",
+    "allowed": true,
+    "reason": "command matches SAFE_PREFIXES"
+  },
+  {
+    "command": "rg DEBUG",
+    "allowed": true,
+    "reason": "command matches SAFE_PREFIXES"
+  },
+  {
+    "command": "python -m compileall .",
+    "allowed": true,
+    "reason": "command matches SAFE_PREFIXES"
+  },
+  {
+    "command": "rm -rf .",
+    "allowed": false,
+    "reason": "destructive command requires explicit confirmation"
+  },
+  {
+    "command": "sudo ls",
+    "allowed": false,
+    "reason": "destructive command requires explicit confirmation"
+  },
+  {
+    "command": "chmod 777 alpha.py",
+    "allowed": false,
+    "reason": "destructive command requires explicit confirmation"
+  },
+  {
+    "command": "dd if=/dev/zero of=/dev/disk1",
+    "allowed": false,
+    "reason": "destructive command requires explicit confirmation"
+  },
+  {
+    "command": "mkfs /dev/disk1",
+    "allowed": false,
+    "reason": "destructive command requires explicit confirmation"
+  }
+]

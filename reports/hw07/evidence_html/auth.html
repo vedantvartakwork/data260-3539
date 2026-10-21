@@ -1,0 +1,203 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Part 1 — Live JWT Authentication and RBAC</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#f4f4f1;color:#111;font:17px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:#111;color:#fff;padding:24px 42px} h1{font-size:30px;margin:0 0 5px} header p{margin:0;color:#ddd}
+main{padding:28px 42px;display:grid;gap:18px} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid #bbb;border-radius:12px;padding:18px;box-shadow:0 2px 8px #0001} h2{font-size:20px;margin:0 0 10px}
+pre{white-space:pre-wrap;word-break:break-word;background:#171717;color:#f5f5f5;border-radius:8px;padding:14px;margin:8px 0 0;font:14px/1.35 Menlo,monospace}
+.ok{color:#08772c;font-weight:750} .bad{color:#b42318;font-weight:750} .pill{display:inline-block;padding:3px 9px;border-radius:99px;background:#e8e8e8;font-weight:700}
+table{width:100%;border-collapse:collapse;background:#fff} th,td{border:1px solid #aaa;padding:9px;text-align:left;vertical-align:top} th{background:#222;color:#fff}
+.wide{grid-column:1/-1} footer{padding:0 42px 24px;color:#555;font-size:13px}
+</style></head><body><header><h1>Part 1 — Live JWT Authentication and RBAC</h1><p>Actual local HTTP requests against http://127.0.0.1:8839</p></header><main><div class="grid"><section class="card "><h2><span class="ok">PASS</span> invalid_login — HTTP 401</h2><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/login&quot;,
+  &quot;status_code&quot;: 401,
+  &quot;body&quot;: {
+    &quot;detail&quot;: &quot;Invalid username or password&quot;
+  },
+  &quot;name&quot;: &quot;invalid_login&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> reader_login — HTTP 200</h2><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/login&quot;,
+  &quot;status_code&quot;: 200,
+  &quot;body&quot;: {
+    &quot;access_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6Ik…[redacted]&quot;,
+    &quot;token_type&quot;: &quot;bearer&quot;,
+    &quot;expires_in&quot;: 1800
+  },
+  &quot;name&quot;: &quot;reader_login&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> writer_login — HTTP 200</h2><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/login&quot;,
+  &quot;status_code&quot;: 200,
+  &quot;body&quot;: {
+    &quot;access_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6Ik…[redacted]&quot;,
+    &quot;token_type&quot;: &quot;bearer&quot;,
+    &quot;expires_in&quot;: 1800
+  },
+  &quot;name&quot;: &quot;writer_login&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> moderator_login — HTTP 200</h2><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/login&quot;,
+  &quot;status_code&quot;: 200,
+  &quot;body&quot;: {
+    &quot;access_token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6Ik…[redacted]&quot;,
+    &quot;token_type&quot;: &quot;bearer&quot;,
+    &quot;expires_in&quot;: 1800
+  },
+  &quot;name&quot;: &quot;moderator_login&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> me_missing — HTTP 401</h2><pre>{
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/me&quot;,
+  &quot;status_code&quot;: 401,
+  &quot;body&quot;: {
+    &quot;detail&quot;: &quot;Bearer token required&quot;
+  },
+  &quot;name&quot;: &quot;me_missing&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> me_invalid — HTTP 401</h2><pre>{
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/me&quot;,
+  &quot;status_code&quot;: 401,
+  &quot;body&quot;: {
+    &quot;detail&quot;: &quot;Invalid or expired bearer token&quot;
+  },
+  &quot;name&quot;: &quot;me_invalid&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> me_reader — HTTP 200</h2><pre>{
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/auth/me&quot;,
+  &quot;status_code&quot;: 200,
+  &quot;body&quot;: {
+    &quot;id&quot;: 4,
+    &quot;username&quot;: &quot;reader3539&quot;,
+    &quot;role&quot;: &quot;reader&quot;
+  },
+  &quot;name&quot;: &quot;me_reader&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> list_reader — HTTP 200</h2><pre>{
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/api/v1/recalls?page_size=2&quot;,
+  &quot;status_code&quot;: 200,
+  &quot;body&quot;: {
+    &quot;implementation&quot;: &quot;fixed&quot;,
+    &quot;page&quot;: 1,
+    &quot;page_size&quot;: 2,
+    &quot;total&quot;: 500,
+    &quot;sql_queries&quot;: 2,
+    &quot;records&quot;: [
+      {
+        &quot;product_name&quot;: &quot;Frozen Shrimp Lot 00001&quot;,
+        &quot;recall_code&quot;: &quot;REC-3539-00001&quot;,
+        &quot;units_affected&quot;: 6535,
+        &quot;manufacturer_id&quot;: 24,
+        &quot;brand_name&quot;: &quot;Grocery Safety Manufacturer 10&quot;,
+        &quot;submitter_email&quot;: &quot;recall1@example.edu&quot;,
+        &quot;category&quot;: &quot;Produce&quot;,
+        &quot;recall_details&quot;: &quot;Grocery Safety Manufacturer 10 Frozen Shrimp lot 00001 may contain an undeclared allergen and should be returned for a refund. Consumers should follow the recall instructions.&quot;,
+        &quot;terms_accepted&quot;: true,
+        &quot;id&quot;: 5505,
+        &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+        &quot;updated_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+        &quot;manufacturer&quot;: {
+          &quot;id&quot;: 24,
+          &quot;name&quot;: &quot;Grocery Safety Manufacturer 10&quot;,
+          &quot;contact_name&quot;: &quot;Safety Contact 10&quot;,
+          &quot;contact_email&quot;: &quot;safety10@example.edu&quot;,
+          &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+          &quot;updated_at&quot;: &quot;2026-10-02T06:37:13&quot;
+        },
+        &quot;events&quot;: [
+          {
+            &quot;id&quot;: 202,
+            &quot;recall_id&quot;: 5505,
+            &quot;event_type&quot;: &quot;notice&quot;,
+            &quot;note&quot;: &quot;Seeded related recall event 001 using SEED 3539.&quot;,
+            &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;
+          }
+        ]
+      },
+      {
+        &quot;product_name&quot;: &quot;Chicken Salad Lot 00002&quot;,
+        &quot;recall_code&quot;: &quot;REC-3539-00002&quot;,
+        &quot;units_affected&quot;: 18135,
+        &quot;manufacturer_id&quot;: 20,
+        &quot;brand_name&quot;: &quot;Grocery Safety Manufacturer 06&quot;,
+        &quot;submitter_email&quot;: &quot;recall2@example.edu&quot;,
+        &quot;category&quot;: &quot;Packaged Foods&quot;,
+        &quot;recall_details&quot;: &quot;Grocery Safety Manufacturer 06 Chicken Salad lot 00002 may contain an undeclared allergen and should be returned for a refund. Consumers should follow the recall instructions.&quot;,
+        &quot;terms_accepted&quot;: true,
+        &quot;id&quot;: 5506,
+        &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+        &quot;updated_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+        &quot;manufacturer&quot;: {
+          &quot;id&quot;: 20,
+          &quot;name&quot;: &quot;Grocery Safety Manufacturer 06&quot;,
+          &quot;contact_name&quot;: &quot;Safety Contact 06&quot;,
+          &quot;contact_email&quot;: &quot;safety06@example.edu&quot;,
+          &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+          &quot;updated_at&quot;: &quot;2026-10-02T06:37:13&quot;
+        },
+        &quot;events&quot;: [
+          {
+            &quot;id&quot;: 203,
+            &quot;recall_id&quot;: 5506,
+            &quot;event_type&quot;: &quot;follow-up&quot;,
+            &quot;note&quot;: &quot;Seeded related recall event 002 using SEED 3539.&quot;,
+            &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;
+          }
+        ]
+      }
+    ]
+  },
+  &quot;name&quot;: &quot;list_reader&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> create_reader — HTTP 403</h2><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/api/v1/recalls&quot;,
+  &quot;status_code&quot;: 403,
+  &quot;body&quot;: {
+    &quot;detail&quot;: &quot;Role &#x27;reader&#x27; is not allowed&quot;
+  },
+  &quot;name&quot;: &quot;create_reader&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> create_writer — HTTP 201</h2><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/api/v1/recalls&quot;,
+  &quot;status_code&quot;: 201,
+  &quot;body&quot;: {
+    &quot;product_name&quot;: &quot;HW7 JWT Evidence Granola Bars&quot;,
+    &quot;recall_code&quot;: &quot;REC-3539-HW7JWT&quot;,
+    &quot;units_affected&quot;: 3539,
+    &quot;manufacturer_id&quot;: 15,
+    &quot;brand_name&quot;: &quot;JWT Evidence Brand&quot;,
+    &quot;submitter_email&quot;: &quot;hw7@example.edu&quot;,
+    &quot;category&quot;: &quot;Packaged Foods&quot;,
+    &quot;recall_details&quot;: &quot;Selected packages are included in the HW7 role authorization evidence run.&quot;,
+    &quot;terms_accepted&quot;: true,
+    &quot;id&quot;: 6012,
+    &quot;created_at&quot;: &quot;2026-10-21T06:40:46&quot;,
+    &quot;updated_at&quot;: &quot;2026-10-21T06:40:46&quot;,
+    &quot;manufacturer&quot;: {
+      &quot;id&quot;: 15,
+      &quot;name&quot;: &quot;Grocery Safety Manufacturer 01&quot;,
+      &quot;contact_name&quot;: &quot;Safety Contact 01&quot;,
+      &quot;contact_email&quot;: &quot;safety01@example.edu&quot;,
+      &quot;created_at&quot;: &quot;2026-10-02T06:37:13&quot;,
+      &quot;updated_at&quot;: &quot;2026-10-02T06:37:13&quot;
+    },
+    &quot;events&quot;: []
+  },
+  &quot;name&quot;: &quot;create_writer&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> delete_writer — HTTP 403</h2><pre>{
+  &quot;method&quot;: &quot;DELETE&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/api/v1/recalls/6012&quot;,
+  &quot;status_code&quot;: 403,
+  &quot;body&quot;: {
+    &quot;detail&quot;: &quot;Role &#x27;writer&#x27; is not allowed&quot;
+  },
+  &quot;name&quot;: &quot;delete_writer&quot;
+}</pre></section><section class="card "><h2><span class="ok">PASS</span> delete_moderator — HTTP 204</h2><pre>{
+  &quot;method&quot;: &quot;DELETE&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8839/api/v1/recalls/6012&quot;,
+  &quot;status_code&quot;: 204,
+  &quot;body&quot;: &quot;&quot;,
+  &quot;name&quot;: &quot;delete_moderator&quot;
+}</pre></section></div></main>
+<footer>Vedant Vartak • DATA 260 Homework 7 • SID4 3539 • Evidence generated from saved raw artifacts</footer></body></html>

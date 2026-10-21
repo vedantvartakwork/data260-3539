@@ -1,0 +1,287 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Part 3 — Bounded Reflexion</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#f4f4f1;color:#111;font:17px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:#111;color:#fff;padding:24px 42px} h1{font-size:30px;margin:0 0 5px} header p{margin:0;color:#ddd}
+main{padding:28px 42px;display:grid;gap:18px} .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:#fff;border:1px solid #bbb;border-radius:12px;padding:18px;box-shadow:0 2px 8px #0001} h2{font-size:20px;margin:0 0 10px}
+pre{white-space:pre-wrap;word-break:break-word;background:#171717;color:#f5f5f5;border-radius:8px;padding:14px;margin:8px 0 0;font:14px/1.35 Menlo,monospace}
+.ok{color:#08772c;font-weight:750} .bad{color:#b42318;font-weight:750} .pill{display:inline-block;padding:3px 9px;border-radius:99px;background:#e8e8e8;font-weight:700}
+table{width:100%;border-collapse:collapse;background:#fff} th,td{border:1px solid #aaa;padding:9px;text-align:left;vertical-align:top} th{background:#222;color:#fff}
+.wide{grid-column:1/-1} footer{padding:0 42px 24px;color:#555;font-size:13px}
+</style></head><body><header><h1>Part 3 — Bounded Reflexion</h1><p>Objective verifier, maximum two retries, budgets, and concise scoped reflections</p></header><main><section class="card wide"><h2><span class="ok">PASS</span> Original vs Reflexion raw comparison</h2><pre>[
+  {
+    &quot;task&quot;: &quot;A&quot;,
+    &quot;original&quot;: {
+      &quot;user_input&quot;: &quot;A&quot;,
+      &quot;answer&quot;: &quot;Found shrimp.&quot;,
+      &quot;stop_reason&quot;: &quot;success&quot;,
+      &quot;steps&quot;: 2,
+      &quot;tool_calls&quot;: 1,
+      &quot;tokens&quot;: 24,
+      &quot;latency_ms&quot;: 0.023,
+      &quot;repairs&quot;: 0,
+      &quot;initial_failure&quot;: null,
+      &quot;invocations&quot;: [
+        {
+          &quot;step&quot;: 1,
+          &quot;tool&quot;: &quot;search&quot;,
+          &quot;inputs&quot;: {
+            &quot;query&quot;: &quot;shrimp&quot;,
+            &quot;limit&quot;: 1
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;count&quot;: 1,
+              &quot;matches&quot;: [
+                {
+                  &quot;brand_name&quot;: &quot;Campus Pantry&quot;,
+                  &quot;category&quot;: &quot;Meat and Seafood&quot;,
+                  &quot;id&quot;: 1,
+                  &quot;product_name&quot;: &quot;Frozen Shrimp Lot 00001&quot;,
+                  &quot;recall_code&quot;: &quot;REC-3539-00001&quot;,
+                  &quot;units_affected&quot;: 1200
+                }
+              ]
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        }
+      ]
+    },
+    &quot;reflexion&quot;: {
+      &quot;task&quot;: &quot;A&quot;,
+      &quot;answer&quot;: &quot;The first shrimp result is Frozen Shrimp Lot 00001, recall REC-3539-00001, with 1,200 affected units.&quot;,
+      &quot;stop_reason&quot;: &quot;success&quot;,
+      &quot;attempts&quot;: 2,
+      &quot;retries&quot;: 1,
+      &quot;tool_calls&quot;: 3,
+      &quot;tokens&quot;: 60,
+      &quot;latency_ms&quot;: 0.123,
+      &quot;unsupported_claims&quot;: 0,
+      &quot;verifier_false_rejections&quot;: 0,
+      &quot;reflections&quot;: [
+        {
+          &quot;run_id&quot;: &quot;6839353b-af6a-4e91-8aa6-6d2073b8f083&quot;,
+          &quot;user_id&quot;: &quot;vedant&quot;,
+          &quot;attempt&quot;: 1,
+          &quot;failure_evidence&quot;: &quot;only 1 tool calls; expected at least 2&quot;,
+          &quot;revised_strategy&quot;: &quot;Repeat the task and ensure the missing verification condition is satisfied: only 1 tool calls; expected at least 2.&quot;,
+          &quot;trusted&quot;: false
+        }
+      ]
+    }
+  },
+  {
+    &quot;task&quot;: &quot;B&quot;,
+    &quot;original&quot;: {
+      &quot;user_input&quot;: &quot;B&quot;,
+      &quot;answer&quot;: &quot;Meat and Seafood has 1,200 units in the fixture; Frozen Shrimp Lot 00001 is a supporting example.&quot;,
+      &quot;stop_reason&quot;: &quot;success&quot;,
+      &quot;steps&quot;: 3,
+      &quot;tool_calls&quot;: 2,
+      &quot;tokens&quot;: 36,
+      &quot;latency_ms&quot;: 0.036,
+      &quot;repairs&quot;: 0,
+      &quot;initial_failure&quot;: null,
+      &quot;invocations&quot;: [
+        {
+          &quot;step&quot;: 1,
+          &quot;tool&quot;: &quot;aggregate&quot;,
+          &quot;inputs&quot;: {
+            &quot;group_by&quot;: &quot;category&quot;,
+            &quot;min_units&quot;: 0
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;group_by&quot;: &quot;category&quot;,
+              &quot;groups&quot;: [
+                {
+                  &quot;label&quot;: &quot;Dairy and Refrigerated&quot;,
+                  &quot;recall_count&quot;: 1,
+                  &quot;total_units&quot;: 800
+                },
+                {
+                  &quot;label&quot;: &quot;Meat and Seafood&quot;,
+                  &quot;recall_count&quot;: 1,
+                  &quot;total_units&quot;: 1200
+                }
+              ]
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        },
+        {
+          &quot;step&quot;: 2,
+          &quot;tool&quot;: &quot;search&quot;,
+          &quot;inputs&quot;: {
+            &quot;query&quot;: &quot;shrimp&quot;,
+            &quot;limit&quot;: 1
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;count&quot;: 1,
+              &quot;matches&quot;: [
+                {
+                  &quot;brand_name&quot;: &quot;Campus Pantry&quot;,
+                  &quot;category&quot;: &quot;Meat and Seafood&quot;,
+                  &quot;id&quot;: 1,
+                  &quot;product_name&quot;: &quot;Frozen Shrimp Lot 00001&quot;,
+                  &quot;recall_code&quot;: &quot;REC-3539-00001&quot;,
+                  &quot;units_affected&quot;: 1200
+                }
+              ]
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        }
+      ]
+    },
+    &quot;reflexion&quot;: {
+      &quot;task&quot;: &quot;B&quot;,
+      &quot;answer&quot;: &quot;Meat and Seafood has 1,200 units in the fixture; Frozen Shrimp Lot 00001 is a supporting example.&quot;,
+      &quot;stop_reason&quot;: &quot;success&quot;,
+      &quot;attempts&quot;: 1,
+      &quot;retries&quot;: 0,
+      &quot;tool_calls&quot;: 2,
+      &quot;tokens&quot;: 36,
+      &quot;latency_ms&quot;: 0.05,
+      &quot;unsupported_claims&quot;: 0,
+      &quot;verifier_false_rejections&quot;: 0,
+      &quot;reflections&quot;: []
+    }
+  },
+  {
+    &quot;task&quot;: &quot;C&quot;,
+    &quot;original&quot;: {
+      &quot;user_input&quot;: &quot;C&quot;,
+      &quot;answer&quot;: &quot;Shrimp affects 1,200 units and yogurt affects 800, so shrimp affects 400 more units.&quot;,
+      &quot;stop_reason&quot;: &quot;success&quot;,
+      &quot;steps&quot;: 5,
+      &quot;tool_calls&quot;: 4,
+      &quot;tokens&quot;: 60,
+      &quot;latency_ms&quot;: 0.059,
+      &quot;repairs&quot;: 0,
+      &quot;initial_failure&quot;: null,
+      &quot;invocations&quot;: [
+        {
+          &quot;step&quot;: 1,
+          &quot;tool&quot;: &quot;search&quot;,
+          &quot;inputs&quot;: {
+            &quot;query&quot;: &quot;shrimp&quot;,
+            &quot;limit&quot;: 1
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;count&quot;: 1,
+              &quot;matches&quot;: [
+                {
+                  &quot;brand_name&quot;: &quot;Campus Pantry&quot;,
+                  &quot;category&quot;: &quot;Meat and Seafood&quot;,
+                  &quot;id&quot;: 1,
+                  &quot;product_name&quot;: &quot;Frozen Shrimp Lot 00001&quot;,
+                  &quot;recall_code&quot;: &quot;REC-3539-00001&quot;,
+                  &quot;units_affected&quot;: 1200
+                }
+              ]
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        },
+        {
+          &quot;step&quot;: 2,
+          &quot;tool&quot;: &quot;detail&quot;,
+          &quot;inputs&quot;: {
+            &quot;recall_id&quot;: 1
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;brand_name&quot;: &quot;Campus Pantry&quot;,
+              &quot;category&quot;: &quot;Meat and Seafood&quot;,
+              &quot;id&quot;: 1,
+              &quot;manufacturer&quot;: {
+                &quot;contact_name&quot;: &quot;A. Safety&quot;,
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Campus Pantry&quot;
+              },
+              &quot;product_name&quot;: &quot;Frozen Shrimp Lot 00001&quot;,
+              &quot;recall_code&quot;: &quot;REC-3539-00001&quot;,
+              &quot;recall_details&quot;: &quot;Selected packages may contain an undeclared allergen.&quot;,
+              &quot;units_affected&quot;: 1200
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        },
+        {
+          &quot;step&quot;: 3,
+          &quot;tool&quot;: &quot;search&quot;,
+          &quot;inputs&quot;: {
+            &quot;query&quot;: &quot;yogurt&quot;,
+            &quot;limit&quot;: 1
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;count&quot;: 1,
+              &quot;matches&quot;: [
+                {
+                  &quot;brand_name&quot;: &quot;Golden Dairy&quot;,
+                  &quot;category&quot;: &quot;Dairy and Refrigerated&quot;,
+                  &quot;id&quot;: 2,
+                  &quot;product_name&quot;: &quot;Greek Yogurt Lot 00002&quot;,
+                  &quot;recall_code&quot;: &quot;REC-3539-00002&quot;,
+                  &quot;units_affected&quot;: 800
+                }
+              ]
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        },
+        {
+          &quot;step&quot;: 4,
+          &quot;tool&quot;: &quot;detail&quot;,
+          &quot;inputs&quot;: {
+            &quot;recall_id&quot;: 2
+          },
+          &quot;observation&quot;: {
+            &quot;data&quot;: {
+              &quot;brand_name&quot;: &quot;Golden Dairy&quot;,
+              &quot;category&quot;: &quot;Dairy and Refrigerated&quot;,
+              &quot;id&quot;: 2,
+              &quot;manufacturer&quot;: {
+                &quot;contact_name&quot;: &quot;B. Safety&quot;,
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Golden Dairy&quot;
+              },
+              &quot;product_name&quot;: &quot;Greek Yogurt Lot 00002&quot;,
+              &quot;recall_code&quot;: &quot;REC-3539-00002&quot;,
+              &quot;recall_details&quot;: &quot;The printed expiration date may be incorrect.&quot;,
+              &quot;units_affected&quot;: 800
+            },
+            &quot;error&quot;: null,
+            &quot;ok&quot;: true
+          }
+        }
+      ]
+    },
+    &quot;reflexion&quot;: {
+      &quot;task&quot;: &quot;C&quot;,
+      &quot;answer&quot;: &quot;Shrimp affects 1,200 units and yogurt affects 800, so shrimp affects 400 more units.&quot;,
+      &quot;stop_reason&quot;: &quot;success&quot;,
+      &quot;attempts&quot;: 1,
+      &quot;retries&quot;: 0,
+      &quot;tool_calls&quot;: 4,
+      &quot;tokens&quot;: 60,
+      &quot;latency_ms&quot;: 0.083,
+      &quot;unsupported_claims&quot;: 0,
+      &quot;verifier_false_rejections&quot;: 0,
+      &quot;reflections&quot;: []
+    }
+  }
+]</pre></section></main>
+<footer>Vedant Vartak • DATA 260 Homework 7 • SID4 3539 • Evidence generated from saved raw artifacts</footer></body></html>

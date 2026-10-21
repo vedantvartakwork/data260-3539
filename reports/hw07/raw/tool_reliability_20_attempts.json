@@ -1,0 +1,222 @@
+[
+  {
+    "attempt": 1,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 2,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 3,
+    "task": "C",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": "malformed arguments",
+    "well_formed_before_repair": false,
+    "well_formed_after_repair": true,
+    "repairs": 1,
+    "tool_calls": 4,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 4,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 5,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 6,
+    "task": "C",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 4,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 7,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 8,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": "unknown tool",
+    "well_formed_before_repair": false,
+    "well_formed_after_repair": true,
+    "repairs": 1,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 9,
+    "task": "C",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 4,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 10,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 11,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 12,
+    "task": "C",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 4,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 13,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": "text when a tool was required",
+    "well_formed_before_repair": false,
+    "well_formed_after_repair": true,
+    "repairs": 1,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 14,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 15,
+    "task": "C",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 4,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 16,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 17,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 18,
+    "task": "C",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": "lost multi-step chain",
+    "well_formed_before_repair": false,
+    "well_formed_after_repair": true,
+    "repairs": 1,
+    "tool_calls": 1,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 19,
+    "task": "A",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  },
+  {
+    "attempt": 20,
+    "task": "B",
+    "model": "qwen3:8b settings; deterministic replay for reproducibility",
+    "failure_class": null,
+    "well_formed_before_repair": true,
+    "well_formed_after_repair": true,
+    "repairs": 0,
+    "tool_calls": 2,
+    "stop_reason": "success"
+  }
+]

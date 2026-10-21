@@ -2,21 +2,26 @@
 
 from __future__ import annotations
 
+from code.web_application.db import Base
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, func
+from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
-from code.web_application.db import Base
 
 
 class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    username: Mapped[str] = mapped_column(String(80), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(120), nullable=False)
     email: Mapped[str] = mapped_column(String(255), nullable=False, unique=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
+    role: Mapped[str] = mapped_column(
+        Enum("reader", "writer", "moderator", name="user_role"),
+        nullable=False,
+        default="reader",
+    )
 
     sessions: Mapped[list[SessionRecord]] = relationship(
         back_populates="user",
@@ -50,9 +55,7 @@ class Manufacturer(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(160), nullable=False)
     contact_name: Mapped[str] = mapped_column(String(160), nullable=False)
-    contact_email: Mapped[str] = mapped_column(
-        String(255), nullable=False, unique=True, index=True
-    )
+    contact_email: Mapped[str] = mapped_column(String(255), nullable=False, unique=True, index=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, server_default=func.now()
     )
@@ -71,9 +74,7 @@ class RecallNotice(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     product_name: Mapped[str] = mapped_column(String(160), nullable=False)
-    recall_code: Mapped[str] = mapped_column(
-        String(32), nullable=False, unique=True, index=True
-    )
+    recall_code: Mapped[str] = mapped_column(String(32), nullable=False, unique=True, index=True)
     units_affected: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
     manufacturer_id: Mapped[int] = mapped_column(
         ForeignKey("manufacturers.id", ondelete="RESTRICT"), nullable=False, index=True

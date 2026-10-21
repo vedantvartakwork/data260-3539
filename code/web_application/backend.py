@@ -3,6 +3,15 @@
 from __future__ import annotations
 
 import os
+from code.hw6.routes.documents import router as hw6_documents_router
+from code.hw6.routes.memory import router as hw6_memory_router
+from code.hw7.jwt_auth import router as hw7_jwt_router
+from code.hw7.routes import router as hw7_router
+from code.web_application.routers.api_auth import router as api_auth_router
+from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS
+from code.web_application.routers.auth import router as auth_router
+from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
+from code.web_application.routers.recalls import router as hw4_recalls_router
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
@@ -11,13 +20,6 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 from starlette.middleware.sessions import SessionMiddleware
-
-from code.web_application.routers.auth import IDLE_TIMEOUT_SECONDS, router as auth_router
-from code.web_application.routers.api_auth import router as api_auth_router
-from code.web_application.routers.recalls import router as hw4_recalls_router
-from code.web_application.routers.manufacturers import router as hw5_manufacturers_router
-from code.hw6.routes.documents import router as hw6_documents_router
-from code.hw6.routes.memory import router as hw6_memory_router
 
 PORT_BASE = 8839
 STATIC_DIR = Path(__file__).resolve().parent
@@ -68,8 +70,24 @@ class RecallRecord(RecallFields):
 
 
 INITIAL_RECALLS = [
-    RecallRecord(id=1, productName="Garden Fresh Spinach 10 oz", brandName="Valley Harvest", submitterEmail="recalls@example.edu", recallDetails="Selected bags may contain undeclared almonds and should be returned for a refund.", category="Produce", termsAccepted=True),
-    RecallRecord(id=2, productName="Creamy Farm Yogurt 6 oz", brandName="Creamy Farm", submitterEmail="safety@example.edu", recallDetails="Some cups may have an incorrect expiration date printed on the foil lid.", category="Dairy and Refrigerated", termsAccepted=True),
+    RecallRecord(
+        id=1,
+        productName="Garden Fresh Spinach 10 oz",
+        brandName="Valley Harvest",
+        submitterEmail="recalls@example.edu",
+        recallDetails="Selected bags may contain undeclared almonds and should be returned for a refund.",
+        category="Produce",
+        termsAccepted=True,
+    ),
+    RecallRecord(
+        id=2,
+        productName="Creamy Farm Yogurt 6 oz",
+        brandName="Creamy Farm",
+        submitterEmail="safety@example.edu",
+        recallDetails="Some cups may have an incorrect expiration date printed on the foil lid.",
+        category="Dairy and Refrigerated",
+        termsAccepted=True,
+    ),
 ]
 recalls: list[RecallRecord] = []
 
@@ -104,6 +122,8 @@ app.include_router(hw4_recalls_router)
 app.include_router(hw5_manufacturers_router)
 app.include_router(hw6_documents_router)
 app.include_router(hw6_memory_router)
+app.include_router(hw7_jwt_router)
+app.include_router(hw7_router)
 
 
 @app.get("/recalls", include_in_schema=False)
@@ -121,10 +141,16 @@ def list_recalls(q: str = Query(default="", max_length=120)) -> list[RecallRecor
     needle = q.strip().casefold()
     if not needle:
         return recalls
-    return [record for record in recalls if needle in record.product_name.casefold() or needle in record.brand_name.casefold()]
+    return [
+        record
+        for record in recalls
+        if needle in record.product_name.casefold() or needle in record.brand_name.casefold()
+    ]
 
 
-@app.post("/api/recalls", response_model=RecallRecord, response_model_by_alias=True, status_code=201)
+@app.post(
+    "/api/recalls", response_model=RecallRecord, response_model_by_alias=True, status_code=201
+)
 def create_recall(payload: RecallCreate) -> RecallRecord:
     next_id = max((record.id for record in recalls), default=0) + 1
     record = RecallRecord(id=next_id, **payload.model_dump(by_alias=True))

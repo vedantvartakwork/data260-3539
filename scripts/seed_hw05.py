@@ -21,7 +21,6 @@ from code.web_application.models import (
 )
 from code.web_application.security import hash_password
 
-
 SEED = 3539
 PRIMARY_ROWS = 500
 RELATED_EVENT_ROWS = 200
@@ -74,15 +73,21 @@ def ensure_hw5_schema() -> None:
     with engine.begin() as connection:
         if "recall_code" not in columns:
             connection.execute(
-                text("ALTER TABLE recall_notices ADD COLUMN recall_code VARCHAR(32) NULL AFTER product_name")
+                text(
+                    "ALTER TABLE recall_notices ADD COLUMN recall_code VARCHAR(32) NULL AFTER product_name"
+                )
             )
         if "units_affected" not in columns:
             connection.execute(
-                text("ALTER TABLE recall_notices ADD COLUMN units_affected INT NOT NULL DEFAULT 0 AFTER recall_code")
+                text(
+                    "ALTER TABLE recall_notices ADD COLUMN units_affected INT NOT NULL DEFAULT 0 AFTER recall_code"
+                )
             )
         if "manufacturer_id" not in columns:
             connection.execute(
-                text("ALTER TABLE recall_notices ADD COLUMN manufacturer_id INT NULL AFTER units_affected")
+                text(
+                    "ALTER TABLE recall_notices ADD COLUMN manufacturer_id INT NULL AFTER units_affected"
+                )
             )
         if "updated_at" not in columns:
             connection.execute(
@@ -119,12 +124,10 @@ def ensure_hw5_schema() -> None:
     inspector = inspect(engine)
     columns = {column["name"]: column for column in inspector.get_columns("recall_notices")}
     unique_names = {
-        constraint.get("name")
-        for constraint in inspector.get_unique_constraints("recall_notices")
+        constraint.get("name") for constraint in inspector.get_unique_constraints("recall_notices")
     }
     foreign_names = {
-        constraint.get("name")
-        for constraint in inspector.get_foreign_keys("recall_notices")
+        constraint.get("name") for constraint in inspector.get_foreign_keys("recall_notices")
     }
     with engine.begin() as connection:
         if columns["recall_code"].get("nullable", True):
@@ -165,9 +168,11 @@ def main() -> None:
 
         db.add(
             User(
+                username="admin",
                 name="Recall Coordinator",
                 email="admin@example.edu",
                 password_hash=hash_password("password"),
+                role="moderator",
             )
         )
         manufacturers = make_manufacturers()

@@ -1,0 +1,15 @@
+{
+  "glob": [
+    "alpha.py",
+    "beta.py",
+    "gamma.py"
+  ],
+  "search": [
+    {
+      "path": "beta.py",
+      "line": 1,
+      "text": "DEBUG = True"
+    }
+  ],
+  "read": "DEBUG = True\nprint('debug')\n"
+}

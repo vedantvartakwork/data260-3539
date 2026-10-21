@@ -1,0 +1,40 @@
+{
+  "student": "Vedant Vartak",
+  "started_utc": "2026-10-21T06:41:25.625170+00:00",
+  "finished_utc": "2026-10-21T06:41:25.647473+00:00",
+  "model": "qwen3:8b",
+  "seed": 3539,
+  "verify_seed": 263539,
+  "outputs": [
+    "raw/agent_fixed_task_runs.json",
+    "raw/bike_membership_wins_summary.json",
+    "raw/bike_pay_per_use_wins_summary.json",
+    "raw/bike_pricing_snapshot_metadata.json",
+    "raw/file_tools_integration.json",
+    "raw/jwt_rbac_http_evidence.json",
+    "raw/jwt_rbac_terminal.txt",
+    "raw/original_vs_reflexion.json",
+    "raw/prompt_injection_before_after.json",
+    "raw/ruff_after_fix.txt",
+    "raw/ruff_before_fix.txt",
+    "raw/safety_gate_10_commands.json",
+    "raw/tool_reliability_20_attempts.json",
+    "raw/tool_reliability_20_model_attempts.json"
+  ],
+  "pricing_snapshot_sha256": "fea254662894db92a9b8774f32802102060327f30daa3b13b815bf7a2a90cad4",
+  "file_integration": {
+    "glob": [
+      "alpha.py",
+      "beta.py",
+      "gamma.py"
+    ],
+    "search": [
+      {
+        "path": "beta.py",
+        "line": 1,
+        "text": "DEBUG = True"
+      }
+    ],
+    "read": "DEBUG = True\nprint('debug')\n"
+  }
+}

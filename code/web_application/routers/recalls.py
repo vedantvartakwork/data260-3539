@@ -2,15 +2,10 @@
 
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Response
-from sqlalchemy import delete, func, or_, select
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import Session, joinedload
-
+from code.hw7.jwt_auth import require_jwt_user, require_roles
 from code.web_application.db import get_db
 from code.web_application.models import Manufacturer, RecallEvent, RecallNotice, User
 from code.web_application.query_counter import count_sql_queries
-from code.web_application.routers.api_auth import require_user
 from code.web_application.schemas import (
     RecallCreate,
     RecallEventResponse,
@@ -19,6 +14,10 @@ from code.web_application.schemas import (
     RecallUpdate,
 )
 
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
+from sqlalchemy import delete, func, or_, select
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session, joinedload
 
 router = APIRouter(prefix="/api/v1/recalls", tags=["hw5-recalls"])
 
@@ -53,16 +52,10 @@ def list_recalls_naive(
     response: Response,
     page_size: int = Query(default=10, ge=1, le=200),
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_jwt_user),
 ) -> RecallListResponse:
     with count_sql_queries() as counter:
-        recalls = list(
-            db.scalars(
-                select(RecallNotice)
-                .order_by(RecallNotice.id)
-                .limit(page_size)
-            )
-        )
+        recalls = list(db.scalars(select(RecallNotice).order_by(RecallNotice.id).limit(page_size)))
         payload = []
         for recall in recalls:
             events = list(
@@ -72,9 +65,7 @@ def list_recalls_naive(
                     .order_by(RecallEvent.id)
                 )
             )
-            payload.append(
-                serialize_recall(recall, events, include_manufacturer=False)
-            )
+            payload.append(serialize_recall(recall, events, include_manufacturer=False))
 
     response.headers["X-SQL-Query-Count"] = str(counter[0])
     return RecallListResponse(
@@ -92,7 +83,7 @@ def list_recalls_fixed(
     response: Response,
     page_size: int = Query(default=10, ge=1, le=200),
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_jwt_user),
 ) -> RecallListResponse:
     with count_sql_queries() as counter:
         result = db.execute(
@@ -122,7 +113,7 @@ def list_recalls(
     page: int = Query(default=1, ge=1),
     page_size: int = Query(default=50, ge=1, le=200),
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_jwt_user),
 ) -> RecallListResponse:
     filters = []
     needle = q.strip()
@@ -165,7 +156,7 @@ def list_recalls(
 def recalls_by_manufacturer(
     manufacturer_id: int,
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_jwt_user),
 ) -> list[RecallResponse]:
     if db.get(Manufacturer, manufacturer_id) is None:
         raise HTTPException(status_code=404, detail="Manufacturer not found")
@@ -175,7 +166,9 @@ def recalls_by_manufacturer(
             .options(joinedload(RecallNotice.events), joinedload(RecallNotice.manufacturer))
             .where(RecallNotice.manufacturer_id == manufacturer_id)
             .order_by(RecallNotice.id)
-        ).unique().scalars()
+        )
+        .unique()
+        .scalars()
     )
     return [serialize_recall(row) for row in rows]
 
@@ -184,13 +177,17 @@ def recalls_by_manufacturer(
 def get_recall(
     recall_id: int,
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_jwt_user),
 ) -> RecallResponse:
-    row = db.execute(
-        select(RecallNotice)
-        .options(joinedload(RecallNotice.events), joinedload(RecallNotice.manufacturer))
-        .where(RecallNotice.id == recall_id)
-    ).unique().scalar_one_or_none()
+    row = (
+        db.execute(
+            select(RecallNotice)
+            .options(joinedload(RecallNotice.events), joinedload(RecallNotice.manufacturer))
+            .where(RecallNotice.id == recall_id)
+        )
+        .unique()
+        .scalar_one_or_none()
+    )
     if row is None:
         raise HTTPException(status_code=404, detail="Recall notice not found")
     return serialize_recall(row)
@@ -200,7 +197,7 @@ def get_recall(
 def create_recall(
     payload: RecallCreate,
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_roles("writer", "moderator")),
 ) -> RecallResponse:
     if db.get(Manufacturer, payload.manufacturer_id) is None:
         raise HTTPException(status_code=404, detail="Manufacturer not found")
@@ -220,7 +217,7 @@ def update_recall(
     recall_id: int,
     payload: RecallUpdate,
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_roles("writer", "moderator")),
 ) -> RecallResponse:
     row = db.get(RecallNotice, recall_id)
     if row is None:
@@ -237,9 +234,7 @@ def update_recall(
         raise HTTPException(status_code=409, detail="Recall code must be unique") from exc
     events = list(
         db.scalars(
-            select(RecallEvent)
-            .where(RecallEvent.recall_id == recall_id)
-            .order_by(RecallEvent.id)
+            select(RecallEvent).where(RecallEvent.recall_id == recall_id).order_by(RecallEvent.id)
         )
     )
     return serialize_recall(row, events)
@@ -249,11 +244,9 @@ def update_recall(
 def delete_recall(
     recall_id: int,
     db: Session = Depends(get_db),
-    _user: User = Depends(require_user),
+    _user: User = Depends(require_roles("moderator")),
 ) -> None:
-    deleted = db.execute(
-        delete(RecallNotice).where(RecallNotice.id == recall_id)
-    )
+    deleted = db.execute(delete(RecallNotice).where(RecallNotice.id == recall_id))
     if deleted.rowcount == 0:
         db.rollback()
         raise HTTPException(status_code=404, detail="Recall notice not found")

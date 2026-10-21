@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Capital Bikeshare Decision Agent</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    body { margin: 0; background: #f5f5f2; color: #171717; }
+    header { background: #111; color: #fff; padding: 24px 5vw; }
+    main { max-width: 1180px; margin: 28px auto; padding: 0 20px; }
+    .card { background: white; border: 1px solid #ccc; border-radius: 12px; padding: 22px; margin-bottom: 20px; }
+    form { display: grid; grid-template-columns: 1fr 2fr auto; gap: 12px; align-items: end; }
+    label { display: grid; gap: 7px; font-weight: 700; }
+    input, button { padding: 12px; border: 1px solid #888; border-radius: 7px; font: inherit; }
+    button { background: #111; color: white; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f3f3f3; padding: 12px; border-radius: 8px; }
+    .metric { display: inline-block; margin: 4px 12px 4px 0; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #aaa; padding: 8px; text-align: left; }
+    @media (max-width: 780px) { form, .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header><h1>Capital Bikeshare Membership Decision Agent</h1><p>DATA 260 HW7 · Vedant Vartak · SID4 3539</p></header>
+<main>
+  <section class="card">
+    <form id="runForm">
+      <label>Trip CSV<input required name="csv_file" type="file" accept=".csv"></label>
+      <label>Official pricing URL<input required name="pricing_url" type="url" value="https://capitalbikeshare.com/pricing"></label>
+      <button type="submit">Run agent</button>
+    </form>
+  </section>
+  <div class="grid">
+    <section class="card"><h2>Tool timeline</h2><div id="timeline">Upload a CSV to begin.</div></section>
+    <section class="card"><h2>Results</h2><div id="results">No run yet.</div></section>
+  </div>
+</main>
+<script>
+const form = document.querySelector('#runForm');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  results.textContent = 'Running…'; timeline.textContent = 'Running tools…';
+  const response = await fetch('/api/hw7/bikeshare/run', { method: 'POST', body: new FormData(form) });
+  const data = await response.json();
+  timeline.innerHTML = data.timeline.map((step, i) => `<h3>${i + 1}. ${step.tool}</h3><pre>${JSON.stringify(step, null, 2)}</pre>`).join('');
+  results.innerHTML = `<h3>${data.decision}</h3><p>${data.justification}</p>
+    <p><span class="metric">Steps ${data.step_count}</span><span class="metric">Time ${data.total_time_ms} ms</span><span class="metric">Stop ${data.stop_reason}</span></p>
+    <p>Pay per use: $${data.pay_per_use_cost} · Membership: $${data.membership_cost} · Residual: $${data.residual_charges} · Break-even: ${data.break_even_rides} rides</p>
+    <table><thead><tr><th>Week</th><th>Rides</th><th>Average minutes</th><th>Spend</th></tr></thead><tbody>${data.weekly.map(w => `<tr><td>${w.week}</td><td>${w.ride_count}</td><td>${w.average_duration}</td><td>$${w.spend}</td></tr>`).join('')}</tbody></table>
+    <p>Citation: <a href="${data.citations[0].url}">${data.citations[0].url}</a> captured ${data.citations[0].captured_at}</p>`;
+});
+</script>
+</body>
+</html>
