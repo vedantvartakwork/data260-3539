@@ -238,9 +238,14 @@ def build() -> None:
     add_heading(doc, "Part 1 — JWT Authentication Role Authorization and Linting")
     add_body(
         doc,
-        "The cumulative grocery recall API now uses one JWT bearer scheme for HW7 routes. MySQL stores a unique username a bcrypt password hash and one of reader writer or moderator. A token is created only after the stored hash verifies.",
+        "The cumulative grocery recall API now uses one JWT bearer scheme for HW7 routes. MySQL stores a unique username a salted PBKDF2-HMAC-SHA256 password hash and one of reader writer or moderator. A token is created only after the stored hash verifies.",
     )
     add_heading(doc, "Authentication and role dependencies", 2)
+    add_code(
+        doc,
+        function_excerpt("code/web_application/security.py", "def hash_password", None, 50),
+        "Salted password hashing and constant-time password verification",
+    )
     add_code(
         doc,
         function_excerpt(
@@ -250,8 +255,13 @@ def build() -> None:
     )
     add_code(
         doc,
-        function_excerpt("code/hw7/jwt_auth.py", "def login", "def me", 44),
-        "Login and authenticated identity",
+        function_excerpt("code/hw7/jwt_auth.py", "def login", '@router.get("/me"', 44),
+        "Login verifies the submitted password against the stored hash",
+    )
+    add_code(
+        doc,
+        function_excerpt("code/hw7/jwt_auth.py", '@router.get("/me"', None, 8),
+        "Completed authenticated /auth/me handler",
     )
     add_code(
         doc,
