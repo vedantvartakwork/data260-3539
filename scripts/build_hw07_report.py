@@ -222,17 +222,6 @@ def build() -> None:
         doc,
         "Repository access: the repository link is active and the required course collaborators are configured through GitHub access settings.",
     )
-    add_heading(doc, "Submission artifacts", 2)
-    add_bullets(
-        doc,
-        [
-            "reports/hw07/RUN_LOG.txt — timestamped console excerpts",
-            "reports/hw07/raw/ — exact JSON and CSV evidence",
-            "reports/hw07/METRICS.md — filled result tables",
-            "reports/hw07/AI_USE.md — four required disclosure answers",
-            "reports/hw07/verification.json — objective smoke-test output",
-        ],
-    )
 
     page_break(doc)
     add_heading(doc, "Part 1 — JWT Authentication Role Authorization and Linting")
@@ -612,21 +601,6 @@ def build() -> None:
         ]
     for line in ai_lines:
         add_body(doc, line)
-    add_heading(doc, "Final checklist", 2)
-    add_bullets(
-        doc,
-        [
-            "One cumulative repository with shared root-level application folders",
-            "JWT RBAC with MySQL password hashes and required HTTP outcomes",
-            "Handwritten agent and 20 real qwen3:8b attempts",
-            "Bounded Reflexion with stored objective evidence",
-            "LangGraph bike agent with two 500-row scenarios and frozen pricing snapshot",
-            "Three injection attacks and two defense layers",
-            "Six file tools and a 5-allow / 5-block safety test",
-            "RUN_LOG raw artifacts METRICS AI_USE verification and final PDF under reports/hw07",
-            "Final repository state tagged hw7",
-        ],
-    )
     add_body(
         doc,
         "No hidden chain-of-thought is included. The report contains concise rationale objective checks tool inputs observations and saved reproducible artifacts only.",
