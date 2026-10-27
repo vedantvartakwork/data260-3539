@@ -19,3 +19,5 @@ scripts/build_editable_word_report.py
 node_modules/
 code/web_application/frontend/dist/
 reports/hw04/raw/*.db
+jmeter.log
+reports/hw08/raw/jmeter_dashboard/

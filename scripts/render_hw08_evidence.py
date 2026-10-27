@@ -182,7 +182,7 @@ def main() -> None:
             f"Error %={jmeter['error_percent']}  Throughput={jmeter['throughput_requests_per_second']} requests/sec",
             f"PASS all_100_requests={jmeter['passed_all']}",
             "Raw samples: reports/hw08/raw/jmeter_100_users.jtl",
-            "Dashboard: reports/hw08/raw/jmeter_dashboard/index.html",
+            "Machine summary: reports/hw08/raw/jmeter_summary.json",
         ],
         "09_jmeter.png",
     )

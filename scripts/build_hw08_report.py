@@ -26,7 +26,7 @@ REPORT = ROOT / "reports" / "hw08"
 RAW = REPORT / "raw"
 EVIDENCE = REPORT / "evidence"
 OUTPUT = ROOT / "output" / "pdf" / "Vartak_HW8.pdf"
-IMPLEMENTATION_HASH = "1b9addc6fe78491453b9df6d0aee07ce2c63bf8f"
+IMPLEMENTATION_HASH = "66ef001731bf57b75530c0c1da2d55ca8153e0a1"
 REPO_URL = "https://github.com/vedantvartakwork/data260-3539"
 
 
@@ -129,9 +129,7 @@ def p(text: str, style: str = "Bodyx") -> Paragraph:
 
 
 def code(text: str) -> Preformatted:
-    return Preformatted(
-        text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"), styles["Codex"]
-    )
+    return Preformatted(text, styles["Codex"])
 
 
 def table(rows: list[list[str]], widths: list[float] | None = None) -> Table:
@@ -529,7 +527,7 @@ def build() -> None:
             p("10. Tests verification and raw artifacts", "H1x"),
             *screenshot(
                 "06_verification.png",
-                "Figure 8. Final verification at implementation commit 1b9addc6fe78. All five checks pass including 18 unit tests and direct inspection of the live failure JSON.",
+                "Figure 8. Final verification at implementation commit 66ef001731bf. All five checks pass including 18 unit tests and direct inspection of the live failure JSON.",
             ),
             p(
                 "Test coverage includes exact topic names personal configuration successful CREATE/GET correlation preservation unknown entity unknown operation missing fields invalid units invalid email complete three-stage journey poison rejection idempotency manual-commit behavior dead-letter progress deterministic ordering and all four combined experiments.",
@@ -565,10 +563,33 @@ def build() -> None:
         [
             p("11. Supplemental JMeter plan", "H1x"),
             p(
-                "The supplied JMeter instructions are supplemental to the Kafka requirements. I included reports/hw08/jmeter/HW8_direct_100_users.jmx. It targets POST /api/hw8/entities-direct with 100 threads a 10-second ramp JSON headers unique per-thread recall codes and an HTTP 201 assertion. This isolates direct FastAPI capacity from Kafka round-trip latency as requested by that handout.",
+                "The supplied JMeter instructions are supplemental to the Kafka requirements. I ran reports/hw08/jmeter/HW8_direct_100_users.jmx against POST /api/hw8/entities-direct with 100 threads a 10-second ramp JSON headers unique per-thread correlation IDs and an HTTP 201 assertion. This isolates direct FastAPI capacity from Kafka round-trip latency as requested by that handout.",
                 "Bodyx",
             ),
-            code(source("reports/hw08/jmeter/HW8_direct_100_users.jmx", 11, 56)),
+            *screenshot(
+                "09_jmeter.png",
+                "Figure 9. Real JMeter non-GUI run: 100 samples 100 passed 0% errors average 4.04 ms and 10.13 requests per second during the configured ramp.",
+            ),
+            table(
+                [
+                    ["Samples", "Passed", "Error %", "Average", "Min", "Max", "p95", "Throughput"],
+                    ["100", "100", "0.00", "4.04 ms", "1 ms", "15 ms", "8 ms", "10.13 req/s"],
+                ],
+                [
+                    0.75 * inch,
+                    0.7 * inch,
+                    0.7 * inch,
+                    0.9 * inch,
+                    0.6 * inch,
+                    0.6 * inch,
+                    0.6 * inch,
+                    1.0 * inch,
+                ],
+            ),
+            p(
+                "The editable plan is saved at reports/hw08/jmeter/HW8_direct_100_users.jmx. Raw per-request samples are saved in reports/hw08/raw/jmeter_100_users.jtl and the summarized values are in jmeter_summary.json.",
+                "Bodyx",
+            ),
             PageBreak(),
         ]
     )

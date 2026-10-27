@@ -1,0 +1,43 @@
+{
+  "homework": 8,
+  "student": "Vedant Vartak",
+  "sid4": 3539,
+  "commit_hash": "66ef001731bf57b75530c0c1da2d55ca8153e0a1",
+  "model": "qwen3:8b",
+  "configuration": {
+    "port_base": 8839,
+    "prefix": "s3539",
+    "domain_id": 3
+  },
+  "seed": 3539,
+  "verify_seed": 263539,
+  "generated_at_utc": "2026-10-27T05:20:05.237275+00:00",
+  "checks": [
+    {
+      "name": "CREATE_RECALL followed by GET_RECALL round trip",
+      "passed": true,
+      "detail": "entity_id=4bb77abe-a870-4ebd-823e-85b83b6968c7"
+    },
+    {
+      "name": "Planner Writer Reviewer correlation flow",
+      "passed": true,
+      "detail": "inbox -> tasks -> drafts -> final"
+    },
+    {
+      "name": "Duplicate restart poison and ordering experiments",
+      "passed": true,
+      "detail": "all passed"
+    },
+    {
+      "name": "Live Kafka failure experiments",
+      "passed": true,
+      "detail": "live Kafka: duplicate restart poison ordering all passed"
+    },
+    {
+      "name": "Homework 8 unit suite",
+      "passed": true,
+      "detail": "tests_run=18"
+    }
+  ],
+  "passed": true
+}
