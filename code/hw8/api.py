@@ -51,7 +51,7 @@ async def entity_operation(request: OperationRequest) -> dict[str, Any]:
     )
 
 
-@app.post("/api/hw8/entities-direct")
+@app.post("/api/hw8/entities-direct", status_code=201)
 def direct_entity_operation(request: OperationRequest) -> dict[str, Any]:
     """Direct endpoint retained only for optional JMeter comparison."""
     correlation_id = request.correlation_id or "jmeter-direct"

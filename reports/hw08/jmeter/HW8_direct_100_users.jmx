@@ -29,7 +29,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;product_name&quot;:&quot;JMeter Recall&quot;,&quot;recall_code&quot;:&quot;JM-${__threadNum}&quot;,&quot;units_affected&quot;:3539,&quot;manufacturer&quot;:&quot;DATA 260&quot;,&quot;category&quot;:&quot;Packaged Foods&quot;,&quot;recall_details&quot;:&quot;Supplemental direct endpoint load test&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operation&quot;:&quot;CREATE_RECALL&quot;,&quot;correlation_id&quot;:&quot;jmeter-${__threadNum}&quot;,&quot;data&quot;:{&quot;product_name&quot;:&quot;JMeter Recall&quot;,&quot;recall_code&quot;:&quot;JM-${__threadNum}&quot;,&quot;units_affected&quot;:3539,&quot;brand_name&quot;:&quot;DATA 260&quot;,&quot;submitter_email&quot;:&quot;student@example.edu&quot;,&quot;category&quot;:&quot;Packaged Foods&quot;,&quot;recall_details&quot;:&quot;Supplemental direct endpoint load test&quot;,&quot;terms_accepted&quot;:true}}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>

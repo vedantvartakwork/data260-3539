@@ -1,0 +1,20 @@
+{
+  "student": "Vedant Vartak",
+  "generated_at_utc": "2026-10-27T05:18:30.593173+00:00",
+  "threads": 100,
+  "ramp_up_seconds": 10,
+  "samples": 100,
+  "passed": 100,
+  "failed": 0,
+  "error_percent": 0.0,
+  "average_ms": 4.04,
+  "min_ms": 1,
+  "max_ms": 15,
+  "p95_ms": 8,
+  "duration_seconds": 9.868,
+  "throughput_requests_per_second": 10.13,
+  "response_codes": [
+    "201"
+  ],
+  "passed_all": true
+}

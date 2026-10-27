@@ -35,6 +35,14 @@ def main() -> None:
     header = f"Vedant Vartak - DATA 260 Homework 8\ntimestamp_utc={timestamp}\n\n"
 
     (RAW / "docker_ps.txt").write_text(header + run([*COMPOSE, "ps", "--all"]), encoding="utf-8")
+    (RAW / "homework_demo_live.txt").write_text(
+        header + run([str(ROOT / ".venv/bin/python"), "-m", "code.hw8.homework_demo"]),
+        encoding="utf-8",
+    )
+    (RAW / "agent_pipeline_live.txt").write_text(
+        header + run([str(ROOT / ".venv/bin/python"), "-m", "code.hw8.send_question"]),
+        encoding="utf-8",
+    )
     services = [
         "kafka",
         "topic-init",
@@ -46,15 +54,7 @@ def main() -> None:
         "reviewer",
     ]
     (RAW / "kafka_service_logs.txt").write_text(
-        header + run([*COMPOSE, "logs", "--no-color", "--tail", "160", *services]),
-        encoding="utf-8",
-    )
-    (RAW / "homework_demo_live.txt").write_text(
-        header + run([str(ROOT / ".venv/bin/python"), "-m", "code.hw8.homework_demo"]),
-        encoding="utf-8",
-    )
-    (RAW / "agent_pipeline_live.txt").write_text(
-        header + run([str(ROOT / ".venv/bin/python"), "-m", "code.hw8.send_question"]),
+        header + run([*COMPOSE, "logs", "--no-color", "--tail", "240", *services]),
         encoding="utf-8",
     )
     print("Captured live Docker Kafka RPC and agent-pipeline evidence in", RAW)
