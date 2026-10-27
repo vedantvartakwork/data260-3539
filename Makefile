@@ -1,10 +1,25 @@
 PYTHON ?= .venv/bin/python
 MODEL ?= qwen3:8b
 
-.PHONY: test run-web mongo-hw6-up mongo-hw6-down run-hw6-api test-hw6 experiment-hw6 verify-hw06 mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+.PHONY: test hw8-up hw8-down test-hw8 experiment-hw8 verify-hw08 run-web mongo-hw6-up mongo-hw6-down run-hw6-api test-hw6 experiment-hw6 verify-hw06 mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
+
+hw8-up:
+	docker compose -p data260-hw8 -f docker-compose.hw8.yml up --build -d
+
+hw8-down:
+	docker compose -p data260-hw8 -f docker-compose.hw8.yml down
+
+test-hw8:
+	$(PYTHON) -m unittest tests.test_hw08 -v
+
+experiment-hw8:
+	$(PYTHON) scripts/run_hw08_experiments.py
+
+verify-hw08:
+	$(PYTHON) scripts/verify_hw08.py
 
 run-web:
 	SESSION_HTTPS_ONLY=false $(PYTHON) -m uvicorn code.web_application.backend:app --host 127.0.0.1 --port 8839

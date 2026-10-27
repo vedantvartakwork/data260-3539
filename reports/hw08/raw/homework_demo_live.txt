@@ -1,0 +1,10 @@
+Vedant Vartak - DATA 260 Homework 8
+timestamp_utc=2026-10-27T05:05:08.600414+00:00
+
+Vedant Vartak - DATA 260 Homework 8 complete Kafka flow
+CLIENT SEND CREATE_RECALL {"correlation_id": "9eb1f20c-9994-4cae-8863-f6116ca88e7c", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL"}
+CLIENT RECEIVE CREATE_RECALL {"correlation_id": "9eb1f20c-9994-4cae-8863-f6116ca88e7c", "entity_id": "38a395ee-4b0f-41df-8801-5efc75cbfb63", "message": "Recall created", "success": true}
+CLIENT SEND GET_RECALL {"correlation_id": "5378315e-3e7f-4008-a791-af629c34bb18", "data": {"entity_id": "38a395ee-4b0f-41df-8801-5efc75cbfb63"}, "operation": "GET_RECALL"}
+CLIENT RECEIVE GET_RECALL {"correlation_id": "5378315e-3e7f-4008-a791-af629c34bb18", "entity": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "entity_id": "38a395ee-4b0f-41df-8801-5efc75cbfb63", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "success": true}
+RETRIEVED ENTITY {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "entity_id": "38a395ee-4b0f-41df-8801-5efc75cbfb63", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}
+PASS CREATE_RECALL -> GET_RECALL and both correlation IDs were preserved

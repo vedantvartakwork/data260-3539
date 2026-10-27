@@ -1,0 +1,12 @@
+Vedant Vartak - DATA 260 Homework 8
+timestamp_utc=2026-10-27T05:05:08.600414+00:00
+
+NAME                          IMAGE                       COMMAND                  SERVICE         CREATED         STATUS                     PORTS
+data260-hw8-fastapi-1         data260-hw8-fastapi         "uvicorn code.hw8.ap…"   fastapi         6 minutes ago   Up 6 minutes               0.0.0.0:8839->8839/tcp, [::]:8839->8839/tcp
+data260-hw8-planner-1         data260-hw8-planner         "python -m code.hw8.…"   planner         3 minutes ago   Up 3 minutes               
+data260-hw8-recall-worker-1   data260-hw8-recall-worker   "python -m code.hw8.…"   recall-worker   6 minutes ago   Up 6 minutes               
+data260-hw8-reviewer-1        data260-hw8-reviewer        "python -m code.hw8.…"   reviewer        3 minutes ago   Up 3 minutes               
+data260-hw8-topic-init-1      apache/kafka:4.0.0          "/bin/bash /init-hw8…"   topic-init      6 minutes ago   Exited (0) 2 minutes ago   
+data260-hw8-writer-1-1        data260-hw8-writer-1        "python -m code.hw8.…"   writer-1        3 minutes ago   Up 2 minutes               
+data260-hw8-writer-2-1        data260-hw8-writer-2        "python -m code.hw8.…"   writer-2        3 minutes ago   Up 2 minutes               
+s3539-kafka                   apache/kafka:4.0.0          "/__cacert_entrypoin…"   kafka           7 minutes ago   Up 7 minutes (healthy)     0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp

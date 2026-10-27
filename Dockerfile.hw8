@@ -1,0 +1,8 @@
+FROM python:3.11-slim
+
+WORKDIR /workspace
+COPY requirements-hw8.txt .
+RUN pip install --no-cache-dir -r requirements-hw8.txt
+COPY code ./code
+ENV PYTHONUNBUFFERED=1 PYTHONPATH=/workspace
+

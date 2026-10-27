@@ -1,0 +1,7 @@
+Vedant Vartak - DATA 260 Homework 8
+timestamp_utc=2026-10-27T05:05:08.600414+00:00
+
+Vedant Vartak - DATA 260 Homework 8 three-agent pipeline
+[USER SEND] topic=s3539_inbox partition=0 offset=3 message={"correlation_id": "accf4dac-1cd1-4fbc-847f-d96ff6b94fea", "entity_key": "recall-3539", "journey": [], "question": "What should a customer do after finding a matching grocery recall?"}
+[USER FINAL] topic=s3539_final correlation_id=accf4dac-1cd1-4fbc-847f-d96ff6b94fea message={"answer": "Approved: Question: What should a customer do after finding a matching grocery recall?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.", "correlation_id": "accf4dac-1cd1-4fbc-847f-d96ff6b94fea", "draft": "Question: What should a customer do after finding a matching grocery recall?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.", "entity_key": "recall-3539", "journey": ["planner", "writer", "reviewer"], "plan": "1. Identify the requested decision and constraints. 2. Collect the relevant grocery-recall facts. 3. Draft a concise answer with consumer guidance.", "question": "What should a customer do after finding a matching grocery recall?", "status": "approved"}
+PASS journey=inbox -> tasks -> drafts -> final

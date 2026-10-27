@@ -1,0 +1,184 @@
+{
+  "student": "Vedant Vartak",
+  "timestamp_utc": "2026-10-27T04:51:28.524857+00:00",
+  "configuration": {
+    "sid4": 3539,
+    "prefix": "s3539",
+    "seed": 3539,
+    "verify_seed": 263539
+  },
+  "pipeline": {
+    "journey": [
+      {
+        "role": "planner",
+        "read_topic": "s3539_inbox",
+        "send_topic": "s3539_tasks",
+        "correlation_id": "pipeline-3539",
+        "status": "planned"
+      },
+      {
+        "role": "writer",
+        "read_topic": "s3539_tasks",
+        "send_topic": "s3539_drafts",
+        "correlation_id": "pipeline-3539",
+        "status": "drafted"
+      },
+      {
+        "role": "reviewer",
+        "read_topic": "s3539_drafts",
+        "send_topic": "s3539_final",
+        "correlation_id": "pipeline-3539",
+        "status": "approved"
+      }
+    ],
+    "final": {
+      "correlation_id": "pipeline-3539",
+      "entity_key": "recall-3539",
+      "question": "What should a customer do after finding a matching grocery recall?",
+      "journey": [
+        "planner",
+        "writer",
+        "reviewer"
+      ],
+      "plan": "1. Identify the requested decision and constraints. 2. Collect the relevant grocery-recall facts. 3. Draft a concise answer with consumer guidance.",
+      "status": "approved",
+      "draft": "Question: What should a customer do after finding a matching grocery recall?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.",
+      "answer": "Approved: Question: What should a customer do after finding a matching grocery recall?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions."
+    }
+  },
+  "results": {
+    "duplicate_delivery": {
+      "before_fix": "A replay could create a second entity.",
+      "after_fix": "Cached correlation_id returns the original response.",
+      "first": {
+        "correlation_id": "duplicate-3539",
+        "success": true,
+        "entity_id": "ff542d35-6dcb-443f-a0f4-f7283a54e258",
+        "message": "Recall created"
+      },
+      "replay": {
+        "correlation_id": "duplicate-3539",
+        "success": true,
+        "entity_id": "ff542d35-6dcb-443f-a0f4-f7283a54e258",
+        "message": "Recall created",
+        "duplicate": true
+      },
+      "entity_count": 1,
+      "passed": true
+    },
+    "consumer_killed_mid_work": {
+      "before_fix": "Auto-commit can acknowledge unfinished work.",
+      "after_fix": "Manual commit occurs only after the draft is produced.",
+      "events": [
+        "writer received offset=7",
+        "writer terminated before commit offset=7",
+        "writer restarted",
+        "offset=7 redelivered",
+        "writer produced draft",
+        "writer committed offset=7 after success"
+      ],
+      "passed": true
+    },
+    "poison_message": {
+      "before_fix": "An unbounded poison message blocks the partition.",
+      "after_fix": "After 3 attempts it moves to s3539_dead_letter.",
+      "retries": [
+        {
+          "attempt": 1,
+          "error": "question is required"
+        },
+        {
+          "attempt": 2,
+          "error": "question is required"
+        },
+        {
+          "attempt": 3,
+          "error": "question is required"
+        }
+      ],
+      "dead_letter": {
+        "topic": "s3539_dead_letter",
+        "correlation_id": "poison-3539",
+        "error": "question is required"
+      },
+      "later_message": {
+        "correlation_id": "later-good",
+        "status": "approved"
+      },
+      "passed": true
+    },
+    "two_partitions_two_consumers": {
+      "verify_seed": 263539,
+      "input_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unkeyed_processed_order": [
+        13,
+        6,
+        11,
+        8,
+        3,
+        18,
+        5,
+        17,
+        9,
+        2,
+        19,
+        16,
+        12,
+        20,
+        10,
+        7,
+        4,
+        15,
+        1,
+        14
+      ],
+      "key": "recall-3539",
+      "keyed_partition": 0,
+      "keyed_processed_order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "passed": true
+    }
+  },
+  "passed": true
+}

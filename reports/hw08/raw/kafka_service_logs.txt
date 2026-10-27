@@ -1,0 +1,510 @@
+Vedant Vartak - DATA 260 Homework 8
+timestamp_utc=2026-10-27T05:05:08.600414+00:00
+
+writer-2-1  | Vedant Vartak - Writer ready: s3539_tasks -> s3539_drafts
+writer-2-1  | Vedant Vartak - Writer ready: s3539_tasks -> s3539_drafts
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=0 correlation_id=live-restart-6e129273-8387-458c-81e0-a23f9965fa38
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=1 correlation_id=live-restart-6e129273-8387-458c-81e0-a23f9965fa38 status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=1 correlation_id=live-unkeyed-46a43b64-a558-4236-a981-aea0e5fd44f8
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=3 correlation_id=live-unkeyed-46a43b64-a558-4236-a981-aea0e5fd44f8 status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=2 correlation_id=live-unkeyed-13b6e67c-26f7-4162-9687-14f80549cb04
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=4 correlation_id=live-unkeyed-13b6e67c-26f7-4162-9687-14f80549cb04 status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=3 correlation_id=live-unkeyed-2e957901-c2fd-43bd-98fe-b8a3569fb90f
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=7 correlation_id=live-unkeyed-2e957901-c2fd-43bd-98fe-b8a3569fb90f status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=4 correlation_id=live-unkeyed-b7cc8789-a9fc-4273-8d3d-efbea655d354
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=10 correlation_id=live-unkeyed-b7cc8789-a9fc-4273-8d3d-efbea655d354 status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=5 correlation_id=live-unkeyed-b4c874a2-56fe-4703-ac20-35793e25d8bc
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=12 correlation_id=live-unkeyed-b4c874a2-56fe-4703-ac20-35793e25d8bc status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=6 correlation_id=live-unkeyed-ee11e065-f74c-4812-83aa-93451653cf4e
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=13 correlation_id=live-unkeyed-ee11e065-f74c-4812-83aa-93451653cf4e status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+writer-2-1  | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=7 correlation_id=live-unkeyed-6fa58ca8-41bf-4fcc-9f98-9078e28c2da6
+writer-2-1  | [WRITER SEND] topic=s3539_drafts partition=0 offset=16 correlation_id=live-unkeyed-6fa58ca8-41bf-4fcc-9f98-9078e28c2da6 status=drafted
+writer-2-1  | [WRITER COMMIT] after_success=true
+planner-1   | Vedant Vartak - Planner ready: s3539_inbox -> s3539_tasks
+planner-1   | [PLANNER RECEIVE] topic=s3539_inbox partition=0 offset=1 correlation_id=live-poison-716d8722-bf4a-4000-b060-ac26f16c02d0
+planner-1   | [PLANNER RETRY] attempt=1/3 correlation_id=live-poison-716d8722-bf4a-4000-b060-ac26f16c02d0 error=question is required
+planner-1   | [PLANNER RETRY] attempt=2/3 correlation_id=live-poison-716d8722-bf4a-4000-b060-ac26f16c02d0 error=question is required
+planner-1   | [PLANNER RETRY] attempt=3/3 correlation_id=live-poison-716d8722-bf4a-4000-b060-ac26f16c02d0 error=question is required
+planner-1   | [PLANNER DEAD LETTER] topic=s3539_dead_letter correlation_id=live-poison-716d8722-bf4a-4000-b060-ac26f16c02d0
+planner-1   | [PLANNER RECEIVE] topic=s3539_inbox partition=0 offset=2 correlation_id=live-after-poison-89eda7be-91e8-4c13-917d-aa4ddb096084
+planner-1   | [PLANNER SEND] topic=s3539_tasks partition=0 offset=1 correlation_id=live-after-poison-89eda7be-91e8-4c13-917d-aa4ddb096084 status=planned
+planner-1   | [PLANNER COMMIT] after_success=true
+fastapi-1   | INFO:     Started server process [1]
+fastapi-1   | INFO:     Waiting for application startup.
+fastapi-1   | Marking the coordinator dead (node 1)for group s3539-fastapi-responses.
+fastapi-1   | Marking the coordinator dead (node 1)for group s3539-fastapi-responses.
+fastapi-1   | Marking the coordinator dead (node 1)for group s3539-fastapi-responses.
+fastapi-1   | Marking the coordinator dead (node 1)for group s3539-fastapi-responses.
+fastapi-1   | Vedant Vartak - FastAPI Kafka RPC started
+fastapi-1   | [FASTAPI] listening topic=s3539_entity_responses
+fastapi-1   | INFO:     Application startup complete.
+fastapi-1   | INFO:     Uvicorn running on http://0.0.0.0:8839 (Press CTRL+C to quit)
+fastapi-1   | INFO:     192.168.65.1:57992 - "GET /health HTTP/1.1" 200 OK
+fastapi-1   | [FASTAPI SEND] topic=s3539_entity_requests partition=0 offset=0 correlation_id=40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1 message={"correlation_id": "40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL", "reply_to": "s3539_entity_responses"}
+fastapi-1   | [FASTAPI RECEIVE] topic=s3539_entity_responses partition=0 offset=0 correlation_id=40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1 message={"correlation_id": "40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1", "entity_id": "c8e6e862-74c5-42fd-bc02-ab05d46ed6c8", "message": "Recall created", "success": true}
+fastapi-1   | INFO:     192.168.65.1:62381 - "POST /api/hw8/entities HTTP/1.1" 200 OK
+fastapi-1   | [FASTAPI SEND] topic=s3539_entity_requests partition=0 offset=1 correlation_id=35be60e8-8647-4917-928f-84cbfb845a56 message={"correlation_id": "35be60e8-8647-4917-928f-84cbfb845a56", "data": {"entity_id": "c8e6e862-74c5-42fd-bc02-ab05d46ed6c8"}, "operation": "GET_RECALL", "reply_to": "s3539_entity_responses"}
+fastapi-1   | [FASTAPI RECEIVE] topic=s3539_entity_responses partition=0 offset=1 correlation_id=35be60e8-8647-4917-928f-84cbfb845a56 message={"correlation_id": "35be60e8-8647-4917-928f-84cbfb845a56", "entity": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "entity_id": "c8e6e862-74c5-42fd-bc02-ab05d46ed6c8", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "success": true}
+fastapi-1   | INFO:     192.168.65.1:51415 - "POST /api/hw8/entities HTTP/1.1" 200 OK
+fastapi-1   | [FASTAPI SEND] topic=s3539_entity_requests partition=0 offset=2 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b message={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL", "reply_to": "s3539_entity_responses"}
+fastapi-1   | [FASTAPI RECEIVE] topic=s3539_entity_responses partition=0 offset=2 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b message={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "entity_id": "9f76942e-2efd-4896-aae1-f5b8fe31cc49", "message": "Recall created", "success": true}
+fastapi-1   | INFO:     192.168.65.1:60356 - "POST /api/hw8/entities HTTP/1.1" 200 OK
+fastapi-1   | [FASTAPI SEND] topic=s3539_entity_requests partition=0 offset=3 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b message={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL", "reply_to": "s3539_entity_responses"}
+fastapi-1   | [FASTAPI RECEIVE] topic=s3539_entity_responses partition=0 offset=3 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b message={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "duplicate": true, "entity_id": "9f76942e-2efd-4896-aae1-f5b8fe31cc49", "message": "Recall created", "success": true}
+fastapi-1   | INFO:     192.168.65.1:60356 - "POST /api/hw8/entities HTTP/1.1" 200 OK
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_entity_requests.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_entity_responses.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_inbox.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_tasks.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_drafts.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_final.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Created topic s3539_dead_letter.
+topic-init-1  | Vedant Vartak - all seven HW8 topics created
+topic-init-1  | s3539_dead_letter
+topic-init-1  | s3539_drafts
+topic-init-1  | s3539_entity_requests
+topic-init-1  | s3539_entity_responses
+topic-init-1  | s3539_final
+topic-init-1  | s3539_inbox
+topic-init-1  | s3539_tasks
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+topic-init-1  | Vedant Vartak - all seven HW8 topics created
+topic-init-1  | __consumer_offsets
+topic-init-1  | s3539_dead_letter
+topic-init-1  | s3539_drafts
+topic-init-1  | s3539_entity_requests
+topic-init-1  | s3539_entity_responses
+topic-init-1  | s3539_final
+topic-init-1  | s3539_inbox
+topic-init-1  | s3539_tasks
+writer-1-1    | Vedant Vartak - Writer ready: s3539_tasks -> s3539_drafts
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=1 offset=0 correlation_id=live-restart-6e129273-8387-458c-81e0-a23f9965fa38
+writer-1-1    | Vedant Vartak - Writer ready: s3539_tasks -> s3539_drafts
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=1 correlation_id=live-after-poison-89eda7be-91e8-4c13-917d-aa4ddb096084
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=2 correlation_id=live-after-poison-89eda7be-91e8-4c13-917d-aa4ddb096084 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=2 correlation_id=live-unkeyed-65d33e53-ba9c-49d2-a7d1-5c2fee6ef59f
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=5 correlation_id=live-unkeyed-65d33e53-ba9c-49d2-a7d1-5c2fee6ef59f status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=3 correlation_id=live-unkeyed-d9a49dff-e081-4bbb-a0ef-5aaedc0b846f
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=6 correlation_id=live-unkeyed-d9a49dff-e081-4bbb-a0ef-5aaedc0b846f status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=4 correlation_id=live-unkeyed-363d76ee-94d1-4ded-90e7-fe5b0b7a7075
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=8 correlation_id=live-unkeyed-363d76ee-94d1-4ded-90e7-fe5b0b7a7075 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=5 correlation_id=live-unkeyed-aa568e7f-8068-4604-a574-e68d354038e1
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=9 correlation_id=live-unkeyed-aa568e7f-8068-4604-a574-e68d354038e1 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=6 correlation_id=live-unkeyed-1ca52cb4-50bc-46cb-be4d-9d45138ff992
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=11 correlation_id=live-unkeyed-1ca52cb4-50bc-46cb-be4d-9d45138ff992 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=7 correlation_id=live-unkeyed-9bebd0e0-9e8e-4da3-9cf3-822d258d15af
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=14 correlation_id=live-unkeyed-9bebd0e0-9e8e-4da3-9cf3-822d258d15af status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=8 correlation_id=live-unkeyed-05ace276-541e-4cba-8f00-2b7860ef850e
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=15 correlation_id=live-unkeyed-05ace276-541e-4cba-8f00-2b7860ef850e status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=9 correlation_id=live-unkeyed-3d87d152-4a7d-4595-b6a0-8631cef69588
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=17 correlation_id=live-unkeyed-3d87d152-4a7d-4595-b6a0-8631cef69588 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=10 correlation_id=live-unkeyed-2c731bc6-561d-4bf2-b528-d14154216b91
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=18 correlation_id=live-unkeyed-2c731bc6-561d-4bf2-b528-d14154216b91 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=11 correlation_id=live-unkeyed-d6eecc30-6af8-4b96-be62-088203b54730
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=19 correlation_id=live-unkeyed-d6eecc30-6af8-4b96-be62-088203b54730 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=12 correlation_id=live-unkeyed-1ade2c3c-ebe8-4ebb-a7f6-66b0edac8d38
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=20 correlation_id=live-unkeyed-1ade2c3c-ebe8-4ebb-a7f6-66b0edac8d38 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=13 correlation_id=live-unkeyed-41133a15-c36a-4a5f-bef5-b7bd81a8b767
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=21 correlation_id=live-unkeyed-41133a15-c36a-4a5f-bef5-b7bd81a8b767 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=14 correlation_id=live-unkeyed-505e199a-30d0-4723-9b4a-09ee628a9b5e
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=22 correlation_id=live-unkeyed-505e199a-30d0-4723-9b4a-09ee628a9b5e status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=15 correlation_id=live-keyed-bc7e2aaa-216a-43e7-95a4-12e4904f4f17
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=23 correlation_id=live-keyed-bc7e2aaa-216a-43e7-95a4-12e4904f4f17 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=16 correlation_id=live-keyed-d4b43935-3367-4090-bcac-4e9c15c54528
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=24 correlation_id=live-keyed-d4b43935-3367-4090-bcac-4e9c15c54528 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=17 correlation_id=live-keyed-c242bd32-5b55-4af0-ba8f-00e480436ff1
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=25 correlation_id=live-keyed-c242bd32-5b55-4af0-ba8f-00e480436ff1 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=18 correlation_id=live-keyed-7c4696e3-2244-422c-90c0-8f6835b17b73
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=26 correlation_id=live-keyed-7c4696e3-2244-422c-90c0-8f6835b17b73 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=19 correlation_id=live-keyed-d7335eaa-4719-4d94-aece-521f7dc09623
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=27 correlation_id=live-keyed-d7335eaa-4719-4d94-aece-521f7dc09623 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=20 correlation_id=live-keyed-abe21c15-c4e2-436a-8776-666bd866cbe4
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=28 correlation_id=live-keyed-abe21c15-c4e2-436a-8776-666bd866cbe4 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=21 correlation_id=live-keyed-3e1466f5-206c-4cdf-b5a9-94ab03e366eb
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=29 correlation_id=live-keyed-3e1466f5-206c-4cdf-b5a9-94ab03e366eb status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=22 correlation_id=live-keyed-df16594d-707d-40df-8848-8ffc38457f97
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=30 correlation_id=live-keyed-df16594d-707d-40df-8848-8ffc38457f97 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=23 correlation_id=live-keyed-66fb3ddc-5427-40d8-96e5-ad1d69eb2ab3
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=31 correlation_id=live-keyed-66fb3ddc-5427-40d8-96e5-ad1d69eb2ab3 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=24 correlation_id=live-keyed-7e9c8efd-7065-4aaa-bcb2-e56a8effb5dc
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=32 correlation_id=live-keyed-7e9c8efd-7065-4aaa-bcb2-e56a8effb5dc status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=25 correlation_id=live-keyed-036c85ef-227a-441f-a580-d72a08f88bc3
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=33 correlation_id=live-keyed-036c85ef-227a-441f-a580-d72a08f88bc3 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=26 correlation_id=live-keyed-4fc7437a-7d7e-404a-8dbb-f5373f41507e
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=34 correlation_id=live-keyed-4fc7437a-7d7e-404a-8dbb-f5373f41507e status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=27 correlation_id=live-keyed-96d202c9-1847-4e87-956d-c0af414f9dbe
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=35 correlation_id=live-keyed-96d202c9-1847-4e87-956d-c0af414f9dbe status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=28 correlation_id=live-keyed-284b0840-8708-4ed1-86d8-8b3ed1d290c7
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=36 correlation_id=live-keyed-284b0840-8708-4ed1-86d8-8b3ed1d290c7 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=29 correlation_id=live-keyed-60f00c3a-d543-4125-885a-71e968f57d23
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=37 correlation_id=live-keyed-60f00c3a-d543-4125-885a-71e968f57d23 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=30 correlation_id=live-keyed-05c899da-6c70-4ba8-a3aa-b93cb4721aff
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=38 correlation_id=live-keyed-05c899da-6c70-4ba8-a3aa-b93cb4721aff status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=31 correlation_id=live-keyed-dbb24163-0a21-4d56-b03e-f2039d12fb64
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=39 correlation_id=live-keyed-dbb24163-0a21-4d56-b03e-f2039d12fb64 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=32 correlation_id=live-keyed-dff6b50c-f3c2-4817-b76a-fda74a13353f
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=40 correlation_id=live-keyed-dff6b50c-f3c2-4817-b76a-fda74a13353f status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=33 correlation_id=live-keyed-3030879c-31e0-4530-89e5-0b123eaa4743
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=41 correlation_id=live-keyed-3030879c-31e0-4530-89e5-0b123eaa4743 status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+writer-1-1    | [WRITER RECEIVE] topic=s3539_tasks partition=0 offset=34 correlation_id=live-keyed-13aece47-2b55-4668-bb20-6498df41face
+writer-1-1    | [WRITER SEND] topic=s3539_drafts partition=0 offset=42 correlation_id=live-keyed-13aece47-2b55-4668-bb20-6498df41face status=drafted
+writer-1-1    | [WRITER COMMIT] after_success=true
+reviewer-1    | Vedant Vartak - Reviewer ready: s3539_drafts -> s3539_final
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=1 correlation_id=live-restart-6e129273-8387-458c-81e0-a23f9965fa38
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=1 correlation_id=live-restart-6e129273-8387-458c-81e0-a23f9965fa38 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=2 correlation_id=live-after-poison-89eda7be-91e8-4c13-917d-aa4ddb096084
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=2 correlation_id=live-after-poison-89eda7be-91e8-4c13-917d-aa4ddb096084 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=3 correlation_id=live-unkeyed-46a43b64-a558-4236-a981-aea0e5fd44f8
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=3 correlation_id=live-unkeyed-46a43b64-a558-4236-a981-aea0e5fd44f8 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=4 correlation_id=live-unkeyed-13b6e67c-26f7-4162-9687-14f80549cb04
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=4 correlation_id=live-unkeyed-13b6e67c-26f7-4162-9687-14f80549cb04 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=5 correlation_id=live-unkeyed-65d33e53-ba9c-49d2-a7d1-5c2fee6ef59f
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=5 correlation_id=live-unkeyed-65d33e53-ba9c-49d2-a7d1-5c2fee6ef59f status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=6 correlation_id=live-unkeyed-d9a49dff-e081-4bbb-a0ef-5aaedc0b846f
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=6 correlation_id=live-unkeyed-d9a49dff-e081-4bbb-a0ef-5aaedc0b846f status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=7 correlation_id=live-unkeyed-2e957901-c2fd-43bd-98fe-b8a3569fb90f
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=7 correlation_id=live-unkeyed-2e957901-c2fd-43bd-98fe-b8a3569fb90f status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=8 correlation_id=live-unkeyed-363d76ee-94d1-4ded-90e7-fe5b0b7a7075
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=8 correlation_id=live-unkeyed-363d76ee-94d1-4ded-90e7-fe5b0b7a7075 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=9 correlation_id=live-unkeyed-aa568e7f-8068-4604-a574-e68d354038e1
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=9 correlation_id=live-unkeyed-aa568e7f-8068-4604-a574-e68d354038e1 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=10 correlation_id=live-unkeyed-b7cc8789-a9fc-4273-8d3d-efbea655d354
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=10 correlation_id=live-unkeyed-b7cc8789-a9fc-4273-8d3d-efbea655d354 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=11 correlation_id=live-unkeyed-1ca52cb4-50bc-46cb-be4d-9d45138ff992
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=11 correlation_id=live-unkeyed-1ca52cb4-50bc-46cb-be4d-9d45138ff992 status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=12 correlation_id=live-unkeyed-b4c874a2-56fe-4703-ac20-35793e25d8bc
+reviewer-1    | [REVIEWER SEND] topic=s3539_final partition=0 offset=12 correlation_id=live-unkeyed-b4c874a2-56fe-4703-ac20-35793e25d8bc status=approved
+reviewer-1    | [REVIEWER COMMIT] after_success=true
+reviewer-1    | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=13 correlation_id=live-unkeyed-ee11e065-f74c-4812-83aa-93451653cf4e
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=13 correlation_id=live-unkeyed-ee11e065-f74c-4812-83aa-93451653cf4e status=approved
+recall-worker-1  | Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+recall-worker-1  | Marking the coordinator dead (node 1)for group s3539-recall-worker.
+recall-worker-1  | Marking the coordinator dead (node 1)for group s3539-recall-worker.
+recall-worker-1  | Marking the coordinator dead (node 1)for group s3539-recall-worker.
+recall-worker-1  | Marking the coordinator dead (node 1)for group s3539-recall-worker.
+recall-worker-1  | Vedant Vartak - Consumer is ready and listening...
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=14 correlation_id=live-unkeyed-9bebd0e0-9e8e-4da3-9cf3-822d258d15af
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=14 correlation_id=live-unkeyed-9bebd0e0-9e8e-4da3-9cf3-822d258d15af status=approved
+recall-worker-1  | [WORKER] request_topic=s3539_entity_requests
+recall-worker-1  | [WORKER RECEIVE] topic=s3539_entity_requests partition=0 offset=0 correlation_id=40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1 message={"correlation_id": "40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL", "reply_to": "s3539_entity_responses"}
+recall-worker-1  | [WORKER REPLY] topic=s3539_entity_responses partition=0 offset=0 correlation_id=40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1 response={"correlation_id": "40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1", "entity_id": "c8e6e862-74c5-42fd-bc02-ab05d46ed6c8", "message": "Recall created", "success": true}
+recall-worker-1  | [WORKER COMMIT] correlation_id=40a0c71e-ad2b-4e4e-93f2-cf7ce681baa1 after_success=true
+recall-worker-1  | [WORKER RECEIVE] topic=s3539_entity_requests partition=0 offset=1 correlation_id=35be60e8-8647-4917-928f-84cbfb845a56 message={"correlation_id": "35be60e8-8647-4917-928f-84cbfb845a56", "data": {"entity_id": "c8e6e862-74c5-42fd-bc02-ab05d46ed6c8"}, "operation": "GET_RECALL", "reply_to": "s3539_entity_responses"}
+recall-worker-1  | [WORKER REPLY] topic=s3539_entity_responses partition=0 offset=1 correlation_id=35be60e8-8647-4917-928f-84cbfb845a56 response={"correlation_id": "35be60e8-8647-4917-928f-84cbfb845a56", "entity": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "entity_id": "c8e6e862-74c5-42fd-bc02-ab05d46ed6c8", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "success": true}
+recall-worker-1  | [WORKER COMMIT] correlation_id=35be60e8-8647-4917-928f-84cbfb845a56 after_success=true
+recall-worker-1  | [WORKER RECEIVE] topic=s3539_entity_requests partition=0 offset=2 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b message={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL", "reply_to": "s3539_entity_responses"}
+recall-worker-1  | [WORKER REPLY] topic=s3539_entity_responses partition=0 offset=2 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b response={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "entity_id": "9f76942e-2efd-4896-aae1-f5b8fe31cc49", "message": "Recall created", "success": true}
+recall-worker-1  | [WORKER COMMIT] correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b after_success=true
+recall-worker-1  | [WORKER RECEIVE] topic=s3539_entity_requests partition=0 offset=3 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b message={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "data": {"brand_name": "Campus Pantry Evidence", "category": "Packaged Foods", "product_name": "HW8 Evidence Granola Bars", "recall_code": "REC-3539-80001", "recall_details": "Packages may contain an undeclared peanut allergen.", "submitter_email": "student@example.edu", "terms_accepted": true, "units_affected": 3539}, "operation": "CREATE_RECALL", "reply_to": "s3539_entity_responses"}
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+s3539-kafka      | [2026-10-27 04:58:50,956] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-35 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=15 correlation_id=live-unkeyed-05ace276-541e-4cba-8f00-2b7860ef850e
+recall-worker-1  | [WORKER REPLY] topic=s3539_entity_responses partition=0 offset=3 correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b response={"correlation_id": "live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b", "duplicate": true, "entity_id": "9f76942e-2efd-4896-aae1-f5b8fe31cc49", "message": "Recall created", "success": true}
+recall-worker-1  | [WORKER COMMIT] correlation_id=live-duplicate-c4b2d4ec-6d5c-4487-8c56-8175d09b173b after_success=true
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=15 correlation_id=live-unkeyed-05ace276-541e-4cba-8f00-2b7860ef850e status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=16 correlation_id=live-unkeyed-6fa58ca8-41bf-4fcc-9f98-9078e28c2da6
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=16 correlation_id=live-unkeyed-6fa58ca8-41bf-4fcc-9f98-9078e28c2da6 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=17 correlation_id=live-unkeyed-3d87d152-4a7d-4595-b6a0-8631cef69588
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=17 correlation_id=live-unkeyed-3d87d152-4a7d-4595-b6a0-8631cef69588 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=18 correlation_id=live-unkeyed-2c731bc6-561d-4bf2-b528-d14154216b91
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=18 correlation_id=live-unkeyed-2c731bc6-561d-4bf2-b528-d14154216b91 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=19 correlation_id=live-unkeyed-d6eecc30-6af8-4b96-be62-088203b54730
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=19 correlation_id=live-unkeyed-d6eecc30-6af8-4b96-be62-088203b54730 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=20 correlation_id=live-unkeyed-1ade2c3c-ebe8-4ebb-a7f6-66b0edac8d38
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=20 correlation_id=live-unkeyed-1ade2c3c-ebe8-4ebb-a7f6-66b0edac8d38 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+s3539-kafka      | [2026-10-27 04:58:50,956] INFO [GroupCoordinator id=1] Scheduling loading of metadata from __consumer_offsets-2 with epoch 0 (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:50,981] INFO [DynamicConfigPublisher broker id=1] Updating topic __consumer_offsets with new configuration : compression.type -> producer,cleanup.policy -> compact,segment.bytes -> 104857600 (kafka.server.metadata.DynamicConfigPublisher)
+s3539-kafka      | [2026-10-27 04:58:50,999] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-14 with epoch 0 in 9ms where 9ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:50,999] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-9 with epoch 0 in 47ms where 47ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:50,999] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-20 with epoch 0 in 15ms where 15ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:50,999] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-46 with epoch 0 in 44ms where 30ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,004] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-16 with epoch 0 in 6ms where 6ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,004] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-28 with epoch 0 in 15ms where 15ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,004] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-19 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,004] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-8 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-24 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-11 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-17 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-22 with epoch 0 in 11ms where 11ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-32 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-10 with epoch 0 in 6ms where 6ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-41 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=21 correlation_id=live-unkeyed-41133a15-c36a-4a5f-bef5-b7bd81a8b767
+s3539-kafka      | [2026-10-27 04:58:51,005] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-3 with epoch 0 in 15ms where 15ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-45 with epoch 0 in 11ms where 11ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-4 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-23 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-30 with epoch 0 in 9ms where 9ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-27 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-21 with epoch 0 in 7ms where 7ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-31 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-42 with epoch 0 in 47ms where 47ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-26 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-7 with epoch 0 in 9ms where 9ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,006] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-36 with epoch 0 in 15ms where 15ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=21 correlation_id=live-unkeyed-41133a15-c36a-4a5f-bef5-b7bd81a8b767 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=22 correlation_id=live-unkeyed-505e199a-30d0-4723-9b4a-09ee628a9b5e
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=22 correlation_id=live-unkeyed-505e199a-30d0-4723-9b4a-09ee628a9b5e status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=23 correlation_id=live-keyed-bc7e2aaa-216a-43e7-95a4-12e4904f4f17
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=23 correlation_id=live-keyed-bc7e2aaa-216a-43e7-95a4-12e4904f4f17 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=24 correlation_id=live-keyed-d4b43935-3367-4090-bcac-4e9c15c54528
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=24 correlation_id=live-keyed-d4b43935-3367-4090-bcac-4e9c15c54528 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=25 correlation_id=live-keyed-c242bd32-5b55-4af0-ba8f-00e480436ff1
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=25 correlation_id=live-keyed-c242bd32-5b55-4af0-ba8f-00e480436ff1 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=26 correlation_id=live-keyed-7c4696e3-2244-422c-90c0-8f6835b17b73
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=26 correlation_id=live-keyed-7c4696e3-2244-422c-90c0-8f6835b17b73 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=27 correlation_id=live-keyed-d7335eaa-4719-4d94-aece-521f7dc09623
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=27 correlation_id=live-keyed-d7335eaa-4719-4d94-aece-521f7dc09623 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=28 correlation_id=live-keyed-abe21c15-c4e2-436a-8776-666bd866cbe4
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=28 correlation_id=live-keyed-abe21c15-c4e2-436a-8776-666bd866cbe4 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=29 correlation_id=live-keyed-3e1466f5-206c-4cdf-b5a9-94ab03e366eb
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=29 correlation_id=live-keyed-3e1466f5-206c-4cdf-b5a9-94ab03e366eb status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=30 correlation_id=live-keyed-df16594d-707d-40df-8848-8ffc38457f97
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=30 correlation_id=live-keyed-df16594d-707d-40df-8848-8ffc38457f97 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=31 correlation_id=live-keyed-66fb3ddc-5427-40d8-96e5-ad1d69eb2ab3
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=31 correlation_id=live-keyed-66fb3ddc-5427-40d8-96e5-ad1d69eb2ab3 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=32 correlation_id=live-keyed-7e9c8efd-7065-4aaa-bcb2-e56a8effb5dc
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=32 correlation_id=live-keyed-7e9c8efd-7065-4aaa-bcb2-e56a8effb5dc status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=33 correlation_id=live-keyed-036c85ef-227a-441f-a580-d72a08f88bc3
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=33 correlation_id=live-keyed-036c85ef-227a-441f-a580-d72a08f88bc3 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=34 correlation_id=live-keyed-4fc7437a-7d7e-404a-8dbb-f5373f41507e
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=34 correlation_id=live-keyed-4fc7437a-7d7e-404a-8dbb-f5373f41507e status=approved
+s3539-kafka      | [2026-10-27 04:58:51,007] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-44 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,007] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-43 with epoch 0 in 11ms where 11ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,007] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-35 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,007] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-29 with epoch 0 in 11ms where 11ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,011] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-18 with epoch 0 in 11ms where 10ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,011] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=17] Dynamic member with unknown member id joins group s3539-fastapi-responses in Empty state. Created a new member id aiokafka-0.14.0-977feea4-d5ba-4044-b238-1c719089d132 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,011] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=8] Dynamic member with unknown member id joins group s3539-recall-worker in Empty state. Created a new member id aiokafka-0.14.0-a9fecbb4-3b40-4e95-8ef6-389f89e90a5c and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,011] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Dynamic member with unknown member id joins group s3539-planner-group in Empty state. Created a new member id aiokafka-0.14.0-a2ef7e3c-954d-4523-9430-64cf59e6ba34 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=35 correlation_id=live-keyed-96d202c9-1847-4e87-956d-c0af414f9dbe
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=35 correlation_id=live-keyed-96d202c9-1847-4e87-956d-c0af414f9dbe status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=36 correlation_id=live-keyed-284b0840-8708-4ed1-86d8-8b3ed1d290c7
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=36 correlation_id=live-keyed-284b0840-8708-4ed1-86d8-8b3ed1d290c7 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=37 correlation_id=live-keyed-60f00c3a-d543-4125-885a-71e968f57d23
+s3539-kafka      | [2026-10-27 04:58:51,014] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-33 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,014] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-38 with epoch 0 in 9ms where 9ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,014] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-0 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,014] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-37 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,014] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-6 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,015] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-5 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,015] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-1 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=37 correlation_id=live-keyed-60f00c3a-d543-4125-885a-71e968f57d23 status=approved
+s3539-kafka      | [2026-10-27 04:58:51,017] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Dynamic member with unknown member id joins group s3539-reviewer-group in Empty state. Created a new member id aiokafka-0.14.0-028c1971-6ecf-4784-9a85-17143a36a0e5 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,019] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-40 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,019] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-39 with epoch 0 in 5ms where 5ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,019] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-13 with epoch 0 in 47ms where 47ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,020] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Dynamic member with unknown member id joins group s3539-writer-group in Empty state. Created a new member id aiokafka-0.14.0-410208d3-59b8-45bf-81b8-c7c0157526df and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,021] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-48 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,021] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-49 with epoch 0 in 8ms where 8ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,021] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-47 with epoch 0 in 11ms where 11ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,022] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-34 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,022] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-15 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,022] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-25 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,022] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-2 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,022] INFO [GroupCoordinator id=1] Finished loading of metadata from __consumer_offsets-12 with epoch 0 in 16ms where 16ms was spent in the scheduler. Loaded 0 records which total to 0 bytes. (org.apache.kafka.coordinator.common.runtime.CoordinatorRuntime)
+s3539-kafka      | [2026-10-27 04:58:51,022] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=8] Pending dynamic member with id aiokafka-0.14.0-a9fecbb4-3b40-4e95-8ef6-389f89e90a5c joins group s3539-recall-worker in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,032] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=8] Preparing to rebalance group s3539-recall-worker in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-a9fecbb4-3b40-4e95-8ef6-389f89e90a5c with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,045] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=17] Pending dynamic member with id aiokafka-0.14.0-977feea4-d5ba-4044-b238-1c719089d132 joins group s3539-fastapi-responses in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,046] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=17] Preparing to rebalance group s3539-fastapi-responses in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-977feea4-d5ba-4044-b238-1c719089d132 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,046] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Pending dynamic member with id aiokafka-0.14.0-028c1971-6ecf-4784-9a85-17143a36a0e5 joins group s3539-reviewer-group in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,047] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Pending dynamic member with id aiokafka-0.14.0-a2ef7e3c-954d-4523-9430-64cf59e6ba34 joins group s3539-planner-group in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,047] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Preparing to rebalance group s3539-planner-group in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-a2ef7e3c-954d-4523-9430-64cf59e6ba34 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,047] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Dynamic member with unknown member id joins group s3539-writer-group in Empty state. Created a new member id aiokafka-0.14.0-87fa0548-ba56-4609-8d85-6df7799bb920 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,047] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Pending dynamic member with id aiokafka-0.14.0-410208d3-59b8-45bf-81b8-c7c0157526df joins group s3539-writer-group in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,048] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Preparing to rebalance group s3539-reviewer-group in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-028c1971-6ecf-4784-9a85-17143a36a0e5 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,048] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Preparing to rebalance group s3539-writer-group in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-410208d3-59b8-45bf-81b8-c7c0157526df with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:51,049] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Pending dynamic member with id aiokafka-0.14.0-87fa0548-ba56-4609-8d85-6df7799bb920 joins group s3539-writer-group in PreparingRebalance state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,044] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=8] Stabilized group s3539-recall-worker generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,047] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Stabilized group s3539-planner-group generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,047] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=17] Stabilized group s3539-fastapi-responses generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,049] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Stabilized group s3539-reviewer-group generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,053] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=17] Assignment received from leader aiokafka-0.14.0-977feea4-d5ba-4044-b238-1c719089d132 for group s3539-fastapi-responses for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,054] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Assignment received from leader aiokafka-0.14.0-a2ef7e3c-954d-4523-9430-64cf59e6ba34 for group s3539-planner-group for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,054] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Assignment received from leader aiokafka-0.14.0-028c1971-6ecf-4784-9a85-17143a36a0e5 for group s3539-reviewer-group for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:54,055] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=8] Assignment received from leader aiokafka-0.14.0-a9fecbb4-3b40-4e95-8ef6-389f89e90a5c for group s3539-recall-worker for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:57,054] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Stabilized group s3539-writer-group generation 1 with 2 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:58:57,059] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Assignment received from leader aiokafka-0.14.0-410208d3-59b8-45bf-81b8-c7c0157526df for group s3539-writer-group for generation 1. The group has 2 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:07,136] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Dynamic member with unknown member id joins group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 in Empty state. Created a new member id aiokafka-0.14.0-68d57aaf-13c7-46ee-88dd-7241ef0726a1 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:07,139] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Pending dynamic member with id aiokafka-0.14.0-68d57aaf-13c7-46ee-88dd-7241ef0726a1 joins group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:07,139] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Preparing to rebalance group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-68d57aaf-13c7-46ee-88dd-7241ef0726a1 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:10,141] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Stabilized group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:10,143] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Assignment received from leader aiokafka-0.14.0-68d57aaf-13c7-46ee-88dd-7241ef0726a1 for group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:10,240] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] [Group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0] Member aiokafka-0.14.0-68d57aaf-13c7-46ee-88dd-7241ef0726a1 has left group through explicit `LeaveGroup` request; client reason: not provided (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 04:59:10,243] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Preparing to rebalance group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 in state PreparingRebalance with old generation 1 (reason: explicit `LeaveGroup` request for (aiokafka-0.14.0-68d57aaf-13c7-46ee-88dd-7241ef0726a1) members.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=38 correlation_id=live-keyed-05c899da-6c70-4ba8-a3aa-b93cb4721aff
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=38 correlation_id=live-keyed-05c899da-6c70-4ba8-a3aa-b93cb4721aff status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=39 correlation_id=live-keyed-dbb24163-0a21-4d56-b03e-f2039d12fb64
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=39 correlation_id=live-keyed-dbb24163-0a21-4d56-b03e-f2039d12fb64 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=40 correlation_id=live-keyed-dff6b50c-f3c2-4817-b76a-fda74a13353f
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=40 correlation_id=live-keyed-dff6b50c-f3c2-4817-b76a-fda74a13353f status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=41 correlation_id=live-keyed-3030879c-31e0-4530-89e5-0b123eaa4743
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=41 correlation_id=live-keyed-3030879c-31e0-4530-89e5-0b123eaa4743 status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+reviewer-1       | [REVIEWER RECEIVE] topic=s3539_drafts partition=0 offset=42 correlation_id=live-keyed-13aece47-2b55-4668-bb20-6498df41face
+reviewer-1       | [REVIEWER SEND] topic=s3539_final partition=0 offset=42 correlation_id=live-keyed-13aece47-2b55-4668-bb20-6498df41face status=approved
+reviewer-1       | [REVIEWER COMMIT] after_success=true
+s3539-kafka      | [2026-10-27 04:59:10,243] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=47] Group s3539-final-reader-f38ff160-bcaf-4a52-bc09-976f920966b0 with generation 2 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,126] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Dynamic member with unknown member id joins group s3539-writer-group in Stable state. Created a new member id aiokafka-0.14.0-ec904345-7b41-45d7-88c5-cc51bcefb763 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,131] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Dynamic member with unknown member id joins group s3539-planner-group in Stable state. Created a new member id aiokafka-0.14.0-f7719e08-844b-4c3a-a97c-e1f3221c5148 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,136] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Dynamic member with unknown member id joins group s3539-writer-group in Stable state. Created a new member id aiokafka-0.14.0-6db18e0d-5c12-4889-b37c-2bf4f931955a and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,136] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Pending dynamic member with id aiokafka-0.14.0-f7719e08-844b-4c3a-a97c-e1f3221c5148 joins group s3539-planner-group in Stable state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,136] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Preparing to rebalance group s3539-planner-group in state PreparingRebalance with old generation 1 (reason: Adding new member aiokafka-0.14.0-f7719e08-844b-4c3a-a97c-e1f3221c5148 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,139] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Pending dynamic member with id aiokafka-0.14.0-6db18e0d-5c12-4889-b37c-2bf4f931955a joins group s3539-writer-group in Stable state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,140] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Preparing to rebalance group s3539-writer-group in state PreparingRebalance with old generation 1 (reason: Adding new member aiokafka-0.14.0-6db18e0d-5c12-4889-b37c-2bf4f931955a with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,145] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Pending dynamic member with id aiokafka-0.14.0-ec904345-7b41-45d7-88c5-cc51bcefb763 joins group s3539-writer-group in PreparingRebalance state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,151] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Dynamic member with unknown member id joins group s3539-reviewer-group in Stable state. Created a new member id aiokafka-0.14.0-0f6fc637-4035-440a-97ef-803d479a0d9b and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,153] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Pending dynamic member with id aiokafka-0.14.0-0f6fc637-4035-440a-97ef-803d479a0d9b joins group s3539-reviewer-group in Stable state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:24,154] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Preparing to rebalance group s3539-reviewer-group in state PreparingRebalance with old generation 1 (reason: Adding new member aiokafka-0.14.0-0f6fc637-4035-440a-97ef-803d479a0d9b with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,140] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Member aiokafka-0.14.0-87fa0548-ba56-4609-8d85-6df7799bb920 in group s3539-writer-group has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,140] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Member aiokafka-0.14.0-028c1971-6ecf-4784-9a85-17143a36a0e5 in group s3539-reviewer-group has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,142] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Stabilized group s3539-reviewer-group generation 2 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,142] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Member aiokafka-0.14.0-410208d3-59b8-45bf-81b8-c7c0157526df in group s3539-writer-group has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,142] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Stabilized group s3539-writer-group generation 2 with 2 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,145] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=21] Assignment received from leader aiokafka-0.14.0-0f6fc637-4035-440a-97ef-803d479a0d9b for group s3539-reviewer-group for generation 2. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,145] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Assignment received from leader aiokafka-0.14.0-6db18e0d-5c12-4889-b37c-2bf4f931955a for group s3539-writer-group for generation 2. The group has 2 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,145] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Member aiokafka-0.14.0-a2ef7e3c-954d-4523-9430-64cf59e6ba34 in group s3539-planner-group has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,146] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Stabilized group s3539-planner-group generation 2 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:31,147] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=46] Assignment received from leader aiokafka-0.14.0-f7719e08-844b-4c3a-a97c-e1f3221c5148 for group s3539-planner-group for generation 2. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:40,158] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Dynamic member with unknown member id joins group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in Empty state. Created a new member id aiokafka-0.14.0-e83fd504-b301-47ac-ac49-eced98fa50d8 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:40,159] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Pending dynamic member with id aiokafka-0.14.0-e83fd504-b301-47ac-ac49-eced98fa50d8 joins group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:40,159] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Preparing to rebalance group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-e83fd504-b301-47ac-ac49-eced98fa50d8 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:43,162] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Stabilized group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:43,167] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Assignment received from leader aiokafka-0.14.0-e83fd504-b301-47ac-ac49-eced98fa50d8 for group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,164] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Member aiokafka-0.14.0-ec904345-7b41-45d7-88c5-cc51bcefb763 in group s3539-writer-group has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,164] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Preparing to rebalance group s3539-writer-group in state PreparingRebalance with old generation 2 (reason: removing member aiokafka-0.14.0-ec904345-7b41-45d7-88c5-cc51bcefb763 on heartbeat expiration.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,164] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Member aiokafka-0.14.0-6db18e0d-5c12-4889-b37c-2bf4f931955a in group s3539-writer-group has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,164] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Group s3539-writer-group with generation 3 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,515] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Member aiokafka-0.14.0-e83fd504-b301-47ac-ac49-eced98fa50d8 in group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 has failed, removing it from the group. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,515] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Preparing to rebalance group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in state PreparingRebalance with old generation 1 (reason: removing member aiokafka-0.14.0-e83fd504-b301-47ac-ac49-eced98fa50d8 on heartbeat expiration.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:01:56,515] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 with generation 2 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,426] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Dynamic member with unknown member id joins group s3539-writer-group in Empty state. Created a new member id aiokafka-0.14.0-63bc52d8-3c68-4e84-94be-056c1d3478f6 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,428] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Dynamic member with unknown member id joins group s3539-writer-group in Empty state. Created a new member id aiokafka-0.14.0-b55a625d-812b-4911-bf81-7e3b5d73c649 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,428] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Pending dynamic member with id aiokafka-0.14.0-63bc52d8-3c68-4e84-94be-056c1d3478f6 joins group s3539-writer-group in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,429] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Preparing to rebalance group s3539-writer-group in state PreparingRebalance with old generation 3 (reason: Adding new member aiokafka-0.14.0-63bc52d8-3c68-4e84-94be-056c1d3478f6 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,429] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Pending dynamic member with id aiokafka-0.14.0-b55a625d-812b-4911-bf81-7e3b5d73c649 joins group s3539-writer-group in PreparingRebalance state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,852] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Dynamic member with unknown member id joins group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in Empty state. Created a new member id aiokafka-0.14.0-7c8b1db3-7825-4095-a33f-ae5abb86f77c and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,853] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Pending dynamic member with id aiokafka-0.14.0-7c8b1db3-7825-4095-a33f-ae5abb86f77c joins group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:12,853] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Preparing to rebalance group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in state PreparingRebalance with old generation 2 (reason: Adding new member aiokafka-0.14.0-7c8b1db3-7825-4095-a33f-ae5abb86f77c with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:15,854] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Stabilized group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 generation 3 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:15,855] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Assignment received from leader aiokafka-0.14.0-7c8b1db3-7825-4095-a33f-ae5abb86f77c for group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 for generation 3. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:18,432] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Stabilized group s3539-writer-group generation 4 with 2 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:18,434] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=35] Assignment received from leader aiokafka-0.14.0-63bc52d8-3c68-4e84-94be-056c1d3478f6 for group s3539-writer-group for generation 4. The group has 2 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:26,473] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] [Group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82] Member aiokafka-0.14.0-7c8b1db3-7825-4095-a33f-ae5abb86f77c has left group through explicit `LeaveGroup` request; client reason: not provided (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:26,473] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Preparing to rebalance group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 in state PreparingRebalance with old generation 3 (reason: explicit `LeaveGroup` request for (aiokafka-0.14.0-7c8b1db3-7825-4095-a33f-ae5abb86f77c) members.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:26,473] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=29] Group s3539-evidence-restart-final-e5c18216-25bc-4ea9-9aa8-e5adadf58b82 with generation 4 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:26,494] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Dynamic member with unknown member id joins group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 in Empty state. Created a new member id aiokafka-0.14.0-0f4472df-2baa-48e8-b8c1-21954045c5f1 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:26,495] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Pending dynamic member with id aiokafka-0.14.0-0f4472df-2baa-48e8-b8c1-21954045c5f1 joins group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:26,495] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Preparing to rebalance group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-0f4472df-2baa-48e8-b8c1-21954045c5f1 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:29,497] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Stabilized group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:29,498] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Assignment received from leader aiokafka-0.14.0-0f4472df-2baa-48e8-b8c1-21954045c5f1 for group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:29,514] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Dynamic member with unknown member id joins group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be in Empty state. Created a new member id aiokafka-0.14.0-48c7faef-0344-4f49-8882-c74654cf3043 and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:29,514] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Pending dynamic member with id aiokafka-0.14.0-48c7faef-0344-4f49-8882-c74654cf3043 joins group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:29,515] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Preparing to rebalance group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-48c7faef-0344-4f49-8882-c74654cf3043 with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,516] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Stabilized group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,519] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Assignment received from leader aiokafka-0.14.0-48c7faef-0344-4f49-8882-c74654cf3043 for group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,580] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] [Group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be] Member aiokafka-0.14.0-48c7faef-0344-4f49-8882-c74654cf3043 has left group through explicit `LeaveGroup` request; client reason: not provided (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,581] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Preparing to rebalance group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be in state PreparingRebalance with old generation 1 (reason: explicit `LeaveGroup` request for (aiokafka-0.14.0-48c7faef-0344-4f49-8882-c74654cf3043) members.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,581] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=5] Group s3539-evidence-final-3c460a2c-8809-4f1c-ae1c-f7a4232690be with generation 2 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,597] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] [Group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531] Member aiokafka-0.14.0-0f4472df-2baa-48e8-b8c1-21954045c5f1 has left group through explicit `LeaveGroup` request; client reason: not provided (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,597] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Preparing to rebalance group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 in state PreparingRebalance with old generation 1 (reason: explicit `LeaveGroup` request for (aiokafka-0.14.0-0f4472df-2baa-48e8-b8c1-21954045c5f1) members.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,597] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=24] Group s3539-evidence-dead-letter-6dcd83c8-2a17-41a4-8d3f-bea38933d531 with generation 2 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,617] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Dynamic member with unknown member id joins group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 in Empty state. Created a new member id aiokafka-0.14.0-3b6c58fb-aab1-48ae-a211-e2fd55f7c12b and requesting the member to rejoin with this id. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,618] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Pending dynamic member with id aiokafka-0.14.0-3b6c58fb-aab1-48ae-a211-e2fd55f7c12b joins group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 in Empty state. Adding to the group now. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:32,619] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Preparing to rebalance group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 in state PreparingRebalance with old generation 0 (reason: Adding new member aiokafka-0.14.0-3b6c58fb-aab1-48ae-a211-e2fd55f7c12b with group instance id null; client reason: not provided). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:35,620] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Stabilized group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 generation 1 with 1 members. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:35,621] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Assignment received from leader aiokafka-0.14.0-3b6c58fb-aab1-48ae-a211-e2fd55f7c12b for group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 for generation 1. The group has 1 members, 0 of which are static. (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:36,727] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] [Group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42] Member aiokafka-0.14.0-3b6c58fb-aab1-48ae-a211-e2fd55f7c12b has left group through explicit `LeaveGroup` request; client reason: not provided (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:36,728] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Preparing to rebalance group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 in state PreparingRebalance with old generation 1 (reason: explicit `LeaveGroup` request for (aiokafka-0.14.0-3b6c58fb-aab1-48ae-a211-e2fd55f7c12b) members.). (org.apache.kafka.coordinator.group.GroupMetadataManager)
+s3539-kafka      | [2026-10-27 05:02:36,728] INFO [GroupCoordinator id=1 topic=__consumer_offsets partition=44] Group s3539-evidence-ordering-6c3c748f-fb5b-42e5-9299-e21cbb604d42 with generation 2 is now empty. (org.apache.kafka.coordinator.group.GroupMetadataManager)

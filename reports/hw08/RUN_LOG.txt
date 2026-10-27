@@ -1,0 +1,16 @@
+Vedant Vartak - DATA 260 Homework 8 deterministic experiment log
+timestamp_utc=2026-10-27T04:51:28.524857+00:00
+VERIFY_SEED=263539
+
+THREE-AGENT MESSAGE JOURNEY
+{"correlation_id": "pipeline-3539", "read_topic": "s3539_inbox", "role": "planner", "send_topic": "s3539_tasks", "status": "planned"}
+{"correlation_id": "pipeline-3539", "read_topic": "s3539_tasks", "role": "writer", "send_topic": "s3539_drafts", "status": "drafted"}
+{"correlation_id": "pipeline-3539", "read_topic": "s3539_drafts", "role": "reviewer", "send_topic": "s3539_final", "status": "approved"}
+FINAL {"answer": "Approved: Question: What should a customer do after finding a matching grocery recall?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.", "correlation_id": "pipeline-3539", "draft": "Question: What should a customer do after finding a matching grocery recall?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.", "entity_key": "recall-3539", "journey": ["planner", "writer", "reviewer"], "plan": "1. Identify the requested decision and constraints. 2. Collect the relevant grocery-recall facts. 3. Draft a concise answer with consumer guidance.", "question": "What should a customer do after finding a matching grocery recall?", "status": "approved"}
+
+FAILURE BEHAVIOR
+duplicate_delivery: {"after_fix": "Cached correlation_id returns the original response.", "before_fix": "A replay could create a second entity.", "entity_count": 1, "first": {"correlation_id": "duplicate-3539", "entity_id": "ff542d35-6dcb-443f-a0f4-f7283a54e258", "message": "Recall created", "success": true}, "passed": true, "replay": {"correlation_id": "duplicate-3539", "duplicate": true, "entity_id": "ff542d35-6dcb-443f-a0f4-f7283a54e258", "message": "Recall created", "success": true}}
+consumer_killed_mid_work: {"after_fix": "Manual commit occurs only after the draft is produced.", "before_fix": "Auto-commit can acknowledge unfinished work.", "events": ["writer received offset=7", "writer terminated before commit offset=7", "writer restarted", "offset=7 redelivered", "writer produced draft", "writer committed offset=7 after success"], "passed": true}
+poison_message: {"after_fix": "After 3 attempts it moves to s3539_dead_letter.", "before_fix": "An unbounded poison message blocks the partition.", "dead_letter": {"correlation_id": "poison-3539", "error": "question is required", "topic": "s3539_dead_letter"}, "later_message": {"correlation_id": "later-good", "status": "approved"}, "passed": true, "retries": [{"attempt": 1, "error": "question is required"}, {"attempt": 2, "error": "question is required"}, {"attempt": 3, "error": "question is required"}]}
+two_partitions_two_consumers: {"input_order": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "key": "recall-3539", "keyed_partition": 0, "keyed_processed_order": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "passed": true, "unkeyed_processed_order": [13, 6, 11, 8, 3, 18, 5, 17, 9, 2, 19, 16, 12, 20, 10, 7, 4, 15, 1, 14], "verify_seed": 263539}
+PASS all_failure_experiments=True
