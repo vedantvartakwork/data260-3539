@@ -207,8 +207,8 @@ def build() -> None:
                     ["Hardware", "Apple M4 MacBook Air — 10 cores — 16 GB RAM"],
                     ["Local model", "qwen3:8b"],
                     ["Repository", REPO_URL],
-                    ["Implementation and evidence commit", IMPLEMENTATION_HASH],
-                    ["Submission tag", "hw8"],
+                    ["Verified implementation commit", IMPLEMENTATION_HASH],
+                    ["Submission reference", "hw8 (authoritative Git tag)"],
                 ],
                 [2.2 * inch, 5.0 * inch],
             ),
@@ -216,6 +216,10 @@ def build() -> None:
             p("Verification summary", "H2x"),
             p(
                 f"Automated verification passed {sum(1 for item in verification['checks'] if item['passed'])}/{len(verification['checks'])} checks. The suite includes 18 named unit tests plus direct inspection of the live Kafka failure-experiment JSON.",
+                "Bodyx",
+            ),
+            p(
+                "The verification hash identifies the exact implementation and live-evidence state that was tested. The final report packaging commit is the commit referenced by the published hw8 tag and can be resolved objectively with <b>git rev-parse hw8^{}</b>.",
                 "Bodyx",
             ),
             p(
@@ -294,8 +298,13 @@ def build() -> None:
                 "01_docker_ps.png",
                 "Figure 1. Live Docker Compose state. Kafka is healthy all six application processes are running and topic initialization exited successfully.",
             ),
+            *screenshot(
+                "10_startup_logs.png",
+                "Figure 2. Required startup evidence: the Worker consumer is ready FastAPI completed startup port 8839 is listening and the health request returned HTTP 200.",
+                max_height=2.4 * inch,
+            ),
             p(
-                "The raw command output is saved as reports/hw08/raw/docker_ps.txt. Service logs and exact topic creation output are saved in kafka_service_logs.txt.",
+                "The host URL is http://127.0.0.1:8839. Docker maps it to the Uvicorn listener at container address 0.0.0.0:8839. The raw command output is saved as reports/hw08/raw/docker_ps.txt. Service logs and exact topic creation output are saved in kafka_service_logs.txt.",
                 "Bodyx",
             ),
             PageBreak(),
@@ -329,7 +338,7 @@ def build() -> None:
             p("3.4 Complete live CREATE then GET run", "H2x"),
             *screenshot(
                 "02_create_get.png",
-                "Figure 2. One live call creates a UUID recall and a second call retrieves that same UUID. Each response preserves its own correlation ID.",
+                "Figure 3. One live call creates a UUID recall and a second call retrieves that same UUID. Each response preserves its own correlation ID.",
             ),
             p(
                 "The input includes typed integer units accepted terms a valid email category product details and recall code. Unknown operations missing fields invalid units and invalid email values return explicit errors; the test suite covers each case.",
@@ -337,7 +346,7 @@ def build() -> None:
             ),
             *screenshot(
                 "07_rpc_message_flow.png",
-                "Figure 3. The same correlation IDs appear in the FastAPI send the Worker receive and reply and the FastAPI receive for both CREATE_RECALL and GET_RECALL.",
+                "Figure 4. The same correlation IDs appear in the FastAPI send the Worker receive and reply and the FastAPI receive for both CREATE_RECALL and GET_RECALL.",
             ),
             PageBreak(),
         ]
@@ -364,11 +373,11 @@ def build() -> None:
             p("4.3 Live end-to-end message journey", "H2x"),
             *screenshot(
                 "03_agent_pipeline.png",
-                "Figure 4. Live question sent to s3539_inbox and final approved JSON received from s3539_final with journey [planner writer reviewer].",
+                "Figure 5. Live question sent to s3539_inbox and final approved JSON received from s3539_final with journey [planner writer reviewer].",
             ),
             *screenshot(
                 "08_pipeline_stage_logs.png",
-                "Figure 5. Matching correlation ID in Planner Writer and Reviewer receive/send lines proves the separate-process journey.",
+                "Figure 6. Matching correlation ID in Planner Writer and Reviewer receive/send lines proves the separate-process journey.",
             ),
             p(
                 "The complete message includes the original question plan draft answer status correlation ID and entity key. This makes the full journey auditable without direct process-to-process calls.",
@@ -397,6 +406,12 @@ def build() -> None:
                 ],
                 [2.0 * inch, 5.2 * inch],
             ),
+            *screenshot(
+                "11_duplicate_log.png",
+                "Figure 7. Direct duplicate-delivery log: the same correlation ID is received twice and both replies contain the same entity ID while the replay is marked duplicate=true.",
+                max_height=3.2 * inch,
+            ),
+            PageBreak(),
             code(source("code/hw8/service.py", 47, 85)),
             PageBreak(),
         ]
@@ -413,7 +428,13 @@ def build() -> None:
             PageBreak(),
             *screenshot(
                 "04_failures.png",
-                "Figure 6. Machine-readable summaries of the three live failure experiments. The full stop/start output offsets and messages are in live_failure_experiments.json.",
+                "Figure 8. Machine-readable summaries of the three live failure experiments.",
+                max_height=2.4 * inch,
+            ),
+            *screenshot(
+                "12_restart_log.png",
+                "Figure 9. Direct consumer-death log: both Writers stop during the delayed task the same partition and offset are received again after restart and commit occurs only after the downstream send.",
+                max_height=4.4 * inch,
             ),
             PageBreak(),
         ]
@@ -437,6 +458,12 @@ def build() -> None:
                 ],
                 [2.0 * inch, 5.2 * inch],
             ),
+            *screenshot(
+                "13_poison_log.png",
+                "Figure 10. Direct poison-message log: attempts 1/3 2/3 and 3/3 are followed by s3539_dead_letter and the later valid record proceeds through the pipeline.",
+                max_height=3.5 * inch,
+            ),
+            PageBreak(),
             code(source("code/hw8/agent_worker.py", 52, 94)),
             p(
                 "The service logs show PLANNER RETRY attempt=1/3 2/3 and 3/3 followed by PLANNER DEAD LETTER. They also show the next message being planned committed drafted reviewed and finalized.",
@@ -456,7 +483,7 @@ def build() -> None:
             ),
             *screenshot(
                 "05_ordering.png",
-                "Figure 7. Required 20-message experiment: unkeyed completion is reordered; keyed completion is exactly 1 through 20 on one partition.",
+                "Figure 11. Required 20-message experiment: unkeyed completion is reordered; keyed completion is exactly 1 through 20 on one partition.",
             ),
             table(
                 [
@@ -527,7 +554,7 @@ def build() -> None:
             p("10. Tests verification and raw artifacts", "H1x"),
             *screenshot(
                 "06_verification.png",
-                "Figure 8. Final verification at implementation commit 66ef001731bf. All five checks pass including 18 unit tests and direct inspection of the live failure JSON.",
+                "Figure 12. Final verification at implementation commit 66ef001731bf. All five checks pass including 18 unit tests and direct inspection of the live failure JSON.",
             ),
             p(
                 "Test coverage includes exact topic names personal configuration successful CREATE/GET correlation preservation unknown entity unknown operation missing fields invalid units invalid email complete three-stage journey poison rejection idempotency manual-commit behavior dead-letter progress deterministic ordering and all four combined experiments.",
@@ -568,7 +595,7 @@ def build() -> None:
             ),
             *screenshot(
                 "09_jmeter.png",
-                "Figure 9. Real JMeter non-GUI run: 100 samples 100 passed 0% errors average 4.04 ms and 10.13 requests per second during the configured ramp.",
+                "Figure 13. Real JMeter non-GUI run: 100 samples 100 passed 0% errors average 4.04 ms and 10.13 requests per second during the configured ramp.",
             ),
             table(
                 [

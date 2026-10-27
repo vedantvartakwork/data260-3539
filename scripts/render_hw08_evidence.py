@@ -83,6 +83,29 @@ def main() -> None:
     terminal("PLANNER -> WRITER -> REVIEWER", pipeline, "03_agent_pipeline.png")
 
     service_logs = (RAW / "kafka_service_logs.txt").read_text(encoding="utf-8").splitlines()
+    startup_flow = [
+        line
+        for line in service_logs
+        if any(
+            marker in line
+            for marker in (
+                "Consumer is ready and listening",
+                "FastAPI Kafka RPC started",
+                "Application startup complete",
+                "Uvicorn running on http://0.0.0.0:8839",
+                '"GET /health HTTP/1.1" 200 OK',
+            )
+        )
+    ]
+    terminal(
+        "REQUIRED WORKER AND FASTAPI STARTUP LOGS",
+        [
+            "Vedant Vartak - DATA 260 Homework 8",
+            "Host endpoint: http://127.0.0.1:8839 (mapped to container port 8839)",
+            *startup_flow,
+        ],
+        "10_startup_logs.png",
+    )
     rpc_ids = re.findall(
         r'CLIENT SEND (?:CREATE|GET)_RECALL .*?"correlation_id": "([^"]+)"',
         (RAW / "homework_demo_live.txt").read_text(encoding="utf-8"),
@@ -136,6 +159,80 @@ def main() -> None:
             "PASS all=True",
         ],
         "04_failures.png",
+    )
+
+    def matching_lines(correlation_id: str, markers: tuple[str, ...]) -> list[str]:
+        return [
+            line
+            for line in service_logs
+            if correlation_id in line and any(marker in line for marker in markers)
+        ]
+
+    duplicate_logs = matching_lines(
+        duplicate["correlation_id"],
+        ("WORKER RECEIVE", "WORKER REPLY", "WORKER COMMIT"),
+    )
+    restart_logs = matching_lines(
+        restart["correlation_id"],
+        ("WRITER RECEIVE", "WRITER SEND", "WRITER COMMIT", "REVIEWER RECEIVE", "REVIEWER SEND"),
+    )
+    for index, line in enumerate(service_logs[:-1]):
+        if restart["correlation_id"] in line and "WRITER SEND" in line:
+            commit_line = service_logs[index + 1]
+            if "[WRITER COMMIT] after_success=true" in commit_line:
+                restart_logs.append(commit_line)
+    poison_id = poison["poison_correlation_id"]
+    later_id = poison["later_good_message"]["value"]["correlation_id"]
+    poison_logs = matching_lines(
+        poison_id,
+        ("PLANNER RECEIVE", "PLANNER RETRY", "PLANNER DEAD LETTER"),
+    )
+    continuation_logs = matching_lines(
+        later_id,
+        ("PLANNER SEND", "PLANNER COMMIT", "WRITER SEND", "WRITER COMMIT", "REVIEWER SEND"),
+    )
+    terminal(
+        "DUPLICATE DELIVERY - DIRECT LOG EXCERPT",
+        [
+            "Vedant Vartak - DATA 260 Homework 8",
+            "Same correlation ID is received twice and the replay reuses one entity:",
+            *duplicate_logs,
+        ],
+        "11_duplicate_log.png",
+    )
+    stop_lines = [
+        line
+        for line in restart["stop_output"].splitlines()
+        if "writer-1-1" in line or "writer-2-1" in line
+    ]
+    start_lines = [
+        line
+        for line in restart["start_output"].splitlines()
+        if ("writer-1-1" in line or "writer-2-1" in line)
+        and ("Starting" in line or "Started" in line)
+    ]
+    terminal(
+        "CONSUMER KILLED MID-WORK - DIRECT LOG EXCERPT",
+        [
+            "Vedant Vartak - DATA 260 Homework 8",
+            "Both Writers stop during an 8-second task then the same partition/offset is redelivered:",
+            *stop_lines,
+            *start_lines,
+            *restart_logs,
+            f"FINAL status={restart['final']['value']['status']} journey={restart['final']['value']['journey']}",
+        ],
+        "12_restart_log.png",
+    )
+    terminal(
+        "POISON MESSAGE - DIRECT LOG EXCERPT",
+        [
+            "Vedant Vartak - DATA 260 Homework 8",
+            "Exactly three attempts then dead-letter; the later valid record continues:",
+            *poison_logs,
+            *continuation_logs,
+            f"FINAL later_good_status={poison['later_good_message']['value']['status']}",
+        ],
+        "13_poison_log.png",
     )
 
     ordering = live["two_partitions_two_consumers"]
