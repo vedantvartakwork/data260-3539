@@ -22,8 +22,8 @@ OUTPUT = ROOT / "reports" / "hw08" / "verification.json"
 LIVE_RESULTS = ROOT / "reports" / "hw08" / "raw" / "live_failure_experiments.json"
 
 
-def git_hash() -> str:
-    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+def git_hash(revision: str = "HEAD") -> str:
+    return subprocess.check_output(["git", "rev-parse", revision], cwd=ROOT, text=True).strip()
 
 
 def check(name: str, fn) -> dict:
@@ -106,6 +106,7 @@ def main() -> None:
         "student": "Vedant Vartak",
         "sid4": settings.sid4,
         "commit_hash": git_hash(),
+        "tagged_commit_hash": git_hash("hw8^{}"),
         "model": settings.model,
         "configuration": {
             "port_base": settings.port_base,
