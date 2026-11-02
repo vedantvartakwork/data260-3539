@@ -173,7 +173,6 @@ def footer(canvas, doc) -> None:
 
 
 def build() -> None:
-    verification = json.loads((REPORT / "verification.json").read_text(encoding="utf-8"))
     live = json.loads((RAW / "live_failure_experiments.json").read_text(encoding="utf-8"))
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(
@@ -214,15 +213,6 @@ def build() -> None:
                 [2.2 * inch, 5.0 * inch],
             ),
             Spacer(1, 0.2 * inch),
-            p("Verification summary", "H2x"),
-            p(
-                f"Automated verification passed {sum(1 for item in verification['checks'] if item['passed'])}/{len(verification['checks'])} checks. The suite includes 18 named unit tests plus direct inspection of the live Kafka failure-experiment JSON.",
-                "Bodyx",
-            ),
-            p(
-                f"The final tag was resolved directly with <b>git rev-parse hw8^{{}}</b>. Its output is <b>{TAGGED_COMMIT_HASH}</b>, exactly matching the commit recorded by the newly generated verification.json after all checks passed.",
-                "Bodyx",
-            ),
             p(
                 "Repository access was checked directly: the repository link opens successfully and supriyaselvanganesan has write access.",
                 "Bodyx",
@@ -692,11 +682,6 @@ def build() -> None:
             ),
             p(
                 "4. I corrected the message validation and added bounded retry idempotency and ordering checks.",
-                "Bodyx",
-            ),
-            p("14. Submission contents", "H1x"),
-            p(
-                "The hw8 tag contains the implementation Docker configuration scripts tests report raw evidence CSV JMeter plan METRICS.md RUN_LOG.txt AI_USE.md and verification.json. The report filename is Vartak_HW8.pdf.",
                 "Bodyx",
             ),
         ]
