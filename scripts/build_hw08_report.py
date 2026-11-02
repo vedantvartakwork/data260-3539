@@ -26,8 +26,8 @@ REPORT = ROOT / "reports" / "hw08"
 RAW = REPORT / "raw"
 EVIDENCE = REPORT / "evidence"
 OUTPUT = ROOT / "output" / "pdf" / "Vartak_HW8.pdf"
-IMPLEMENTATION_HASH = "66ef001731bf57b75530c0c1da2d55ca8153e0a1"
-TAGGED_COMMIT_HASH = "f602af8939057046d8b6a934ae1a6d8b42321ed2"
+IMPLEMENTATION_HASH = "3d046f7ea7fd5eef80315918396eb579a08cf429"
+TAGGED_COMMIT_HASH = "3d046f7ea7fd5eef80315918396eb579a08cf429"
 REPO_URL = "https://github.com/vedantvartakwork/data260-3539"
 
 
@@ -220,7 +220,7 @@ def build() -> None:
                 "Bodyx",
             ),
             p(
-                f"The final tag was resolved directly with <b>git rev-parse hw8^{{}}</b>. Its output is <b>{TAGGED_COMMIT_HASH}</b>. The separate verification hash above identifies the implementation and live-evidence state exercised by the automated checks.",
+                f"The final tag was resolved directly with <b>git rev-parse hw8^{{}}</b>. Its output is <b>{TAGGED_COMMIT_HASH}</b>, exactly matching the commit recorded by the newly generated verification.json after all checks passed.",
                 "Bodyx",
             ),
             p(
@@ -596,7 +596,7 @@ def build() -> None:
             p("10. Tests verification and raw artifacts", "H1x"),
             *screenshot(
                 "06_verification.png",
-                "Figure 12. Final verification at implementation commit 66ef001731bf. All five checks pass including 18 unit tests and direct inspection of the live failure JSON.",
+                "Figure 12. Final verification at tagged commit 3d046f7ea7fd. All five checks pass including 18 unit tests and direct inspection of the live failure JSON.",
             ),
             p(
                 "Test coverage includes exact topic names personal configuration successful CREATE/GET correlation preservation unknown entity unknown operation missing fields invalid units invalid email complete three-stage journey poison rejection idempotency manual-commit behavior dead-letter progress deterministic ordering and all four combined experiments.",
