@@ -27,6 +27,7 @@ RAW = REPORT / "raw"
 EVIDENCE = REPORT / "evidence"
 OUTPUT = ROOT / "output" / "pdf" / "Vartak_HW8.pdf"
 IMPLEMENTATION_HASH = "66ef001731bf57b75530c0c1da2d55ca8153e0a1"
+TAGGED_COMMIT_HASH = "f602af8939057046d8b6a934ae1a6d8b42321ed2"
 REPO_URL = "https://github.com/vedantvartakwork/data260-3539"
 
 
@@ -98,8 +99,8 @@ styles.add(
     ParagraphStyle(
         name="Codex",
         fontName="Courier",
-        fontSize=7.6,
-        leading=9.4,
+        fontSize=8.6,
+        leading=10.4,
         textColor=colors.black,
         backColor=colors.HexColor("#f3f4f6"),
         borderColor=colors.HexColor("#9ca3af"),
@@ -208,7 +209,7 @@ def build() -> None:
                     ["Local model", "qwen3:8b"],
                     ["Repository", REPO_URL],
                     ["Verified implementation commit", IMPLEMENTATION_HASH],
-                    ["Submission reference", "hw8 (authoritative Git tag)"],
+                    ["Resolved final hw8 tagged commit", TAGGED_COMMIT_HASH],
                 ],
                 [2.2 * inch, 5.0 * inch],
             ),
@@ -219,11 +220,11 @@ def build() -> None:
                 "Bodyx",
             ),
             p(
-                "The verification hash identifies the exact implementation and live-evidence state that was tested. The final report packaging commit is the commit referenced by the published hw8 tag and can be resolved objectively with <b>git rev-parse hw8^{}</b>.",
+                f"The final tag was resolved directly with <b>git rev-parse hw8^{{}}</b>. Its output is <b>{TAGGED_COMMIT_HASH}</b>. The separate verification hash above identifies the implementation and live-evidence state exercised by the automated checks.",
                 "Bodyx",
             ),
             p(
-                "Collaborators: Sbnikitha and supriyaselvanganesan are the course collaborators associated with this repository.",
+                "Repository access was checked directly: the repository link opens successfully and supriyaselvanganesan has write access.",
                 "Bodyx",
             ),
             PageBreak(),
@@ -320,22 +321,50 @@ def build() -> None:
             ),
             p("3.1 Domain validation and idempotent worker", "H2x"),
             code(
-                source("code/hw8/service.py", 31, 54)
+                source("code/hw8/service.py", 31, 53)
                 + "\n...\n"
-                + source("code/hw8/service.py", 56, 101)
+                + source("code/hw8/service.py", 56, 65)
+                + "\n...\n"
+                + source("code/hw8/service.py", 71, 84)
             ),
             PageBreak(),
             p("3.2 Correlation-aware RPC client", "H2x"),
-            code(source("code/hw8/rpc.py", 53, 101)),
+            code(source("code/hw8/rpc.py", 53, 65) + "\n...\n" + source("code/hw8/rpc.py", 67, 94)),
+            p("Corresponding live output", "H2x"),
+            code(
+                "CLIENT RECEIVE CREATE_RECALL success=true\n"
+                "correlation_id=d4db56c8-70ba-4ca5-8ccc-4d2debee7826\n"
+                "entity_id=979999a2-fa30-4adf-bb4b-6c61c07fb9e3"
+            ),
             PageBreak(),
             p("3.3 Manual worker response and offset commit", "H2x"),
-            code(source("code/hw8/worker.py", 23, 58)),
+            code(
+                source("code/hw8/worker.py", 15, 28)
+                + "\n...\n"
+                + source("code/hw8/worker.py", 31, 51)
+            ),
             p(
                 "The record is committed only after the response is successfully sent. This is the at-least-once boundary used again in the failure experiment.",
                 "Bodyx",
             ),
+            p("Corresponding live output", "H2x"),
+            code(
+                "[WORKER REPLY] correlation_id=d4db56c8-70ba-4ca5-8ccc-4d2debee7826 success=true\n"
+                "[WORKER COMMIT] correlation_id=d4db56c8-70ba-4ca5-8ccc-4d2debee7826 after_success=true"
+            ),
             PageBreak(),
-            p("3.4 Complete live CREATE then GET run", "H2x"),
+            p("3.4 Required homework_demo.py CREATE-then-GET driver", "H2x"),
+            p(
+                "This is the required source entry point that initiates the exact CREATE_RECALL request, captures the returned entity ID, and immediately uses that ID in GET_RECALL.",
+                "Bodyx",
+            ),
+            code(
+                source("code/hw8/homework_demo.py", 12, 26)
+                + "\n...\n"
+                + source("code/hw8/homework_demo.py", 28, 43)
+            ),
+            PageBreak(),
+            p("3.5 Complete live CREATE then GET output", "H2x"),
             *screenshot(
                 "02_create_get.png",
                 "Figure 3. One live call creates a UUID recall and a second call retrieves that same UUID. Each response preserves its own correlation ID.",
@@ -360,7 +389,11 @@ def build() -> None:
                 "Bodyx",
             ),
             p("4.1 Stage logic", "H2x"),
-            code(source("code/hw8/pipeline.py", 9, 62)),
+            code(
+                source("code/hw8/pipeline.py", 9, 13)
+                + "\n...\n"
+                + source("code/hw8/pipeline.py", 37, 62)
+            ),
             p("4.2 Separate process entry points", "H2x"),
             code(
                 source("code/hw8/planner.py", 1, 4)
@@ -369,6 +402,8 @@ def build() -> None:
                 + "\n\n"
                 + source("code/hw8/reviewer.py", 1, 4)
             ),
+            p("Corresponding live output", "H2x"),
+            code("PASS journey=inbox -> tasks -> drafts -> final"),
             PageBreak(),
             p("4.3 Live end-to-end message journey", "H2x"),
             *screenshot(
@@ -406,13 +441,13 @@ def build() -> None:
                 ],
                 [2.0 * inch, 5.2 * inch],
             ),
+            p("Idempotency implementation", "H2x"),
+            code(source("code/hw8/service.py", 56, 65)),
             *screenshot(
                 "11_duplicate_log.png",
                 "Figure 7. Direct duplicate-delivery log: the same correlation ID is received twice and both replies contain the same entity ID while the replay is marked duplicate=true.",
                 max_height=3.2 * inch,
             ),
-            PageBreak(),
-            code(source("code/hw8/service.py", 47, 85)),
             PageBreak(),
         ]
     )
@@ -424,7 +459,13 @@ def build() -> None:
                 "Failure: an auto-committed task can disappear if the Writer dies after receiving it but before publishing the draft. Fix: enable_auto_commit is false and the worker commits only after the next-topic send succeeds. The live experiment sends an eight-second Writer task stops both Writer containers while it is in flight restarts them and observes an approved final response.",
                 "Bodyx",
             ),
-            code(source("code/hw8/agent_worker.py", 1, 95)),
+            code(
+                source("code/hw8/agent_worker.py", 15, 22)
+                + "\n...\n"
+                + source("code/hw8/agent_worker.py", 36, 54)
+                + "\n...\n"
+                + source("code/hw8/agent_worker.py", 79, 88)
+            ),
             PageBreak(),
             *screenshot(
                 "04_failures.png",
@@ -464,7 +505,8 @@ def build() -> None:
                 max_height=3.5 * inch,
             ),
             PageBreak(),
-            code(source("code/hw8/agent_worker.py", 52, 94)),
+            p("Bounded retry and dead-letter implementation", "H2x"),
+            code(source("code/hw8/agent_worker.py", 50, 77)),
             p(
                 "The service logs show PLANNER RETRY attempt=1/3 2/3 and 3/3 followed by PLANNER DEAD LETTER. They also show the next message being planned committed drafted reviewed and finalized.",
                 "Bodyx",
@@ -500,9 +542,9 @@ def build() -> None:
             PageBreak(),
             p("8.1 Experiment implementation", "H2x"),
             code(
-                source("scripts/run_hw08_live_failures.py", 142, 169)
-                + "\n...\n"
-                + source("scripts/run_hw08_live_failures.py", 174, 246)
+                source("scripts/run_hw08_live_failures.py", 174, 195)
+                + "\n... repeated payload fields omitted ...\n"
+                + source("scripts/run_hw08_live_failures.py", 198, 225)
             ),
             PageBreak(),
         ]
