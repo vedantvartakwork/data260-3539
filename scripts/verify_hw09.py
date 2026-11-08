@@ -33,6 +33,7 @@ def check_results(payload: dict[str, Any]) -> dict[str, bool]:
     sweep = payload["threshold_sweep"]
     chosen = next(row for row in sweep if row["threshold"] == 0.95)
     variants = payload["self_improving"]["variants"]
+    validation = payload["self_improving"]["validation"]
     return {
         "redis_backend_recorded": payload["backend"] == "redis",
         "counter_25_and_db_20": payload["counter"]["passed"],
@@ -48,7 +49,12 @@ def check_results(payload: dict[str, Any]) -> dict[str, bool]:
         )
         <= 2,
         "lesson_reused": bool(payload["self_improving"]["lesson_reuse"]["lessons_used"]),
-        "lesson_validation_passed": payload["self_improving"]["validation"]["kept"],
+        "lesson_validation_passed": validation["kept"],
+        "validation_failure_cases_not_regressed": validation["failure_cases_not_regressed"],
+        "validation_previously_correct_remain_correct": validation[
+            "previously_correct_remain_correct"
+        ],
+        "validation_unrelated_remains_grounded": validation["unrelated_remain_grounded"],
     }
 
 

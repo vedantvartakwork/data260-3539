@@ -202,12 +202,46 @@ class SelfImprovingSystem:
     ) -> dict[str, Any]:
         before = self.evaluate_dataset(validation, repair=False, use_lessons=False)
         after = self.evaluate_dataset(validation, repair=False, use_lessons=True)
-        kept = after["correct"] >= before["correct"] and after["incorrect"] <= before["incorrect"]
+        before_by_id = {item["question_id"]: item for item in before["results"]}
+        after_by_id = {item["question_id"]: item for item in after["results"]}
+        failed_before = {
+            question_id
+            for question_id, result in before_by_id.items()
+            if result["final_evaluation"] != "PASS"
+        }
+        correct_before = set(before_by_id) - failed_before
+        unrelated_ids = {
+            item["question_id"]
+            for item in validation
+            if self.reference[item["question_id"]].get("unsupported")
+        }
+        failure_cases_not_regressed = sum(
+            after_by_id[question_id]["final_evaluation"] == "PASS" for question_id in failed_before
+        ) >= sum(
+            before_by_id[question_id]["final_evaluation"] == "PASS" for question_id in failed_before
+        )
+        previously_correct_remain_correct = all(
+            after_by_id[question_id]["final_evaluation"] == "PASS" for question_id in correct_before
+        )
+        unrelated_remain_grounded = all(
+            after_by_id[question_id]["final_evaluation"] == "PASS"
+            and after_by_id[question_id]["final_answer"]
+            == self.reference[question_id]["canonical_answer"]
+            for question_id in unrelated_ids
+        )
+        kept = (
+            failure_cases_not_regressed
+            and previously_correct_remain_correct
+            and unrelated_remain_grounded
+        )
         if not kept:
             self.lessons.remove(lesson_id)
         return {
             "lesson_id": lesson_id,
             "before_correct": before["correct"],
             "after_correct": after["correct"],
+            "failure_cases_not_regressed": failure_cases_not_regressed,
+            "previously_correct_remain_correct": previously_correct_remain_correct,
+            "unrelated_remain_grounded": unrelated_remain_grounded,
             "kept": kept,
         }

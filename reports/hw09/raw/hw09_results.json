@@ -3391,7 +3391,7 @@
       "final_answer": "REC-3539-00001 affects 6,535 units.",
       "final_evaluation": "PASS",
       "attempts": 2,
-      "latency_ms": 0.033,
+      "latency_ms": 0.011,
       "lessons_used": []
     },
     "repeated_failure_before_lesson": {
@@ -3403,14 +3403,14 @@
       "final_answer": "REC-3539-00002 affects a large number of units.",
       "final_evaluation": "REVISE",
       "attempts": 1,
-      "latency_ms": 0.005,
+      "latency_ms": 0.003,
       "lessons_used": []
     },
     "created_lesson": {
       "lesson_id": "lesson_001",
       "failure_pattern": "omits_units",
       "correction": "When a question asks how many units are affected, include the exact unit count and recall code from the reference dataset.",
-      "created_at": "2026-11-07",
+      "created_at": "2026-11-08",
       "use_count": 0
     },
     "lesson_reuse": {
@@ -3422,7 +3422,7 @@
       "final_answer": "REC-3539-00002 affects 18,135 units.",
       "final_evaluation": "PASS",
       "attempts": 1,
-      "latency_ms": 0.197,
+      "latency_ms": 0.065,
       "lessons_used": [
         "lesson_001"
       ]
@@ -3431,6 +3431,9 @@
       "lesson_id": "lesson_001",
       "before_correct": 3,
       "after_correct": 5,
+      "failure_cases_not_regressed": true,
+      "previously_correct_remain_correct": true,
+      "unrelated_remain_grounded": true,
       "kept": true
     },
     "variants": {
@@ -3438,7 +3441,7 @@
         "correct": 6,
         "incorrect": 2,
         "average_attempts": 1.0,
-        "average_latency_ms": 0.002,
+        "average_latency_ms": 0.001,
         "results": [
           {
             "question_id": "test_units_1",
@@ -3449,7 +3452,7 @@
             "final_answer": "REC-3539-00010 affects multiple units.",
             "final_evaluation": "REVISE",
             "attempts": 1,
-            "latency_ms": 0.003,
+            "latency_ms": 0.002,
             "lessons_used": []
           },
           {
@@ -3461,7 +3464,7 @@
             "final_answer": "REC-3539-00004 affects grocery units.",
             "final_evaluation": "REVISE",
             "attempts": 1,
-            "latency_ms": 0.003,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3473,7 +3476,7 @@
             "final_answer": "REC-3539-00003 was issued by Valley Dairy.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3485,7 +3488,7 @@
             "final_answer": "The reason for REC-3539-00006 is possible E. coli contamination.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3497,7 +3500,7 @@
             "final_answer": "For REC-3539-00009, check the lot code and discard expired jars.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3509,7 +3512,7 @@
             "final_answer": "REC-3539-00007 applies to Ground Beef Lot 00007.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3521,7 +3524,7 @@
             "final_answer": "REC-3539-00008 covers Cheddar Slices Lot 00008 and affects 6,800 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.003,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3533,7 +3536,7 @@
             "final_answer": "The reference dataset does not support an answer to this question.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           }
         ]
@@ -3542,7 +3545,7 @@
         "correct": 8,
         "incorrect": 0,
         "average_attempts": 1.25,
-        "average_latency_ms": 0.003,
+        "average_latency_ms": 0.002,
         "results": [
           {
             "question_id": "test_units_1",
@@ -3553,7 +3556,7 @@
             "final_answer": "REC-3539-00010 affects 5,300 units.",
             "final_evaluation": "PASS",
             "attempts": 2,
-            "latency_ms": 0.008,
+            "latency_ms": 0.003,
             "lessons_used": []
           },
           {
@@ -3565,7 +3568,7 @@
             "final_answer": "REC-3539-00004 affects 9,200 units.",
             "final_evaluation": "PASS",
             "attempts": 2,
-            "latency_ms": 0.007,
+            "latency_ms": 0.003,
             "lessons_used": []
           },
           {
@@ -3577,7 +3580,7 @@
             "final_answer": "REC-3539-00003 was issued by Valley Dairy.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3589,7 +3592,7 @@
             "final_answer": "The reason for REC-3539-00006 is possible E. coli contamination.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3601,7 +3604,7 @@
             "final_answer": "For REC-3539-00009, check the lot code and discard expired jars.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3613,7 +3616,7 @@
             "final_answer": "REC-3539-00007 applies to Ground Beef Lot 00007.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3625,7 +3628,7 @@
             "final_answer": "REC-3539-00008 covers Cheddar Slices Lot 00008 and affects 6,800 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3637,7 +3640,7 @@
             "final_answer": "The reference dataset does not support an answer to this question.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           }
         ]
@@ -3646,7 +3649,7 @@
         "correct": 8,
         "incorrect": 0,
         "average_attempts": 1.0,
-        "average_latency_ms": 0.05,
+        "average_latency_ms": 0.014,
         "results": [
           {
             "question_id": "test_units_1",
@@ -3657,7 +3660,7 @@
             "final_answer": "REC-3539-00010 affects 5,300 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.195,
+            "latency_ms": 0.056,
             "lessons_used": [
               "lesson_001"
             ]
@@ -3671,7 +3674,7 @@
             "final_answer": "REC-3539-00004 affects 9,200 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.193,
+            "latency_ms": 0.051,
             "lessons_used": [
               "lesson_001"
             ]
@@ -3685,7 +3688,7 @@
             "final_answer": "REC-3539-00003 was issued by Valley Dairy.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3697,7 +3700,7 @@
             "final_answer": "The reason for REC-3539-00006 is possible E. coli contamination.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3709,7 +3712,7 @@
             "final_answer": "For REC-3539-00009, check the lot code and discard expired jars.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3721,7 +3724,7 @@
             "final_answer": "REC-3539-00007 applies to Ground Beef Lot 00007.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3733,7 +3736,7 @@
             "final_answer": "REC-3539-00008 covers Cheddar Slices Lot 00008 and affects 6,800 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3745,7 +3748,7 @@
             "final_answer": "The reference dataset does not support an answer to this question.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           }
         ]
@@ -3754,7 +3757,7 @@
         "correct": 8,
         "incorrect": 0,
         "average_attempts": 1.0,
-        "average_latency_ms": 0.046,
+        "average_latency_ms": 0.014,
         "results": [
           {
             "question_id": "test_units_1",
@@ -3765,7 +3768,7 @@
             "final_answer": "REC-3539-00010 affects 5,300 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.164,
+            "latency_ms": 0.05,
             "lessons_used": [
               "lesson_001"
             ]
@@ -3779,7 +3782,7 @@
             "final_answer": "REC-3539-00004 affects 9,200 units.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.196,
+            "latency_ms": 0.052,
             "lessons_used": [
               "lesson_001"
             ]
@@ -3793,7 +3796,7 @@
             "final_answer": "REC-3539-00003 was issued by Valley Dairy.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3805,7 +3808,7 @@
             "final_answer": "The reason for REC-3539-00006 is possible E. coli contamination.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3817,7 +3820,7 @@
             "final_answer": "For REC-3539-00009, check the lot code and discard expired jars.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3829,7 +3832,7 @@
             "final_answer": "REC-3539-00007 applies to Ground Beef Lot 00007.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           },
           {
@@ -3853,7 +3856,7 @@
             "final_answer": "The reference dataset does not support an answer to this question.",
             "final_evaluation": "PASS",
             "attempts": 1,
-            "latency_ms": 0.002,
+            "latency_ms": 0.001,
             "lessons_used": []
           }
         ]

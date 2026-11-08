@@ -221,7 +221,7 @@ def build() -> None:
                     ["Hardware", "Apple M4 MacBook Air — 10 cores — 16 GB RAM"],
                     ["Local model", "qwen3:8b through the local adapter"],
                     ["Repository", REPO_URL],
-                    ["Resolved final hw9 tagged commit", tagged_hash],
+                    ["Resolved hw9 tagged code/results commit", tagged_hash],
                     ["Verified implementation commit", implementation_hash],
                     [
                         "Redis backend",
@@ -288,7 +288,7 @@ def build() -> None:
         [
             p("2. Part 1 — Redis-backed view counter", "H1x"),
             p("Implementation", "H2x"),
-            code(source("code/hw9/store.py", 72, 85)),
+            code(source("code/hw9/store.py", 152, 165)),
             p(
                 "The only new counter method validates the recall ID increments Redis on every access persists the current value at each multiple of ten logs the sync and returns the live count.",
                 "Bodyx",
@@ -416,7 +416,6 @@ def build() -> None:
             ),
             p("Invalidation implementation", "H2x"),
             code(source("code/hw9/query_service.py", 65, 68)),
-            code(source("code/hw9/store.py", 94, 110)),
             p(
                 "The cache records each answer's entity and data version. An update increments the source version and removes every cache member registered to that entity. The trade-off is extra write-path work and a temporary hit-rate reduction in exchange for preventing stale safety guidance.",
                 "Bodyx",
@@ -429,7 +428,7 @@ def build() -> None:
         [
             p("7. Part 4 — Two-agent design and protected datasets", "H1x"),
             p(
-                "The Answering Agent reads only an input question ID plus relevant validated lessons. The Evaluator Agent alone uses reference_dataset.json as ground truth and returns PASS or REVISE with an explanation and corrective feedback.",
+                "The Answering Agent receives an input question ID plus relevant validated lessons and generates a grounded domain response. The Evaluator Agent independently checks that response against reference_dataset.json and returns PASS or REVISE with an explanation and corrective feedback.",
                 "Bodyx",
             ),
             code(source("code/hw9/self_improving.py", 80, 122)),
@@ -488,7 +487,7 @@ def build() -> None:
         [
             p("9. Part 4 — Validation gate and communication", "H1x"),
             p("Regression gate", "H2x"),
-            code(source("code/hw9/self_improving.py", 187, 209)),
+            code(source("code/hw9/self_improving.py", 198, 246)),
             p(
                 "Validation compares the same validation inputs before and after applying the lesson. A lesson is kept only when failure cases do not regress and previously correct or unrelated cases remain correct; otherwise it is removed. test_data.json is not consulted during lesson creation or selection.",
                 "Bodyx",

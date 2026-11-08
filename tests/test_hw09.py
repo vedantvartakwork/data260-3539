@@ -111,6 +111,9 @@ def test_two_attempt_repair_and_lesson_reuse(tmp_path: Path) -> None:
     assert reuse.attempts == 1
     assert reuse.final_evaluation == "PASS"
     assert reuse.lessons_used == [lesson["lesson_id"]]
+    assert validation_result["failure_cases_not_regressed"] is True
+    assert validation_result["previously_correct_remain_correct"] is True
+    assert validation_result["unrelated_remain_grounded"] is True
     assert validation_result["kept"] is True
 
 

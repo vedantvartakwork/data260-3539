@@ -25,7 +25,7 @@ Chosen threshold: **0.95**. 0.95 removes observed false hits at far lower expect
 
 | Variant | Correct | Incorrect | Avg attempts | Avg latency (ms) |
 |---|---:|---:|---:|---:|
-| Baseline | 6 | 2 | 1.000 | 0.002 |
-| Evaluator Repair | 8 | 0 | 1.250 | 0.003 |
-| Lesson Memory | 8 | 0 | 1.000 | 0.050 |
-| Validated Improvement | 8 | 0 | 1.000 | 0.046 |
+| Baseline | 6 | 2 | 1.000 | 0.001 |
+| Evaluator Repair | 8 | 0 | 1.250 | 0.002 |
+| Lesson Memory | 8 | 0 | 1.000 | 0.014 |
+| Validated Improvement | 8 | 0 | 1.000 | 0.014 |
