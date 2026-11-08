@@ -1,16 +1,16 @@
 {
   "student": "Vedant Vartak",
   "homework": 9,
-  "verified_at_utc": "2026-11-08T07:37:35.586971+00:00",
-  "commit": "48c674df85a525783f7c3d30264d3f35ef991855",
-  "hw9_tag": "48c674df85a525783f7c3d30264d3f35ef991855",
+  "verified_at_utc": "2026-11-08T08:04:15.793398+00:00",
+  "commit": "f801388c9762491d279eeafffc546bc55737e929",
+  "hw9_tag": "f801388c9762491d279eeafffc546bc55737e929",
   "lint": {
     "passed": true,
     "output": "All checks passed!\n"
   },
   "tests": {
     "passed": true,
-    "output": "........                                                                 [100%]\n8 passed in 0.03s\n"
+    "output": "........                                                                 [100%]\n8 passed in 0.02s\n"
   },
   "checks": {
     "redis_backend_recorded": true,
@@ -24,17 +24,20 @@
     "four_agent_variants": true,
     "bounded_two_attempts": true,
     "lesson_reused": true,
-    "lesson_validation_passed": true
+    "lesson_validation_passed": true,
+    "validation_failure_cases_not_regressed": true,
+    "validation_previously_correct_remain_correct": true,
+    "validation_unrelated_remains_grounded": true
   },
   "artifacts_sha256": {
     "code/hw9/store.py": "c749b777f992bdc65d77508076c446ebbefb53307064ca080ec6829e37c757c3",
     "code/hw9/semantic_cache.py": "8a0876705e71fa9baeadc8a1f82369076a4c10eb2912d37732abce682227028b",
-    "code/hw9/self_improving.py": "6e014139b70395beb841e6c02693f98b2341e0fda085ff543de7a1fc1144f301",
+    "code/hw9/self_improving.py": "90b95d8d3a0d391e38332638a5497948a8d01fb9b722efe0a155e8fdfb49a835",
     "reports/hw09/data/cache_cases.yaml": "f1fc0926a758b2ea2673564d63e2277216ec922d842cfd72487637bf58c6a7b2",
     "reports/hw09/data/training_data.json": "1a3b85b1764a0ce6b64d4602814584bbefc728da395034d6e09408118644c4e7",
     "reports/hw09/data/validation_data.json": "f41ff59f79101f91bf56bfca4c6a7b15458f157e812798a3d55bd445d6796d37",
     "reports/hw09/data/test_data.json": "b174b79eb00c3ab86d29436ab42c3a0160b43aa88d318a1ce1eb5bd9f79d3f05",
-    "reports/hw09/raw/hw09_results.json": "199466e4a606d5b80ebfc82255a5c14824f4e4e964f96dbab29406a65d9ee883",
+    "reports/hw09/raw/hw09_results.json": "d5a3e36653c0c063c77b07bdf2680c976d53014b9dc63b193868557d5e9c6c12",
     "reports/hw09/raw/redis_state.json": "be6926843e0b7ed413a784525b23b2d1613bbd1bb1d02d10bd8071f002af824a"
   },
   "passed": true
