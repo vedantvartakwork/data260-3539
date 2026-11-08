@@ -106,7 +106,7 @@ styles.add(
 )
 styles.add(
     ParagraphStyle(
-        name="Code",
+        name="CodeX",
         fontName="Courier",
         fontSize=8.4,
         leading=10.2,
@@ -139,7 +139,7 @@ def p(text: str, style: str = "Bodyx") -> Paragraph:
 
 
 def code(text: str) -> Preformatted:
-    return Preformatted(escape(text), styles["Code"])
+    return Preformatted(escape(text), styles["CodeX"])
 
 
 def table(rows: list[list[str]], widths: list[float] | None = None) -> Table:
@@ -311,6 +311,13 @@ def build() -> None:
                 "VADD stores the 384-dimensional FP32 embedding in the prefix-scoped Redis vector index. SETATTR keeps the original query final answer answer ID entity ID data version and timestamp beside the vector. Entity-specific sets support invalidation.",
                 "Bodyx",
             ),
+            PageBreak(),
+        ]
+    )
+
+    story.extend(
+        [
+            p("3. Part 2 — Cosine vector lookup", "H1x"),
             p("Cosine lookup", "H2x"),
             code(source("code/hw9/semantic_cache.py", 182, 211)),
             p(
@@ -329,6 +336,13 @@ def build() -> None:
                 "A cache hit returns the stored answer without running the local model and includes is_cached similarity and elapsed latency. A miss invokes the normal grounded qwen3:8b adapter stores the result and returns is_cached=false.",
                 "Bodyx",
             ),
+            PageBreak(),
+        ]
+    )
+
+    story.extend(
+        [
+            p("3. Part 2 — Measured Redis and qwen3:8b output", "H1x"),
             *screenshot(
                 "02_cache_workload.png",
                 "Live Redis 8 evidence and the 12-query workload. Six responses were cached. Mean cached latency was 0.722 ms and mean non-cached local-model latency was 9377.214 ms.",
@@ -462,6 +476,17 @@ def build() -> None:
             code(json.dumps(lesson, indent=2)),
             p("Lesson storage and reuse", "H2x"),
             code(source("code/hw9/self_improving.py", 47, 74)),
+            p(
+                "lesson_001 is keyed by the repeated omits_units pattern. The Answering Agent loads it before generating a related response and increments use_count each time it applies.",
+                "Bodyx",
+            ),
+            PageBreak(),
+        ]
+    )
+
+    story.extend(
+        [
+            p("9. Part 4 — Validation gate and communication", "H1x"),
             p("Regression gate", "H2x"),
             code(source("code/hw9/self_improving.py", 187, 209)),
             p(
