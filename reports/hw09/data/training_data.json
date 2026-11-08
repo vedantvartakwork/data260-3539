@@ -1,0 +1,6 @@
+[
+  {"question_id":"train_units_1","question":"How many units are affected by REC-3539-00001?"},
+  {"question_id":"train_units_2","question":"Give the exact affected quantity for REC-3539-00002."},
+  {"question_id":"train_guidance_1","question":"What should consumers do for REC-3539-00005?"},
+  {"question_id":"train_unsupported","question":"What is tomorrow's weather?"}
+]

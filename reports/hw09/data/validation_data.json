@@ -1,0 +1,7 @@
+[
+  {"question_id":"val_units_1","question":"How many units are affected by REC-3539-00006?"},
+  {"question_id":"val_units_2","question":"What is the unit count for REC-3539-00007?"},
+  {"question_id":"val_guidance","question":"What should consumers do about REC-3539-00008?"},
+  {"question_id":"val_product","question":"Which product is covered by REC-3539-00009?"},
+  {"question_id":"val_unsupported","question":"Who won yesterday's game?"}
+]

@@ -1,0 +1,35 @@
+{
+  "student": "Vedant Vartak",
+  "redis_version": "8.10.3",
+  "redis_mode": "standalone",
+  "vector_command": "VADD / VSIM (native cosine vector set)",
+  "vector_index_key": "s3539:semantic:vectors",
+  "vector_count": 1,
+  "all_prefix_keys": [
+    "s3539:semantic:entity:REC-3539-00001",
+    "s3539:semantic:vectors",
+    "s3539:views:recall:REC-3539-00001"
+  ],
+  "view_count": 25,
+  "cache_miss": {
+    "text": "REC-3539-00001 affects 6,535 units.",
+    "answer_id": "REC-3539-00001:units",
+    "entity_id": "REC-3539-00001",
+    "data_version": 9,
+    "model": "qwen3:8b",
+    "answer": "REC-3539-00001 affects 6,535 units.",
+    "is_cached": false,
+    "similarity": 0.0,
+    "latency_ms": 0.822
+  },
+  "cache_hit": {
+    "answer": "REC-3539-00001 affects 6,535 units.",
+    "answer_id": "REC-3539-00001:units",
+    "entity_id": "REC-3539-00001",
+    "data_version": 9,
+    "matched_query": "How many units are affected by REC-3539-00001?",
+    "is_cached": true,
+    "similarity": 0.962815,
+    "latency_ms": 0.279
+  }
+}

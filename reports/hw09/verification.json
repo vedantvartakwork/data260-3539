@@ -1,0 +1,41 @@
+{
+  "student": "Vedant Vartak",
+  "homework": 9,
+  "verified_at_utc": "2026-11-08T06:50:24.662024+00:00",
+  "commit": "44e5550d21344bfb92064199e80e3c0c2bdd0b55",
+  "hw9_tag": "unavailable",
+  "lint": {
+    "passed": true,
+    "output": "All checks passed!\n"
+  },
+  "tests": {
+    "passed": true,
+    "output": "........                                                                 [100%]\n8 passed in 0.02s\n"
+  },
+  "checks": {
+    "redis_backend_recorded": true,
+    "counter_25_and_db_20": true,
+    "at_least_10_ingress_queries": true,
+    "forty_frozen_cases": true,
+    "five_thresholds": true,
+    "chosen_threshold_no_false_hits": true,
+    "false_hit_fully_recorded": true,
+    "stale_then_invalidated": true,
+    "four_agent_variants": true,
+    "bounded_two_attempts": true,
+    "lesson_reused": true,
+    "lesson_validation_passed": true
+  },
+  "artifacts_sha256": {
+    "code/hw9/store.py": "17df21f4063a645879c6c0d4c88dae3587877a77feb276dad9fa81ef5a20846d",
+    "code/hw9/semantic_cache.py": "49126d9be74b0b0b1a5fa8958eef9d9d239a793f45bda0b30524015d30c66d5f",
+    "code/hw9/self_improving.py": "6ac0f15bd1b33683a16614e89282b31c2c49503f3df2f617fb892e59ba6bdf41",
+    "reports/hw09/data/cache_cases.yaml": "620d52886245159d30a2bfc29cadb549b5a9c3721faba35f653a135953d0bf8a",
+    "reports/hw09/data/training_data.json": "8d5aabe01f6428ab2c8207a93f61953082afa6185a7eed85c00d4e0c876bb479",
+    "reports/hw09/data/validation_data.json": "cecbdc54902df790ce947c6e0afc74b3c5b6d5147093566ee34b6f6c486a111f",
+    "reports/hw09/data/test_data.json": "6f8f0b2b1176c37eb12688f5ef2d13a3ef95af584cd9000139fc2f9404126560",
+    "reports/hw09/raw/hw09_results.json": "199466e4a606d5b80ebfc82255a5c14824f4e4e964f96dbab29406a65d9ee883",
+    "reports/hw09/raw/redis_state.json": "be6926843e0b7ed413a784525b23b2d1613bbd1bb1d02d10bd8071f002af824a"
+  },
+  "passed": true
+}

@@ -1,7 +1,25 @@
 PYTHON ?= .venv/bin/python
 MODEL ?= qwen3:8b
 
-.PHONY: test hw8-up hw8-down test-hw8 experiment-hw8 verify-hw08 run-web mongo-hw6-up mongo-hw6-down run-hw6-api test-hw6 experiment-hw6 verify-hw06 mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+.PHONY: test hw9-up hw9-down test-hw9 experiment-hw9 verify-hw09 run-hw9-api hw8-up hw8-down test-hw8 experiment-hw8 verify-hw08 run-web mongo-hw6-up mongo-hw6-down run-hw6-api test-hw6 experiment-hw6 verify-hw06 mysql-hw4-up mysql-hw4-down seed-hw4 run-hw4-api run-hw4-client experiment-hw4 metrics-hw4 rag-hw4 verify-hw04 mysql-hw5-up mysql-hw5-down seed-hw5 run-hw5-api run-hw5-client test-hw5 experiment-hw5 verify-hw05 warmup-hw3 experiment-hw3 metrics-hw3 verify-hw03 run-hw2-graph experiment-hw2 metrics-hw2 verify-hw02 run-agent run-client experiment metrics verify-hw01 docker-build docker-run docker-test docker-stop
+
+hw9-up:
+	docker compose -p data260-hw9 -f docker-compose.hw9.yml up -d
+
+hw9-down:
+	docker compose -p data260-hw9 -f docker-compose.hw9.yml down
+
+test-hw9:
+	$(PYTHON) -m pytest -q tests/test_hw09.py
+
+experiment-hw9:
+	$(PYTHON) scripts/run_hw09_experiments.py --backend redis --ollama
+
+verify-hw09:
+	$(PYTHON) scripts/verify_hw09.py
+
+run-hw9-api:
+	$(PYTHON) -m uvicorn code.hw9.api:app --host 127.0.0.1 --port 8840
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v

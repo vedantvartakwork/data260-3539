@@ -1,0 +1,10 @@
+[
+  {"question_id":"test_units_1","question":"How many units are affected by REC-3539-00010?"},
+  {"question_id":"test_units_2","question":"Give the exact affected quantity for REC-3539-00004."},
+  {"question_id":"test_manufacturer","question":"Who manufactured REC-3539-00003?"},
+  {"question_id":"test_details","question":"Why was REC-3539-00006 issued?"},
+  {"question_id":"test_guidance","question":"What action is recommended for REC-3539-00009?"},
+  {"question_id":"test_product","question":"Which product is covered by REC-3539-00007?"},
+  {"question_id":"test_summary","question":"Summarize REC-3539-00008."},
+  {"question_id":"test_unsupported","question":"Explain quantum gravity."}
+]

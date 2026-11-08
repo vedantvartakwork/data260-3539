@@ -1,0 +1,9 @@
+Vedant Vartak - DATA 260 Homework 9
+Backend: Redis 8 native cosine Vector Sets (VADD / VSIM)
+Local model adapter: qwen3:8b
+Counter: Redis=25 DB=20
+Ingress: 6 hits 6 misses
+Chosen threshold: 0.95
+Staleness passed: True
+Offline tests: 8 passed
+Verification: PASS
