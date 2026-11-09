@@ -230,11 +230,6 @@ def build() -> None:
                 ],
                 [2.35 * inch, 4.85 * inch],
             ),
-            Spacer(1, 0.12 * inch),
-            p(
-                "Verification status: <b>PASS</b>. Ruff passed all HW9 files and 8/8 offline tests passed. The real experiment used Redis and the installed local qwen3:8b model for cache misses.",
-                "Bodyx",
-            ),
             PageBreak(),
         ]
     )
