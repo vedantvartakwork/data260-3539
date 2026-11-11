@@ -1,0 +1,122 @@
+[
+  {
+    "case_id": "recall-01",
+    "question": "What should a customer do after finding a matching frozen shrimp recall code?",
+    "draft": "Check the package recall code against the notice. Stop using the shrimp if it matches and follow the notice's return or disposal instructions. Contact the listed manufacturer when the notice requests it.",
+    "metadata": {"domain": "grocery_recall", "topic": "consumer_action", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-02",
+    "question": "How should a coordinator verify whether yogurt is affected by a recall?",
+    "draft": "Compare the product name lot or recall code and manufacturer with the official notice. Confirm all identifying fields before advising the customer because a similar product name alone is not enough.",
+    "metadata": {"domain": "grocery_recall", "topic": "record_matching", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-03",
+    "question": "Summarize the response to an undeclared peanut allergen notice.",
+    "draft": "Do not consume the affected product especially if anyone has a peanut allergy. Verify the lot code then return or discard it according to the official recall instructions and seek medical help for symptoms.",
+    "metadata": {"domain": "grocery_recall", "topic": "allergen", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-04",
+    "question": "What information should appear in a concise customer recall response?",
+    "draft": "Name the product and recall code state whether the customer's package matches explain the immediate safety action and provide the official return disposal or contact guidance without inventing facts.",
+    "metadata": {"domain": "grocery_recall", "topic": "response_quality", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-05",
+    "question": "Can a customer keep using a recalled salad if it looks normal?",
+    "draft": "No. Appearance does not establish safety. If the package identifiers match the recall the customer should stop using it and follow the return or disposal guidance in the notice.",
+    "metadata": {"domain": "grocery_recall", "topic": "risk_guidance", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-06",
+    "question": "How should a coordinator answer when the customer's lot code is missing?",
+    "draft": "Ask for the package lot or recall code and manufacturer before deciding. Explain that a safe match cannot be confirmed from product name alone and direct the customer to the official contact if the label is unreadable.",
+    "metadata": {"domain": "grocery_recall", "topic": "missing_data", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-07",
+    "question": "What is the safest response when a notice says to return a product?",
+    "draft": "Stop using the product verify the code and return it to the named retailer. Keep the notice available and follow any additional manufacturer instructions.",
+    "metadata": {"domain": "grocery_recall", "topic": "return_guidance", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-08",
+    "question": "How should an answer handle a product that does not match the listed code?",
+    "draft": "State that the supplied code does not match this notice but avoid guaranteeing the product is safe. Recommend checking other current notices and contacting the manufacturer if uncertainty remains.",
+    "metadata": {"domain": "grocery_recall", "topic": "non_match", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-09",
+    "question": "What should be done with a recalled product?",
+    "draft": "Stop using it and follow the official notice. Verify the package code first.",
+    "metadata": {"domain": "grocery_recall", "topic": "consumer_action", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-10",
+    "question": "How do you check a possible recall match?",
+    "draft": "Compare the name code and manufacturer. If they match use the notice's instructions.",
+    "metadata": {"domain": "grocery_recall", "topic": "record_matching", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-11",
+    "question": "Explain an allergen recall to a customer.",
+    "draft": "The product may contain an undeclared allergen. Do not eat it and return it if the code matches.",
+    "metadata": {"domain": "grocery_recall", "topic": "allergen", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-12",
+    "question": "What makes recall advice useful?",
+    "draft": "It should identify the product explain what to do and refer to the official notice.",
+    "metadata": {"domain": "grocery_recall", "topic": "response_quality", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-13",
+    "question": "Can a recalled item be used?",
+    "draft": "Usually no. Check the notice and follow it.",
+    "metadata": {"domain": "grocery_recall", "topic": "risk_guidance", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-14",
+    "question": "What if the lot code cannot be read?",
+    "draft": "Contact the manufacturer and avoid using it until you know.",
+    "metadata": {"domain": "grocery_recall", "topic": "missing_data", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-15",
+    "question": "What should happen after a return notice?",
+    "draft": "Return the product to the store.",
+    "metadata": {"domain": "grocery_recall", "topic": "return_guidance", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-16",
+    "question": "The code differs from the notice. What should the customer hear?",
+    "draft": "It probably is not recalled but check the website.",
+    "metadata": {"domain": "grocery_recall", "topic": "non_match", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-17",
+    "question": "What should a customer do with recalled shrimp?",
+    "draft": "Take care of it soon.",
+    "metadata": {"domain": "grocery_recall", "topic": "consumer_action", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-18",
+    "question": "How do you verify a recall?",
+    "draft": "Look at the package.",
+    "metadata": {"domain": "grocery_recall", "topic": "record_matching", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-19",
+    "question": "Explain an undeclared allergen notice.",
+    "draft": "It is a food issue and the customer should decide what to do.",
+    "metadata": {"domain": "grocery_recall", "topic": "allergen", "source": "frozen_hw10_set_v1"}
+  },
+  {
+    "case_id": "recall-20",
+    "question": "Can a customer use a recalled item that looks fine?",
+    "draft": "Yes if it smells normal.",
+    "metadata": {"domain": "grocery_recall", "topic": "risk_guidance", "source": "frozen_hw10_set_v1"}
+  }
+]
