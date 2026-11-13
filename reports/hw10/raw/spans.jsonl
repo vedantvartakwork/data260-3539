@@ -1,0 +1,363 @@
+{"cache_result": "miss", "duration_ms": 0.182, "end": "2026-11-11T21:34:38.750+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:34:38.749+00:00", "status": "cache_miss", "trace_id": "trace-live-eval-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:34:38.750+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:34:38.750+00:00", "status": "ok", "trace_id": "trace-live-eval-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:34:38.750+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:34:38.750+00:00", "status": "ok", "trace_id": "trace-live-eval-3539"}
+{"duration_ms": 0.653, "end": "2026-11-11T21:34:38.751+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:34:38.750+00:00", "status": "ok", "trace_id": "trace-live-eval-3539"}
+{"duration_ms": 0.047, "end": "2026-11-11T21:34:38.751+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:34:38.751+00:00", "status": "ok", "trace_id": "trace-live-eval-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:34:38.751+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:34:38.751+00:00", "status": "ok", "trace_id": "trace-live-eval-3539"}
+{"duration_ms": 29729.73, "end": "2026-11-11T21:35:08.481+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:34:38.751+00:00", "status": "ok", "trace_id": "trace-live-eval-3539"}
+{"cache_result": "hit", "duration_ms": 0.166, "end": "2026-11-11T21:35:08.483+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.483+00:00", "status": "cache_hit", "trace_id": "trace-cache-hit-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.483+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.483+00:00", "status": "cache_miss", "trace_id": "trace-writer-failure-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.483+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.483+00:00", "status": "ok", "trace_id": "trace-writer-failure-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.483+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.483+00:00", "status": "ok", "trace_id": "trace-writer-failure-3539"}
+{"duration_ms": 0.637, "end": "2026-11-11T21:35:08.484+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.483+00:00", "status": "ok", "trace_id": "trace-writer-failure-3539"}
+{"duration_ms": 0.05, "end": "2026-11-11T21:35:08.484+00:00", "error": "RuntimeError: intentional writer failure for trace evidence", "stage": "writer", "start": "2026-11-11T21:35:08.484+00:00", "status": "error", "trace_id": "trace-writer-failure-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.484+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.484+00:00", "status": "cache_miss", "trace_id": "trace-miss-01-3539"}
+{"duration_ms": 0.016, "end": "2026-11-11T21:35:08.485+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.485+00:00", "status": "ok", "trace_id": "trace-miss-01-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.485+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.485+00:00", "status": "ok", "trace_id": "trace-miss-01-3539"}
+{"duration_ms": 0.601, "end": "2026-11-11T21:35:08.485+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.485+00:00", "status": "ok", "trace_id": "trace-miss-01-3539"}
+{"duration_ms": 0.045, "end": "2026-11-11T21:35:08.486+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.486+00:00", "status": "ok", "trace_id": "trace-miss-01-3539"}
+{"duration_ms": 0.279, "end": "2026-11-11T21:35:08.486+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.486+00:00", "status": "ok", "trace_id": "trace-miss-01-3539"}
+{"duration_ms": 0.1, "end": "2026-11-11T21:35:08.487+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.486+00:00", "status": "ok", "trace_id": "trace-miss-01-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.487+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.487+00:00", "status": "cache_miss", "trace_id": "trace-miss-02-3539"}
+{"duration_ms": 0.021, "end": "2026-11-11T21:35:08.488+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.488+00:00", "status": "ok", "trace_id": "trace-miss-02-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.488+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.488+00:00", "status": "ok", "trace_id": "trace-miss-02-3539"}
+{"duration_ms": 0.541, "end": "2026-11-11T21:35:08.489+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.488+00:00", "status": "ok", "trace_id": "trace-miss-02-3539"}
+{"duration_ms": 0.049, "end": "2026-11-11T21:35:08.489+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.489+00:00", "status": "ok", "trace_id": "trace-miss-02-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.489+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.489+00:00", "status": "ok", "trace_id": "trace-miss-02-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.489+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.489+00:00", "status": "ok", "trace_id": "trace-miss-02-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.489+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.489+00:00", "status": "cache_miss", "trace_id": "trace-miss-03-3539"}
+{"duration_ms": 0.019, "end": "2026-11-11T21:35:08.490+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.490+00:00", "status": "ok", "trace_id": "trace-miss-03-3539"}
+{"duration_ms": 0.045, "end": "2026-11-11T21:35:08.490+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.490+00:00", "status": "ok", "trace_id": "trace-miss-03-3539"}
+{"duration_ms": 0.641, "end": "2026-11-11T21:35:08.491+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.490+00:00", "status": "ok", "trace_id": "trace-miss-03-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.491+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.491+00:00", "status": "ok", "trace_id": "trace-miss-03-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.491+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.491+00:00", "status": "ok", "trace_id": "trace-miss-03-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.491+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.491+00:00", "status": "ok", "trace_id": "trace-miss-03-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.492+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.492+00:00", "status": "cache_miss", "trace_id": "trace-miss-04-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.492+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.492+00:00", "status": "ok", "trace_id": "trace-miss-04-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.492+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.492+00:00", "status": "ok", "trace_id": "trace-miss-04-3539"}
+{"duration_ms": 0.639, "end": "2026-11-11T21:35:08.492+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.492+00:00", "status": "ok", "trace_id": "trace-miss-04-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.493+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.493+00:00", "status": "ok", "trace_id": "trace-miss-04-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.493+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.493+00:00", "status": "ok", "trace_id": "trace-miss-04-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.493+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.493+00:00", "status": "ok", "trace_id": "trace-miss-04-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.493+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.493+00:00", "status": "cache_miss", "trace_id": "trace-miss-05-3539"}
+{"duration_ms": 0.02, "end": "2026-11-11T21:35:08.494+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.494+00:00", "status": "ok", "trace_id": "trace-miss-05-3539"}
+{"duration_ms": 0.02, "end": "2026-11-11T21:35:08.494+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.494+00:00", "status": "ok", "trace_id": "trace-miss-05-3539"}
+{"duration_ms": 0.636, "end": "2026-11-11T21:35:08.494+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.494+00:00", "status": "ok", "trace_id": "trace-miss-05-3539"}
+{"duration_ms": 0.046, "end": "2026-11-11T21:35:08.495+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.495+00:00", "status": "ok", "trace_id": "trace-miss-05-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.495+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.495+00:00", "status": "ok", "trace_id": "trace-miss-05-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.495+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.495+00:00", "status": "ok", "trace_id": "trace-miss-05-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.495+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.495+00:00", "status": "cache_miss", "trace_id": "trace-miss-06-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.495+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.495+00:00", "status": "ok", "trace_id": "trace-miss-06-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.496+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.496+00:00", "status": "ok", "trace_id": "trace-miss-06-3539"}
+{"duration_ms": 0.632, "end": "2026-11-11T21:35:08.496+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.496+00:00", "status": "ok", "trace_id": "trace-miss-06-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.497+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.496+00:00", "status": "ok", "trace_id": "trace-miss-06-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.497+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.497+00:00", "status": "ok", "trace_id": "trace-miss-06-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.497+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.497+00:00", "status": "ok", "trace_id": "trace-miss-06-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.497+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.497+00:00", "status": "cache_miss", "trace_id": "trace-miss-07-3539"}
+{"duration_ms": 0.016, "end": "2026-11-11T21:35:08.497+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.497+00:00", "status": "ok", "trace_id": "trace-miss-07-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.497+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.497+00:00", "status": "ok", "trace_id": "trace-miss-07-3539"}
+{"duration_ms": 0.632, "end": "2026-11-11T21:35:08.498+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.497+00:00", "status": "ok", "trace_id": "trace-miss-07-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.498+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.498+00:00", "status": "ok", "trace_id": "trace-miss-07-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.498+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.498+00:00", "status": "ok", "trace_id": "trace-miss-07-3539"}
+{"duration_ms": 0.019, "end": "2026-11-11T21:35:08.499+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.499+00:00", "status": "ok", "trace_id": "trace-miss-07-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.499+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.499+00:00", "status": "cache_miss", "trace_id": "trace-miss-08-3539"}
+{"duration_ms": 0.013, "end": "2026-11-11T21:35:08.499+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.499+00:00", "status": "ok", "trace_id": "trace-miss-08-3539"}
+{"duration_ms": 0.02, "end": "2026-11-11T21:35:08.499+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.499+00:00", "status": "ok", "trace_id": "trace-miss-08-3539"}
+{"duration_ms": 0.643, "end": "2026-11-11T21:35:08.500+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.499+00:00", "status": "ok", "trace_id": "trace-miss-08-3539"}
+{"duration_ms": 0.042, "end": "2026-11-11T21:35:08.500+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.500+00:00", "status": "ok", "trace_id": "trace-miss-08-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.500+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.500+00:00", "status": "ok", "trace_id": "trace-miss-08-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.500+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.500+00:00", "status": "ok", "trace_id": "trace-miss-08-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.501+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.501+00:00", "status": "cache_miss", "trace_id": "trace-miss-09-3539"}
+{"duration_ms": 0.017, "end": "2026-11-11T21:35:08.501+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.501+00:00", "status": "ok", "trace_id": "trace-miss-09-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.501+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.501+00:00", "status": "ok", "trace_id": "trace-miss-09-3539"}
+{"duration_ms": 0.634, "end": "2026-11-11T21:35:08.502+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.501+00:00", "status": "ok", "trace_id": "trace-miss-09-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.502+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.502+00:00", "status": "ok", "trace_id": "trace-miss-09-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.502+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.502+00:00", "status": "ok", "trace_id": "trace-miss-09-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.502+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.502+00:00", "status": "ok", "trace_id": "trace-miss-09-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.502+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.502+00:00", "status": "cache_miss", "trace_id": "trace-miss-10-3539"}
+{"duration_ms": 0.016, "end": "2026-11-11T21:35:08.502+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.502+00:00", "status": "ok", "trace_id": "trace-miss-10-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.503+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.502+00:00", "status": "ok", "trace_id": "trace-miss-10-3539"}
+{"duration_ms": 0.642, "end": "2026-11-11T21:35:08.503+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.503+00:00", "status": "ok", "trace_id": "trace-miss-10-3539"}
+{"duration_ms": 0.041, "end": "2026-11-11T21:35:08.503+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.503+00:00", "status": "ok", "trace_id": "trace-miss-10-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.504+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.504+00:00", "status": "ok", "trace_id": "trace-miss-10-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.504+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.504+00:00", "status": "ok", "trace_id": "trace-miss-10-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.504+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.504+00:00", "status": "cache_miss", "trace_id": "trace-miss-11-3539"}
+{"duration_ms": 0.049, "end": "2026-11-11T21:35:08.504+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.504+00:00", "status": "ok", "trace_id": "trace-miss-11-3539"}
+{"duration_ms": 0.039, "end": "2026-11-11T21:35:08.505+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.505+00:00", "status": "ok", "trace_id": "trace-miss-11-3539"}
+{"duration_ms": 0.64, "end": "2026-11-11T21:35:08.505+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.505+00:00", "status": "ok", "trace_id": "trace-miss-11-3539"}
+{"duration_ms": 0.042, "end": "2026-11-11T21:35:08.505+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.505+00:00", "status": "ok", "trace_id": "trace-miss-11-3539"}
+{"duration_ms": 0.047, "end": "2026-11-11T21:35:08.506+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.506+00:00", "status": "ok", "trace_id": "trace-miss-11-3539"}
+{"duration_ms": 0.031, "end": "2026-11-11T21:35:08.506+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.506+00:00", "status": "ok", "trace_id": "trace-miss-11-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.506+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.506+00:00", "status": "cache_miss", "trace_id": "trace-miss-12-3539"}
+{"duration_ms": 0.019, "end": "2026-11-11T21:35:08.506+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.506+00:00", "status": "ok", "trace_id": "trace-miss-12-3539"}
+{"duration_ms": 0.039, "end": "2026-11-11T21:35:08.506+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.506+00:00", "status": "ok", "trace_id": "trace-miss-12-3539"}
+{"duration_ms": 0.639, "end": "2026-11-11T21:35:08.507+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.507+00:00", "status": "ok", "trace_id": "trace-miss-12-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.507+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.507+00:00", "status": "ok", "trace_id": "trace-miss-12-3539"}
+{"duration_ms": 0.046, "end": "2026-11-11T21:35:08.507+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.507+00:00", "status": "ok", "trace_id": "trace-miss-12-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.508+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.508+00:00", "status": "ok", "trace_id": "trace-miss-12-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.508+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.508+00:00", "status": "cache_miss", "trace_id": "trace-miss-13-3539"}
+{"duration_ms": 0.02, "end": "2026-11-11T21:35:08.508+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.508+00:00", "status": "ok", "trace_id": "trace-miss-13-3539"}
+{"duration_ms": 0.039, "end": "2026-11-11T21:35:08.508+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.508+00:00", "status": "ok", "trace_id": "trace-miss-13-3539"}
+{"duration_ms": 0.639, "end": "2026-11-11T21:35:08.509+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.508+00:00", "status": "ok", "trace_id": "trace-miss-13-3539"}
+{"duration_ms": 0.044, "end": "2026-11-11T21:35:08.509+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.509+00:00", "status": "ok", "trace_id": "trace-miss-13-3539"}
+{"duration_ms": 0.053, "end": "2026-11-11T21:35:08.509+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.509+00:00", "status": "ok", "trace_id": "trace-miss-13-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.510+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.509+00:00", "status": "ok", "trace_id": "trace-miss-13-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.510+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.510+00:00", "status": "cache_miss", "trace_id": "trace-miss-14-3539"}
+{"duration_ms": 0.022, "end": "2026-11-11T21:35:08.510+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.510+00:00", "status": "ok", "trace_id": "trace-miss-14-3539"}
+{"duration_ms": 0.052, "end": "2026-11-11T21:35:08.510+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.510+00:00", "status": "ok", "trace_id": "trace-miss-14-3539"}
+{"duration_ms": 0.652, "end": "2026-11-11T21:35:08.511+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.511+00:00", "status": "ok", "trace_id": "trace-miss-14-3539"}
+{"duration_ms": 0.08, "end": "2026-11-11T21:35:08.512+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.512+00:00", "status": "ok", "trace_id": "trace-miss-14-3539"}
+{"duration_ms": 0.039, "end": "2026-11-11T21:35:08.512+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.512+00:00", "status": "ok", "trace_id": "trace-miss-14-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.512+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.512+00:00", "status": "ok", "trace_id": "trace-miss-14-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.512+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.512+00:00", "status": "cache_miss", "trace_id": "trace-miss-15-3539"}
+{"duration_ms": 0.022, "end": "2026-11-11T21:35:08.513+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.513+00:00", "status": "ok", "trace_id": "trace-miss-15-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.513+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.513+00:00", "status": "ok", "trace_id": "trace-miss-15-3539"}
+{"duration_ms": 0.639, "end": "2026-11-11T21:35:08.513+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.513+00:00", "status": "ok", "trace_id": "trace-miss-15-3539"}
+{"duration_ms": 0.047, "end": "2026-11-11T21:35:08.514+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.514+00:00", "status": "ok", "trace_id": "trace-miss-15-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.514+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.514+00:00", "status": "ok", "trace_id": "trace-miss-15-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.514+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.514+00:00", "status": "ok", "trace_id": "trace-miss-15-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.514+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.514+00:00", "status": "cache_miss", "trace_id": "trace-miss-16-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.515+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.515+00:00", "status": "ok", "trace_id": "trace-miss-16-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.515+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.515+00:00", "status": "ok", "trace_id": "trace-miss-16-3539"}
+{"duration_ms": 0.636, "end": "2026-11-11T21:35:08.515+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.515+00:00", "status": "ok", "trace_id": "trace-miss-16-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.516+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.516+00:00", "status": "ok", "trace_id": "trace-miss-16-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.516+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.516+00:00", "status": "ok", "trace_id": "trace-miss-16-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.516+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.516+00:00", "status": "ok", "trace_id": "trace-miss-16-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.516+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.516+00:00", "status": "cache_miss", "trace_id": "trace-miss-17-3539"}
+{"duration_ms": 0.017, "end": "2026-11-11T21:35:08.516+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.516+00:00", "status": "ok", "trace_id": "trace-miss-17-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.517+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.517+00:00", "status": "ok", "trace_id": "trace-miss-17-3539"}
+{"duration_ms": 0.637, "end": "2026-11-11T21:35:08.517+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.517+00:00", "status": "ok", "trace_id": "trace-miss-17-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.517+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.517+00:00", "status": "ok", "trace_id": "trace-miss-17-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.518+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.518+00:00", "status": "ok", "trace_id": "trace-miss-17-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.518+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.518+00:00", "status": "ok", "trace_id": "trace-miss-17-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.518+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.518+00:00", "status": "cache_miss", "trace_id": "trace-miss-18-3539"}
+{"duration_ms": 0.017, "end": "2026-11-11T21:35:08.518+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.518+00:00", "status": "ok", "trace_id": "trace-miss-18-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.518+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.518+00:00", "status": "ok", "trace_id": "trace-miss-18-3539"}
+{"duration_ms": 0.633, "end": "2026-11-11T21:35:08.519+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.518+00:00", "status": "ok", "trace_id": "trace-miss-18-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.519+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.519+00:00", "status": "ok", "trace_id": "trace-miss-18-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.519+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.519+00:00", "status": "ok", "trace_id": "trace-miss-18-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.520+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.520+00:00", "status": "ok", "trace_id": "trace-miss-18-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.520+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.520+00:00", "status": "cache_miss", "trace_id": "trace-miss-19-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.520+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.520+00:00", "status": "ok", "trace_id": "trace-miss-19-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.520+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.520+00:00", "status": "ok", "trace_id": "trace-miss-19-3539"}
+{"duration_ms": 0.64, "end": "2026-11-11T21:35:08.521+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.521+00:00", "status": "ok", "trace_id": "trace-miss-19-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.521+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.521+00:00", "status": "ok", "trace_id": "trace-miss-19-3539"}
+{"duration_ms": 0.045, "end": "2026-11-11T21:35:08.522+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.522+00:00", "status": "ok", "trace_id": "trace-miss-19-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.522+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.522+00:00", "status": "ok", "trace_id": "trace-miss-19-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.522+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.522+00:00", "status": "cache_miss", "trace_id": "trace-miss-20-3539"}
+{"duration_ms": 0.021, "end": "2026-11-11T21:35:08.522+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.522+00:00", "status": "ok", "trace_id": "trace-miss-20-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.523+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.523+00:00", "status": "ok", "trace_id": "trace-miss-20-3539"}
+{"duration_ms": 0.637, "end": "2026-11-11T21:35:08.523+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.523+00:00", "status": "ok", "trace_id": "trace-miss-20-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.524+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.524+00:00", "status": "ok", "trace_id": "trace-miss-20-3539"}
+{"duration_ms": 0.047, "end": "2026-11-11T21:35:08.524+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.524+00:00", "status": "ok", "trace_id": "trace-miss-20-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.524+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.524+00:00", "status": "ok", "trace_id": "trace-miss-20-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.524+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.524+00:00", "status": "cache_miss", "trace_id": "trace-miss-21-3539"}
+{"duration_ms": 0.021, "end": "2026-11-11T21:35:08.525+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.525+00:00", "status": "ok", "trace_id": "trace-miss-21-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.525+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.525+00:00", "status": "ok", "trace_id": "trace-miss-21-3539"}
+{"duration_ms": 0.634, "end": "2026-11-11T21:35:08.526+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.525+00:00", "status": "ok", "trace_id": "trace-miss-21-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.526+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.526+00:00", "status": "ok", "trace_id": "trace-miss-21-3539"}
+{"duration_ms": 0.047, "end": "2026-11-11T21:35:08.526+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.526+00:00", "status": "ok", "trace_id": "trace-miss-21-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.526+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.526+00:00", "status": "ok", "trace_id": "trace-miss-21-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.527+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.527+00:00", "status": "cache_miss", "trace_id": "trace-miss-22-3539"}
+{"duration_ms": 0.022, "end": "2026-11-11T21:35:08.527+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.527+00:00", "status": "ok", "trace_id": "trace-miss-22-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.527+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.527+00:00", "status": "ok", "trace_id": "trace-miss-22-3539"}
+{"duration_ms": 0.639, "end": "2026-11-11T21:35:08.528+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.527+00:00", "status": "ok", "trace_id": "trace-miss-22-3539"}
+{"duration_ms": 0.045, "end": "2026-11-11T21:35:08.528+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.528+00:00", "status": "ok", "trace_id": "trace-miss-22-3539"}
+{"duration_ms": 0.043, "end": "2026-11-11T21:35:08.528+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.528+00:00", "status": "ok", "trace_id": "trace-miss-22-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.528+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.528+00:00", "status": "ok", "trace_id": "trace-miss-22-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.529+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.529+00:00", "status": "cache_miss", "trace_id": "trace-miss-23-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.529+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.529+00:00", "status": "ok", "trace_id": "trace-miss-23-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.529+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.529+00:00", "status": "ok", "trace_id": "trace-miss-23-3539"}
+{"duration_ms": 0.636, "end": "2026-11-11T21:35:08.530+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.529+00:00", "status": "ok", "trace_id": "trace-miss-23-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.530+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.530+00:00", "status": "ok", "trace_id": "trace-miss-23-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.530+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.530+00:00", "status": "ok", "trace_id": "trace-miss-23-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.530+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.530+00:00", "status": "ok", "trace_id": "trace-miss-23-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.531+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.531+00:00", "status": "cache_miss", "trace_id": "trace-miss-24-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.531+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.531+00:00", "status": "ok", "trace_id": "trace-miss-24-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.531+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.531+00:00", "status": "ok", "trace_id": "trace-miss-24-3539"}
+{"duration_ms": 0.634, "end": "2026-11-11T21:35:08.532+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.531+00:00", "status": "ok", "trace_id": "trace-miss-24-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.532+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.532+00:00", "status": "ok", "trace_id": "trace-miss-24-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.532+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.532+00:00", "status": "ok", "trace_id": "trace-miss-24-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.532+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.532+00:00", "status": "ok", "trace_id": "trace-miss-24-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.532+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.532+00:00", "status": "cache_miss", "trace_id": "trace-miss-25-3539"}
+{"duration_ms": 0.019, "end": "2026-11-11T21:35:08.532+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.532+00:00", "status": "ok", "trace_id": "trace-miss-25-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.533+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.532+00:00", "status": "ok", "trace_id": "trace-miss-25-3539"}
+{"duration_ms": 0.637, "end": "2026-11-11T21:35:08.533+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.533+00:00", "status": "ok", "trace_id": "trace-miss-25-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.533+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.533+00:00", "status": "ok", "trace_id": "trace-miss-25-3539"}
+{"duration_ms": 0.031, "end": "2026-11-11T21:35:08.533+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.533+00:00", "status": "ok", "trace_id": "trace-miss-25-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.534+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.534+00:00", "status": "ok", "trace_id": "trace-miss-25-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.534+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.534+00:00", "status": "cache_miss", "trace_id": "trace-miss-26-3539"}
+{"duration_ms": 0.015, "end": "2026-11-11T21:35:08.534+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.534+00:00", "status": "ok", "trace_id": "trace-miss-26-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.534+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.534+00:00", "status": "ok", "trace_id": "trace-miss-26-3539"}
+{"duration_ms": 0.632, "end": "2026-11-11T21:35:08.535+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.534+00:00", "status": "ok", "trace_id": "trace-miss-26-3539"}
+{"duration_ms": 0.031, "end": "2026-11-11T21:35:08.535+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.535+00:00", "status": "ok", "trace_id": "trace-miss-26-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.535+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.535+00:00", "status": "ok", "trace_id": "trace-miss-26-3539"}
+{"duration_ms": 0.022, "end": "2026-11-11T21:35:08.535+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.535+00:00", "status": "ok", "trace_id": "trace-miss-26-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.535+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.535+00:00", "status": "cache_miss", "trace_id": "trace-miss-27-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.536+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.536+00:00", "status": "ok", "trace_id": "trace-miss-27-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.536+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.536+00:00", "status": "ok", "trace_id": "trace-miss-27-3539"}
+{"duration_ms": 0.634, "end": "2026-11-11T21:35:08.536+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.536+00:00", "status": "ok", "trace_id": "trace-miss-27-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.537+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.537+00:00", "status": "ok", "trace_id": "trace-miss-27-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.537+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.537+00:00", "status": "ok", "trace_id": "trace-miss-27-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.537+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.537+00:00", "status": "ok", "trace_id": "trace-miss-27-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.537+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.537+00:00", "status": "cache_miss", "trace_id": "trace-miss-28-3539"}
+{"duration_ms": 0.016, "end": "2026-11-11T21:35:08.537+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.537+00:00", "status": "ok", "trace_id": "trace-miss-28-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.537+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.537+00:00", "status": "ok", "trace_id": "trace-miss-28-3539"}
+{"duration_ms": 0.633, "end": "2026-11-11T21:35:08.538+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.537+00:00", "status": "ok", "trace_id": "trace-miss-28-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.538+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.538+00:00", "status": "ok", "trace_id": "trace-miss-28-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.538+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.538+00:00", "status": "ok", "trace_id": "trace-miss-28-3539"}
+{"duration_ms": 0.021, "end": "2026-11-11T21:35:08.538+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.538+00:00", "status": "ok", "trace_id": "trace-miss-28-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.539+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.539+00:00", "status": "cache_miss", "trace_id": "trace-miss-29-3539"}
+{"duration_ms": 0.016, "end": "2026-11-11T21:35:08.539+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.539+00:00", "status": "ok", "trace_id": "trace-miss-29-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.539+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.539+00:00", "status": "ok", "trace_id": "trace-miss-29-3539"}
+{"duration_ms": 0.632, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.539+00:00", "status": "ok", "trace_id": "trace-miss-29-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.540+00:00", "status": "ok", "trace_id": "trace-miss-29-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.540+00:00", "status": "ok", "trace_id": "trace-miss-29-3539"}
+{"duration_ms": 0.02, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.540+00:00", "status": "ok", "trace_id": "trace-miss-29-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.540+00:00", "status": "cache_miss", "trace_id": "trace-miss-30-3539"}
+{"duration_ms": 0.015, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.540+00:00", "status": "ok", "trace_id": "trace-miss-30-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.540+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.540+00:00", "status": "ok", "trace_id": "trace-miss-30-3539"}
+{"duration_ms": 0.638, "end": "2026-11-11T21:35:08.541+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.541+00:00", "status": "ok", "trace_id": "trace-miss-30-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.541+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.541+00:00", "status": "ok", "trace_id": "trace-miss-30-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.542+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.541+00:00", "status": "ok", "trace_id": "trace-miss-30-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.542+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.542+00:00", "status": "ok", "trace_id": "trace-miss-30-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.542+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.542+00:00", "status": "cache_miss", "trace_id": "trace-miss-31-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.542+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.542+00:00", "status": "ok", "trace_id": "trace-miss-31-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.542+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.542+00:00", "status": "ok", "trace_id": "trace-miss-31-3539"}
+{"duration_ms": 0.633, "end": "2026-11-11T21:35:08.543+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.542+00:00", "status": "ok", "trace_id": "trace-miss-31-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.543+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.543+00:00", "status": "ok", "trace_id": "trace-miss-31-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.543+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.543+00:00", "status": "ok", "trace_id": "trace-miss-31-3539"}
+{"duration_ms": 0.024, "end": "2026-11-11T21:35:08.543+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.543+00:00", "status": "ok", "trace_id": "trace-miss-31-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.544+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.544+00:00", "status": "cache_miss", "trace_id": "trace-miss-32-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.544+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.544+00:00", "status": "ok", "trace_id": "trace-miss-32-3539"}
+{"duration_ms": 0.031, "end": "2026-11-11T21:35:08.544+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.544+00:00", "status": "ok", "trace_id": "trace-miss-32-3539"}
+{"duration_ms": 0.634, "end": "2026-11-11T21:35:08.545+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.544+00:00", "status": "ok", "trace_id": "trace-miss-32-3539"}
+{"duration_ms": 0.04, "end": "2026-11-11T21:35:08.545+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.545+00:00", "status": "ok", "trace_id": "trace-miss-32-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.545+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.545+00:00", "status": "ok", "trace_id": "trace-miss-32-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.545+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.545+00:00", "status": "ok", "trace_id": "trace-miss-32-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.545+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.545+00:00", "status": "cache_miss", "trace_id": "trace-miss-33-3539"}
+{"duration_ms": 0.019, "end": "2026-11-11T21:35:08.546+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.546+00:00", "status": "ok", "trace_id": "trace-miss-33-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.546+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.546+00:00", "status": "ok", "trace_id": "trace-miss-33-3539"}
+{"duration_ms": 0.635, "end": "2026-11-11T21:35:08.546+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.546+00:00", "status": "ok", "trace_id": "trace-miss-33-3539"}
+{"duration_ms": 0.042, "end": "2026-11-11T21:35:08.547+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.547+00:00", "status": "ok", "trace_id": "trace-miss-33-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.547+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.547+00:00", "status": "ok", "trace_id": "trace-miss-33-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.547+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.547+00:00", "status": "ok", "trace_id": "trace-miss-33-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.547+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.547+00:00", "status": "cache_miss", "trace_id": "trace-miss-34-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.547+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.547+00:00", "status": "ok", "trace_id": "trace-miss-34-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.547+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.547+00:00", "status": "ok", "trace_id": "trace-miss-34-3539"}
+{"duration_ms": 0.633, "end": "2026-11-11T21:35:08.548+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.548+00:00", "status": "ok", "trace_id": "trace-miss-34-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.548+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.548+00:00", "status": "ok", "trace_id": "trace-miss-34-3539"}
+{"duration_ms": 0.031, "end": "2026-11-11T21:35:08.548+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.548+00:00", "status": "ok", "trace_id": "trace-miss-34-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.549+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.549+00:00", "status": "ok", "trace_id": "trace-miss-34-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.549+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.549+00:00", "status": "cache_miss", "trace_id": "trace-miss-35-3539"}
+{"duration_ms": 0.016, "end": "2026-11-11T21:35:08.549+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.549+00:00", "status": "ok", "trace_id": "trace-miss-35-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.549+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.549+00:00", "status": "ok", "trace_id": "trace-miss-35-3539"}
+{"duration_ms": 0.639, "end": "2026-11-11T21:35:08.550+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.549+00:00", "status": "ok", "trace_id": "trace-miss-35-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.550+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.550+00:00", "status": "ok", "trace_id": "trace-miss-35-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.550+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.550+00:00", "status": "ok", "trace_id": "trace-miss-35-3539"}
+{"duration_ms": 0.022, "end": "2026-11-11T21:35:08.550+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.550+00:00", "status": "ok", "trace_id": "trace-miss-35-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.550+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.550+00:00", "status": "cache_miss", "trace_id": "trace-miss-36-3539"}
+{"duration_ms": 0.017, "end": "2026-11-11T21:35:08.551+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.551+00:00", "status": "ok", "trace_id": "trace-miss-36-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.551+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.551+00:00", "status": "ok", "trace_id": "trace-miss-36-3539"}
+{"duration_ms": 0.632, "end": "2026-11-11T21:35:08.552+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.551+00:00", "status": "ok", "trace_id": "trace-miss-36-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.552+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.552+00:00", "status": "ok", "trace_id": "trace-miss-36-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.552+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.552+00:00", "status": "ok", "trace_id": "trace-miss-36-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.552+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.552+00:00", "status": "ok", "trace_id": "trace-miss-36-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.552+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.552+00:00", "status": "cache_miss", "trace_id": "trace-miss-37-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.553+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.552+00:00", "status": "ok", "trace_id": "trace-miss-37-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.553+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.553+00:00", "status": "ok", "trace_id": "trace-miss-37-3539"}
+{"duration_ms": 0.632, "end": "2026-11-11T21:35:08.553+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.553+00:00", "status": "ok", "trace_id": "trace-miss-37-3539"}
+{"duration_ms": 0.075, "end": "2026-11-11T21:35:08.554+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.553+00:00", "status": "ok", "trace_id": "trace-miss-37-3539"}
+{"duration_ms": 0.046, "end": "2026-11-11T21:35:08.554+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.554+00:00", "status": "ok", "trace_id": "trace-miss-37-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.554+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.554+00:00", "status": "ok", "trace_id": "trace-miss-37-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.554+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.554+00:00", "status": "cache_miss", "trace_id": "trace-miss-38-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.555+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.554+00:00", "status": "ok", "trace_id": "trace-miss-38-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.555+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.555+00:00", "status": "ok", "trace_id": "trace-miss-38-3539"}
+{"duration_ms": 0.64, "end": "2026-11-11T21:35:08.555+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.555+00:00", "status": "ok", "trace_id": "trace-miss-38-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.555+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.555+00:00", "status": "ok", "trace_id": "trace-miss-38-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.556+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.556+00:00", "status": "ok", "trace_id": "trace-miss-38-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.556+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.556+00:00", "status": "ok", "trace_id": "trace-miss-38-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.556+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.556+00:00", "status": "cache_miss", "trace_id": "trace-miss-39-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.556+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.556+00:00", "status": "ok", "trace_id": "trace-miss-39-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.556+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.556+00:00", "status": "ok", "trace_id": "trace-miss-39-3539"}
+{"duration_ms": 0.633, "end": "2026-11-11T21:35:08.557+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.556+00:00", "status": "ok", "trace_id": "trace-miss-39-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.557+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.557+00:00", "status": "ok", "trace_id": "trace-miss-39-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.557+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.557+00:00", "status": "ok", "trace_id": "trace-miss-39-3539"}
+{"duration_ms": 0.024, "end": "2026-11-11T21:35:08.557+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.557+00:00", "status": "ok", "trace_id": "trace-miss-39-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.558+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.558+00:00", "status": "cache_miss", "trace_id": "trace-miss-40-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.558+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.558+00:00", "status": "ok", "trace_id": "trace-miss-40-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.558+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.558+00:00", "status": "ok", "trace_id": "trace-miss-40-3539"}
+{"duration_ms": 0.636, "end": "2026-11-11T21:35:08.559+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.558+00:00", "status": "ok", "trace_id": "trace-miss-40-3539"}
+{"duration_ms": 0.042, "end": "2026-11-11T21:35:08.559+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.559+00:00", "status": "ok", "trace_id": "trace-miss-40-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.559+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.559+00:00", "status": "ok", "trace_id": "trace-miss-40-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.559+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.559+00:00", "status": "ok", "trace_id": "trace-miss-40-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.559+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.559+00:00", "status": "cache_miss", "trace_id": "trace-miss-41-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.560+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.560+00:00", "status": "ok", "trace_id": "trace-miss-41-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.560+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.560+00:00", "status": "ok", "trace_id": "trace-miss-41-3539"}
+{"duration_ms": 0.583, "end": "2026-11-11T21:35:08.560+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.560+00:00", "status": "ok", "trace_id": "trace-miss-41-3539"}
+{"duration_ms": 0.039, "end": "2026-11-11T21:35:08.561+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.560+00:00", "status": "ok", "trace_id": "trace-miss-41-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.561+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.561+00:00", "status": "ok", "trace_id": "trace-miss-41-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.561+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.561+00:00", "status": "ok", "trace_id": "trace-miss-41-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.561+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.561+00:00", "status": "cache_miss", "trace_id": "trace-miss-42-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.561+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.561+00:00", "status": "ok", "trace_id": "trace-miss-42-3539"}
+{"duration_ms": 0.039, "end": "2026-11-11T21:35:08.561+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.561+00:00", "status": "ok", "trace_id": "trace-miss-42-3539"}
+{"duration_ms": 0.64, "end": "2026-11-11T21:35:08.562+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.561+00:00", "status": "ok", "trace_id": "trace-miss-42-3539"}
+{"duration_ms": 0.049, "end": "2026-11-11T21:35:08.562+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.562+00:00", "status": "ok", "trace_id": "trace-miss-42-3539"}
+{"duration_ms": 0.037, "end": "2026-11-11T21:35:08.563+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.563+00:00", "status": "ok", "trace_id": "trace-miss-42-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.563+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.563+00:00", "status": "ok", "trace_id": "trace-miss-42-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.563+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.563+00:00", "status": "cache_miss", "trace_id": "trace-miss-43-3539"}
+{"duration_ms": 0.021, "end": "2026-11-11T21:35:08.563+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.563+00:00", "status": "ok", "trace_id": "trace-miss-43-3539"}
+{"duration_ms": 0.03, "end": "2026-11-11T21:35:08.563+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.563+00:00", "status": "ok", "trace_id": "trace-miss-43-3539"}
+{"duration_ms": 0.633, "end": "2026-11-11T21:35:08.564+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.563+00:00", "status": "ok", "trace_id": "trace-miss-43-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.564+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.564+00:00", "status": "ok", "trace_id": "trace-miss-43-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.564+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.564+00:00", "status": "ok", "trace_id": "trace-miss-43-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.564+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.564+00:00", "status": "ok", "trace_id": "trace-miss-43-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.565+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.565+00:00", "status": "cache_miss", "trace_id": "trace-miss-44-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.565+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.565+00:00", "status": "ok", "trace_id": "trace-miss-44-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.565+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.565+00:00", "status": "ok", "trace_id": "trace-miss-44-3539"}
+{"duration_ms": 0.635, "end": "2026-11-11T21:35:08.566+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.565+00:00", "status": "ok", "trace_id": "trace-miss-44-3539"}
+{"duration_ms": 0.045, "end": "2026-11-11T21:35:08.566+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.566+00:00", "status": "ok", "trace_id": "trace-miss-44-3539"}
+{"duration_ms": 0.046, "end": "2026-11-11T21:35:08.566+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.566+00:00", "status": "ok", "trace_id": "trace-miss-44-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.566+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.566+00:00", "status": "ok", "trace_id": "trace-miss-44-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.567+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.567+00:00", "status": "cache_miss", "trace_id": "trace-miss-45-3539"}
+{"duration_ms": 0.018, "end": "2026-11-11T21:35:08.567+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.567+00:00", "status": "ok", "trace_id": "trace-miss-45-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.567+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.567+00:00", "status": "ok", "trace_id": "trace-miss-45-3539"}
+{"duration_ms": 0.638, "end": "2026-11-11T21:35:08.568+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.567+00:00", "status": "ok", "trace_id": "trace-miss-45-3539"}
+{"duration_ms": 0.047, "end": "2026-11-11T21:35:08.568+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.568+00:00", "status": "ok", "trace_id": "trace-miss-45-3539"}
+{"duration_ms": 0.035, "end": "2026-11-11T21:35:08.568+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.568+00:00", "status": "ok", "trace_id": "trace-miss-45-3539"}
+{"duration_ms": 0.027, "end": "2026-11-11T21:35:08.568+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.568+00:00", "status": "ok", "trace_id": "trace-miss-45-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.569+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.569+00:00", "status": "cache_miss", "trace_id": "trace-miss-46-3539"}
+{"duration_ms": 0.02, "end": "2026-11-11T21:35:08.569+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.569+00:00", "status": "ok", "trace_id": "trace-miss-46-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.569+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.569+00:00", "status": "ok", "trace_id": "trace-miss-46-3539"}
+{"duration_ms": 0.638, "end": "2026-11-11T21:35:08.570+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.569+00:00", "status": "ok", "trace_id": "trace-miss-46-3539"}
+{"duration_ms": 0.04, "end": "2026-11-11T21:35:08.570+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.570+00:00", "status": "ok", "trace_id": "trace-miss-46-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.570+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.570+00:00", "status": "ok", "trace_id": "trace-miss-46-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.571+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.570+00:00", "status": "ok", "trace_id": "trace-miss-46-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.571+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.571+00:00", "status": "cache_miss", "trace_id": "trace-miss-47-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.571+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.571+00:00", "status": "ok", "trace_id": "trace-miss-47-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.571+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.571+00:00", "status": "ok", "trace_id": "trace-miss-47-3539"}
+{"duration_ms": 0.642, "end": "2026-11-11T21:35:08.572+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.571+00:00", "status": "ok", "trace_id": "trace-miss-47-3539"}
+{"duration_ms": 0.061, "end": "2026-11-11T21:35:08.573+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.573+00:00", "status": "ok", "trace_id": "trace-miss-47-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.573+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.573+00:00", "status": "ok", "trace_id": "trace-miss-47-3539"}
+{"duration_ms": 0.032, "end": "2026-11-11T21:35:08.573+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.573+00:00", "status": "ok", "trace_id": "trace-miss-47-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.574+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.574+00:00", "status": "cache_miss", "trace_id": "trace-miss-48-3539"}
+{"duration_ms": 0.023, "end": "2026-11-11T21:35:08.574+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.574+00:00", "status": "ok", "trace_id": "trace-miss-48-3539"}
+{"duration_ms": 0.024, "end": "2026-11-11T21:35:08.574+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.574+00:00", "status": "ok", "trace_id": "trace-miss-48-3539"}
+{"duration_ms": 0.635, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.574+00:00", "status": "ok", "trace_id": "trace-miss-48-3539"}
+{"duration_ms": 0.036, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.575+00:00", "status": "ok", "trace_id": "trace-miss-48-3539"}
+{"duration_ms": 0.034, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.575+00:00", "status": "ok", "trace_id": "trace-miss-48-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.575+00:00", "status": "ok", "trace_id": "trace-miss-48-3539"}
+{"cache_result": "miss", "duration_ms": 0.001, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.575+00:00", "status": "cache_miss", "trace_id": "trace-miss-49-3539"}
+{"duration_ms": 0.026, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.575+00:00", "status": "ok", "trace_id": "trace-miss-49-3539"}
+{"duration_ms": 0.028, "end": "2026-11-11T21:35:08.575+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.575+00:00", "status": "ok", "trace_id": "trace-miss-49-3539"}
+{"duration_ms": 0.636, "end": "2026-11-11T21:35:08.576+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.576+00:00", "status": "ok", "trace_id": "trace-miss-49-3539"}
+{"duration_ms": 0.038, "end": "2026-11-11T21:35:08.576+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.576+00:00", "status": "ok", "trace_id": "trace-miss-49-3539"}
+{"duration_ms": 0.029, "end": "2026-11-11T21:35:08.577+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.576+00:00", "status": "ok", "trace_id": "trace-miss-49-3539"}
+{"duration_ms": 0.024, "end": "2026-11-11T21:35:08.577+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.577+00:00", "status": "ok", "trace_id": "trace-miss-49-3539"}
+{"cache_result": "miss", "duration_ms": 0.002, "end": "2026-11-11T21:35:08.577+00:00", "error": null, "stage": "cache_lookup", "start": "2026-11-11T21:35:08.577+00:00", "status": "cache_miss", "trace_id": "trace-miss-50-3539"}
+{"duration_ms": 0.031, "end": "2026-11-11T21:35:08.577+00:00", "error": null, "stage": "inbox", "start": "2026-11-11T21:35:08.577+00:00", "status": "ok", "trace_id": "trace-miss-50-3539"}
+{"duration_ms": 0.025, "end": "2026-11-11T21:35:08.578+00:00", "error": null, "stage": "planner", "start": "2026-11-11T21:35:08.578+00:00", "status": "ok", "trace_id": "trace-miss-50-3539"}
+{"duration_ms": 0.645, "end": "2026-11-11T21:35:08.578+00:00", "error": null, "stage": "queue_wait", "start": "2026-11-11T21:35:08.578+00:00", "status": "ok", "trace_id": "trace-miss-50-3539"}
+{"duration_ms": 0.033, "end": "2026-11-11T21:35:08.579+00:00", "error": null, "stage": "writer", "start": "2026-11-11T21:35:08.579+00:00", "status": "ok", "trace_id": "trace-miss-50-3539"}
+{"duration_ms": 0.019, "end": "2026-11-11T21:35:08.579+00:00", "error": null, "stage": "reviewer", "start": "2026-11-11T21:35:08.579+00:00", "status": "ok", "trace_id": "trace-miss-50-3539"}
+{"duration_ms": 0.015, "end": "2026-11-11T21:35:08.579+00:00", "error": null, "stage": "evaluator", "start": "2026-11-11T21:35:08.579+00:00", "status": "ok", "trace_id": "trace-miss-50-3539"}

@@ -161,3 +161,15 @@ docker-stop:
 
 verify-hw7:
 	$(PYTHON) scripts/verify_hw07.py
+
+run-hw10-dashboard:
+	PYTHONPATH=. .venv/bin/streamlit run code/hw10/dashboard.py --server.port 8510
+
+experiment-hw10:
+	$(PYTHON) scripts/run_hw10_experiments.py
+
+test-hw10:
+	PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 $(PYTHON) -m pytest -q tests/test_hw10.py
+
+verify-hw10:
+	$(PYTHON) scripts/verify_hw10.py

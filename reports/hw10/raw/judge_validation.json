@@ -1,0 +1,193 @@
+{
+  "dataset_commit": "43ee393a839d19b97cbb16f5961b89eb2337869e",
+  "judge": "DeepEval GEval with local Ollama qwen3:8b temperature=0 seed=263539",
+  "cases": [
+    {
+      "case_id": "recall-01",
+      "topic": "consumer_action",
+      "human_label": 5,
+      "judge_run_1": 5,
+      "judge_run_2": 5,
+      "judge_run_3": 5,
+      "reason_run_1": "The response directly addresses the user's request and provides clear, actionable steps including checking the recall code, stopping use, following disposal instructions, and contacting the manufacturer. It is correct, safe, and directly actionable with no significant omissions."
+    },
+    {
+      "case_id": "recall-02",
+      "topic": "record_matching",
+      "human_label": 5,
+      "judge_run_1": 4,
+      "judge_run_2": 4,
+      "judge_run_3": 4,
+      "reason_run_1": "The response directly addresses the user's request by providing actionable steps to verify yogurt affected by a recall. It correctly advises comparing product details with official notices and emphasizes the importance of verifying all identifying fields. However, it lacks specific examples or additional safety guidance, making it somewhat incomplete."
+    },
+    {
+      "case_id": "recall-03",
+      "topic": "allergen",
+      "human_label": 5,
+      "judge_run_1": 5,
+      "judge_run_2": 5,
+      "judge_run_3": 5,
+      "reason_run_1": "The response directly addresses the user's request by providing clear guidance on handling a peanut allergen notice. It includes actionable steps such as avoiding the product, verifying the lot code, returning or discarding the item, and seeking medical help. The response is safe, correct, and practical, meeting the requirements of a complete and actionable response."
+    },
+    {
+      "case_id": "recall-04",
+      "topic": "response_quality",
+      "human_label": 5,
+      "judge_run_1": 4,
+      "judge_run_2": 4,
+      "judge_run_3": 4,
+      "reason_run_1": "The response directly addresses the user's request by listing the necessary elements of a customer recall response. It is clear, actionable, and aligns with safety guidance. However, it lacks specific examples or detailed explanations for each component, making it somewhat incomplete."
+    },
+    {
+      "case_id": "recall-05",
+      "topic": "risk_guidance",
+      "human_label": 4,
+      "judge_run_1": 5,
+      "judge_run_2": 5,
+      "judge_run_3": 5,
+      "reason_run_1": "The response correctly addresses the user's question by stating that appearance does not guarantee safety and advises stopping use if the package identifiers match the recall. It also provides actionable guidance on returning or disposing of the product. The response is clear, correct, and directly actionable with no significant omissions."
+    },
+    {
+      "case_id": "recall-06",
+      "topic": "missing_data",
+      "human_label": 4,
+      "judge_run_1": 4,
+      "judge_run_2": 4,
+      "judge_run_3": 4,
+      "reason_run_1": "The response directly addresses the user's request by asking for additional information and explaining the limitations of confirming a safe match. It provides clear guidance and directs the customer to official contact if needed, which is appropriate and safe. However, it lacks specific steps or examples for the coordinator to follow, making it somewhat incomplete."
+    },
+    {
+      "case_id": "recall-07",
+      "topic": "return_guidance",
+      "human_label": 4,
+      "judge_run_1": 3,
+      "judge_run_2": 3,
+      "judge_run_3": 3,
+      "reason_run_1": "The response provides actionable steps but lacks explicit safety guidance. It does not clearly address how to safely return the product or ensure the user's safety during the process. The response is generally correct but missing key safety details."
+    },
+    {
+      "case_id": "recall-08",
+      "topic": "non_match",
+      "human_label": 4,
+      "judge_run_1": 3,
+      "judge_run_2": 3,
+      "judge_run_3": 3,
+      "reason_run_1": "The response correctly addresses the user's query by advising to check other notices and contact the manufacturer, but it lacks specific guidance on how to handle the mismatched product, which reduces its completeness and practical actionability."
+    },
+    {
+      "case_id": "recall-09",
+      "topic": "consumer_action",
+      "human_label": 3,
+      "judge_run_1": 3,
+      "judge_run_2": 3,
+      "judge_run_3": 3,
+      "reason_run_1": "The response provides a direct answer to the user's request about a recalled product, mentioning to stop using it and follow the official notice. However, it lacks key details such as contacting the manufacturer, checking for specific recall numbers, or steps for returning the product, which are critical for a complete and actionable response."
+    },
+    {
+      "case_id": "recall-10",
+      "topic": "record_matching",
+      "human_label": 3,
+      "judge_run_1": 1,
+      "judge_run_2": 1,
+      "judge_run_3": 1,
+      "reason_run_1": "The response is unsafe and lacks clarity. It does not directly address how to check a possible recall match, and the guidance provided is vague and potentially misleading. The response fails to mention key steps such as checking the vehicle's VIN or contacting the manufacturer, which are essential for a safe and correct recall check."
+    },
+    {
+      "case_id": "recall-11",
+      "topic": "allergen",
+      "human_label": 3,
+      "judge_run_1": 2,
+      "judge_run_2": 2,
+      "judge_run_3": 2,
+      "reason_run_1": "The response is unsafe and incomplete as it does not provide clear guidance on how to handle an allergen recall, such as contacting the manufacturer or health authorities. It also lacks empathy and practical steps for the customer."
+    },
+    {
+      "case_id": "recall-12",
+      "topic": "response_quality",
+      "human_label": 3,
+      "judge_run_1": 3,
+      "judge_run_2": 3,
+      "judge_run_3": 3,
+      "reason_run_1": "The response is too vague and does not directly address the question about what makes recall advice useful. It lacks specific details on the factors that contribute to the usefulness of recall advice, such as clarity, timeliness, or actionable steps. The answer is incomplete and does not provide a clear explanation."
+    },
+    {
+      "case_id": "recall-13",
+      "topic": "risk_guidance",
+      "human_label": 2,
+      "judge_run_1": 1,
+      "judge_run_2": 1,
+      "judge_run_3": 1,
+      "reason_run_1": "The response is unsafe and incorrect as it provides a generic answer without addressing the specific context or safety guidance required. It fails to provide clear, actionable steps or explain why a recalled item cannot be used, which is critical for user safety."
+    },
+    {
+      "case_id": "recall-14",
+      "topic": "missing_data",
+      "human_label": 2,
+      "judge_run_1": 2,
+      "judge_run_2": 2,
+      "judge_run_3": 2,
+      "reason_run_1": "The response is unsafe and incomplete. It does not provide clear guidance on alternative steps to take when the lot code cannot be read, such as checking for other identifiers or consulting with a pharmacist. The advice to 'avoid using it until you know' is vague and lacks actionable steps, which could lead to unnecessary harm or confusion."
+    },
+    {
+      "case_id": "recall-15",
+      "topic": "return_guidance",
+      "human_label": 2,
+      "judge_run_1": 2,
+      "judge_run_2": 2,
+      "judge_run_3": 2,
+      "reason_run_1": "The response is unsafe and incomplete as it does not provide proper guidance on the steps to take after receiving a return notice. It only mentions returning the product, which is insufficient and lacks responsibility."
+    },
+    {
+      "case_id": "recall-16",
+      "topic": "non_match",
+      "human_label": 2,
+      "judge_run_1": 1,
+      "judge_run_2": 1,
+      "judge_run_3": 1,
+      "reason_run_1": "The response is unsafe and incorrect as it fails to address the user's request about what the customer should hear when the code differs from the notice. It provides no actionable guidance or safety information, and is non-responsive to the specific query."
+    },
+    {
+      "case_id": "recall-17",
+      "topic": "consumer_action",
+      "human_label": 1,
+      "judge_run_1": 1,
+      "judge_run_2": 1,
+      "judge_run_3": 1,
+      "reason_run_1": "The response is unsafe, incorrect, and non-responsive. It does not provide any actionable guidance on what a customer should do with recalled shrimp, such as returning it, discarding it, or contacting the manufacturer. The answer is too vague and fails to address the user's request directly."
+    },
+    {
+      "case_id": "recall-18",
+      "topic": "record_matching",
+      "human_label": 1,
+      "judge_run_1": 1,
+      "judge_run_2": 1,
+      "judge_run_3": 1,
+      "reason_run_1": "The response is unsafe, incorrect, and non-responsive. It does not address how to verify a recall, which is the user's explicit request. The answer provided is vague and lacks any relevant guidance or actionable steps."
+    },
+    {
+      "case_id": "recall-19",
+      "topic": "allergen",
+      "human_label": 1,
+      "judge_run_1": 1,
+      "judge_run_2": 1,
+      "judge_run_3": 1,
+      "reason_run_1": "The response is unsafe and incorrect as it fails to provide any guidance on how to handle an undeclared allergen notice, which is a critical safety issue. It also does not address the customer's needs or provide actionable steps, making it non-responsive to the user's request."
+    },
+    {
+      "case_id": "recall-20",
+      "topic": "risk_guidance",
+      "human_label": 1,
+      "judge_run_1": 2,
+      "judge_run_2": 2,
+      "judge_run_3": 2,
+      "reason_run_1": "The response is unsafe and incomplete as it does not provide clear guidance on whether a recalled item can be used even if it looks fine. It only mentions a smell check, which is not sufficient for safety. The response fails to address the core concern of consumer safety and lacks actionable steps."
+    }
+  ],
+  "repeatability": {
+    "runs": 3,
+    "changed_cases": 0,
+    "changed_score_frequency": 0.0,
+    "mean_absolute_change": 0,
+    "max_absolute_change": 0
+  }
+}

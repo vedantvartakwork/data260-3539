@@ -1,0 +1,30 @@
+{
+  "end_to_end": {
+    "trace_id": "trace-live-eval-3539",
+    "plan": {
+      "score": 1,
+      "reason": "The response does not directly answer the user's request. It only outlines a process for generating a response rather than providing specific guidance on what the customer should do with the frozen shrimp and recall code. This makes it non-responsive and unsafe.",
+      "model": "local-ollama:qwen3:8b"
+    },
+    "writer": {
+      "score": 3,
+      "reason": "The response is generally correct and provides actionable guidance, but it lacks specific details about the recall code, affected product, or official consumer guidance. It is too vague and does not directly address the customer's situation with the specific recall code provided.",
+      "model": "local-ollama:qwen3:8b"
+    },
+    "final": {
+      "score": 3,
+      "reason": "The response is generally correct and provides actionable guidance, but it lacks specific details about the recall code REC-3539-00001 and does not mention contacting the manufacturer or checking official recall notices, which are critical steps for ensuring safety and proper action.",
+      "model": "local-ollama:qwen3:8b"
+    },
+    "improvement": 0,
+    "interpretation": "Reviewer preserved quality; no measured improvement was observed."
+  },
+  "spearman": 0.866914,
+  "mean_absolute_difference": 0.55,
+  "changed_score_frequency": 0.0,
+  "mean_absolute_change": 0,
+  "max_absolute_change": 0,
+  "deployment_gate": "The judge has Spearman=0.867, MAD=0.550, and changed-score frequency=0.0%. It is useful for advisory regression screening but not a sole production release gate. More diverse expert labels, inter-rater agreement, and periodic drift checks are required before gate authority.",
+  "cache_hit_trace_answer_matches": true,
+  "dataset_commit": "43ee393a839d19b97cbb16f5961b89eb2337869e"
+}

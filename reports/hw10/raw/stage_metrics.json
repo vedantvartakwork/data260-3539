@@ -1,0 +1,52 @@
+{
+  "confirmed_cache_misses": 50,
+  "cache_served_count": 0,
+  "e2e_p50_ms": 1.721,
+  "e2e_p95_ms": 2.165,
+  "stages": [
+    {
+      "stage": "cache_lookup",
+      "p50_ms": 0.001,
+      "p95_ms": 0.001,
+      "mean_ms": 0.001,
+      "percent_of_e2e": 0.06
+    },
+    {
+      "stage": "planner",
+      "p50_ms": 0.029,
+      "p95_ms": 0.039,
+      "mean_ms": 0.031,
+      "percent_of_e2e": 1.74
+    },
+    {
+      "stage": "writer",
+      "p50_ms": 0.038,
+      "p95_ms": 0.056,
+      "mean_ms": 0.04,
+      "percent_of_e2e": 2.29
+    },
+    {
+      "stage": "reviewer",
+      "p50_ms": 0.036,
+      "p95_ms": 0.047,
+      "mean_ms": 0.041,
+      "percent_of_e2e": 2.34
+    },
+    {
+      "stage": "queue_wait",
+      "p50_ms": 0.636,
+      "p95_ms": 0.643,
+      "mean_ms": 0.633,
+      "percent_of_e2e": 35.89
+    },
+    {
+      "stage": "evaluator",
+      "p50_ms": 0.026,
+      "p95_ms": 0.036,
+      "mean_ms": 0.028,
+      "percent_of_e2e": 1.61
+    }
+  ],
+  "dominant_stage": "queue_wait",
+  "optimization": "Optimize queue_wait first because it has the largest measured mean share. The cache-hit path is reported separately and is not mixed into these miss percentiles."
+}

@@ -1,0 +1,5 @@
+deepeval==3.9.9
+streamlit==1.67.0
+pandas>=2.0
+scipy>=1.12
+reportlab>=4.0

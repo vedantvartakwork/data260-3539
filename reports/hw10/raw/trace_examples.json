@@ -1,0 +1,5 @@
+{
+  "cache_hit": "trace-cache-hit-3539",
+  "cache_miss": "trace-live-eval-3539",
+  "failed": "trace-writer-failure-3539"
+}
