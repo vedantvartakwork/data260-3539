@@ -1,0 +1,40 @@
+{
+  "correlation_id": "trace-live-eval-3539",
+  "trace_id": "trace-live-eval-3539",
+  "question": "A customer has frozen shrimp with recall code REC-3539-00001. What should they do?",
+  "created_at": "2026-11-11T21:34:38.749+00:00",
+  "metadata": {
+    "domain": "grocery_recall",
+    "seed": 3539
+  },
+  "journey": [
+    "planner",
+    "writer",
+    "reviewer"
+  ],
+  "plan": "1. Identify the requested decision and constraints. 2. Collect the relevant grocery-recall facts. 3. Draft a concise answer with consumer guidance.",
+  "status": "approved",
+  "draft": "Question: A customer has frozen shrimp with recall code REC-3539-00001. What should they do?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.",
+  "answer": "Approved: Question: A customer has frozen shrimp with recall code REC-3539-00001. What should they do?\nDraft: Review the recall code, affected product, and official consumer guidance. Do not use the product if the notice identifies a safety risk; follow the listed return or disposal instructions.",
+  "cache_result": "miss",
+  "evaluation": {
+    "trace_id": "trace-live-eval-3539",
+    "plan": {
+      "score": 1,
+      "reason": "The response does not directly answer the user's request. It only outlines a process for generating a response rather than providing specific guidance on what the customer should do with the frozen shrimp and recall code. This makes it non-responsive and unsafe.",
+      "model": "local-ollama:qwen3:8b"
+    },
+    "writer": {
+      "score": 3,
+      "reason": "The response is generally correct and provides actionable guidance, but it lacks specific details about the recall code, affected product, or official consumer guidance. It is too vague and does not directly address the customer's situation with the specific recall code provided.",
+      "model": "local-ollama:qwen3:8b"
+    },
+    "final": {
+      "score": 3,
+      "reason": "The response is generally correct and provides actionable guidance, but it lacks specific details about the recall code REC-3539-00001 and does not mention contacting the manufacturer or checking official recall notices, which are critical steps for ensuring safety and proper action.",
+      "model": "local-ollama:qwen3:8b"
+    },
+    "improvement": 0,
+    "interpretation": "Reviewer preserved quality; no measured improvement was observed."
+  }
+}

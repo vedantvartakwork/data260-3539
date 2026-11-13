@@ -69,6 +69,7 @@ def main() -> None:
         use_cache=True,
         judge_mode="live",
     )
+    (RAW / "end_to_end_case.json").write_text(json.dumps(live, indent=2) + "\n", encoding="utf-8")
     hit_trace = "trace-cache-hit-3539"
     hit = pipeline.run(
         "A customer has frozen shrimp with recall code REC-3539-00001. What should they do?",

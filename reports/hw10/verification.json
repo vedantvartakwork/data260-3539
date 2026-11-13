@@ -1,0 +1,88 @@
+{
+  "homework": 10,
+  "student": "Vedant Vartak",
+  "sid4": 3539,
+  "prefix": "s3539",
+  "model": "qwen3:8b",
+  "status": "PASS",
+  "implementation_commit": "78de14095a323861bbb6e92b3c829ae63cf4e307",
+  "resolved_hw10_tag": "78de14095a323861bbb6e92b3c829ae63cf4e307",
+  "dataset_commit": "43ee393a839d19b97cbb16f5961b89eb2337869e",
+  "ruff": {
+    "command": ".venv/bin/ruff check code/hw10 scripts/run_hw10_experiments.py scripts/verify_hw10.py tests/test_hw10.py tests/conftest.py",
+    "returncode": 0,
+    "stdout": "All checks passed!",
+    "stderr": "",
+    "passed": true
+  },
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q tests/test_hw10.py",
+    "returncode": 0,
+    "stdout": "........                                                                 [100%]\n=============================== warnings summary ===============================\n.venv/lib/python3.12/site-packages/sentry_sdk/client.py:546\n  /Users/vedantvartak/Documents/Codex/2026-08-25/c/outputs/data260-3539/.venv/lib/python3.12/site-packages/sentry_sdk/client.py:546: DeprecationWarning: The send_default_pii option is deprecated. Use data_collection instead. See https://docs.sentry.io/platforms/python/data-management/data-collected/\n    super(_Client, self).__init__(options=get_options(*args, **kwargs))\n\n.venv/lib/python3.12/site-packages/sentry_sdk/client.py:546\n  /Users/vedantvartak/Documents/Codex/2026-08-25/c/outputs/data260-3539/.venv/lib/python3.12/site-packages/sentry_sdk/client.py:546: DeprecationWarning: Transaction-based profiling is deprecated and will be removed in the next major version of the SDK. Please use continuous profiling instead: https://docs.sentry.io/platforms/python/profiling/\n    super(_Client, self).__init__(options=get_options(*args, **kwargs))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n8 passed, 2 warnings in 0.92s",
+    "stderr": "",
+    "passed": true
+  },
+  "checks": [
+    {
+      "name": "frozen_20_case_set",
+      "passed": true
+    },
+    {
+      "name": "three_repeat_runs",
+      "passed": true
+    },
+    {
+      "name": "human_dataset_precedes_scores",
+      "passed": true
+    },
+    {
+      "name": "fifty_confirmed_misses",
+      "passed": true
+    },
+    {
+      "name": "cache_hit_trace",
+      "passed": true
+    },
+    {
+      "name": "cache_miss_trace",
+      "passed": true
+    },
+    {
+      "name": "failed_trace",
+      "passed": true
+    },
+    {
+      "name": "single_trace_identifier",
+      "passed": true
+    },
+    {
+      "name": "dashboard_app_test",
+      "passed": true,
+      "detail": "titles=['Recall Pipeline Operations']; exceptions=0"
+    },
+    {
+      "name": "judge_correlation_reported",
+      "passed": true
+    },
+    {
+      "name": "judge_mad_reported",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "spearman": 0.866914,
+    "mean_absolute_difference": 0.55,
+    "changed_score_frequency": 0.0,
+    "confirmed_cache_misses": 50,
+    "cache_served_count": 0
+  },
+  "artifact_sha256": {
+    "end_to_end_case.json": "fb403348cc8d9a763e8d8ae1b9cbf75291176520c7c18f873f72913c00631e4a",
+    "evaluation_summary.json": "5a79d188b610df2e1bcffbe9ccaf2cb1a74d40e0b64954b3bae86118d7da9c0d",
+    "judge_validation.json": "e3564356bc13027d2cfc9f4f68e5bbf420638a87cc3de6b014440b234a4f797e",
+    "requests.jsonl": "49887773a4ce7c062d09fba480767b1b4e3556d1a6305b4a6b5204a5490c276b",
+    "spans.jsonl": "4af35269437d07e6e9b459cf7adee8dc81e0a01ae1b70035530b01c275042ae3",
+    "stage_metrics.json": "d6801a41e5de0a3f8e4c52622796b0458b55700cc64d83000b8c79f47b83a546",
+    "trace_examples.json": "58083a782d946213a896ecb1651d3b65b10f7a3cc484f31ff0005006f6028aec"
+  }
+}
